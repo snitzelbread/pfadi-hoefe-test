@@ -5,8 +5,48 @@
         max-width: fit-content;
         margin: auto;
     }
+    .hock {
+        border: 1px solid #da5f5f;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
 </style>
 
-  <h1 class="center"> Pfadi Hoefe </h1>
-  <p class="center"> <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zaeme wyter! - Bewusst handeln! </i> </p>
+<h1 class="center"> Pfadi Hoefe </h1>
+<p class="center"> <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zaeme wyter! - Bewusst handeln! </i> </p>
+<div class="center">
+    <% if @biber_hocks&.any? %>
+      <h1>Hocks for Biber</h1>
+      <% @biber_hocks.each do |hock| %>
+        <div class="hock">
+          <h2><%= hock.title %></h2>
+          <p><%= hock.description %></p>
+          <p>Date: <%= hock.datetime %></p>
+        </div>
+      <% end %>
+    <% end %>
 
+    <% if @woelfli_hocks&.any? %>
+      <h1>Hocks for Wölfli</h1>
+      <% @woelfli_hocks.each do |hock| %>
+        <div class="hock">
+          <h2><%= hock.title %></h2>
+          <p><%= hock.description %></p>
+          <p>Date: <%= hock.datetime %></p>
+        </div>
+      <% end %>
+    <% end %>
+
+  <% if @pfadi_hocks.present? %>
+    <h1>Hocks for Pfadi</h1>
+    <% @pfadi_hocks.each do |hock| %>
+      <div class="hock">
+        <h2><%= hock.title %></h2>
+        <p><%= hock.description %></p>
+        <p>Date: <%= hock.datetime %></p>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No hocks found for Pfadi.</p>
+  <% end %>
+</div>

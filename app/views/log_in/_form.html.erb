@@ -1,0 +1,25 @@
+<%= form_with model: @leiter, url: login_path do |form| %>
+  <% unless leiter.nil? %>
+      <% if leiter.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(leiter.errors.count, "error") %> prohibited this Leiter from being saved:</h2>
+          <ul>
+            <% leiter.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+  <div class="mb-3">
+    <%= form.label :pfadiname, style: "display: block" %>
+    <%= form.text_field :pfadiname, placeholder: "koala" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :password, style: "display: block" %>
+    <%= form.password_field :password, placeholder: "Passwort" %>
+  </div>
+  <div class="mb-3">
+    <%= form.submit "Sign In"%>
+  </div>
+<%end%>

@@ -1,0 +1,2 @@
+class Anmeldung < ApplicationRecord
+end

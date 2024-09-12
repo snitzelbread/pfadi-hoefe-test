@@ -1,0 +1,12 @@
+<% content_for :title, "Editing hock" %>
+
+<h1>Editing hock</h1>
+
+<%= render "form", hock: @hock %>
+
+<br>
+
+<div>
+  <%= link_to "Show this hock", @hock %> |
+  <%= link_to "Back to hocks", hocks_path %>
+</div>

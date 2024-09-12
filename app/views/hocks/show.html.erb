@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @hock %>
+
+<div>
+  <%= link_to "Edit this hock", edit_hock_path(@hock) %> |
+  <%= link_to "Back to hocks", hocks_path %>
+
+  <%= button_to "Destroy this hock", @hock, method: :delete %>
+</div>

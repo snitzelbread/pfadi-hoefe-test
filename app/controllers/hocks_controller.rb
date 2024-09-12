@@ -8,6 +8,7 @@ class HocksController < ApplicationController
 
   # GET /hocks/1 or /hocks/1.json
   def show
+    @hock = Hock.find(params[:id])
   end
 
   # GET /hocks/new
@@ -21,6 +22,7 @@ class HocksController < ApplicationController
 
   # POST /hocks or /hocks.json
   def create
+
     @hock = Hock.new(hock_params)
 
     respond_to do |format|
@@ -28,8 +30,8 @@ class HocksController < ApplicationController
         format.html { redirect_to hock_url(@hock), notice: "Hock was successfully created." }
         format.json { render :show, status: :created, location: @hock }
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @hock.errors, status: :unprocessable_entity }
+        format.html { render :new, status: 422 }
+        format.json { render json: @hock.errors, status: 422 }
       end
     end
   end
@@ -41,8 +43,8 @@ class HocksController < ApplicationController
         format.html { redirect_to hock_url(@hock), notice: "Hock was successfully updated." }
         format.json { render :show, status: :ok, location: @hock }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @hock.errors, status: :unprocessable_entity }
+        format.html { render :edit, status: 422 }
+        format.json { render json: @hock.errors, status: 422 }
       end
     end
   end
@@ -56,15 +58,13 @@ class HocksController < ApplicationController
       format.json { head :no_content }
     end
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_hock
       @hock = Hock.find(params[:id])
     end
-
     # Only allow a list of trusted parameters through.
     def hock_params
-      params.require(:hock).permit(:title, :description)
+      params.require(:hock).permit(:title, :description, :datetime, :stufe, :leiter_id)
     end
 end

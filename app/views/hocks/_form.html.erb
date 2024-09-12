@@ -1,10 +1,10 @@
-<%= form_with(model: hocks) do |form| %>
-  <% if hocks.errors.any? %>
+<%= form_with(model: @hock) do |form| %>
+  <% if @hock.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(hocks.errors.count, "error") %> prohibited this hock from being saved:</h2>
+      <h2><%= pluralize(@hock.errors.count, "error") %> prohibited this hock from being saved:</h2>
 
       <ul>
-        <% hocks.errors.each do |error| %>
+        <% @hock.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
@@ -18,8 +18,23 @@
 
   <div>
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.text_area :description %>
   </div>
+
+  <div>
+    <%= form.label :date, style: "display: block" %>
+    <%= form.datetime_field :datetime %>
+  </div>
+
+  <div>
+    <%= form.label :stufe, style: "display: block" %>
+    <%= form.select :stufe, ["Biber", "Wölfli", "Pfadi"] %>
+  </div>
+
+  <div>
+    <%= form.number_field :leiter_id, value: current_leiter.id %>
+  </div>
+
 
   <div>
     <%= form.submit %>

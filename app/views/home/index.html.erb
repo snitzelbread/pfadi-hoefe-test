@@ -15,38 +15,33 @@
 <h1 class="center"> Pfadi Hoefe </h1>
 <p class="center"> <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zaeme wyter! - Bewusst handeln! </i> </p>
 <div class="center">
-    <% if @biber_hocks&.any? %>
-      <h1>Hocks for Biber</h1>
-      <% @biber_hocks.each do |hock| %>
-        <div class="hock">
-          <h2><%= hock.title %></h2>
-          <p><%= hock.description %></p>
-          <p>Date: <%= hock.datetime %></p>
-        </div>
-      <% end %>
-    <% end %>
-
-    <% if @woelfli_hocks&.any? %>
-      <h1>Hocks for Wölfli</h1>
-      <% @woelfli_hocks.each do |hock| %>
-        <div class="hock">
-          <h2><%= hock.title %></h2>
-          <p><%= hock.description %></p>
-          <p>Date: <%= hock.datetime %></p>
-        </div>
-      <% end %>
-    <% end %>
-
-  <% if @pfadi_hocks.present? %>
-    <h1>Hocks for Pfadi</h1>
-    <% @pfadi_hocks.each do |hock| %>
-      <div class="hock">
-        <h2><%= hock.title %></h2>
-        <p><%= hock.description %></p>
-        <p>Date: <%= hock.datetime %></p>
-      </div>
-    <% end %>
+  <% if @closest_biber_hocks.present? %>
+    <div class="hock">
+      <h2><%= @closest_biber_hocks.title %></h2>
+      <p><%= @closest_biber_hocks.description %></p>
+      <p>Date: <%= @closest_biber_hocks.datetime %></p>
+    </div>
   <% else %>
-    <p>No hocks found for Pfadi.</p>
+    <p>No upcoming Biber hocks found.</p>
+  <% end %>
+
+  <% if @closest_woelfli_hocks.present? %>
+    <div class="hock">
+      <h2><%= @closest_woelfli_hocks.title %></h2>
+      <p><%= @closest_woelfli_hocks.description %></p>
+      <p>Date: <%= @closest_woelfli_hocks.datetime %></p>
+    </div>
+  <% else %>
+    <p>No upcoming Woelfli hocks found.</p>
+  <% end %>
+
+  <% if @closest_pfadi_hocks.present? %>
+    <div class="hock">
+      <h2><%= @closest_pfadi_hocks.title %></h2>
+      <p><%= @closest_pfadi_hocks.description %></p>
+      <p>Date: <%= @closest_pfadi_hocks.datetime %></p>
+    </div>
+  <% else %>
+    <p>No upcoming Pfadi hocks found.</p>
   <% end %>
 </div>

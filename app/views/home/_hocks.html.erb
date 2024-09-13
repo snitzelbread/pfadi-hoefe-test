@@ -1,0 +1,24 @@
+<style>
+    .hock {
+        border: 3px solid #e4be1a;
+        border-radius: 25px;
+        padding: 10px;
+        width: 50%; /* Adjust width so that multiple hocks fit horizontally */
+
+        background-color: rgb(255, 255, 255);
+    }
+</style>
+
+
+<% if hock.present? %>
+  <div class="hock">
+    <h2><%= hock.title %></h2>
+    <hr>
+    <p><%= hock.description %></p>
+    <hr>
+    <p style="float: left"><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
+    <p style="float: left; margin-left: 10px"><strong>Ort: </strong><%= hock.ort %></p>
+    <p style="float: left; margin-left: 10px"><strong>Leiter: </strong><%= hock.leiter.pfadiname %></p>    </div>
+<% else %>
+  <p>No upcoming hock.stufe hocks found.</p>
+<% end %>

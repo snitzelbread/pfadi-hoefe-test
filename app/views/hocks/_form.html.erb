@@ -1,8 +1,16 @@
+<style>
+  .center{
+  position: relative;
+  top: 20px;
+  max-width: 500px;
+  margin: auto;
+  }
+</style>
+<body style="background-color: beige">
 <%= form_with(model: @hock) do |form| %>
   <% if @hock.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(@hock.errors.count, "error") %> prohibited this hock from being saved:</h2>
-
+    <div class=center" style="color: red">
+      <h2><%= @hock.errors.count %> verhinderte(n) das Speichern des Hocks:</h2>
       <ul>
         <% @hock.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -11,32 +19,37 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="center mb-5">
+    <%= form.label :title, "Titel", class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="center mb-4">
+    <%= form.label :description, "Beschreibung", class: "form-label" %>
+    <%= form.text_area :description, class: "form-control", rows: 6 %>
+  </div>
+
+  <div class="center mb-3">
+    <%= form.label :datetime, "Datum", class: "form-label" %>
+    <%= form.datetime_field :datetime, class: "form-control" %>
+  </div>
+
+  <div class="center mb-3">
+    <%= form.label :stufe, "Stufe", class: "form-label" %>
+    <%= form.select :stufe, ["Biber", "Wölfli", "Pfadi"], { class: "form-select" }, { prompt: "Select Stufe" } %>
+  </div>
+
+  <div class="center mb-3">
+    <%= form.label :ort, "Ort", class: "form-label" %>
+    <%= form.text_field :ort, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+    <%= form.hidden_field :leiter_id, value: current_leiter.id %>
   </div>
 
-  <div>
-    <%= form.label :date, style: "display: block" %>
-    <%= form.datetime_field :datetime %>
-  </div>
-
-  <div>
-    <%= form.label :stufe, style: "display: block" %>
-    <%= form.select :stufe, ["Biber", "Wölfli", "Pfadi"] %>
-  </div>
-
-  <div>
-    <%= form.number_field :leiter_id, value: current_leiter.id %>
-  </div>
-
-
-  <div>
-    <%= form.submit %>
+  <div class="center">
+    <%= form.submit "Erstellen", class: "btn btn-success btn-lg" %>
   </div>
 <% end %>
+</body>

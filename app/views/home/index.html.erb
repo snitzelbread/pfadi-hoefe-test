@@ -5,22 +5,38 @@
         max-width: fit-content;
         margin: auto;
     }
+
+    .hocks-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 50px;
+        gap: 20px; /* Adds gap between hocks */
+    }
+
     .hock {
-        border: 1px solid #da5f5f;
+        border: 3px solid #e4be1a;
+        border-radius: 25px;
         padding: 10px;
-        margin-bottom: 10px;
+        width: 50%; /* Adjust width so that multiple hocks fit horizontally */
+
+        background-color: rgb(255, 255, 255);
     }
 </style>
 
-<h1 class="center"> Pfadi Hoefe </h1>
-<p class="center"> <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zaeme wyter! - Bewusst handeln! </i> </p>
-<div class="center">
+<body style="background-color: beige">
+<h1 class="center" style="font-size: 100px"> Pfadi Hoefe </h1>
+<p class="center" style="font-size: 25px"> <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zaeme wyter! - Bewusst handeln! </i> </p>
+<div class="hocks-container">
   <% if @closest_biber_hocks.present? %>
     <div class="hock">
       <h2><%= @closest_biber_hocks.title %></h2>
+      <hr>
       <p><%= @closest_biber_hocks.description %></p>
-      <p>Date: <%= @closest_biber_hocks.datetime %></p>
-    </div>
+      <hr>
+      <p style="float: left"><strong>Datum & Zeit: </strong> <%= @closest_biber_hocks.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
+      <p style="float: left; margin-left: 10px"><strong>Ort: </strong><%= @closest_biber_hocks.ort %></p>
+      <p style="float: left; margin-left: 10px"><strong>Leiter: </strong><%= @closest_biber_hocks.leiter.pfadiname %></p>    </div>
   <% else %>
     <p>No upcoming Biber hocks found.</p>
   <% end %>
@@ -28,9 +44,12 @@
   <% if @closest_woelfli_hocks.present? %>
     <div class="hock">
       <h2><%= @closest_woelfli_hocks.title %></h2>
+      <hr>
       <p><%= @closest_woelfli_hocks.description %></p>
-      <p>Date: <%= @closest_woelfli_hocks.datetime %></p>
-    </div>
+      <hr>
+      <p style="float: left"><strong>Datum & Zeit: </strong> <%= @closest_woelfli_hocks.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
+      <p style="float: left; margin-left: 10px"><strong>Ort: </strong><%= @closest_woelfli_hocks.ort %></p>
+      <p style="float: left; margin-left: 10px"><strong>Leiter: </strong><%= @closest_woelfli_hocks.leiter.pfadiname %></p>    </div>
   <% else %>
     <p>No upcoming Woelfli hocks found.</p>
   <% end %>
@@ -38,10 +57,15 @@
   <% if @closest_pfadi_hocks.present? %>
     <div class="hock">
       <h2><%= @closest_pfadi_hocks.title %></h2>
+      <hr>
       <p><%= @closest_pfadi_hocks.description %></p>
-      <p>Date: <%= @closest_pfadi_hocks.datetime %></p>
+      <hr>
+      <p style="float: left"><strong>Datum & Zeit: </strong> <%= @closest_pfadi_hocks.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
+      <p style="float: left; margin-left: 10px"><strong>Ort: </strong><%= @closest_pfadi_hocks.ort %></p>
+      <p style="float: left; margin-left: 10px"><strong>Leiter: </strong><%= @closest_pfadi_hocks.leiter.pfadiname %></p>
     </div>
   <% else %>
     <p>No upcoming Pfadi hocks found.</p>
   <% end %>
 </div>
+</body>

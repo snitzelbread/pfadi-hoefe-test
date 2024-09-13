@@ -1,6 +1,14 @@
 
+<style>
+    #navbar {
+        position: sticky;
+        top: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+</style>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark" id="navbar">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
       <img src="/app/assets/images/pfadi_logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
@@ -41,8 +49,11 @@
               <a class="nav-link" href="login">Log In</a>
             </li>
           <% else %>
-            <li class="nav-item" style>
-                <span class="navbar-text" style="position: fixed; right: 90px; color: black;">
+            <li>
+            <%= link_to "Hocks", hocks_path, method: :get, class: "nav-link", style: "position: fixed; right: 240px" %>
+            </li>
+            <li class="nav-item">
+                <span class="navbar-text" style="position: fixed; right: 90px; color: white;">
                   Logged in as: <%= current_leiter.pfadiname %>
                 </span>
             </li>

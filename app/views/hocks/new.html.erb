@@ -1,11 +1,21 @@
-<% content_for :title, "New hock" %>
+<style>
+    .center{
+        position: relative;
+        top: 20px;
+        max-width: fit-content;
+        margin: auto;
 
-<h1>New hock</h1>
+    }
+</style>
+
+<% content_for :title, "Neuen Hock erstellen" %>
+
+<h1 class="center" style="font-size: 30px">Neuen Hock erstellen</h1>
 
 <%= render "form", hock: @hock %>
 
 <br>
 
-<div>
+<div class="center">
   <%= link_to "Back to hocks", hocks_path %>
 </div>

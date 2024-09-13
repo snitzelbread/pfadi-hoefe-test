@@ -1,24 +1,20 @@
-<div id="<%= dom_id hock %>">
-  <p>
-    <strong>Title:</strong>
-    <%= hock.title %>
-  </p>
+<style>
 
-  <p>
-    <strong>Description:</strong>
-    <%= hock.description %>
-  </p>
-  <p>
-    <strong>Date & Time:</strong>
-    <%= hock.datetime.to_time %>
-  </p>
-  <p>
-    <strong>Stufe:</strong>
-    <%= hock.stufe %>
-  </p>
-  <p>
-    <strong>Autor:</strong>
-    <%= hock.pfadiname_of_leiter %>
-  </p>
 
-</div>
+    .hock {
+        border: 3px solid #e4be1a;
+        border-radius: 25px;
+        padding: 10px;
+        width: 500px; /* Adjust width so that multiple hocks fit horizontally */
+        margin-left: 10px;
+        background-color: white;
+
+    }
+</style>
+
+    <div class="hock">
+      <h3><%= hock.title %></h3>
+      <p><%= hock.description %></p>
+      <p style="float: left"><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
+      <p><strong>Leiter: </strong><%= hock.pfadiname_of_leiter %></p>
+    </div>

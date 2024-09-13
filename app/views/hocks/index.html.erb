@@ -1,16 +1,113 @@
+<style>
+    .hocks-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left; /* Adds space between items */
+        gap: 20px; /* Adds gap between hocks */
+    }
+
+    .hock {
+        border: 3px solid #e4be1a;
+        border-radius: 25px;
+        padding: 10px;
+        width: 20%; /* Adjust width so that multiple hocks fit horizontally */
+        margin-left: 10px;
+        background-color: white;
+
+    }
+    .center{
+        position: relative;
+        top: 20px;
+        max-width: fit-content;
+        margin: auto;
+
+    }
+
+    .divider {
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+    }
+
+    .divider::before, .divider::after {
+        flex: 1;
+        content: '';
+        padding: 3px;
+        background-color: red;
+        margin: 5px;
+    }
+</style>
+
+<body style="background-color: beige">
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Hocks" %>
 
-<h1>Hocks</h1>
+<h1 class="center" style="font-size:70px;">Hocks</h1>
+
+<br>
+<%= link_to "Neuer Hock", new_hock_path, class: "btn btn-success btn-lg", style: "margin: 10px" %>
+<br>
+
+
 
 <div id="hocks">
-  <% @hocks.each do |hock| %>
-    <%= render hock %>
-    <p>
-      <%= link_to "Show this hock", hock %>
-    </p>
+  <div class="divider">Biber Hocks</div>
+  <% if @biber_hocks.present? %>
+    <div class="hocks-container">
+      <% @biber_hocks.each do |hock| %>
+        <div class="hock">
+          <h3><%= hock.title %></h3>
+          <p><%= hock.description %></p>
+          <p><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
+          <p><strong>Leiter: </strong><%= hock.pfadiname_of_leiter %></p>
+          <p style="float: left"><%= link_to "Hock bearbeiten", edit_hock_path(hock), class: "btn btn-warning btn-sm" %></p>
+          <%= button_to "Hock loeschen", hock, method: :delete, class: "btn btn-danger btn-sm", data: {confirm: "Bist du dir sicher?"}, style: "margin-left: 10px" %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>No hocks found for Biber.</p>
+  <% end %>
+
+  <div class="divider">Woelfli Hocks</div>
+
+  <% if @woelfli_hocks.present? %>
+    <div class="hocks-container">
+      <% @woelfli_hocks.each do |hock| %>
+        <div class="hock">
+          <h3><%= hock.title %></h3>
+          <p><%= hock.description %></p>
+          <p><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
+          <p><strong>Leiter: </strong><%= hock.pfadiname_of_leiter %></p>
+          <p style="float: left"><%= link_to "Hock bearbeiten", edit_hock_path(hock), class: "btn btn-warning btn-sm" %></p>
+          <%= button_to "Hock loeschen", hock, method: :delete, class: "btn btn-danger btn-sm", data: {confirm: "Bist du dir sicher?"}, style: "margin-left: 10px" %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>No hocks found for Wölfli.</p>
+  <% end %>
+
+  <div class="divider">Pfadi Hocks</div>
+
+  <% if @pfadi_hocks.present? %>
+    <div class="hocks-container">
+      <% @pfadi_hocks.each do |hock| %>
+        <div class="hock">
+          <h3><%= hock.title %></h3>
+          <p><%= hock.description %></p>
+          <p><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
+          <p><strong>Leiter: </strong><%= hock.pfadiname_of_leiter %></p>
+          <p style="float: left"><%= link_to "Hock bearbeiten", edit_hock_path(hock), class: "btn btn-warning btn-sm" %></p>
+          <%= button_to "Hock loeschen", hock, method: :delete, class: "btn btn-danger btn-sm", data: {confirm: "Bist du dir sicher?"}, style: "margin-left: 10px" %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p>No hocks found for Pfadi.</p>
   <% end %>
 </div>
 
-<%= link_to "New hock", new_hock_path %>
+<div class="divider"></div>
+</body>

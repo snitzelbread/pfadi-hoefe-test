@@ -6,7 +6,8 @@ class LogInController < ApplicationController
   def create
     def create
       @leiter = Leiter.find_by(pfadiname: params[:leiter][:pfadiname])
-
+      puts @leiter.present?
+      puts @leiter.pfadiname
       respond_to do |format|
         if @leiter.present? && @leiter.authenticate(params[:leiter][:password])
           session[:leiter_id] = @leiter.id
@@ -14,7 +15,6 @@ class LogInController < ApplicationController
         else
           @leiter ||= Leiter.new
           @leiter.errors.add(:base, "Invalid Pfadiname or password")
-
           format.html { render :new, status: 422 }
         end
       end

@@ -2,9 +2,16 @@ class HocksController < ApplicationController
   before_action :set_hock, only: %i[ show edit update destroy ]
 
   # GET /hocks or /hocks.json
-  def index
-    @hocks = Hock.all
-  end
+    def index
+      @biber_hocks = Hock.where(stufe: "Biber").order(:datetime)
+      @woelfli_hocks = Hock.where(stufe: "Wölfli").order(:datetime)
+      @pfadi_hocks = Hock.where(stufe: "Pfadi").order(:datetime)
+
+      respond_to do |format|
+        format.html
+        format.json
+      end
+    end
 
   # GET /hocks/1 or /hocks/1.json
   def show
@@ -65,6 +72,6 @@ class HocksController < ApplicationController
     end
     # Only allow a list of trusted parameters through.
     def hock_params
-      params.require(:hock).permit(:title, :description, :datetime, :stufe, :leiter_id)
+      params.require(:hock).permit(:title, :description, :datetime, :stufe, :leiter_id, :ort)
     end
 end

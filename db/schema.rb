@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_12_153655) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_13_130205) do
   create_table "anmeldungs", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
@@ -36,10 +36,10 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_12_153655) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "leiters_id"
     t.datetime "datetime"
     t.string "stufe"
     t.integer "leiter_id", null: false
+    t.string "ort"
     t.index ["leiter_id"], name: "index_hocks_on_leiter_id"
   end
 
@@ -55,6 +55,5 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_12_153655) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "hocks", "leiters"
-  add_foreign_key "hocks", "leiters", column: "leiters_id"
+  add_foreign_key "hocks", "leiters", primary_key: "id"
 end

@@ -10,25 +10,52 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: center;
         margin-top: 50px;
-        gap: 20px; /* Adds gap between hocks */
+        margin-left: 15vw;
+
+
+        gap: 20px;
+        padding: 20px;
+        width: 70%;
+
+
+        border: 3px solid #dd1634;
+        border-radius: 25px;
+
+        background-color: #fff5ed;
     }
+
+    .stufen-titel-links{
+        padding-left: 50px;
+        font-size: 80px;
+        margin-right: 100px;
+    }
+    .stufen-titel-rechts{
+        padding-right: 50px;
+        font-size: 80px;
+        margin-left: 90px;
+    }
+
 </style>
 
 <body style="background-color: beige">
-<h1 class="center" style="font-size: 100px"> Pfadi Hoefe </h1>
-<p class="center" style="font-size: 25px"> <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zaeme wyter! - Bewusst handeln! </i> </p>
+<h1 class="center" style="font-size: 100px"> Pfadi Höfe </h1>
+<p class="center" style="font-size: 25px"> <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zäme wyter! - Bewusst handeln! </i> </p>
 
-<h1 class="center">Biber</h1>
+<br>
+<br>
+
 <div class="hocks-container">
+  <h1 class="stufen-titel-links">🦫 Biber 🦫</h1>
   <%= render partial: "home/hocks", locals: { hock: @closest_biber_hock } %>
 </div>
-<h1 class="center">Woelfli</h1>
 <div class="hocks-container">
   <%= render partial: "home/hocks", locals: { hock: @closest_woelfli_hock } %>
+  <h1 class="stufen-titel-rechts">🐺 Wölfli 🐺</h1>
 </div>
-<h1 class="center">Pfadi</h1>
 <div class="hocks-container">
+  <h1 class="stufen-titel-links">⚜️ Pfadi ⚜️</h1>
   <%= render partial: "home/hocks", locals: { hock: @closest_pfadi_hock } %>
 </div>
 </body>

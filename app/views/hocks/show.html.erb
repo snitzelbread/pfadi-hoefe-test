@@ -5,18 +5,25 @@
       max-width: 300px;
       margin: auto;
   }
+  .hocks-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* Adds space between items */
+      gap: 20px; /* Adds gap between hocks */
+      margin: 20px;
+  }
 </style>
 
+<body style="background-color: beige">
 <p style="color: green"><%= notice %></p>
 
-<%= render @hock %>
+<div class="hocks-container">
+  <%= render @hock %>
+</div>
 
 <div class="center">
+  <%= link_to "Höck bearbeiten", edit_hock_path(@hock), class: "btn btn-primary btn-sm" %> |
+  <%= link_to "Zurück zur Ansicht", hocks_path, class: "btn btn-primary btn-sm" %>
 
-
-
-  <%= link_to "Edit this hock", edit_hock_path(@hock), class: "btn btn-primary btn-sm" %> |
-  <%= link_to "Back to hocks", hocks_path, class: "btn btn-primary btn-sm" %>
-
-  <%= button_to "Destroy this hock", @hock, method: :delete, class: "btn btn-danger btn-sm", style: "margin: 10px" %>
+  <%= button_to "Höck löschen", @hock, method: :delete, class: "btn btn-danger btn-sm", style: "margin: 10px" %>
 </div>

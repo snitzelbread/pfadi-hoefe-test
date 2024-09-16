@@ -10,7 +10,7 @@
 <%= form_with(model: @hock) do |form| %>
   <% if @hock.errors.any? %>
     <div class=center" style="color: red">
-      <h2><%= @hock.errors.count %> verhinderte(n) das Speichern des Hocks:</h2>
+      <h2><%= @hock.errors.count %> verhinderte(n) das Speichern des Höcks:</h2>
       <ul>
         <% @hock.errors.each do |error| %>
           <li><%= error.full_message %></li>

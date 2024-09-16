@@ -1,16 +1,23 @@
 
 <style>
-  body{
-      background-color: #ffc7a1;
-  }
-
     .center{
         position: relative;
         top: 20px;
         max-width: fit-content;
         margin: auto;
     }
+
+    .hocks-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; /* Adds space between items */
+        margin-top: 50px;
+        gap: 20px; /* Adds gap between hocks */
+    }
 </style>
 
-<h1 class="center" style="font-size: 75px"><strong>Pfadi</strong></h1>
-<h5 class="center"> <i> Allzeit bereit! </i></h5>
+<h1 class="center" style="font-size: 100px">Biber</h1>
+
+<div class="hocks-container">
+  <%= render partial: "home/hocks", locals: { hock: @closest_pfadi_hock } %>
+</div>

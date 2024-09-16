@@ -15,18 +15,20 @@
     <link rel="icon" href="pfadi_logo.jpeg">
     <link rel="icon" href="pfadi_logo.jpeg">
     <link rel="apple-touch-icon" href="pfadi_logo.jpeg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
+
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body style="background-color: beige">
     <%= render partial: "shared/navbar" %>
-    <% if notice %>
-      <p class="notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert"><%= alert %></p>
-    <% end %>
+    <%= render partial: "shared/alerts" %>
+
     <%= yield %>
     <%= render partial: "shared/footer" %>
   </body>

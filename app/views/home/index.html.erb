@@ -37,29 +37,77 @@
         margin-left: 90px;
     }
 
-    .introduction{
-        background-image: image();
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+        width: 100vw;
+        height: 100vh; /* Adjust height as needed */
     }
 
-    .playpen-sans-title {
-                       font-family: "Playpen Sans", cursive;
-                       font-optical-sizing: auto;
-                       font-weight: 400;
-                       font-style: normal;
-                   }
+    .text {
+        position: relative;
+        z-index: 3; /* Ensures text is on top of the image */
+        padding: 20px;
+        color: black; /* Adjust text color */
+    }
+
+    .image {
+        position: absolute;
+        top: 55px;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        object-fit: cover; /* Ensures the image covers the container */
+        z-index: 1; /* Ensures image is behind the text */
+        opacity: 0.7; /* Adjust opacity for a background effect */
+    }
+
+    .logo {
+        position: absolute;
+        top: 100px;
+        left: 36vw;
+        width: 500px;
+        height: 400px;
+        object-fit: cover; /* Ensures the image covers the container */
+        z-index: 2; /* Ensures image is behind the text */
+        opacity: 1; /* Adjust opacity for a background effect */
+    }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
 </style>
 
-<body style="background-color: beige">
+<body>
 
-<div class="introduction">
-  <h1 class="center playpen-sans-title" style="font-size: 100px"> Pfadi Höfe </h1>
-  <p class="center playpen-sans-title" style="font-size: 25px"> <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zäme wyter! - Bewusst handeln! </i> </p>
+<%= image_tag("pfadi_logo.jpeg", class: "logo") %>
+
+
+<div class="slideshow-container">
+  <div class="mySlides fade">
+    <%= image_tag("Free-pink-gradient-aesthetic-background-from-Fotor.jpeg", class: "image") %>
+  </div>
+  <div class="mySlides fade">
+    <%= image_tag("download (1).jpeg", class: "image") %>
+  </div>
+  <div class="mySlides fade">
+    <%= image_tag("download.jpeg", class: "image") %>
+  </div>
+</div>
+<br>
+
+<div class="container">
+  <h1 class="center playpen-sans-title text" style="font-size: 100px;">Pfadi Höfe </h1>
+  <p class="center playpen-sans-title text" style="font-size: 25px"> <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zäme wyter! - Bewusst handeln! </i> </p>
 </div>
 
 
-<br>
-<br>
-
+<h1 class="center playpen-sans-title", style="font-size: 60px">Hockzettel</h1>
 <div class="hocks-container">
   <h1 class="stufen-titel-links">🦫 Biber 🦫</h1>
   <%= render partial: "home/hocks", locals: { hock: @closest_biber_hock } %>
@@ -73,3 +121,20 @@
   <%= render partial: "home/hocks", locals: { hock: @closest_pfadi_hock } %>
 </div>
 </body>
+
+<script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 5000); // Change image every 2 seconds
+    }
+</script>

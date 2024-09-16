@@ -19,9 +19,16 @@
 <h1 class="center" style="font-size: 100px"> Pfadi Hoefe </h1>
 <p class="center" style="font-size: 25px"> <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zaeme wyter! - Bewusst handeln! </i> </p>
 
-    <div class="hocks-container">
-      <%= render partial: "home/hocks", locals: { hock: @closest_biber_hocks } %>
-      <%= render partial: "home/hocks", locals: { hock: @closest_woelfli_hocks } %>
-      <%= render partial: "home/hocks", locals: { hock: @closest_pfadi_hocks } %>
-    </div>
+<h1 class="center">Biber</h1>
+<div class="hocks-container">
+  <%= render partial: "home/hocks", locals: { hock: @closest_biber_hock } %>
+</div>
+<h1 class="center">Woelfli</h1>
+<div class="hocks-container">
+  <%= render partial: "home/hocks", locals: { hock: @closest_woelfli_hock } %>
+</div>
+<h1 class="center">Pfadi</h1>
+<div class="hocks-container">
+  <%= render partial: "home/hocks", locals: { hock: @closest_pfadi_hock } %>
+</div>
 </body>

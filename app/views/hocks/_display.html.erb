@@ -1,0 +1,17 @@
+<div class="divider"><%= stufe %> Hocks</div>
+<% if hocks.present? %>
+  <div class="hocks-container">
+    <% hocks.each do |hock| %>
+      <div class="hock">
+        <h3><%= hock.title %></h3>
+        <p><%= hock.description %></p>
+        <p><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
+        <p><strong>Leiter: </strong><%= hock.pfadiname_of_leiter %></p>
+        <p style="float: left"><%= link_to "Hock bearbeiten", edit_hock_path(hock), class: "btn btn-warning btn-sm" %></p>
+        <%= button_to "Hock löschen", hock, method: :delete, class: "btn btn-danger btn-sm", data: {confirm: "Bist du dir sicher?"}, style: "margin-left: 10px" %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p> Keine <%= stufe %>-Höcks vorhanden.</p>
+<% end %>

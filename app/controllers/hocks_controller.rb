@@ -1,11 +1,13 @@
 class HocksController < ApplicationController
   before_action :set_hock, only: %i[ show edit update destroy ]
+  before_action :require_login
+
 
   # GET /hocks or /hocks.json
     def index
-      @biber_hocks = Hock.where(stufe: "Biber").order(:datetime)
-      @woelfli_hocks = Hock.where(stufe: "Wölfli").order(:datetime)
-      @pfadi_hocks = Hock.where(stufe: "Pfadi").order(:datetime)
+      @biber_hocks = Hock.all_stufen_hocks("Biber")
+      @woelfli_hocks = Hock.all_stufen_hocks("Wölfli")
+      @pfadi_hocks = Hock.all_stufen_hocks("Pfadi")
 
       respond_to do |format|
         format.html
@@ -37,6 +39,7 @@ class HocksController < ApplicationController
         format.html { redirect_to hock_url(@hock), notice: "Hock was successfully created." }
         format.json { render :show, status: :created, location: @hock }
       else
+        flash.now[:alert] = "Invalid email or password"
         format.html { render :new, status: 422 }
         format.json { render json: @hock.errors, status: 422 }
       end

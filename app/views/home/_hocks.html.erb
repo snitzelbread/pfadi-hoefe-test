@@ -18,7 +18,16 @@
     <hr>
     <p style="float: left"><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
     <p style="float: left; margin-left: 10px"><strong>Ort: </strong><%= hock.ort %></p>
-    <p style="float: left; margin-left: 10px"><strong>Leiter: </strong><%= hock.leiter.pfadiname %></p>    </div>
+    <p style="float: left; margin-left: 10px"><strong>Leiter: </strong><%= hock.leiter.pfadiname %></p>
+  </div>
 <% else %>
-  <p>No upcoming hock.stufe hocks found.</p>
+  <div class="hock">
+    <h2> </h2>
+    <hr>
+    <p> </p>
+    <hr>
+    <p style="float: left"> </p>
+    <p style="float: left; margin-left: 10px"> </p>
+    <p style="float: left; margin-left: 10px"> </p>
+  </div>
 <% end %>

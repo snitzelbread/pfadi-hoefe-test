@@ -31,7 +31,9 @@
   </h1>
 
 
-    <%= image_tag(@leiter.image, height: 200, width: 200, style: "border-radius: 25px; float: left") %>
+    <% if @leiter.image.present? %>
+        <%= image_tag(@leiter.image, height: 200, width: 200, style: "border-radius: 25px; float: left; margin-top: 2vw") %>
+    <% end %>
     <div style="float: left; margin-left: 3vw">
       <p><strong>Pfadiname:</strong> <%= @leiter.pfadiname %></p>
       <p><strong>First Name:</strong> <%= @leiter.firstname %></p>

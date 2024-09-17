@@ -22,7 +22,9 @@
   <%= render partial: "home/hocks", locals: { hock: @closest_biber_hock } %>
 </div>
 
-<%= render partial: "shared/contact_form", locals: { image: "doit.jpeg",
-                                                     name: "Yannick Homberger v/o Do-It",
-                                                     funktion: "Stufenleiter Biber",
-                                                     email: "doit@pfadi-hoefe.ch" } %>
+<% @leiter = Leiter.where(stufe: "Biber", funktion: "Stufenleitung").first %>
+
+<%= render partial: "shared/contact_form", locals: { image: @leiter.image,
+                                                     name: "#{@leiter.firstname} #{@leiter.lastname} v/o #{@leiter.pfadiname}",
+                                                     funktion: "#{@leiter.funktion} #{@leiter.stufe}",
+                                                     email: "#{@leiter.email}" } %>

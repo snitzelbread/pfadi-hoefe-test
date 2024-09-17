@@ -21,7 +21,9 @@
   <%= render partial: "home/hocks", locals: { hock: @closest_woelfli_hock } %>
 </div>
 
-<%= render partial: "shared/contact_form", locals: { image: "doit.jpeg",
-                                                     name: "Flavia Steiner v/o Solicida",
-                                                     funktion: "Stufenleiterin Woelfli",
-                                                     email: "solicida@pfadi-hoefe.ch" } %>
+<% @leiter = Leiter.where(stufe: "Wölfli", funktion: "Stufenleitung").first %>
+
+<%= render partial: "shared/contact_form", locals: { image: @leiter.image,
+                                                     name: "#{@leiter.firstname} #{@leiter.lastname} v/o #{@leiter.pfadiname}",
+                                                     funktion: "#{@leiter.funktion} #{@leiter.stufe}",
+                                                     email: "#{@leiter.email}" } %>

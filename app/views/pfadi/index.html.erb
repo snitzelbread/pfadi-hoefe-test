@@ -14,7 +14,9 @@
   <%= render partial: "home/hocks", locals: { hock: @closest_pfadi_hock } %>
 </div>
 
-<%= render partial: "shared/contact_form", locals: { image: "hibbeli.jpeg",
-                                                     name: "Prisca Barothy v/o Hibbeli",
-                                                     funktion: "Stufenleiterin Pfadi",
-                                                     email: "hibbeli@pfadi-hoefe.ch" } %>
+<% @leiter = Leiter.where(stufe: "Pfadi", funktion: "Stufenleitung").first %>
+
+<%= render partial: "shared/contact_form", locals: { image: @leiter.image,
+                                                     name: "#{@leiter.firstname} #{@leiter.lastname} v/o #{@leiter.pfadiname}",
+                                                     funktion: "#{@leiter.funktion} #{@leiter.stufe}",
+                                                     email: "#{@leiter.email}" } %>

@@ -9,7 +9,9 @@
 
 <h1 class="center" style="font-size: 100px">Rover</h1>
 
-<%= render partial: "shared/contact_form", locals: { image: "samson.jpeg",
-                                                     name: "Michael Reichmuth v/o Samson",
-                                                     funktion: "Stufenleiter Rover",
-                                                     email: "samson@pfadi-hoefe.ch" } %>
+<% @leiter = Leiter.where(stufe: "Rover", funktion: "Stufenleitung").first %>
+
+<%= render partial: "shared/contact_form", locals: { image: @leiter.image,
+                                                     name: "#{@leiter.firstname} #{@leiter.lastname} v/o #{@leiter.pfadiname}",
+                                                     funktion: "#{@leiter.funktion} #{@leiter.stufe}",
+                                                     email: "#{@leiter.email}" } %>

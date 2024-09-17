@@ -38,12 +38,12 @@
 
     <div class="mb-3">
       <%= form.label :stufe %>
-      <%= form.select :stufe, ["Biber", "Wölfli", "Pfadi"], { class: "form-select" }, { prompt: "Select Stufe" } %>
+      <%= form.select :stufe, ["Biber", "Wölfli", "Pfadi", "Pios", "Rover"], { class: "form-select" }, { prompt: "Select Stufe" } %>
     </div>
 
     <div class="mb-3">
       <%= form.label :funktion %>
-      <%= form.text_field :funktion, class: "form-control", placeholder: "Funktion" %>
+      <%= form.select :funktion, ["Leitperson", "Stufenleitung", "Stv. Abteilungsleitung", "Abteilungsleitung", "Website-Verantwortlicher"], class: "form-select", prompt: "Select Stufe" %>
     </div>
 
     <div class="mb-3">

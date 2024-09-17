@@ -1,0 +1,66 @@
+<div class="container mt-5">
+  <% @leiter = current_leiter %>
+
+  <h1 class="leiter-title">Edit Leiter: <%= @leiter.pfadiname %></h1>
+
+  <%= form_with(model: @leiter, url: profil_path, method: :patch, local: true) do |form| %>
+
+    <% if @leiter.errors.any? %>
+      <div class="alert alert-danger">
+        <h4>There were errors updating the Leiter:</h4>
+        <ul>
+          <% @leiter.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-3">
+      <%= form.label :pfadiname %>
+      <%= form.text_field :pfadiname, class: "form-control", placeholder: "Pfadiname" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :firstname %>
+      <%= form.text_field :firstname, class: "form-control", placeholder: "Vorname" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :lastname %>
+      <%= form.text_field :lastname, class: "form-control", placeholder: "Nachname" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :email %>
+      <%= form.email_field :email, class: "form-control", placeholder: "Email" %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :stufe %>
+      <%= form.select :stufe, ["Biber", "Wölfli", "Pfadi"], { class: "form-select" }, { prompt: "Select Stufe" } %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :funktion %>
+      <%= form.text_field :funktion, class: "form-control", placeholder: "Funktion" %>
+    </div>
+
+    <div class="center mb-3">
+      <%= form.label :password, "Passwort", class: "form-label" %>
+      <%= form.password_field :password, class: "form-control" %>
+    </div>
+
+    <div class="center mb-3">
+      <%= form.label :password_confirmation, "Passwort wiederholen", class: "form-label" %>
+      <%= form.password_field :password_confirmation, class: "form-control" %>
+    </div>
+
+
+    <div class="actions">
+      <%= form.submit "Update Leiter", class: "btn btn-primary" %>
+      <%= link_to 'Cancel', leiter_path(@leiter), class: "btn btn-secondary" %>
+    </div>
+
+  <% end %>
+</div>

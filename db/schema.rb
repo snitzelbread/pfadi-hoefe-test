@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_13_130205) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_16_145514) do
   create_table "anmeldungs", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
@@ -53,6 +53,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_13_130205) do
     t.string "funktion"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   add_foreign_key "hocks", "leiters", primary_key: "id"

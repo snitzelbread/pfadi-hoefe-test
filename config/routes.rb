@@ -21,6 +21,10 @@ Rails.application.routes.draw do
 
   get "leiter", to: "leiter#new"
   post "leiter", to: "leiter#create"
+  get "profil", to: "leiter#show"
+  get "profil/edit", to: "leiter#edit"
+  patch "profil", to: "leiter#update"
+
 
   resources :hocks
 

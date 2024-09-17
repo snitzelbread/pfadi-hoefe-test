@@ -53,3 +53,11 @@
     75% { opacity: 1; } /* Hold opacity at 1 */
     100% { opacity: 0; } /* Gradually fade out */
 }
+
+.hocks-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Adds space between items */
+    margin-top: 50px;
+    gap: 20px; /* Adds gap between hocks */
+}

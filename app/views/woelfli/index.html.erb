@@ -20,3 +20,8 @@
 <div class="hocks-container">
   <%= render partial: "home/hocks", locals: { hock: @closest_woelfli_hock } %>
 </div>
+
+<%= render "shared/contact_form", locals: {image: "doit.jpeg",
+                                           name: "Yannick Homberger v/o Do-It",
+                                           funktion: "Stufenleiter",
+                                           email: "doit@pfadi-hoefe.ch"} %>

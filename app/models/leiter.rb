@@ -6,4 +6,5 @@ class Leiter < ApplicationRecord
   validates :pfadiname, presence: true, uniqueness: true
   validates :password, presence: true, confirmation: true
   validates :password_confirmation, presence: true
+  validates :stufe, uniqueness: { scope: :funktion, message: "und Funktion-Kombination ist bereits in Verwendung." }
 end

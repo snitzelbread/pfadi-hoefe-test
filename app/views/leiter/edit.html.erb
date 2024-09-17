@@ -3,7 +3,7 @@
 
   <h1 class="leiter-title">Edit Leiter: <%= @leiter.pfadiname %></h1>
 
-  <%= form_with(model: @leiter, url: profil_path, method: :patch, local: true) do |form| %>
+  <%= form_with(model: @leiter, url: profil_path, method: :patch, local: true, multipart: true) do |form| %>
 
     <% if @leiter.errors.any? %>
       <div class="alert alert-danger">
@@ -45,6 +45,12 @@
       <%= form.label :funktion %>
       <%= form.text_field :funktion, class: "form-control", placeholder: "Funktion" %>
     </div>
+
+    <div class="mb-3">
+      <%= form.label :image, "Profile Image" %>
+      <%= form.file_field :image, class: "form-control" %>
+    </div>
+
 
     <div class="center mb-3">
       <%= form.label :password, "Passwort", class: "form-label" %>

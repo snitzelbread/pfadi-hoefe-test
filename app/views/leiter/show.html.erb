@@ -9,7 +9,7 @@
     }
 
     .leiter-title {
-        color: #ffffff;
+        color: #000000;
         text-align: center;
     }
 
@@ -24,23 +24,28 @@
 
 <% @leiter = current_leiter %>
 
-<div class="container mt-5">
+<div class="hocks-container">
+  <div class="hock">
   <h1 class="leiter-title">
-    Leiter: <%= @leiter.pfadiname %>
+    <%= @leiter.pfadiname %>
   </h1>
 
-  <div class="leiter-details mt-4">
-    <p><strong>Pfadiname:</strong> <%= @leiter.pfadiname %></p>
-    <p><strong>First Name:</strong> <%= @leiter.firstname %></p>
-    <p><strong>Last Name:</strong> <%= @leiter.lastname %></p>
-    <p><strong>Email:</strong> <%= @leiter.email %></p>
-    <p><strong>Stufe:</strong> <%= @leiter.stufe %></p>
-    <p><strong>Funktion:</strong> <%= @leiter.funktion %></p>
-    <p><strong>Account Created:</strong> <%= @leiter.created_at.strftime('%B %d, %Y') %></p>
-    <p><strong>Last Updated:</strong> <%= @leiter.updated_at.strftime('%B %d, %Y') %></p>
-  </div>
 
-  <div class="actions mt-4">
-    <%= link_to 'Edit', profil_edit_path(@leiter), class: "btn btn-primary mr-2" %>
+    <%= image_tag(@leiter.image, height: 200, width: 200, style: "border-radius: 25px; float: left") %>
+    <div style="float: left; margin-left: 3vw">
+      <p><strong>Pfadiname:</strong> <%= @leiter.pfadiname %></p>
+      <p><strong>First Name:</strong> <%= @leiter.firstname %></p>
+      <p><strong>Last Name:</strong> <%= @leiter.lastname %></p>
+      <p><strong>Email:</strong> <%= @leiter.email %></p>
+      <p><strong>Stufe:</strong> <%= @leiter.stufe %></p>
+      <p><strong>Funktion:</strong> <%= @leiter.funktion %></p>
+      <p><strong>Account Created:</strong> <%= @leiter.created_at.strftime('%B %d, %Y') %></p>
+      <p><strong>Last Updated:</strong> <%= @leiter.updated_at.strftime('%B %d, %Y') %></p>
+    </div>
+
+
+    <div class="actions mt-4">
+      <%= link_to 'Edit', profil_edit_path(@leiter), class: "btn btn-primary mr-2" %>
+    </div>
   </div>
 </div>

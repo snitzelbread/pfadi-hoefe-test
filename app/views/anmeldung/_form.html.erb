@@ -15,7 +15,11 @@
 </style>
 
 <div class="container">
-<%= form_with model: @anmeldung, local: true, url: anmeldung_path, method: :post do |form| %>
+
+  <h1 class="center playpen-sans-title" style="font-size: 80px; margin-bottom: 30px">Anmeldung</h1>
+
+
+  <%= form_with model: @anmeldung, local: true, url: anmeldung_path, method: :post do |form| %>
 
     <div class="center input-group mb-3 w-50">
       <span class="input-group-text">Vor- und Nachname</span>

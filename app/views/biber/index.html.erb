@@ -25,6 +25,6 @@
 <% @leiter = Leiter.where(stufe: "Biber", funktion: "Stufenleitung").first %>
 
 <%= render partial: "shared/contact_form", locals: { image: @leiter.image,
-                                                     name: "#{@leiter.firstname} #{@leiter.lastname} v/o #{@leiter.pfadiname}",
+                                                     name: "#{@leiter.firstname} #{@leiter.lastname} v/o #{@leiter.pfadiname.capitalize}",
                                                      funktion: "#{@leiter.funktion} #{@leiter.stufe}",
                                                      email: "#{@leiter.email}" } %>

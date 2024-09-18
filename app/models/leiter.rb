@@ -1,4 +1,6 @@
 class Leiter < ApplicationRecord
+  before_save :downcase_pfadiname
+
   has_many :hocks
   has_one_attached :image
   has_secure_password
@@ -20,5 +22,9 @@ class Leiter < ApplicationRecord
     if Leiter.where(funktion: 'Stufenleitung', stufe: stufe).where.not(id: id).exists?
       errors.add(:funktion, "Stufenleitung can only be assigned to one Leiter per stufe")
     end
+  end
+
+  def downcase_pfadiname
+    self.pfadiname = pfadiname.downcase
   end
 end

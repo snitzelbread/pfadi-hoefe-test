@@ -14,6 +14,8 @@ class AnmeldungController < ApplicationController
     else
       render :new, status: 422
     end
+
+    @anmeldung.destroy
   end
 
   private

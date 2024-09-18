@@ -14,13 +14,13 @@
 <% @leiter = Leiter.where(funktion: "Abteilungsleitung").first %>
 
 <%= render partial: "shared/contact_form", locals: { image: @leiter.image,
-                                                     name: "#{@leiter.firstname} #{@leiter.lastname} v/o #{@leiter.pfadiname}",
+                                                     name: "#{@leiter.firstname} #{@leiter.lastname} v/o #{@leiter.pfadiname.capitalize}",
                                                      funktion: "#{@leiter.funktion}",
                                                      email: "#{@leiter.email}" } %>
 
 <% @leiter = Leiter.where(funktion: "Stv. Abteilungsleitung").first %>
 <%= render partial: "shared/contact_form", locals: { image: @leiter.image,
-                                                     name: "#{@leiter.firstname} #{@leiter.lastname} v/o #{@leiter.pfadiname}",
+                                                     name: "#{@leiter.firstname} #{@leiter.lastname} v/o #{@leiter.pfadiname.capitalize}",
                                                      funktion: "#{@leiter.funktion}",
                                                      email: "#{@leiter.email}" } %>
 

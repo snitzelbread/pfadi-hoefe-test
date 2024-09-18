@@ -108,15 +108,15 @@
 
 
 <h1 class="center playpen-sans-title", style="font-size: 60px">Hockzettel</h1>
-<div class="hocks-container">
+<div class="hocks-container shadow-lg">
   <h1 class="stufen-titel-links">🦫 Biber 🦫</h1>
   <%= render partial: "home/hocks", locals: { hock: @closest_biber_hock } %>
 </div>
-<div class="hocks-container">
+<div class="hocks-container shadow-lg">
   <%= render partial: "home/hocks", locals: { hock: @closest_woelfli_hock } %>
   <h1 class="stufen-titel-rechts">🐺 Wölfli 🐺</h1>
 </div>
-<div class="hocks-container">
+<div class="hocks-container shadow-lg">
   <h1 class="stufen-titel-links">⚜️ Pfadi ⚜️</h1>
   <%= render partial: "home/hocks", locals: { hock: @closest_pfadi_hock } %>
 </div>

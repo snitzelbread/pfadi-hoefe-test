@@ -35,7 +35,7 @@
 
 
     <% if @leiter.image.present? %>
-        <%= image_tag(@leiter.image, height: 200, width: 200, style: "border-radius: 25px; float: left; margin-top: 2vw") %>
+        <%= image_tag(@leiter.image, height: 200, width: 200, class: "shadow-lg",style: "border-radius: 25px; float: left; margin-top: 2vw") %>
     <% end %>
     <div style="float: left; margin-left: 3vw">
       <p><strong>Pfadiname:</strong> <%= @leiter.pfadiname %></p>

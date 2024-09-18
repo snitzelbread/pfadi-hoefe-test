@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get "anmeldung", to: "anmeldung#new"
   post "anmeldung", to: "anmeldung#create"
 
+
+
   get "login", to: "log_in#new"
   post "login", to: "log_in#create"
 

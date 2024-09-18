@@ -1,0 +1,97 @@
+<style>
+    .center{
+        position: relative;
+        top: 20px;
+        min-width: 700px;
+        max-width: fit-content;
+        margin: auto;
+    }
+
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+</style>
+
+<div class="container">
+<%= form_with model: @anmeldung, local: true, url: anmeldung_path, method: :post do |form| %>
+
+    <div class="center input-group mb-3 w-50">
+      <span class="input-group-text">Vor- und Nachname</span>
+      <input name="anmeldung[firstname]" id="anmeldung_firstname" type="text" value="<%= @anmeldung.firstname if present? %>" aria-label="firstname" class="form-control">
+      <input name="anmeldung[lastname]" id="anmeldung_lastname" type="text" value="<%= @anmeldung.lastname if present? %>" aria-label="lastname" class="form-control">
+    </div>
+
+    <div class="center input-group mb-3">
+      <span class="input-group-text">Geburtstag</span>
+      <%= form.date_field :birthday, class: "form-control" %>
+    </div>
+
+    <div class="center input-group mb-3 w-50">
+      <span class="input-group-text">E-Mail</span>
+      <input name="anmeldung[email]" id="anmeldung_email" value="<%= @anmeldung.email if present? %>" type="email" aria-label="lastname" class="form-control">
+    </div>
+
+  <div class="input-group center mb-3">
+    <span class="input-group-text">Telefonnummer</span>
+    <%= form.telephone_field :phone, class: "form-control", placeholder: "z.B. 079 123 456 78 90 (Mutter)" %>
+  </div>
+
+  <div class="input-group center mb-3">
+    <span class="input-group-text">Adresse</span>
+    <%= form.text_field :address, class: "form-control" %>
+  </div>
+
+  <div class="input-group center mb-3">
+    <span class="input-group-text">Ort</span>
+    <%= form.text_field :place, class: "form-control" %>
+    <span class="input-group-text">PLZ</span>
+    <%= form.text_field :zipcode, class: "form-control" %>
+  </div>
+
+  <div class="input-group center mb-3">
+    <span class="input-group-text">Allergien</span>
+    <%= form.text_field :allergies, class: "form-control" %>
+  </div>
+
+    <div class="center input-group mb-3 w-50">
+      <label class="input-group-text" for="anmeldung_stufe">Stufe</label>
+      <select name="anmeldung[stufe]" id="anmeldung_stufe" class="form-select" aria-label="stufe select">
+        <% ["Biber", "Wölfli", "Pfadi", "Pios"].each do |stufe_option| %>
+          <option value="<%= stufe_option %>" <%= 'selected' if @anmeldung.stufe == stufe_option %>>
+            <%= stufe_option %>
+          </option>
+        <% end %>
+      </select>
+    </div>
+
+  <div class="input-group center mb-3">
+    <span class="input-group-text">Krankenkasse</span>
+    <%= form.text_field :krankenkasse, class: "form-control" %>
+  </div>
+
+  <div class="input-group center mb-3">
+    <span class="input-group-text">AHV-Nummer</span>
+    <%= form.text_field :ahv_number, class: "form-control" %>
+  </div>
+
+  <div class="input-group center mb-3">
+    <span class="input-group-text">Nachricht</span>
+    <%= form.text_area :message, class: "form-control", rows: "5" %>
+  </div>
+
+  <div class="input-group center mb-3">
+    <span class="input-group-text">Rechte an Bildern</span>
+    <div class="input-group-text">
+      <%= form.check_box :rights_to_pictures %>
+    </div>
+    <span class="input-group-text">Pfadikravatte bestellen? (17 Fr.)</span>
+    <div class="input-group-text">
+      <%= form.check_box :order_pfadikravatte %>
+    </div>
+  </div>
+
+  <%= form.submit "Anmeldung schicken", class: "btn btn-primary m-3" %>
+<% end %>
+</div>

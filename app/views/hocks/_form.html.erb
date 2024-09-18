@@ -2,7 +2,7 @@
   .center{
   position: relative;
   top: 20px;
-  max-width: 500px;
+  max-width: 700px;
   margin: auto;
   }
 </style>
@@ -19,28 +19,34 @@
     </div>
   <% end %>
 
-  <div class="center mb-5">
-    <%= form.label :title, "Titel", class: "form-label" %>
-    <%= form.text_field :title, class: "form-control" %>
+
+  <div class="center input-group mb-3 mt-3">
+    <span class="input-group-text" id="title">Titel</span>
+    <input type="text" name="hock[title]" id="hock_title" value="<%= @hock.title if present? %>" class=" form-control" aria-label="title">
   </div>
 
-  <div class="center mb-4">
-    <%= form.label :description, "Beschreibung", class: "form-label" %>
-    <%= form.text_area :description, class: "form-control", rows: 6 %>
+
+  <div class="center input-group mb-4">
+    <span class="input-group-text">Beschreibung</span>
+    <textarea name="hock[description]" id="hock_description" value="<%= @hock.description if present? %>" class="form-control" aria-label="description" rows="10"></textarea>
   </div>
 
-  <div class="center mb-3">
-    <%= form.label :datetime, "Datum", class: "form-label" %>
+  <div class="center input-group mb-3">
+    <span class="input-group-text">Datum</span>
     <%= form.datetime_field :datetime, class: "form-control" %>
   </div>
 
-  <div class="center mb-3">
-    <%= form.label :stufe, "Stufe", class: "form-label" %>
-    <%= form.select :stufe, ["Biber", "Wölfli", "Pfadi"], { class: "form-select" }, { prompt: "Select Stufe" } %>
+  <div class="center input-group mb-3">
+    <label class="input-group-text" for="hock_stufe">Stufe</label>
+    <select name="hock[stufe]" id="hock_stufe" class="form-select" aria-label="stufe select">
+      <option selected value="Biber">Biber</option>
+      <option value="Wölfli">Wölfli</option>
+      <option value="Pfadi">Pfadi</option>
+    </select>
   </div>
 
-  <div class="center mb-3">
-    <%= form.label :ort, "Ort", class: "form-label" %>
+  <div class="center input-group mb-3">
+    <span class="input-group-text">Ort</span>
     <%= form.text_field :ort, class: "form-control" %>
   </div>
 

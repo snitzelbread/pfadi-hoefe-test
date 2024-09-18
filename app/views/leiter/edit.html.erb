@@ -1,7 +1,7 @@
-<div class="container mt-5">
+<div class="m-5">
   <% @leiter = current_leiter %>
 
-  <h1 class="leiter-title">Edit Leiter: <%= @leiter.pfadiname %></h1>
+  <h1 class="center leiter-title mb-3 playpen-sans-title">Leiter: <%= @leiter.pfadiname %></h1>
 
   <%= form_with(model: @leiter, url: profil_path, method: :patch, local: true, multipart: true) do |form| %>
 
@@ -16,56 +16,67 @@
       </div>
     <% end %>
 
-    <div class="mb-3">
-      <%= form.label :pfadiname %>
-      <%= form.text_field :pfadiname, class: "form-control", placeholder: "Pfadiname" %>
+    <div class="center input-group mb-3 w-50">
+      <span class="input-group-text">Vor- und Nachname</span>
+      <input name="leiter[firstname]" id="leiter_firstname" type="text" value="<%= @leiter.firstname if present? %>" aria-label="firstname" class="form-control">
+      <input name="leiter[lastname]" id="leiter_lastname" type="text" value="<%= @leiter.lastname if present? %>" aria-label="lastname" class="form-control">
     </div>
 
-    <div class="mb-3">
-      <%= form.label :firstname %>
-      <%= form.text_field :firstname, class: "form-control", placeholder: "Vorname" %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.label :lastname %>
-      <%= form.text_field :lastname, class: "form-control", placeholder: "Nachname" %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.label :email %>
-      <%= form.email_field :email, class: "form-control", placeholder: "Email" %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.label :stufe %>
-      <%= form.select :stufe, ["Biber", "Wölfli", "Pfadi", "Pios", "Rover"], { class: "form-select" }, { prompt: "Select Stufe" } %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.label :funktion %>
-      <%= form.select :funktion, ["Leitperson", "Stufenleitung", "Stv. Abteilungsleitung", "Abteilungsleitung", "Website-Verantwortlicher"], class: "form-select", prompt: "Select Stufe" %>
-    </div>
-
-    <div class="mb-3">
-      <%= form.label :image, "Profile Image" %>
-      <%= form.file_field :image, class: "form-control" %>
+    <div class="center input-group mb-3 w-50">
+      <span class="input-group-text">E-Mail</span>
+      <input name="leiter[email]" id="leiter_email" value="<%= @leiter.email if present? %>" type="text" aria-label="lastname" class="form-control">
     </div>
 
 
-    <div class="center mb-3">
-      <%= form.label :password, "Passwort", class: "form-label" %>
-      <%= form.password_field :password, class: "form-control" %>
+    <div class="center input-group mb-3 w-50">
+      <label class="input-group-text" for="leiter_stufe">Stufe</label>
+      <select name="leiter[stufe]" id="leiter_stufe" class="form-select" aria-label="stufe select">
+        <% ["Biber", "Wölfli", "Pfadi", "Pios", "Rover"].each do |stufe_option| %>
+          <option value="<%= stufe_option %>" <%= 'selected' if @leiter.stufe == stufe_option %>>
+            <%= stufe_option %>
+          </option>
+        <% end %>
+      </select>
     </div>
 
-    <div class="center mb-3">
-      <%= form.label :password_confirmation, "Passwort wiederholen", class: "form-label" %>
-      <%= form.password_field :password_confirmation, class: "form-control" %>
+
+    <div class="center input-group w-50 mb-3">
+      <label class="input-group-text" for="leiter_funktion">Funktion</label>
+      <select name="leiter[funktion]" id="leiter_funktion" class="form-select" aria-label="funktion select">
+        <% funktion_options = {
+          "Stufen" => ['Leitperson', 'Stufenleitung'],
+          "Abteilung" => ['Abteilungsleitung', 'Stv. Abteilungsleitung'],
+          "Extra" => ['Website-Verantwortlicher']
+        } %>
+
+        <% funktion_options.each do |group_label, options| %>
+          <optgroup label="<%= group_label %>">
+            <% options.each do |option| %>
+              <option value="<%= option %>" <%= 'selected' if @leiter.funktion == option %>>
+                <%= option %>
+              </option>
+            <% end %>
+          </optgroup>
+        <% end %>
+      </select>
     </div>
 
 
-    <div class="actions">
-      <%= form.submit "Update Leiter", class: "btn btn-primary" %>
-      <%= link_to 'Cancel', leiter_path(@leiter), class: "btn btn-secondary" %>
+
+    <div class="center input-group mb-3 w-50">
+      <label class="input-group-text" for="leiter_image">Profilbild</label>
+      <input name="leiter[image]" id="leiter_image" type="file" class="form-control">
+    </div>
+
+    <div class="center input-group mb-3 w-50">
+      <input name="leiter[password]" id="leiter_password" type="password" class="form-control" placeholder="Passwort" aria-label="password">
+      <span class="input-group-text">//</span>
+      <input name="leiter[password_confirmation]" id="leiter_password_confirmation" type="password" class="form-control" placeholder="Passwort wiederholen" aria-label="password_confirmation">
+    </div>
+
+    <div class="center actions mb-3 w-50">
+      <%= form.submit "Leiter aktualisieren", class: "btn btn-primary" %>
+      <%= link_to 'Abbrechen', profil_path(@leiter), class: "btn btn-danger" %>
     </div>
 
   <% end %>

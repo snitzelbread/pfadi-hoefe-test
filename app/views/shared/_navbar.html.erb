@@ -36,30 +36,30 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="verein">Verein</a>
+          <%= link_to "Verein", verein_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="anmeldung">Anmeldung</a>
+          <%= link_to "Anmeldung", anmeldung_path, class: "nav-link" %>
         </li>
-        <li style="float: right">
+        <li>
           <% if current_leiter.nil? %>
             <li class="nav-item" style="position: fixed; right: 10px">
-              <a class="nav-link" href="login">Log In</a>
+              <%= link_to "Verein", login_path, class: "nav-link" %>
             </li>
           <% else %>
-          <li>
-            <%= link_to "Profil", profil_path, method: :get, class: "nav-link", style: "position: fixed; right: 300px" %>
+          <li class="nav-item">
+            <%= link_to "Profil", profil_path, class: "nav-link", style: "margin-left: 51vw" %>
           </li>
           <li>
-            <%= link_to "Höcks", hocks_path, method: :get, class: "nav-link", style: "position: fixed; right: 240px" %>
+            <%= link_to "Höcks", hocks_path, method: :get, class: "nav-link", style: "margin-left: 10px" %>
           </li>
           <li class="nav-item">
-            <span class="navbar-text" style="position: fixed; right: 90px; color: white;">
+            <span class="navbar-text" style="margin-left: 20px; position: fixed; color: white">
               Logged in as: <%= current_leiter.pfadiname %>
             </span>
           </li>
           <li>
-            <%= link_to "Logout", logout_path, method: :delete, class: "nav-link", style: "position: fixed; right: 10px" %>
+            <%= link_to "Logout", logout_path, method: :delete, class: "nav-link", style: "margin-left: 10vw" %>
           </li>
           <% end %>
         </ul>

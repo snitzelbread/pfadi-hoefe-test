@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_19_074408) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_19_120941) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -69,6 +69,16 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_19_074408) do
     t.integer "leiter_id", null: false
     t.string "ort"
     t.index ["leiter_id"], name: "index_hocks_on_leiter_id"
+  end
+
+  create_table "kleiders", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "image"
+    t.decimal "price"
+    t.string "size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "leiters", force: :cascade do |t|

@@ -1,0 +1,12 @@
+<% content_for :title, "Editing kleider" %>
+
+<h1>Editing kleider</h1>
+
+<%= render "form", kleider: @kleider %>
+
+<br>
+
+<div>
+  <%= link_to "Show this kleider", @kleider %> |
+  <%= link_to "Back to kleiders", kleiders_path %>
+</div>

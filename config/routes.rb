@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get "parent", to: "parent#new"
   post "parent", to: "parent#create"
 
-
+  resources :kleiders
   resources :hocks
 
 

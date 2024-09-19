@@ -5,10 +5,17 @@
         max-width: fit-content;
         margin: auto;
     }
+    .login-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 30px
+    }
 </style>
 
-<h1 class="center">Leiter Log In</h1>
+<h1 class="center">Log In</h1>
 <p class="center"> Nur für Leiter</p>
-<div class="center">
+<div class="login-container">
   <%= render "form", leiter: @leiter %>
+  <%= render "parent_form", parent: @parent %>
 </div>

@@ -42,25 +42,34 @@
           <%= link_to "Anmeldung", anmeldung_path, class: "nav-link" %>
         </li>
         <li>
-          <% if current_leiter.nil? %>
+          <% if current_leiter.nil? && current_parent.nil? %>
             <li class="nav-item" style="position: fixed; right: 10px">
               <%= link_to "Log In", login_path, class: "nav-link" %>
             </li>
-          <% else %>
-          <li class="nav-item">
-            <%= link_to "Profil", profil_path, class: "nav-link", style: "margin-left: 51vw" %>
-          </li>
-          <li>
-            <%= link_to "Höcks", hocks_path, method: :get, class: "nav-link", style: "margin-left: 10px" %>
-          </li>
-          <li class="nav-item">
-            <span class="navbar-text" style="margin-left: 20px; position: fixed; color: white">
-              Logged in as: <%= current_leiter.pfadiname %>
-            </span>
-          </li>
-          <li>
-            <%= link_to "Logout", logout_path, method: :delete, class: "nav-link", style: "margin-left: 10vw" %>
-          </li>
+
+          <% elsif current_leiter.present? %>
+
+            <li class="nav-item">
+              <%= link_to "Profil", profil_path, class: "nav-link", style: "margin-left: 51vw" %>
+            </li>
+            <li>
+              <%= link_to "Höcks", hocks_path, method: :get, class: "nav-link", style: "margin-left: 10px" %>
+            </li>
+            <li class="nav-item">
+              <span class="navbar-text" style="margin-left: 20px; position: fixed; color: white">
+                Logged in as: <%= current_leiter.pfadiname %>
+              </span>
+            </li>
+            <li>
+              <%= link_to "Logout", logout_path, method: :delete, class: "nav-link", style: "margin-left: 10vw" %>
+            </li>
+
+          <% else %> <!-- Parents -->
+
+
+            <li>
+              <%= link_to "Logout", logout_path, method: :delete, class: "nav-link", style: "margin-left: 60vw" %>
+            </li>
           <% end %>
         </ul>
     </div>

@@ -1,21 +1,21 @@
 class LeiterController < ApplicationController
   before_action :set_leiter, only: [:edit, :update, :show]
-  before_action :require_login
+  before_action :require_login_leiter
 
   def new
     @leiter = Leiter.new
   end
   def create
     @leiter = Leiter.new(leiter_params)
-
     respond_to do |format|
       if @leiter.save
         session[:leiter_id] = @leiter.id
-        format.html { redirect_to root_path, notice: "Leiter was successfully created." }
+        format.html { redirect_to root_path }
+        flash[:notice] = "Parent was successfully created."
         format.json { render :show, status: :created, location: @leiter }
       else
         format.html { render :new, status: 422 }
-        format.json { render json: @leiter.errors, status: 422 }
+        flash[:alert] = format_errors(@leiter)
       end
     end
   end
@@ -45,5 +45,10 @@ class LeiterController < ApplicationController
   end
   def set_leiter
     @leiter = Leiter.find_by_id(params[session[:leiter_id]])
+  end
+
+  def format_errors(object)
+    error_messages = object.errors.full_messages.join(", ")
+    "#{pluralize(object.errors.count, 'error')} prohibited this #{object.class.name} from being saved: #{error_messages}"
   end
 end

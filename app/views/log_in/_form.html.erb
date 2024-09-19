@@ -25,22 +25,15 @@
 
 <%= form_with model: @leiter, url: login_path do |form| %>
   <% unless leiter.nil? %>
-      <% if leiter.errors.any? %>
-        <div style="color: red">
-          <h2><%= pluralize(leiter.errors.count, "error") %> prohibited this Leiter from being saved:</h2>
-          <ul>
-            <% leiter.errors.each do |error| %>
-              <li><%= error.full_message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+    <% if leiter.errors.any? %>
+      <% flash[:alert] = format_errors(@leiter) %>
     <% end %>
+  <% end %>
 
 
 <div class="container">
   <div class="hock shadow-lg">
-
+    <h1 style="text-align: center">Leiter</h1>
     <!-- Pfadiname -->
     <div class="center input-group mb-3 w-50">
       <span class="input-group-text">

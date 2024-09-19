@@ -1,6 +1,4 @@
 class Leiter < ApplicationRecord
-  before_save :downcase_pfadiname
-
   has_many :hocks
   has_one_attached :image
   has_secure_password

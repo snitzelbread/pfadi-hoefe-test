@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root "home#index"
 
   get "biber", to: "biber#index"
@@ -26,6 +25,9 @@ Rails.application.routes.draw do
   get "profil", to: "leiter#show"
   get "profil/edit", to: "leiter#edit"
   patch "profil", to: "leiter#update"
+
+  get "parent", to: "parent#new"
+  post "parent", to: "parent#create"
 
 
   resources :hocks

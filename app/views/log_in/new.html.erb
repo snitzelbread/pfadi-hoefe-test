@@ -13,9 +13,9 @@
     }
 </style>
 
-<h1 class="center">Log In</h1>
-<p class="center"> Nur für Leiter</p>
 <div class="login-container">
-  <%= render "form", leiter: @leiter %>
-  <%= render "parent_form", parent: @parent %>
+    <div class="card-group gap-4">
+      <%= render "form", leiter: @leiter %>
+      <%= render "parent_form", parent: @parent %>
+    </div>
 </div>

@@ -1,6 +1,6 @@
 class HocksController < ApplicationController
   before_action :set_hock, only: %i[ show edit update destroy ]
-  before_action :require_login
+  before_action :require_login_leiter
 
 
   # GET /hocks or /hocks.json

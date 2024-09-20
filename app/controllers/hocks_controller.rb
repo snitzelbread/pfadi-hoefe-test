@@ -77,4 +77,9 @@ class HocksController < ApplicationController
     def hock_params
       params.require(:hock).permit(:title, :description, :datetime, :stufe, :leiter_id, :ort)
     end
+
+    def format_errors(object)
+      error_messages = object.errors.full_messages.join(", ")
+      "#{object.errors.count} Fehler verhinderte(n) das Log-In: #{error_messages}"
+    end
 end

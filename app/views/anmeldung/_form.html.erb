@@ -25,7 +25,7 @@
 
 <div class="container">
 
-  <h1 class="center playpen-sans-title" style="font-size: 80px; margin-bottom: 30px">Anmeldung</h1>
+  <h1 class="dm-sans-title center" style="font-size: 80px; margin-bottom: 30px; text-align: center">Anmeldung</h1>
 
   <div class="hock shadow-lg">
   <%= form_with model: @anmeldung, local: true, url: anmeldung_path, method: :post do |form| %>
@@ -40,12 +40,12 @@
         </svg>
       </span>
       <div class="form-floating">
-        <input name="anmeldung[firstname]" id="anmeldung_firstname" placeholder="Vorname" type="text" value="<%= @anmeldung.firstname if present? %>" aria-label="firstname" class="form-control">
-        <label for="anmeldung_firstname">Vorname</label>
+        <input name="anmeldung[firstname]" required id="anmeldung_firstname" placeholder="Vorname" type="text" value="<%= @anmeldung.firstname if present? %>" aria-label="firstname" class="form-control">
+        <label for="anmeldung_firstname">Vorname <sup>*</sup></label>
       </div>
       <div class="form-floating">
-        <input name="anmeldung[lastname]" id="anmeldung_lastname" placeholder="Nachname" type="text" value="<%= @anmeldung.lastname if present? %>" aria-label="lastname" class="form-control">
-        <label for="anmeldung_firstname">Nachname</label>
+        <input name="anmeldung[lastname]" required id="anmeldung_lastname" placeholder="Nachname" type="text" value="<%= @anmeldung.lastname if present? %>" aria-label="lastname" class="form-control">
+        <label for="anmeldung_firstname">Nachname <sup>*</sup></label>
       </div>
     </div>
 
@@ -58,10 +58,11 @@
                placeholder="E-Mail"
                value="<%= @anmeldung.email if present? %>"
                type="email"
+               required
                aria-label="lastname"
                class="form-control">
 
-        <label for="anmeldung_email">E-Mail</label>
+        <label for="anmeldung_email">E-Mail <sup>*</sup></label>
       </div>
     </div>
 
@@ -73,8 +74,15 @@
         </svg>
       </span>
       <div class="form-floating">
-        <input name="anmeldung[phone]" id="anmeldung_phone" placeholder="Telefonnummer" value="<%= @anmeldung.phone if present? %>" type="text" aria-label="phone" aria-describedby="passwordHelpBlock" class="form-control">
-        <label for="anmeldung_phone">Telefonnummer</label>
+        <input name="anmeldung[phone]"
+               id="anmeldung_phone"
+               required
+               placeholder="Telefonnummer"
+               value="<%= @anmeldung.phone if present? %>"
+               type="text" aria-label="phone"
+               aria-describedby="passwordHelpBlock"
+               class="form-control">
+        <label for="anmeldung_phone">Telefonnummer <sup>*</sup></label>
       </div>
     </div>
 
@@ -91,10 +99,11 @@
                    placeholder="address"
                    value="<%= @anmeldung.address if present? %>"
                    type="text"
+                   required
                    aria-label="address"
                    class="form-control">
 
-        <label for="anmeldung_address">Strasse</label>
+        <label for="anmeldung_address">Strasse <sup>*</sup></label>
       </div>
   </div>
 
@@ -112,10 +121,11 @@
              placeholder="place"
              value="<%= @anmeldung.place if present? %>"
              type="text"
+             required
              aria-label="place"
              class="form-control">
 
-      <label for="anmeldung_address">Ort</label>
+      <label for="anmeldung_address">Ort <sup>*</sup></label>
     </div>
     <span class="input-group-text">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-code" viewBox="0 0 16 16">
@@ -128,10 +138,11 @@
              placeholder="Postleitzahl"
              value="<%= @anmeldung.zipcode if present? %>"
              type="text"
+             required
              aria-label="zipcode"
              class="form-control">
 
-      <label for="anmeldung_address">Postleitzahl</label>
+      <label for="anmeldung_address">Postleitzahl <sup>*</sup></label>
     </div>
   </div>
 
@@ -144,13 +155,14 @@
         </span>
       <div class="form-floating">
         <input name="anmeldung[birthday]"
-                 id="anmeldung_birthday"
-                 placeholder="birthday"
-                 value="<%= @anmeldung.birthday if present? %>"
-                 type="date"
-                 aria-label="date"
-                 class="form-control">
-          <label for="anmeldung_birthday">Geburtstag</label>
+                  id="anmeldung_birthday"
+                  placeholder="birthday"
+                  value="<%= @anmeldung.birthday if present? %>"
+                  type="date"
+                  required
+                  aria-label="date"
+                  class="form-control">
+          <label for="anmeldung_birthday">Geburtstag <sup>*</sup></label>
       </div>
     </div>
 
@@ -181,14 +193,14 @@
         <i class="bi bi-ladder"></i>
       </span>
       <div class="form-floating">
-        <select name="anmeldung[stufe]" id="anmeldung_stufe" class="form-select" aria-label="stufe select">
+        <select name="anmeldung[stufe]" required id="anmeldung_stufe" class="form-select" aria-label="stufe select">
           <% ["Biber", "Wölfli", "Pfadi", "Pios"].each do |stufe_option| %>
             <option value="<%= stufe_option %>" <%= 'selected' if @anmeldung.stufe == stufe_option %>>
               <%= stufe_option %>
             </option>
           <% end %>
         </select>
-        <label for="anmeldung_stufe">Stufe wählen</label>
+        <label for="anmeldung_stufe">Stufe wählen <sup>*</sup></label>
       </div>
     </div>
 
@@ -206,10 +218,11 @@
                placeholder="krankenkasse"
                value="<%= @anmeldung.krankenkasse if present? %>"
                type="text"
+               required
                aria-label="krankenkasse"
                class="form-control">
 
-        <label for="anmeldung_address">Krankenkasse</label>
+        <label for="anmeldung_address">Krankenkasse <sup>*</sup></label>
       </div>
     </div>
 
@@ -221,6 +234,7 @@
           <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"/>
           <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"/>
         </svg>
+
       </div>
       <div class="form-floating">
         <input name="anmeldung[ahv_number]"
@@ -229,9 +243,10 @@
                value="<%= @anmeldung.ahv_number if present? %>"
                type="text"
                aria-label="ahv-number"
-               class="form-control">
+               class="form-control"
+               required>
 
-        <label for="anmeldung_address">AHV-Nummer</label>
+        <label for="anmeldung_address">AHV-Nummer <sup>*</sup></label>
       </div>
     </div>
 
@@ -255,9 +270,9 @@
         </div>
       </div>
 
-
-  <div class="input-group center mb-3">
-    <span class="input-group-text">Rechte an Bildern</span>
+    <!-- Rechte an Bildern // Pfadikravatte bestellen -->
+    <div class="input-group center mb-3">
+    <span class="input-group-text">Rechte an Bildern <sup>*</sup></span>
     <div class="input-group-text">
       <%= form.check_box :rights_to_pictures %>
     </div>
@@ -267,7 +282,9 @@
     </div>
   </div>
 
-  <%= form.submit "Anmeldung schicken", class: "btn btn-primary m-3" %>
+<div style="text-align: center; margin-top: 20px">
+  <%= form.submit "Anmeldung schicken", class: "btn btn-primary btn-lg m-3"%>
+</div>
 <% end %>
 </div>
 </div>

@@ -58,8 +58,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Adds space between items */
-    margin-top: 50px;
     gap: 20px; /* Adds gap between hocks */
+    margin: 20px;
 }
 
 .hock {
@@ -76,4 +76,33 @@
     top: 20px;
     max-width: 700px;
     margin: auto;
+}
+
+.dm-sans-title {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 0;
+
+}
+
+.dm-sans-description {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.btn {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    border-radius: 50px
+}
+
+.h1{
+    white-space: pre-wrap;
 }

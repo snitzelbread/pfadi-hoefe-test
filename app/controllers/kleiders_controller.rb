@@ -67,4 +67,9 @@ class KleidersController < ApplicationController
     def kleider_params
       params.require(:kleider).permit(:name, :description, :image, :price, :size)
     end
+
+    def format_errors(object)
+      error_messages = object.errors.full_messages.join(", ")
+      "#{object.errors.count} Fehler verhinderte(n) das Log-In: #{error_messages}"
+    end
 end

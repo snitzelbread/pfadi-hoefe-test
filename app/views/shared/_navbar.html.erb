@@ -38,6 +38,19 @@
         <li class="nav-item">
           <%= link_to "Verein", verein_path, class: "nav-link" %>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Lager
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="pfila">Pfingstlager</a></li>
+            <li><a class="dropdown-item" href="sola">Sommerlager</a></li>
+            <li><a class="dropdown-item" href="wola">Wochenlager</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Kleiderkasten", kleiders_path, class: "nav-link" %>
+        </li>
         <li class="nav-item">
           <%= link_to "Anmeldung", anmeldung_path, class: "nav-link" %>
         </li>
@@ -57,12 +70,15 @@
             <%= link_to "Höcks", hocks_path, method: :get, class: "nav-link" %>
           </li>
           <li class="nav-item">
-            <span class="navbar-text" style="color: white">Logged in as: <%= current_leiter.pfadiname %></span>
+            <span class="nav-link" style="color: white">Logged in as: <%= current_leiter.pfadiname %></span>
           </li>
           <li class="nav-item">
             <%= link_to "Logout", logout_path, method: :delete, class: "nav-link" %>
           </li>
         <% else %> <!-- Parents -->
+          <li class="nav-item">
+            <%= link_to "Archiv", archiv_index_path, class: "nav-link" %>
+          </li>
           <li class="nav-item">
             <%= link_to "Logout", logout_path, method: :delete, class: "nav-link" %>
           </li>

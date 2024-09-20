@@ -1,10 +1,14 @@
 <% content_for :title, "Kleiders" %>
 
-<%= link_to "New kleider", new_kleider_path, class: "btn btn-primary" %>
-<h1>Kleiders</h1>
+
+<h1 class="dm-sans-title" style="text-align: center; font-size: 80px">Kleiderkasten</h1>
 
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 m-3" id="kleiders">
   <% @kleiders.each do |kleider| %>
     <%= render kleider %>
   <% end %>
 </div>
+
+<% if current_leiter.present? %>
+  <%= link_to "Neues Kleidungsstück", new_kleider_path, class: "btn btn-primary btn-lg", style: "margin: 20px" %>
+<% end %>

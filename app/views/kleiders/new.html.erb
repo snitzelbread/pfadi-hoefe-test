@@ -1,11 +1,12 @@
 <% content_for :title, "New kleider" %>
 
-<h1>New kleider</h1>
-
+<div class="dm-sans-title", style="text-align: center">
+  <h1>Neues Kleidungsstück</h1>
+</div>
 <%= render "form", kleider: @kleider %>
 
 <br>
 
-<div>
-  <%= link_to "Back to kleiders", kleiders_path %>
+<div style="text-align: center">
+  <%= link_to "Back to kleiders", kleiders_path, class: "btn btn-primary" %>
 </div>

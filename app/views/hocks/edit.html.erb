@@ -1,12 +1,12 @@
 <% content_for :title, "Editing hock" %>
 
-<h1 class="center">Höck bearbeiten</h1>
+<h1 class="center dm-sans-title" style="white-space: pre-wrap">[   Höck bearbeiten   ]</h1>
 
 <%= render "form", hock: @hock %>
 
 <br>
-
-<div>
-  <%= link_to "Höck anzeigen", @hock %> |
-  <%= link_to "Zurück zur Ansicht", hocks_path %>
+<hr>
+<div style="text-align: center">
+  <%= link_to "Höck anzeigen", @hock, class: "btn btn-warning" %> |
+  <%= link_to "Zurück zur Ansicht", hocks_path, class: "btn btn-primary" %>
 </div>

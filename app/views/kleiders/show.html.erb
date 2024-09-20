@@ -1,10 +1,18 @@
+<style>
+
+</style>
+
 <p style="color: green"><%= notice %></p>
 
-<%= render @kleider %>
 
-<div>
-  <%= link_to "Edit this kleider", edit_kleider_path(@kleider) %> |
-  <%= link_to "Back to kleiders", kleiders_path %>
-
-  <%= button_to "Destroy this kleider", @kleider, method: :delete %>
+<div class="container" style="min-width: 300px; max-width: 500px; height: fit-content">
+  <%= render @kleider %>
 </div>
+
+<% if current_leiter.present? %>
+  <div style="text-align: center">
+    <%= link_to "Bearbeiten", edit_kleider_path(@kleider), class: "btn btn-warning", style: "margin: 10px" %>
+    <%= link_to "Löschen", @kleider, data: { turbo_method: :delete }, class: "btn btn-danger", style: "margin: 10px" %>
+    <%= link_to "Abbrechen", kleiders_path, class: "btn btn-primary", style: "margin: 10px" %>
+  </div>
+<% end %>

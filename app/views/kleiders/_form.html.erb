@@ -1,13 +1,7 @@
 <%= form_with(model: kleider) do |form| %>
   <% if kleider.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(kleider.errors.count, "error") %> prohibited this kleider from being saved:</h2>
-
-      <ul>
-        <% kleider.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+      <% flash[:alert] = format_errors(@kleider) %>
     </div>
   <% end %>
 
@@ -21,7 +15,9 @@
       <input name="kleider[name]"
              id="kleider_name"
              placeholder="Name"
+             value = "<%= @kleider.description if present? %>"
              type="text"
+             required
              aria-label="name"
              class="form-control">
 
@@ -42,9 +38,8 @@
                     id="kleider_description"
                     placeholder="description"
                     aria-label="description"
-                    value="<%= @kleider.description if present? %>"
                     style="height: 100px"
-                    class="form-control"></textarea>
+                    class="form-control"><%= @kleider.description if present? %></textarea>
 
       <label for="kleider_description">Beschreibung</label>
     </div>
@@ -62,12 +57,11 @@
       <input name="kleider[image]"
              id="kleider_image"
              placeholder="Bild"
-             value="<%= @kleider.image if present? %>"
              type="file"
              aria-label="image"
              class="form-control">
 
-      <label for="leiter_email">Bild</label>
+      <label for="kleider_image">Bild</label>
     </div>
   </div>
 
@@ -84,6 +78,7 @@
              placeholder="Preis"
              value="<%= @kleider.price if present? %>"
              type="number"
+             required
              aria-label="number"
              class="form-control">
 
@@ -98,7 +93,7 @@
       </span>
     <div class="form-floating">
       <select name="kleider[size]" id="kleider_size" class="form-select" aria-label="size select">
-        <% ["XS", "S", "M", "L", "XL"].each do |stufe_option| %>
+        <% %w[XS S M L XL].each do |stufe_option| %>
           <option value="<%= stufe_option %>" <%= 'selected' if @kleider.size == stufe_option %>>
             <%= stufe_option %>
           </option>
@@ -108,7 +103,7 @@
     </div>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div style="text-align: center; margin-top: 40px" >
+    <%= form.submit "Erstellen", class: "btn btn-success btn-lg" %>
   </div>
 <% end %>

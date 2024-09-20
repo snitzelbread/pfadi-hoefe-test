@@ -1,4 +1,13 @@
-<div class="divider"><%= stufe %> Hocks</div>
+<style>
+.hocks-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Adds space between items */
+    gap: 20px; /* Adds gap between hocks */
+    margin: 20px;
+}
+</style>
+<div class="divider dm-sans-title"><%= stufe %> Höcks</div>
 <% if hocks.present? %>
   <div class="hocks-container">
     <% hocks.each do |hock| %>

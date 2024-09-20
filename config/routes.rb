@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root "home#index"
 
   get "biber", to: "biber#index"
@@ -28,6 +29,11 @@ Rails.application.routes.draw do
 
   get "parent", to: "parent#new"
   post "parent", to: "parent#create"
+
+  get "wola", to: "wola#index"
+  get "pfila", to: "pfila#index"
+  get "sola", to: "sola#index"
+  get "archiv/index"
 
   resources :kleiders
   resources :hocks

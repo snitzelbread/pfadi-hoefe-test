@@ -43,7 +43,7 @@
 
 <% content_for :title, "Höcks" %>
 
-<h1 class="center" style="font-size:70px;">Hocks</h1>
+<h1 class="dm-sans-title" style="font-size:70px;">Höcks</h1>
 
 <br>
 <%= link_to "Neuer Höck", new_hock_path, class: "btn btn-success btn-lg", style: "margin: 10px" %>
@@ -53,7 +53,7 @@
 
 <div id="hocks">
   <%= render partial: "display", locals: { hocks: @biber_hocks, stufe: "Biber" } %>
-  <%= render partial: "display", locals: { hocks: @woelfli_hocks, stufe: "Woelfli" } %>
+  <%= render partial: "display", locals: { hocks: @woelfli_hocks, stufe: "Wölfli" } %>
   <%= render partial: "display", locals: { hocks: @pfadi_hocks, stufe: "Pfadi" } %>
   <div class="divider"></div>
 </div>

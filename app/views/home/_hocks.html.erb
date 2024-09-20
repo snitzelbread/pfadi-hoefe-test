@@ -12,13 +12,13 @@
 
 <% if hock.present? %>
   <div class="hock">
-    <h2><%= hock.title %></h2>
+    <h2 class="dm-sans-title"><%= hock.title %></h2>
     <hr>
-    <p style="white-space: pre-wrap"><%= hock.description %></p>
+    <p class="dm-sans-description" style="white-space: pre-wrap"><%= hock.description %></p>
     <hr>
-    <p style="float: left"><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
-    <p style="float: left; margin-left: 10px"><strong>Ort: </strong><%= hock.ort %></p>
-    <p style="float: left; margin-left: 10px"><strong>Leiter: </strong><%= hock.leiter.pfadiname %></p>
+    <p class="dm-sans-description" style="float: left"><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
+    <p class="dm-sans-description" style="float: left; margin-left: 10px"><strong>Ort: </strong><%= hock.ort %></p>
+    <p  class="dm-sans-description" style="float: left; margin-left: 10px"><strong>Leiter: </strong><%= hock.leiter.pfadiname %></p>
   </div>
 <% else %>
   <div class="hock">

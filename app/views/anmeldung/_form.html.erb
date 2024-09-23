@@ -31,7 +31,6 @@
   <%= form_with model: @anmeldung, local: true, url: anmeldung_path, method: :post do |form| %>
 
 
-
     <!-- Vorname/Nachname -->
     <div class="center input-group mb-3 w-50">
       <span class="input-group-text">
@@ -282,9 +281,9 @@
     </div>
   </div>
 
-<div style="text-align: center; margin-top: 20px">
-  <%= form.submit "Anmeldung schicken", class: "btn btn-primary btn-lg m-3"%>
-</div>
-<% end %>
+    <div style="text-align: center; margin-top: 20px">
+      <%= form.submit "Anmeldung schicken", class: "btn btn-primary btn-lg m-3"%>
+    </div>
+  <% end %>
 </div>
 </div>

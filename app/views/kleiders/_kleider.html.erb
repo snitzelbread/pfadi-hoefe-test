@@ -1,7 +1,7 @@
 <div id="<%= dom_id kleider %>">
   <div class="col">
     <div class="card shadow-sm">
-      <%= image_tag("#{kleider.image}", class: "card-img-top") if kleider.image.present? %>
+      <%= image_tag url_for(kleider.image), class: "card-img-top" if kleider.image.attached? %>
       <div class="card-body">
         <h5><%= kleider.name %></h5>
         <p class="card-text"><%= kleider.description %></p>
@@ -11,9 +11,8 @@
             <% if current_leiter.present? %>
               <%= link_to "Bearbeiten", edit_kleider_path(kleider.id), class: "btn btn-sm btn-outline-warning" %>
               <%= link_to "Löschen", kleider, data: { turbo_method: :delete }, class: "btn btn-sm btn-outline-danger" %>
-          <% end %>
+            <% end %>
           </div>
-          <small class="text-body-secondary"><strong>Grössen: </strong><%= kleider.size %> </small>
           <small class="text-body-secondary"><strong>Preis: </strong><%= kleider.price %>0 Fr. </small>
         </div>
       </div>

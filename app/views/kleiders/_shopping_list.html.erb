@@ -1,0 +1,18 @@
+<turbo-frame id="shopping_list">
+  <ul class="list-group center mb-3 w-50">
+    <% session[:shopping_list].each do |item| %>
+      <li class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"><%= item[:name] %></h5>
+          <small>Added: <%= time_ago_in_words(item[:added_at] || Time.current) %> ago</small>
+        </div>
+        <p class="mb-1"><%= item[:description] %></p>
+        <small>Preis: <%= item[:price] %>0 Fr. | Menge: <%= item[:amount] %></small>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="text-center">
+    <%= button_to "Einkaufsliste leeren", clear_shopping_list_path, method: :delete, class: "btn btn-danger" %>
+  </div>
+</turbo-frame>

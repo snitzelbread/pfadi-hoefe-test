@@ -1,0 +1,2 @@
+module BestellungHelper
+end

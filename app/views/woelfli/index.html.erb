@@ -27,3 +27,11 @@
                                                      name: "#{@leiter.firstname} #{@leiter.lastname} v/o #{@leiter.pfadiname.capitalize}",
                                                      funktion: "#{@leiter.funktion} #{@leiter.stufe}",
                                                      email: "#{@leiter.email}" } %>
+
+<% @leiters = Leiter.where(stufe: "Wölfli").where.not(funktion: "Stufenleitung") %>
+<% @leiters.each do |t| %>
+  <%= render partial: "shared/contact_form", locals: { image: t.image,
+                                                       name: "#{t.firstname} #{t.lastname} v/o #{t.pfadiname.capitalize}",
+                                                       funktion: "#{t.funktion} #{t.stufe}",
+                                                       email: "#{t.email}" } %>
+<% end %>

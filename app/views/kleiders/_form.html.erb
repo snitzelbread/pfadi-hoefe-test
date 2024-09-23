@@ -1,10 +1,11 @@
-<%= form_with(model: kleider) do |form| %>
-  <% if kleider.errors.any? %>
+<%= form_with model: @kleider, local: true, html: { multipart: true } do |form| %>
+  <% if @kleider.errors.any? %>
     <div style="color: red">
       <% flash[:alert] = format_errors(@kleider) %>
     </div>
   <% end %>
 
+  <!-- Name -->
   <div class="center input-group mb-3 w-50">
     <span class="input-group-text">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alphabet" viewBox="0 0 16 16">
@@ -15,7 +16,7 @@
       <input name="kleider[name]"
              id="kleider_name"
              placeholder="Name"
-             value = "<%= @kleider.description if present? %>"
+             value = "<%= @kleider.name if present? %>"
              type="text"
              required
              aria-label="name"
@@ -25,7 +26,7 @@
     </div>
   </div>
 
-
+  <!-- Description -->
   <div class="center input-group mb-3 w-50">
     <div class="input-group-text">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
@@ -45,7 +46,7 @@
     </div>
   </div>
 
-
+  <!-- Image -->
   <div class="center input-group mb-3 w-50">
       <span class="input-group-text">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera" viewBox="0 0 16 16">
@@ -65,7 +66,7 @@
     </div>
   </div>
 
-
+  <!-- Price -->
   <div class="center input-group mb-3 w-50">
     <span class="input-group-text">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alphabet" viewBox="0 0 16 16">
@@ -87,23 +88,7 @@
   </div>
 
 
-  <div class="center input-group mb-3 w-50">
-      <span class="input-group-text">
-        <i class="bi bi-ladder"></i>
-      </span>
-    <div class="form-floating">
-      <select name="kleider[size]" id="kleider_size" class="form-select" aria-label="size select">
-        <% %w[XS S M L XL].each do |stufe_option| %>
-          <option value="<%= stufe_option %>" <%= 'selected' if @kleider.size == stufe_option %>>
-            <%= stufe_option %>
-          </option>
-        <% end %>
-      </select>
-      <label for="anmeldung_stufe">Groesse wählen</label>
-    </div>
-  </div>
-
   <div style="text-align: center; margin-top: 40px" >
-    <%= form.submit "Erstellen", class: "btn btn-success btn-lg" %>
+    <%= form.submit "Einreichen", class: "btn btn-success btn-lg" %>
   </div>
 <% end %>

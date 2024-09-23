@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <style>
+      /* Email styles need to be inline */
+  </style>
+</head>
+
+<body>
+<p><strong>Vorname</strong><%= @bestellung.first_name %></p>
+<p><strong>Nachname</strong><%= @bestellung.last_name %></p>
+<p><strong>E-Mail</strong><%= @bestellung.email %></p>
+<p><strong>Telefonnummer</strong><%= @bestellung.phone %></p>
+<p><strong>Strasse</strong><%= @bestellung.address %></p>
+<p><strong>Ort</strong><%= @bestellung.city %></p>
+<p><strong>Postleitzahl</strong><%= @bestellung.zipcode %></p>
+<p><strong>Nachricht</strong><%= @bestellung.message %></p>
+<p><strong>Bestellung:</strong><%= @bestellung.order_list %></p>
+</body>
+</html>

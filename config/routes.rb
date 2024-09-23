@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root "home#index"
 
   get "biber", to: "biber#index"
@@ -12,8 +11,6 @@ Rails.application.routes.draw do
 
   get "anmeldung", to: "anmeldung#new"
   post "anmeldung", to: "anmeldung#create"
-
-
 
   get "login", to: "log_in#new"
   post "login", to: "log_in#create"
@@ -35,7 +32,15 @@ Rails.application.routes.draw do
   get "sola", to: "sola#index"
   get "archiv/index"
 
-  resources :kleiders
+  get "bestellung", to: "bestellung#new"
+  post "bestellung", to: "bestellung#create"
+
+  resources :kleiders do
+    post "add_to_list", on: :member
+  end
+
+  delete "clear_shopping_list", to: "kleiders#clear_shopping_list", as: :clear_shopping_list
+
   resources :hocks
 
 

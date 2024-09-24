@@ -11,7 +11,7 @@ class LeiterController < ApplicationController
       if @leiter.save
         session[:leiter_id] = @leiter.id
         format.html { redirect_to root_path }
-        flash[:notice] = "Parent was successfully created."
+        flash[:notice] = "Leiter was successfully created."
         format.json { render :show, status: :created, location: @leiter }
       else
         format.html { render :new, status: 422 }

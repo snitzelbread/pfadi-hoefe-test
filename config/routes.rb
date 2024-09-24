@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get "wola", to: "wola#index"
   get "pfila", to: "pfila#index"
   get "sola", to: "sola#index"
-  get "archiv/index"
+
 
   get "bestellung", to: "bestellung#new"
   post "bestellung", to: "bestellung#create"
@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   delete "clear_shopping_list", to: "kleiders#clear_shopping_list", as: :clear_shopping_list
 
   resources :hocks
+  resources :archives, except: [ :show, :new, :create ]
 
 
 end

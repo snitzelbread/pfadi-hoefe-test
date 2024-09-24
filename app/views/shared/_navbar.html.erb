@@ -64,6 +64,9 @@
           </li>
         <% elsif current_leiter.present? %>
           <li class="nav-item">
+            <%= link_to "Archiv", archives_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
             <%= link_to "Profil", profil_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
@@ -77,7 +80,7 @@
           </li>
         <% else %> <!-- Parents -->
           <li class="nav-item">
-            <%= link_to "Archiv", archiv_index_path, class: "nav-link" %>
+            <%= link_to "Archiv", archives_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Logout", logout_path, method: :delete, class: "nav-link" %>

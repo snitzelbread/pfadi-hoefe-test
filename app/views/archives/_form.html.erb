@@ -1,0 +1,17 @@
+<%= form_with(model: archive) do |form| %>
+  <% if archive.errors.any? %>
+    <% flash[:alert] = archive.errors.full_message %>
+  <% end %>
+
+  <div>
+    <%= form.file_field :documents, multiple: true %>
+  </div>
+  <div>
+    <%= form.file_field :images, multiple: true %>
+  </div>
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

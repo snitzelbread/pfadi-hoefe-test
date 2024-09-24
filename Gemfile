@@ -19,6 +19,8 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", ">= 4.0.1"
 
+gem "image_processing", "~> 1.2"
+
 # Gemfile
 group :development do
   gem "letter_opener"

@@ -1,6 +1,5 @@
 class KleidersController < ApplicationController
   before_action :set_kleider, only: %i[ show edit update destroy ]
-  before_action :initialize_shopping_list
 
 
   # GET /kleiders or /kleiders.json
@@ -63,31 +62,23 @@ class KleidersController < ApplicationController
   end
 
   def add_to_list
+    # Fetch the Kleider object by ID
     kleider = Kleider.find(params[:id])
 
-    # Initialize the shopping list if it doesn't exist
-    session[:shopping_list] ||= []
+    # Add the item to the session's shopping list array
+    session[:shopping_list] << {
+      name: kleider.name,
+      price: kleider.price * params[:amount].to_i,
+      description: kleider.description,
+      amount: params[:amount] || 1, # Make sure 'amount' is present, defaulting to 1 if not
+      added_at: Time.current
+    }
 
-    amount = params[:amount].to_s # Get the amount as a string
-    existing_item = session[:shopping_list].find { |item| item[:name] == kleider.name }
-
-    if existing_item
-      existing_item[:amount] = amount # Update the amount if it already exists
-    else
-      # Add a new item to the shopping list
-      session[:shopping_list] << {
-        name: kleider.name,
-        description: kleider.description,
-        price: kleider.price,
-        amount: amount,
-        added_at: Time.current
-      }
-    end
-
-    # Respond to update the shopping list in the view
+    # Respond with Turbo or normal HTML
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("shopping_list", partial: "shopping_list", locals: { shopping_list: session[:shopping_list] }) }
-      format.html { redirect_to kleider_path(kleider), notice: "#{kleider.name} added to your shopping list." }
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("shopping_list", partial: "shopping_list") }
+      format.turbo_stream { render turbo_stream: turbo_stream.replace("shopping_list", partial: "shopping_list") }
+      format.html { redirect_to kleiders_path}
     end
   end
 
@@ -96,7 +87,7 @@ class KleidersController < ApplicationController
 
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.replace("shopping_list", partial: "shopping_list", locals: { shopping_list: session[:shopping_list] }) }
-      format.html { redirect_to some_path, notice: "Einkaufsliste wurde geleert." }
+      format.html { redirect_to kleiders_path, notice: "Einkaufsliste wurde geleert." }
     end
   end
 
@@ -114,9 +105,5 @@ class KleidersController < ApplicationController
     def format_errors(object)
       error_messages = object.errors.full_messages.join(", ")
       "#{object.errors.count} Fehler verhinderte(n) das Log-In: #{error_messages}"
-    end
-
-    def initialize_shopping_list
-      session[:shopping_list] ||= [] # Only initialize if it doesn't already exist
     end
 end

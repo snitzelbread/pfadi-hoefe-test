@@ -14,6 +14,13 @@
             <% end %>
           </div>
           <small class="text-body-secondary"><strong>Preis: </strong><%= kleider.price %>0 Fr. </small>
+          <%= form_with url: add_to_list_kleider_path(kleider), method: :post, local: true do |form| %>
+            <div class="input-group mt-2">
+              <%= form.label :amount, "Menge:", class: "input-group-text" %>
+              <%= form.number_field :amount, value: 1, min: 1, class: "form-control", style: "width: 60px;" %>
+              <%= form.submit "Hinzufügen", class: "btn btn-sm btn-outline-success" %>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

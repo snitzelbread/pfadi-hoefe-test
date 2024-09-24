@@ -2,6 +2,9 @@ class ApplicationController < ActionController::Base
   # Define a helper method to check if a user is logged in
   helper_method :current_leiter, :logged_in_leiter?
   helper_method :current_parent, :logged_in_parent?
+  before_action :initialize_shopping_list
+
+
 
   private
 
@@ -33,6 +36,10 @@ class ApplicationController < ActionController::Base
 
   def current_parent
     @current_parent ||= Parent.find(session[:parent_id]) if session[:parent_id]
+  end
+
+  def initialize_shopping_list
+    session[:shopping_list] ||= []  # Only initialize if the session is nil, keeping existing data
   end
 
 end

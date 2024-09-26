@@ -21,7 +21,7 @@ class BestellungController < ApplicationController
 
   private
   def bestellung_params
-    params.require(:anmeldung).permit(
+    params.require(:bestellung).permit(
       :firstname, :lastname, :email, :phone, :address,
       :city, :zipcode, :message, :order_list
     )

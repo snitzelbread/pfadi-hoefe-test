@@ -2,14 +2,30 @@
 <style>
     #navbar {
         position: sticky;
-        top: 0;
+        top: 15px;
         overflow: visible;
-        background-color: #333;
         z-index: 100;
+
+        background-color: #ae0000;
+        border-radius: 25px;
+        width: 98%;
+
+
+        margin: 0 auto; /* Centers the navbar within its container */
+        left: 0; /* Removes any default left offset */
+        right: 0; /* Removes any default right offset */
+
+        font-family: "DM Sans", sans-serif;
     }
+
+
+
+
+
+
 </style>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark" id="navbar">
+<nav class="navbar navbar-expand-lg" data-bs-theme="dark" id="navbar">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
       <%= image_tag("pfadi_logo.jpeg", style: "width:30px; height: 24px", class: "d-inline-block align-text-top") %>
@@ -21,7 +37,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <%= link_to "Home", root_path, class: "nav-link" %>
+          <%= nav_link_to "Home", root_path %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -36,7 +52,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <%= link_to "Verein", verein_path, class: "nav-link" %>
+          <%= nav_link_to "Verein", verein_path %>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,10 +65,10 @@
           </ul>
         </li>
         <li class="nav-item">
-          <%= link_to "Kleiderkasten", kleiders_path, class: "nav-link" %>
+          <%= nav_link_to "Kleiderkasten", kleiders_path %>
         </li>
         <li class="nav-item">
-          <%= link_to "Anmeldung", anmeldung_path, class: "nav-link" %>
+          <%= nav_link_to "Anmeldung", anmeldung_path %>
         </li>
       </ul>
 
@@ -60,30 +76,30 @@
       <ul class="navbar-nav ms-auto">
         <% if current_leiter.nil? && current_parent.nil? %>
           <li class="nav-item">
-            <%= link_to "Log In", login_path, class: "nav-link" %>
+            <%= nav_link_to "Log In", login_path, class: "nav-link" %>
           </li>
         <% elsif current_leiter.present? %>
           <li class="nav-item">
-            <%= link_to "Archiv", archives_path, class: "nav-link" %>
+            <a href="https://drive.google.com/drive/folders/1VR1npUwoDqEVSFzWR_gPC3FYo7rJ6dNB?usp=drive_link" class="nav-link">Archiv</a>
           </li>
           <li class="nav-item">
-            <%= link_to "Profil", profil_path, class: "nav-link" %>
+            <%= nav_link_to "Profil", profil_path%>
           </li>
           <li class="nav-item">
-            <%= link_to "Höcks", hocks_path, method: :get, class: "nav-link" %>
+            <%= nav_link_to "Höcks", hocks_path, :get%>
           </li>
           <li class="nav-item">
             <span class="nav-link" style="color: white">Logged in as: <%= current_leiter.pfadiname %></span>
           </li>
           <li class="nav-item">
-            <%= link_to "Logout", logout_path, method: :delete, class: "nav-link" %>
+            <%= nav_link_to "Logout", logout_path, :delete %>
           </li>
         <% else %> <!-- Parents -->
           <li class="nav-item">
-            <%= link_to "Archiv", archives_path, class: "nav-link" %>
+            <a href="https://drive.google.com/drive/folders/1VR1npUwoDqEVSFzWR_gPC3FYo7rJ6dNB?usp=sharing" class="nav-link">Archiv</a>
           </li>
           <li class="nav-item">
-            <%= link_to "Logout", logout_path, method: :delete, class: "nav-link" %>
+            <%= nav_link_to "Logout", logout_path, :delete%>
           </li>
         <% end %>
       </ul>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_24_124444) do
+ActiveRecord::Schema[7.2].define(version: 2024_09_24_153756) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -76,6 +76,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_24_124444) do
     t.string "order_list"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "kleiders_id"
+    t.index ["kleiders_id"], name: "index_bestellungs_on_kleiders_id"
   end
 
   create_table "hocks", force: :cascade do |t|

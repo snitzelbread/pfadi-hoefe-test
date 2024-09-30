@@ -1,0 +1,79 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+
+.playpen-sans-title {
+    font-family: "Playpen Sans", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.dm-sans-title {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.dm-sans-description {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: calc(10px + 0.5vw)
+}
+
+.btn {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    border-radius: 50px
+}
+
+.h1{
+    white-space: pre-wrap;
+}
+
+
+
+.navbar {
+    .nav-link {
+        color: rgb(255, 255, 255);
+        transition: color 0.3s, background-color 0.3s;
+        border-radius: 25px;
+
+        &:hover {
+            color: yellow;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        &.active {
+            color: yellow;
+        }
+    }
+}
+
+.dropdown-menu .dropdown-item:hover{
+    background-color: red;
+}
+.dropdown-menu{
+    background-color: #ae0000;
+}

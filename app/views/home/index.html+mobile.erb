@@ -1,4 +1,33 @@
+<style>
+    .hocks-container-home {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        margin-left: 10vw;
+        gap: 20px;
+        padding: 10px;
+        width: 80%;
+        border: 3px solid #dd1634;
+        border-radius: 25px;
+        background-color: #fff5ed;
+    }
 
+    @media (max-width: 768px) { /* Tablet view adjustments */
+        .hocks-container-home {
+            margin-left: 5vw; /* Reduced left margin */
+            width: auto; /* Increased width for better spacing */
+        }
+    }
+
+    @media (max-width: 576px) { /* Mobile view adjustments */
+        .hocks-container-home {
+            margin-left: 2vw; /* Further reduced left margin */
+            width: auto; /* Full width for mobile */
+        }
+    }
+</style>
 
 
 
@@ -22,14 +51,14 @@
   </div>
 </div>
 
-<h1 class="center dm-sans-title" style="font-size: 7vw">Hockzettel</h1>
+<h1 class="center dm-sans-title" style="font-size: 9vw">Hockzettel</h1>
 <div class="hocks-container-home shadow-lg">
   <h1 class="dm-sans-title stufen-titel-links">🦫 Biber 🦫</h1>
   <%= render partial: "home/hocks", locals: { hock: @closest_biber_hock } %>
 </div>
 <div class="hocks-container-home shadow-lg">
+  <h1 class="dm-sans-title stufen-titel-links">🐺 Wölfli 🐺</h1>
   <%= render partial: "home/hocks", locals: { hock: @closest_woelfli_hock } %>
-  <h1 class="dm-sans-title stufen-titel-rechts">🐺 Wölfli 🐺</h1>
 </div>
 <div class="hocks-container-home shadow-lg">
   <h1 class="dm-sans-title stufen-titel-links">⚜️ Pfadi ⚜️</h1>

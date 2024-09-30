@@ -6,6 +6,10 @@
     gap: 20px; /* Adds gap between hocks */
     margin: 20px;
 }
+
+.hock{
+    width: 20%;
+}
 </style>
 <div class="divider dm-sans-title"><%= stufe %> Höcks</div>
 <% if hocks.present? %>
@@ -13,6 +17,7 @@
     <% hocks.each do |hock| %>
       <div class="hock">
         <h3><%= hock.title %></h3>
+        <hr>
         <p><%= hock.description %></p>
         <p><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
         <p><strong>Leiter: </strong><%= hock.pfadiname_of_leiter %></p>
@@ -22,5 +27,5 @@
     <% end %>
   </div>
 <% else %>
-  <p> Keine <%= stufe %>-Höcks vorhanden.</p>
+  <p class="dm-sans-description"> Keine <%= stufe %>-Höcks vorhanden.</p>
 <% end %>

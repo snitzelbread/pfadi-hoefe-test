@@ -4,8 +4,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_parent, :logged_in_parent?
   before_action :initialize_shopping_list
 
-
-
   private
 
   # Check if the user is logged in

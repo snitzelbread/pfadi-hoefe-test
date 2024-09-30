@@ -21,6 +21,10 @@ gem "redis", ">= 4.0.1"
 
 gem "image_processing", "~> 1.2"
 
+gem "sassc-rails"
+
+gem "browser"
+
 # Gemfile
 group :development do
   gem "letter_opener"
@@ -47,6 +51,7 @@ group :development, :test do
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
   gem "brakeman", require: false
+
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false

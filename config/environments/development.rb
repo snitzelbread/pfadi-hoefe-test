@@ -88,4 +88,8 @@ Rails.application.configure do
     authentication: "plain",
     enable_starttls_auto: true
   }
+
+
+  # config/environments/development.rb
+  config.sass.inline_source_maps = true
 end

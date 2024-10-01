@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :leaders
-
-  resources :articles
-  resources :news
   root "home#index"
 
   get "biber", to: "biber#index"
@@ -21,12 +17,6 @@ Rails.application.routes.draw do
 
   get "logout", to: "log_in#destroy"
   delete "logout", to: "log_in#destroy"
-
-  get "leiter", to: "leiter#new"
-  post "leiter", to: "leiter#create"
-  get "profil", to: "leiter#show"
-  get "profil/edit", to: "leiter#edit"
-  patch "profil", to: "leiter#update"
 
   get "parent", to: "parent#new"
   post "parent", to: "parent#create"
@@ -48,5 +38,17 @@ Rails.application.routes.draw do
   resources :hocks
   resources :archives, except: [ :show, :new, :create ]
 
+  devise_for :leaders, controllers: {
+    sessions: 'leaders/sessions',
+    registrations: 'leaders/registrations',
+    passwords: 'leaders/passwords'
+  }
 
+  devise_scope :leader do
+    get "profil", to: "leaders/registrations#show"
+  end
+
+
+  resources :articles
+  resources :news
 end

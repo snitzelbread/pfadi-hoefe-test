@@ -1,0 +1,92 @@
+<style>
+    .center{
+        top: 20px;
+        min-width: 400px;
+        max-width: fit-content;
+        margin: auto;
+        text-align: center;
+    }
+
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        min-width: 400px;
+    }
+    .hock {
+        border: 3px solid #e4be1a;
+        border-radius: 25px;
+        padding: 20px;
+        width: fit-content; /* Adjust width so that multiple hocks fit horizontally */
+
+        background-color: #ffffff;
+    }
+</style>
+
+<!-- Alerts -->
+<%= form_for(@leader, as: leader, url: leader_session_path(leader)) do |f| %>
+  <% unless leader.nil? %>
+    <% if leader.errors.any? %>
+      <% flash[:alert] = format_errors(@leader) %>
+    <% end %>
+  <% end %>
+
+
+
+<div class="card hock shadow">
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="align-self: center" width="200" height="200" fill="currentColor" class="bi bi-ladder" viewBox="0 0 16 16">
+    <path d="M4.5 1a.5.5 0 0 1 .5.5V2h6v-.5a.5.5 0 0 1 1 0v14a.5.5 0 0 1-1 0V15H5v.5a.5.5 0 0 1-1 0v-14a.5.5 0 0 1 .5-.5M5 14h6v-2H5zm0-3h6V9H5zm0-3h6V6H5zm0-3h6V3H5z"/>
+  </svg>  <h1 style="text-align: center">Leiter</h1>
+  <!-- E-Mail -->
+  <div class="center input-group mb-3 w-50">
+    <span class="input-group-text">@</span>
+    <div class="form-floating">
+      <input name="leader[email]"
+             id="leader_email"
+             placeholder="email"
+             type="email"
+             autofocus
+             autocomplete="email"
+             required
+             aria-label="email"
+             class="form-control">
+
+      <label for="leader_email">E-Mail</label>
+    </div>
+  </div>
+
+  <!-- Passwort -->
+  <div class="center input-group mb-3 w-50">
+    <span class="input-group-text">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+        <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8m4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5"/>
+        <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+      </svg>
+    </span>
+    <div class="form-floating">
+      <input name="leader[password]"
+             id="leader_password"
+             placeholder="Passwort"
+             type="password"
+             required
+             autocomplete="current-password"
+             aria-label="password"
+             class="form-control">
+
+      <label for="leader_password">Passwort</label>
+    </div>
+  </div>
+
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+
+  <!-- Button -->
+  <div class="center mb-3 mt-3">
+    <%= f.submit "Log In", class: "btn btn-success"%>
+  </div>
+  <%end%>
+</div>
+

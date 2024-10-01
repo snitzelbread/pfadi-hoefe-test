@@ -16,12 +16,16 @@ class Leaders::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-    super
+    render "leaders/registrations/edit"
   end
 
   # PUT /resource
   def update
     super
+  end
+
+  def show
+    @leader = current_leader
   end
 
   # DELETE /resource
@@ -47,7 +51,9 @@ class Leaders::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:pfadiname, :first_name, :last_name, :email,
+                                                              :password, :password_confirmation, :current_password,
+                                                              :image, :stufe, :funktion])
   end
 
   # The path used after sign up.
@@ -57,6 +63,10 @@ class Leaders::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
+    super(resource)
+  end
+
+  def after_update_path_for(resource)
     super(resource)
   end
 end

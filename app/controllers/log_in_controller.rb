@@ -1,23 +1,12 @@
 class LogInController < ApplicationController
   def new
-    @leiter = Leiter.new
+    @leader = Leader.new
     @parent = Parent.new
   end
 
 def create
-  if !params[:leiter].nil?
-    @leiter = Leiter.find_by(pfadiname: params[:leiter][:pfadiname])
-    respond_to do |format|
-    if @leiter.present? && @leiter.authenticate(params[:leiter][:password])
-      session[:leiter_id] = @leiter.id
-      format.html { redirect_to root_path, notice: "Erfolgreich eingeloggt!" }
-    else
-      @leiter ||= Leiter.new
-      @leiter.errors.add(:base, "Pfadiname oder Passwort ist falsch.")
-      format.html { render :new, status: 422 }
-    end
-  end
-  elsif !params[:parent].nil?
+
+  unless params[:parent].nil?
     @parent = Parent.find_by(email: params[:parent][:email])
     respond_to do |format|
       if @parent.present? && @parent.authenticate(params[:parent][:password])

@@ -18,7 +18,7 @@
     <hr>
     <p class="dm-sans-description" style="float: left"><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
     <p class="dm-sans-description" style="float: left; margin-left: 10px"><strong>Ort: </strong><%= hock.ort %></p>
-    <p  class="dm-sans-description" style="float: left; margin-left: 10px"><strong>Leiter: </strong><%= hock.leiter.pfadiname %></p>
+    <p  class="dm-sans-description" style="float: left; margin-left: 10px"><strong>Leiter: </strong><%= hock.pfadiname_of_leader(hock.leader_id) %></p>
   </div>
 <% else %>
   <div class="hock">

@@ -16,5 +16,5 @@
       <h3 class="dm-sans-title"><%= hock.title %></h3>
       <p class="dm-sans-description"><%= hock.description %></p>
       <p class="dm-sans-description" style="float: left"><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
-      <p class="dm-sans-description"><strong>Leiter: </strong><%= hock.pfadiname_of_leiter %></p>
+      <p class="dm-sans-description"><strong>Leiter: </strong><%= hock.pfadiname_of_leader(hock.leader_id) %></p>
     </div>

@@ -1,0 +1,49 @@
+<style>
+
+
+    .leiter-title {
+        color: #000000;
+        text-align: center;
+    }
+
+    .leiter-details p {
+        font-size: 1.1rem;
+    }
+
+    .actions .btn{
+        margin-right: 10px;
+    }
+</style>
+
+
+<%= render partial: "shared/alerts" %>
+
+<% @leader = current_leader %>
+
+<div class="hocks-container">
+  <div class="hock">
+    <h1 class="leiter-title">
+      <%= @leader.pfadiname %>
+    </h1>
+
+
+    <% if @leader.image.present? %>
+      <%= image_tag(@leader.image, height: 200, width: 200, class: "shadow-lg",style: "border-radius: 25px; float: left; margin-top: 2vw") %>
+    <% end %>
+    <div style="float: left; margin-left: 3vw">
+      <p><strong>Pfadiname:</strong> <%= @leader.pfadiname %></p>
+      <p><strong>First Name:</strong> <%= @leader.first_name %></p>
+      <p><strong>Last Name:</strong> <%= @leader.last_name %></p>
+      <p><strong>Email:</strong> <%= @leader.email %></p>
+      <p><strong>Stufe:</strong> <%= @leader.stufe %></p>
+      <p><strong>Funktion:</strong> <%= @leader.funktion %></p>
+      <p><strong>Account Created:</strong> <%= @leader.created_at.strftime('%B %d, %Y') %></p>
+      <p><strong>Last Updated:</strong> <%= @leader.updated_at.strftime('%B %d, %Y') %></p>
+    </div>
+
+
+    <div class="actions mt-4">
+      <%= link_to 'Edit', edit_leader_registration_path(@leader), class: "btn btn-primary mr-2" %>
+    </div>
+  </div>
+</div>

@@ -14,17 +14,17 @@
   <%= render partial: "home/hocks", locals: { hock: @closest_pfadi_hock } %>
 </div>
 
-<% @leiter = Leiter.where(stufe: "Pfadi", funktion: "Stufenleitung").first %>
+<% @leader = Leader.where(stufe: "Pfadi", funktion: "Stufenleitung").first %>
 
-<%= render partial: "shared/contact_form", locals: { image: @leiter.image,
-                                                     name: "#{@leiter.firstname} #{@leiter.lastname} v/o #{@leiter.pfadiname.capitalize}",
-                                                     funktion: "#{@leiter.funktion} #{@leiter.stufe}",
-                                                     email: "#{@leiter.email}" } %>
+<%= render partial: "shared/contact_form", locals: { image: @leader.image,
+                                                     name: "#{@leader.first_name} #{@leader.last_name} v/o #{@leader.pfadiname.capitalize}",
+                                                     funktion: "#{@leader.funktion} #{@leader.stufe}",
+                                                     email: "#{@leader.email}" } %>
 
-<% @leiters = Leiter.where(stufe: "Pfadi").where.not(funktion: "Stufenleitung") %>
-<% @leiters.each do |t| %>
+<% @leaders = Leader.where(stufe: "Pfadi").where.not(funktion: "Stufenleitung") %>
+<% @leaders.each do |t| %>
   <%= render partial: "shared/contact_form", locals: { image: t.image,
-                                                       name: "#{t.firstname} #{t.lastname} v/o #{t.pfadiname.capitalize}",
+                                                       name: "#{t.first_name} #{t.last_name} v/o #{t.pfadiname.capitalize}",
                                                        funktion: "#{t.funktion} #{t.stufe}",
                                                        email: "#{t.email}" } %>
 <% end %>

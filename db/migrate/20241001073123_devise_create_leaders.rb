@@ -8,7 +8,6 @@ class DeviseCreateLeaders < ActiveRecord::Migration[7.2]
       t.string :last_name
       t.string :stufe
       t.string :funktion
-      t.string :image
       t.index [:stufe, :funktion], name: "index_leaders_on_stufe_and_funktion", unique: true
 
       ## Database authenticatable

@@ -6,7 +6,7 @@
   <%= render @kleider %>
 </div>
 
-<% if current_leiter.present? %>
+<% if leader_signed_in? %>
   <div style="text-align: center">
     <%= link_to "Bearbeiten", edit_kleider_path(@kleider), class: "btn btn-warning", style: "margin: 10px" %>
     <%= link_to "Löschen", @kleider, data: { turbo_method: :delete }, class: "btn btn-danger", style: "margin: 10px" %>

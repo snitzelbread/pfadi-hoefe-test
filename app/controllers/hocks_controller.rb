@@ -1,6 +1,6 @@
 class HocksController < ApplicationController
   before_action :set_hock, only: %i[ show edit update destroy ]
-  before_action :require_login_leiter
+  before_action :require_login_leader
 
 
   # GET /hocks or /hocks.json
@@ -39,7 +39,6 @@ class HocksController < ApplicationController
         format.html { redirect_to hock_url(@hock), notice: "Hock was successfully created." }
         format.json { render :show, status: :created, location: @hock }
       else
-        flash.now[:alert] = "Invalid email or password"
         format.html { render :new, status: 422 }
         format.json { render json: @hock.errors, status: 422 }
       end
@@ -75,11 +74,11 @@ class HocksController < ApplicationController
     end
     # Only allow a list of trusted parameters through.
     def hock_params
-      params.require(:hock).permit(:title, :description, :datetime, :stufe, :leiter_id, :ort)
+      params.require(:hock).permit(:title, :description, :datetime, :stufe, :leader_id, :ort)
     end
 
     def format_errors(object)
       error_messages = object.errors.full_messages.join(", ")
-      "#{object.errors.count} Fehler verhinderte(n) das Log-In: #{error_messages}"
+      "#{object.errors.count} Fehler verhinderte(n) das speichern des Höcks: #{error_messages}"
     end
 end

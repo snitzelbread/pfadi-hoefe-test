@@ -2,7 +2,7 @@
 <body style="background-color: beige">
 <%= form_with(model: @hock) do |form| %>
   <% if @hock.errors.any? %>
-    <% flash[:alert] = format_errors(@hock) %>
+    <% flash[:alert] = @hock.errors.full_messages %>
 <% end %>
 
   <!-- Titel -->
@@ -91,7 +91,7 @@
 
 
   <div>
-    <%= form.hidden_field :leiter_id, value: current_leiter.id %>
+    <%= form.hidden_field :leader_id, value: current_leader.id %>
   </div>
 
   <div class="center">

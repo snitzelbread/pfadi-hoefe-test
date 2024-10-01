@@ -76,25 +76,25 @@
 
       <!-- This section moves to the right side -->
       <ul class="navbar-nav ms-auto">
-        <% if current_leiter.nil? && current_parent.nil? %>
+        <% if current_parent.nil? && current_leader.nil? %>
           <li class="nav-item">
-            <%= nav_link_to "Log In", login_path, class: "nav-link" %>
+            <%= nav_link_to "Log In", login_path %>
           </li>
-        <% elsif current_leiter.present? %>
+        <% elsif leader_signed_in? %>
           <li class="nav-item">
             <a href="https://cloud.linuxfabrik.io/index.php/s/XEpctQQeR4aNiin" class="nav-link">Archiv</a>
           </li>
           <li class="nav-item">
-            <%= nav_link_to "Profil", profil_path%>
+            <%= nav_link_to "Profil", profil_path(current_leader)%>
           </li>
           <li class="nav-item">
             <%= nav_link_to "Höcks", hocks_path, :get%>
           </li>
           <li class="nav-item">
-            <span class="nav-link" style="color: white">Logged in as: <%= current_leiter.pfadiname %></span>
+            <span class="nav-link" style="color: white">Logged in as: <%= current_leader.pfadiname %></span>
           </li>
           <li class="nav-item">
-            <%= nav_link_to "Logout", logout_path, :delete %>
+            <%= button_to "Logout", destroy_leader_session_path, method: :delete, class: "btn btn-logout" %>
           </li>
         <% else %> <!-- Parents -->
           <li class="nav-item">

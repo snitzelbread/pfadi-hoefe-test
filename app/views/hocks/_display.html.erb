@@ -20,7 +20,7 @@
         <hr>
         <p><%= hock.description %></p>
         <p><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
-        <p><strong>Leiter: </strong><%= hock.pfadiname_of_leiter %></p>
+        <p><strong>Leiter: </strong><%= hock.pfadiname_of_leader(hock.leader_id) %></p>
         <p style="float: left"><%= link_to "Hock bearbeiten", edit_hock_path(hock), class: "btn btn-warning btn-sm" %></p>
         <%= button_to "Hock löschen", hock, method: :delete, class: "btn btn-danger btn-sm", data: {confirm: "Bist du dir sicher?"}, style: "margin-left: 10px" %>
       </div>

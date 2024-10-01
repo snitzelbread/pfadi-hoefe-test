@@ -10,16 +10,16 @@
 
 <h1 class="center playpen-sans-title" style="font-size: 100px">Pios</h1>
 
-<% @leiter = Leiter.where(stufe: "Pios", funktion: "Stufenleitung").first %>
+<% @leader = Leader.where(stufe: "Pios", funktion: "Stufenleitung").first %>
 
-<%= render partial: "shared/contact_form", locals: { image: @leiter.image,
-                                                     name: "#{@leiter.firstname} #{@leiter.lastname} v/o #{@leiter.pfadiname}",
-                                                     funktion: "#{@leiter.funktion} #{@leiter.stufe}",
-                                                     email: "#{@leiter.email}" } %>
-<% @leiters = Leiter.where(stufe: "Pios").where.not(funktion: "Stufenleitung") %>
-<% @leiters.each do |t| %>
+<%= render partial: "shared/contact_form", locals: { image: @leader.image,
+                                                     name: "#{@leader.first_name} #{@leader.last_name} v/o #{@leader.pfadiname}",
+                                                     funktion: "#{@leader.funktion} #{@leader.stufe}",
+                                                     email: "#{@leader.email}" } %>
+<% @leaders = Leiter.where(stufe: "Pios").where.not(funktion: "Stufenleitung") %>
+<% @leaders.each do |t| %>
   <%= render partial: "shared/contact_form", locals: { image: t.image,
-                                                       name: "#{t.firstname} #{t.lastname} v/o #{t.pfadiname.capitalize}",
+                                                       name: "#{t.first_name} #{t.last_name} v/o #{t.pfadiname.capitalize}",
                                                        funktion: "#{t.funktion} #{t.stufe}",
                                                        email: "#{t.email}" } %>
 <% end %>

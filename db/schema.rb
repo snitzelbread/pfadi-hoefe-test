@@ -95,9 +95,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_01_073123) do
     t.datetime "updated_at", null: false
     t.datetime "datetime"
     t.string "stufe"
-    t.integer "leiter_id", null: false
+    t.integer "leader_id", null: false
     t.string "ort"
-    t.index ["leiter_id"], name: "index_hocks_on_leiter_id"
+    t.index ["leader_id"], name: "index_hocks_on_leader_id"
   end
 
   create_table "kleiders", force: :cascade do |t|
@@ -116,7 +116,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_01_073123) do
     t.string "last_name"
     t.string "stufe"
     t.string "funktion"
-    t.string "image"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -167,5 +166,5 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_01_073123) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "hocks", "leiters", primary_key: "id"
+  add_foreign_key "hocks", "leaders", primary_key: "id"
 end

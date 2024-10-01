@@ -1,4 +1,3 @@
-
 <style>
     #navbar {
         position: sticky;
@@ -70,6 +69,9 @@
         <li class="nav-item">
           <%= nav_link_to "Anmeldung", anmeldung_path %>
         </li>
+        <li class="nav-item">
+          <%= nav_link_to "Artikel", articles_path %>
+        </li>
       </ul>
 
       <!-- This section moves to the right side -->
@@ -80,7 +82,7 @@
           </li>
         <% elsif current_leiter.present? %>
           <li class="nav-item">
-            <a href="https://drive.google.com/drive/folders/1VR1npUwoDqEVSFzWR_gPC3FYo7rJ6dNB?usp=drive_link" class="nav-link">Archiv</a>
+            <a href="https://cloud.linuxfabrik.io/index.php/s/XEpctQQeR4aNiin" class="nav-link">Archiv</a>
           </li>
           <li class="nav-item">
             <%= nav_link_to "Profil", profil_path%>
@@ -96,7 +98,7 @@
           </li>
         <% else %> <!-- Parents -->
           <li class="nav-item">
-            <a href="https://drive.google.com/drive/folders/1VR1npUwoDqEVSFzWR_gPC3FYo7rJ6dNB?usp=sharing" class="nav-link">Archiv</a>
+            <a href="https://cloud.linuxfabrik.io/index.php/s/XEpctQQeR4aNiin" class="nav-link">Archiv</a>
           </li>
           <li class="nav-item">
             <%= nav_link_to "Logout", logout_path, :delete%>

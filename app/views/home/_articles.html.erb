@@ -1,0 +1,25 @@
+<style>
+
+</style>
+
+
+<% if article.present? %>
+  <div class="article" style="width: 60%">
+    <h2 class="dm-sans-title"><%= article.title %></h2>
+    <hr>
+    <p class="dm-sans-description" style="white-space: pre-wrap"><%= article.content %></p>
+    <hr>
+    <p class="dm-sans-description" style="float: left"><strong>Veröffentlicht: </strong> <%= article.date.strftime("%d.%m.%Y") %></p>
+    <%= link_to "Anzeigen", article_path(article.id), class: "btn btn-primary", style: "float: right" %>
+  </div>
+<% else %>
+  <div class="article">
+    <h2> </h2>
+    <hr>
+    <p> </p>
+    <hr>
+    <p style="float: left"> </p>
+    <p style="float: left; margin-left: 10px"> </p>
+    <p style="float: left; margin-left: 10px"> </p>
+  </div>
+<% end %>

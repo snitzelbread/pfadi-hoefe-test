@@ -1,0 +1,17 @@
+<div id="<%= dom_id article %>" style="white-space: wrap">
+  <p class="dm-sans-title" style="font-size: calc(20px + 1vw)">
+    <%= article.title %>
+  </p>
+  <hr>
+  <p class="dm-sans-description">
+    <%= article.content %>
+  </p>
+  <hr>
+  <p class="dm-sans-description">
+    <strong><strong><strong><strong>Veröffentlicht am:</strong></strong></strong></strong>
+    <%= article.date.strftime("%A %d.%m.%Y") %>
+  </p>
+  <div>
+    <%= link_to "Anzeigen", article_path(article.id), class: "btn btn-primary", style: "float: right" %>
+  </div>
+</div>

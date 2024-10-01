@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :leaders
+
+  resources :articles
+  resources :news
   root "home#index"
 
   get "biber", to: "biber#index"

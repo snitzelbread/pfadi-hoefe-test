@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_24_153756) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_01_073123) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -64,6 +64,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_24_153756) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "articles", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "bestellungs", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -102,6 +110,32 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_24_153756) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "leaders", force: :cascade do |t|
+    t.string "pfadiname"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "stufe"
+    t.string "funktion"
+    t.string "image"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.integer "failed_attempts", default: 0, null: false
+    t.datetime "locked_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_leaders_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_leaders_on_reset_password_token", unique: true
+    t.index ["stufe", "funktion"], name: "index_leaders_on_stufe_and_funktion", unique: true
+  end
+
   create_table "leiters", force: :cascade do |t|
     t.string "pfadiname"
     t.string "firstname"
@@ -114,6 +148,14 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_24_153756) do
     t.datetime "updated_at", null: false
     t.string "image"
     t.index ["stufe", "funktion"], name: "index_leiters_on_stufe_and_funktion", unique: true
+  end
+
+  create_table "news", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.date "date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "parents", force: :cascade do |t|

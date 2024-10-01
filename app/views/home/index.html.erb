@@ -1,7 +1,3 @@
-
-
-
-
 <body>
 
 <div class="slideshow-container">
@@ -22,33 +18,28 @@
   </div>
 </div>
 
-<h1 class="center dm-sans-title" style="font-size: 7vw">Hockzettel</h1>
+
+<h1 class="center dm-sans-title" style="font-size: 7vw; text-decoration-line: underline" >Neuigkeiten</h1>
+<div class="news-container-home shadow-lg">
+  <%= render partial: "home/articles", locals: { article: @latest_articles.first } %>
+  <%= render partial: "home/articles", locals: { article: @latest_articles.second } %>
+</div>
+
+
+<h1 class="center dm-sans-title" style="font-size: 7vw; text-decoration-line: underline">Hockzettel</h1>
 <div class="hocks-container-home shadow-lg">
   <h1 class="dm-sans-title stufen-titel-links">🦫 Biber 🦫</h1>
   <%= render partial: "home/hocks", locals: { hock: @closest_biber_hock } %>
 </div>
+
 <div class="hocks-container-home shadow-lg">
   <%= render partial: "home/hocks", locals: { hock: @closest_woelfli_hock } %>
   <h1 class="dm-sans-title stufen-titel-rechts">🐺 Wölfli 🐺</h1>
 </div>
+
 <div class="hocks-container-home shadow-lg">
   <h1 class="dm-sans-title stufen-titel-links">⚜️ Pfadi ⚜️</h1>
   <%= render partial: "home/hocks", locals: { hock: @closest_pfadi_hock } %>
 </div>
-</body>
-<script>
-    let slideIndex = 0;
-    showSlides();
 
-    function showSlides() {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}
-        slides[slideIndex-1].style.display = "block";
-        setTimeout(showSlides, 5000); // Change image every 2 seconds
-    }
-</script>
+</body>

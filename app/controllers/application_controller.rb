@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   # Define a helper method to check if a user is logged in
+  before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :current_leiter, :logged_in_leiter?
   helper_method :current_parent, :logged_in_parent?
   before_action :initialize_shopping_list
@@ -38,6 +39,10 @@ class ApplicationController < ActionController::Base
 
   def initialize_shopping_list
     session[:shopping_list] ||= []  # Only initialize if the session is nil, keeping existing data
+  end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
   end
 
 end

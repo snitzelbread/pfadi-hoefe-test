@@ -69,25 +69,18 @@ class KleidersController < ApplicationController
     session[:shopping_list] << {
       name: kleider.name,
       price: kleider.price * params[:amount].to_i,
-      description: kleider.description,
       amount: params[:amount] || 1, # Make sure 'amount' is present, defaulting to 1 if not
-      added_at: Time.current
     }
 
-    # Respond with Turbo or normal HTML
-    respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("shopping_list", partial: "shopping_list") }
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("shopping_list", partial: "shopping_list") }
-      format.html { redirect_to kleiders_path}
-    end
+    flash[:notice] = "#{kleider.name} added."
+    redirect_to kleiders_path
   end
 
   def clear_shopping_list
     session[:shopping_list] = [] # Clear the shopping list
 
     respond_to do |format|
-      format.turbo_stream { render turbo_stream: turbo_stream.replace("shopping_list", partial: "shopping_list", locals: { shopping_list: session[:shopping_list] }) }
-      format.html { redirect_to kleiders_path, notice: "Einkaufsliste wurde geleert." }
+      format.html { redirect_to bestellung_path, notice: "Einkaufsliste wurde geleert." }
     end
   end
 

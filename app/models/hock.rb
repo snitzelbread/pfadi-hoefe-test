@@ -13,6 +13,6 @@ class Hock < ApplicationRecord
 
   def pfadiname_of_leader(leader_id)
     leader = Leader.find_by(id: leader_id)
-    leader.pfadiname
+    leader.pfadiname if present?
   end
 end

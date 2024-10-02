@@ -87,6 +87,7 @@
     </div>
   </div>
 
+  <% form.hidden_field :order_list, value: session[:shopping_list] %>
 
   <div style="text-align: center; margin-top: 40px" >
     <%= form.submit "Einreichen", class: "btn btn-success btn-lg" %>

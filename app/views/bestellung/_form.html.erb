@@ -24,8 +24,7 @@
 </style>
 
 <div class="container">
-
-  <h1 class="dm-sans-title center" style="font-size: 80px; margin-bottom: 30px; text-align: center">Ihre Bestellung</h1>
+  <h2 class="dm-sans-title center" style="font-size: 80px; margin-bottom: 30px; text-align: center">Ihre Daten</h2>
 
   <div class="hock shadow-lg">
     <%= form_with model: @bestellung, local: true, url: bestellung_path, method: :post do |form| %>
@@ -163,8 +162,6 @@
           <label for="bestellung_message">Nachricht</label>
         </div>
       </div>
-
-      <%= render partial: 'kleiders/shopping_list' %>
 
       <div style="text-align: center; margin-top: 20px">
         <%= form.submit "Bestellung schicken", class: "btn btn-primary btn-lg m-3"%>

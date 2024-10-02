@@ -1,1 +1,41 @@
-<%= render partial: "anmeldung/form" %>
+<style>
+  .bestellung-container{
+      display: flex;
+      flex-wrap: nowrap;
+      margin: 0 auto;
+  }
+
+  .bubatz{
+      display: flex;
+      flex-wrap: wrap;
+      background-color: rgba(207, 221, 255, 0.98);
+      margin: 0 auto;
+      width: 95%;
+      border-radius: 25px;
+  }
+
+  .bestellung-form{
+
+  }
+
+  .shopping-list{
+      margin: 20px;
+      height: 50vh;
+  }
+</style>
+
+<body>
+  <div class="bubatz">
+    <div class="bestellung-container">
+      <div class="bestellung-form">
+        <%= render partial: "bestellung/form" %>
+      </div>
+      <div class="shopping-list">
+        <%= render partial: "kleiders/shopping_list" %>
+      </div>
+    </div>
+    <%= link_to "Zurück zum Kleiderkasten", kleiders_path, class: "btn btn-warning btn-lg", style: "margin: 0 auto; margin-bottom: 50px" %>
+  </div>
+</body>
+
+

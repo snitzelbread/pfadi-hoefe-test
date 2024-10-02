@@ -14,7 +14,24 @@
  *= require_self
  */
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures body takes up at least the viewport height */
+}
+
+main {
+    flex: 1; /* Allows the main content to grow and take up remaining space */
+}
+
+footer {
+    margin-top: auto; /* Ensures footer is pushed to the bottom when there is not enough content */
+}
 
 .playpen-sans-title {
     font-family: "Playpen Sans", cursive;

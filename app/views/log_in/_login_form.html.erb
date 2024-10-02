@@ -1,0 +1,17 @@
+<style>
+
+    .login-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 30px
+    }
+</style>
+
+<div class="login-container">
+  <div class="card-group gap-4">
+    <%= render "log_in/leader_form", leader: @leader %>
+    <%= render "log_in/parent_form", parent: @parent %>
+  </div>
+  <%= link_to "Passwort vergessen?", forgot_password_path %>
+</div>

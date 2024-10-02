@@ -1,6 +1,6 @@
 class LeiterController < ApplicationController
   before_action :set_leiter, only: [ :edit, :update, :show ]
-  before_action :require_login_leiter
+  before_action :require_login_leader
 
   def new
     @leiter = Leiter.new

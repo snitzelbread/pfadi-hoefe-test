@@ -42,6 +42,14 @@ class Leaders::RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  private
+
+  def require_login_leader
+    unless leader_signed_in?
+      redirect_to "/login", alert: "You must be logged in to access this section."
+    end
+  end
+
   protected
 
   # If you have extra params to permit, append them to the sanitizer.

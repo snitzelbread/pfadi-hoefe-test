@@ -14,12 +14,12 @@
 <%= render partial: "shared/contact_form", locals: { image: @leader.image,
                                                      name: "#{@leader.first_name} #{@leader.last_name} v/o #{@leader.pfadiname.capitalize}",
                                                      funktion: "#{@leader.funktion} #{@leader.stufe}",
-                                                     email: "#{@leader.email}" } %>
+                                                     email: "#{@leader.email}" } if @leader.present? %>
 
 <% @leaders = Leader.where(stufe: "Rover").where.not(funktion: "Stufenleitung") %>
 <% @leaders.each do |t| %>
   <%= render partial: "shared/contact_form", locals: { image: t.image,
                                                        name: "#{t.first_name} #{t.last_name} v/o #{t.pfadiname.capitalize}",
                                                        funktion: "#{t.funktion} #{t.stufe}",
-                                                       email: "#{t.email}" } %>
+                                                       email: "#{t.email}" } if t.present?%>
 <% end %>

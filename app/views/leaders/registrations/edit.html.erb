@@ -6,6 +6,7 @@
   <%= form_for(@leader, url: leader_registration_path(@leader), html: { method: :put, multipart: true }) do |f| %>
     <%= render "leaders/shared/error_messages", resource: resource %>
 
+    <!-- Pfadiname -->
     <div class="center input-group mb-3 w-50">
       <span class="input-group-text">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alphabet" viewBox="0 0 16 16">
@@ -69,7 +70,7 @@
       </span>
       <div class="form-floating">
         <select name="leader[stufe]" id="leader_stufe" class="form-select" aria-label="stufe select">
-          <% ["Biber", "Wölfli", "Pfadi", "Pios", "Rover"].each do |stufe_option| %>
+          <% ["Biber", "Wölfli", "Pfadi", "Pios", "Rover", "Inaktiv"].each do |stufe_option| %>
             <option value="<%= stufe_option %>" <%= 'selected' if @leader.stufe == stufe_option %>>
               <%= stufe_option %>
             </option>
@@ -129,38 +130,6 @@
       </div>
     </div>
 
-    <!-- Passwort & Passwort Confirmation -->
-    <div class="center input-group mb-3 w-50">
-      <span class="input-group-text">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
-          <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8m4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5"/>
-          <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
-        </svg>
-      </span>
-      <div class="form-floating">
-        <input name="leader[password]"
-               id="leader_password"
-               placeholder="Passwort"
-               type="password"
-               autocomplete="password"
-               aria-label="password"
-               class="form-control">
-
-        <label for="leader_password">Passwort</label>
-      </div>
-      <div class="form-floating">
-        <input name="leader[password_confirmation]"
-               id="leader_password_confirmation"
-               placeholder="Passwort bestaetigen"
-               type="password"
-               autocomplete="new-password"
-               aria-label="password_confirmation"
-               class="form-control">
-
-        <label for="leader_password">Passwort bestätigen</label>
-      </div>
-    </div>
-
     <!-- Current Password -->
     <div class="center input-group mb-3 w-50">
       <span class="input-group-text">
@@ -187,6 +156,7 @@
     <div class="center actions mb-3 w-50">
       <%= f.submit "Leiter aktualisieren", class: "btn btn-primary" %>
       <%= link_to "Back", :back, class: "btn btn-danger" %>
+      <%= link_to "Passwort ändern", change_password_path, class: "btn btn-warning" %>
 
     </div>
   <% end %>

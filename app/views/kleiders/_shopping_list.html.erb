@@ -1,18 +1,23 @@
-<turbo-frame id="shopping_list">
-  <ul class="list-group center mb-3 w-50">
-    <% session[:shopping_list].each do |item| %>
-      <li class="list-group-item">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1"><%= item["name"] %></h5> <!-- Access the name as a string key -->
-          <small>Added: <%= time_ago_in_words(item["added_at"] || Time.current) %> ago</small> <!-- Access the added_at as a string key -->
-        </div>
-        <p class="mb-1"><%= item["description"] %></p> <!-- Access the description as a string key -->
-        <small>Preis: <%= item["price"] %>0 Fr. | Menge: <%= item["amount"] %></small> <!-- Access price and amount as string keys -->
-      </li>
-    <% end %>
-  </ul>
+<ul class="list-group center mb-3 w-50">
+  <h1 class="dm-sans-title center" style="font-size: 80px; margin-bottom: 30px; text-align: center">Warenkorb</h1>
 
-  <div class="text-center">
-    <%= button_to "Einkaufsliste leeren", clear_shopping_list_path, method: :delete, class: "btn btn-danger m-3" %>
-  </div>
-</turbo-frame>
+  <% if session[:shopping_list].empty? %>
+    <li class="list-group-item">Der Warenkorb ist leer.</li> <!-- Message if shopping list is empty -->
+  <%  else %>
+    <%  session[:shopping_list].each do |item| %>
+    <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-1"><%=  item["name"] || "Unknown Item"  %></h5> <!-- Default if name is nil -->
+            </div>
+      <small>
+        Preis: <%= number_to_currency(item["price"] || 0.0, unit: "Fr.", format: "%n %u") %> |
+        Menge: <%=  item["amount"] || 1  %> <!-- Default amount if nil -->
+      </small>
+    </li>
+    <%  end  %>
+  <% end %>
+</ul>
+
+<div class="text-center">
+  <%= button_to "Einkaufsliste leeren", clear_shopping_list_path, method: :delete, class: "btn btn-danger m-3" %>
+</div>

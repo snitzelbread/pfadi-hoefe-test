@@ -1,17 +1,69 @@
+<style>
+  .modal-button {
+      cursor: pointer;
+  }
+</style>
+
 <div id="<%= dom_id article %>" style="white-space: wrap">
+
   <p class="dm-sans-title" style="font-size: calc(20px + 1vw)">
     <%= article.title %>
   </p>
+
   <hr>
-  <p class="dm-sans-description">
+
+  <p class="dm-sans-description" style="white-space: pre-wrap">
     <%= article.content %>
   </p>
-  <hr>
-  <p class="dm-sans-description">
-    <strong><strong><strong><strong>Veröffentlicht am:</strong></strong></strong></strong>
-    <%= article.date.strftime("%A %d.%m.%Y") %>
-  </p>
+
   <div>
-    <%= link_to "Anzeigen", article_path(article.id), class: "btn btn-primary", style: "float: right" %>
+    <% if article.images.present? %>
+      <h1>Bilder</h1>
+      <% article.images.each_with_index do |image, index| %>
+        <!-- Button to trigger modal -->
+        <%= image_tag(image, height: 200, width: 200, class: "modal-button", data: { bs_toggle: "modal", bs_target: "#imageModal#{index}" }) %>
+
+
+        <!-- Modal for each image -->
+        <div class="modal" id="imageModal<%= index %>" tabindex="-1" aria-labelledby="imageModalLabel<%= index %>" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <%= image_tag(image, class: "img-fluid", style: "max-width: 100%;") %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
-</div>
+
+        <!-- Clickable image that triggers the modal -->
+  <!-- Button trigger modal -->
+
+
+
+    <hr>
+
+    <p class="dm-sans-description">
+      <strong>Veröffentlicht am:</strong>
+      <%= I18n.l(article.date, format: "%A %d.%m.%Y", locale: :de) %>
+    </p>
+
+    </div>
+
+<script>
+    const myModal = document.getElementById('myModal')
+    const myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', () => {
+        myInput.focus()
+    })
+</script>
+
+
+
+

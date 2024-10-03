@@ -1,16 +1,22 @@
 <style>
-
+    .article {
+    }
 </style>
-
 
 <% if article.present? %>
   <div class="article" style="width: 60%">
     <h2 class="dm-sans-title"><%= article.title %></h2>
     <hr>
-    <p class="dm-sans-description" style="white-space: pre-wrap"><%= article.content %></p>
+    <p class="dm-sans-description" style="white-space: wrap">
+      <%= truncate(article.content, length: 500, separator: ' ') %>
+      <%= link_to "Mehr lesen", article_path(article.id) if article.content.length >= 500%> <!-- Truncates content to 300 characters -->
+
+    </p>
     <hr>
-    <p class="dm-sans-description" style="float: left"><strong>Veröffentlicht: </strong> <%= article.date.strftime("%d.%m.%Y") %></p>
-    <%= link_to "Anzeigen", article_path(article.id), class: "btn btn-primary", style: "float: right" %>
+    <p class="dm-sans-description" style="float: left">
+      <strong>Veröffentlicht: </strong><%= article.date.strftime("%d.%m.%Y") %>
+      <%= " // Dieser Beitrag hat auch Bilder!" if article.images.present? %>
+    </p>
   </div>
 <% else %>
   <div class="article">

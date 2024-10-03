@@ -94,7 +94,7 @@
             <span class="nav-link" style="color: white">Logged in as: <%= current_leader.pfadiname %></span>
           </li>
           <li class="nav-item">
-            <%= button_to "Logout", destroy_leader_session_path, method: :delete, class: "btn btn-logout" %>
+            <%= button_to "Logout", destroy_leader_session_path, method: :delete, class: "btn btn-logout", style: "font-size: 16px" %>
           </li>
         <% else %> <!-- Parents -->
           <li class="nav-item">

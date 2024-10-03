@@ -23,15 +23,14 @@
     }
 </style>
 
-<body style="background-color: beige">
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Höcks" %>
 
-<h1 class="dm-sans-title" style="font-size:70px;">Höcks</h1>
+<h1 class="dm-sans-title" style="font-size:calc(30px + 2vw);">Höcks</h1>
 
 <br>
-<%= link_to "Neuer Höck", new_hock_path, class: "btn btn-success btn-lg", style: "margin: 10px" %>
+<%= link_to "Neuer Höck", new_hock_path, class: "btn btn-success btn-lg", style: "margin: 10px; width: fit-content" %>
 <br>
 
 
@@ -43,4 +42,3 @@
   <div class="divider"></div>
 </div>
 
-</body>

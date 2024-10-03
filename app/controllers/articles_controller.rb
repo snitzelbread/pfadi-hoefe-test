@@ -4,7 +4,11 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
-    @articles = Article.all
+    # Default sort order is descending (newest first)
+    sort_order = params[:sort] || 'desc'
+
+    # Fetch articles, ordered by date based on the sort parameter
+    @articles = Article.order(date: sort_order)
   end
 
   # GET /articles/1 or /articles/1.json
@@ -66,6 +70,6 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :content, :date)
+      params.require(:article).permit(:title, :content, :date, images: [])
     end
 end

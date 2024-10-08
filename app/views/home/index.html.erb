@@ -7,39 +7,50 @@
 </div>
 
 <div class="container">
-  <%= image_tag("pfadi_logo.jpeg", class: "logo") %>
-  <h1 class="playpen-sans-title text-title" style="z-index: 5; color: white">Pfadi Höfe </h1>
-  <p class="text-description playpen-sans-title" style="z-index: 5; color: white"> <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zäme wyter! - Bewusst handeln! </i> </p>
-  <div class="center" style="justify-self: end; align-self: center; position: relative; z-index: 5;">
-    <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="white" style="z-index: auto; opacity: 1; margin-top: 50px" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
-      <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
-      <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
-    </svg>
+  <div class="home-title-screen">
+    <%= image_tag("pfadi_logo.jpeg", class: "logo") %>
+    <h1 class="playpen-sans-title text-title" style="color: white">Pfadi Höfe </h1>
+    <p class="text-description playpen-sans-title" style="color: white"> <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zäme wyter! - Bewusst handeln! </i> </p>
+    <div class="center" style="z-index: 5;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="white" style="z-index: auto; opacity: 1; margin-top: 50px" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+        <path fill-rule="evenodd" d="M1.646 2.646a.5.5 0 0 1 .708 0L8 8.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
+      </svg>
+    </div>
   </div>
+
 </div>
 
 
-<h1 class="center dm-sans-title" style="font-size: 7vw; text-decoration-line: underline" >Neuigkeiten</h1>
-<div class="news-container-home shadow-lg">
-  <%= render partial: "home/articles", locals: { article: @latest_articles.first } %>
-  <%= render partial: "home/articles", locals: { article: @latest_articles.second } %>
+<h1 class="center dm-sans-title" style="font-size: 7vw; white-space: wrap">[ Beiträge ]</h1>
+<div class="articles-container shadow-lg">
+  <div class="articles-home">
+    <%= render partial: "home/articles", locals: { article: @latest_articles.first } %>
+    <%= render partial: "home/articles", locals: { article: @latest_articles.second } %>
+  </div>
+  <%= link_to "Alle Beiträge lesen", articles_path, class: "btn btn-custom-warning", style: "margin: 20px auto;" %>
+
 </div>
+
 
 
 <h1 class="center dm-sans-title" style="font-size: 7vw; text-decoration-line: underline">Hockzettel</h1>
-<div class="hocks-container-home shadow-lg">
-  <h1 class="dm-sans-title stufen-titel-links">🦫 Biber 🦫</h1>
-  <%= render partial: "home/hocks", locals: { hock: @closest_biber_hock } %>
+<div class="container" style="margin-top: 20px">
+  <div class="hocks-container-home shadow-lg grow">
+    <h1 class="dm-sans-title stufen-titel-links">🦫 Biber 🦫</h1>
+    <%= render partial: "home/hocks", locals: { hock: @closest_biber_hock } %>
+  </div>
+
+  <div class="hocks-container-home shadow-lg grow">
+    <%= render partial: "home/hocks", locals: { hock: @closest_woelfli_hock } %>
+    <h1 class="dm-sans-title stufen-titel-rechts">🐺 Wölfli 🐺</h1>
+  </div>
+
+  <div class="hocks-container-home shadow-lg grow">
+    <h1 class="dm-sans-title stufen-titel-links">⚜️ Pfadi ⚜️</h1>
+    <%= render partial: "home/hocks", locals: { hock: @closest_pfadi_hock } %>
+  </div>
 </div>
 
-<div class="hocks-container-home shadow-lg">
-  <%= render partial: "home/hocks", locals: { hock: @closest_woelfli_hock } %>
-  <h1 class="dm-sans-title stufen-titel-rechts">🐺 Wölfli 🐺</h1>
-</div>
-
-<div class="hocks-container-home shadow-lg">
-  <h1 class="dm-sans-title stufen-titel-links">⚜️ Pfadi ⚜️</h1>
-  <%= render partial: "home/hocks", locals: { hock: @closest_pfadi_hock } %>
-</div>
 
 </body>

@@ -3,14 +3,19 @@
 
 <h1 class="dm-sans-title" style="text-align: center; font-size: 80px">Kleiderkasten</h1>
 <p class="dm-sans-description" style="text-align: center; font-size: 20px">Der Kleiderkasten bietet Ihnen alle Pfadikleider an.</p>
-<%= link_to "Zum Warenkorb", bestellung_path, class: "btn btn-success" %>
-
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 m-3" id="kleiders">
-  <% @kleiders.each do |kleider| %>
-    <%= render kleider %>
-  <% end %>
+<div style="text-align: center">
+  <%= link_to "Zum Warenkorb", bestellung_path, class: "btn btn-custom", style: "" %>
 </div>
 
-<% if current_leader.present? %>
-  <%= link_to "Neues Kleidungsstück", new_kleider_path, class: "btn btn-primary btn-lg", style: "margin: 20px" %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center w-100">
+      <% @kleiders.each do |kleider| %>
+        <%= render kleider %>
+      <% end %>
+  </div>
+</div>
+<div style="text-align: center">
+  <% if current_leader.present? %>
+    <%= link_to "Neues Kleidungsstück", new_kleider_path, class: "btn btn-custom btn-lg", style: "margin: 0 auto;" %>
+  <% end %>
+</div>

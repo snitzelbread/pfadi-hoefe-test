@@ -29,8 +29,7 @@ class KleidersController < ApplicationController
 
     respond_to do |format|
       if @kleider.save
-        format.html { redirect_to kleider_url(@kleider), notice: "Kleider was successfully created." }
-        format.json { render :show, status: :created, location: @kleider }
+        format.html { redirect_to kleiders_path, notice: "Kleidungsstück wurde erfolgreich erstellt!" }
       else
         format.html { render :new, status: 422 }
         format.json { render json: @kleider.errors, status: 422 }
@@ -42,8 +41,7 @@ class KleidersController < ApplicationController
   def update
     respond_to do |format|
       if @kleider.update(kleider_params)
-        format.html { redirect_to kleider_url(@kleider), notice: "Kleider was successfully updated." }
-        format.json { render :show, status: :ok, location: @kleider }
+        format.html { redirect_to kleiders_path, notice: "Kleidungsstück wurde erfolgreich aktualisiert."}
       else
         format.html { render :edit, status: 422 }
         format.json { render json: @kleider.errors, status: 422 }
@@ -56,7 +54,7 @@ class KleidersController < ApplicationController
     @kleider.destroy!
 
     respond_to do |format|
-      format.html { redirect_to kleiders_url, notice: "Kleider was successfully destroyed." }
+      format.html { redirect_to kleiders_path, notice: "Kleidungsstück wurde gelöscht." }
       format.json { head :no_content }
     end
   end

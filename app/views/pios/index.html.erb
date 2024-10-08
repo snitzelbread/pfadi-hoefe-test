@@ -9,17 +9,25 @@
 
 
 <h1 class="center playpen-sans-title" style="font-size: 100px">Pios</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-10">
+      <% @leader = Leader.where(stufe: "Pios", funktion: "Stufenleitung").first %>
 
-<% @leader = Leader.where(stufe: "Pios", funktion: "Stufenleitung").first %>
-
-<%= render partial: "shared/contact_form", locals: { image: @leader.image,
-                                                     name: "#{@leader.first_name} #{@leader.last_name} v/o #{@leader.pfadiname}",
-                                                     funktion: "#{@leader.funktion} #{@leader.stufe}",
-                                                     email: "#{@leader.email}" } if @leader.present? %>
-<% @leaders = Leiter.where(stufe: "Pios").where.not(funktion: "Stufenleitung") %>
-<% @leaders.each do |t| %>
-  <%= render partial: "shared/contact_form", locals: { image: t.image,
-                                                       name: "#{t.first_name} #{t.last_name} v/o #{t.pfadiname.capitalize}",
-                                                       funktion: "#{t.funktion} #{t.stufe}",
-                                                       email: "#{t.email}" } if t.present? %>
-<% end %>
+      <%= render partial: "shared/contact_form", locals: { image: @leader.image,
+                                                           name: "#{@leader.first_name} #{@leader.last_name} v/o #{@leader.pfadiname.capitalize}",
+                                                           funktion: "#{@leader.funktion} #{@leader.stufe}",
+                                                           email: "#{@leader.email}" } if @leader.present? %>
+    </div>
+    <div class="w-100"></div>
+    <div class="col-lg-4 col-md-6 col-sm-10">
+      <% @leaders = Leader.where(stufe: "Pios").where.not(funktion: "Stufenleitung") %>
+      <% @leaders.each do |t| %>
+        <%= render partial: "shared/contact_form", locals: { image: t.image,
+                                                             name: "#{t.first_name} #{t.last_name} v/o #{t.pfadiname.capitalize}",
+                                                             funktion: "#{t.funktion} #{t.stufe}",
+                                                             email: "#{t.email}" } if t.present?%>
+        </div>
+        </div>
+      <% end %>
+      </div>

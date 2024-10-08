@@ -7,12 +7,6 @@
         text-align: center;
     }
 
-    .container{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        min-width: 700px;
-    }
     .hock {
         border: 3px solid #e4be1a;
         border-radius: 25px;
@@ -23,10 +17,11 @@
     }
 </style>
 
-<div class="container">
-  <h2 class="dm-sans-title center" style="font-size: 80px; margin-bottom: 30px; text-align: center">Ihre Daten</h2>
+<div class="container" style="justify-content: center; min-width: fit-content;">
 
   <div class="hock shadow-lg">
+    <h2 class="dm-sans-title center" style="font-size: 80px; margin-bottom: 30px; text-align: center">Ihre Daten</h2>
+
     <%= form_with model: @bestellung, local: true, url: bestellung_path, method: :post do |form| %>
 
       <!-- Vorname/Nachname -->
@@ -164,7 +159,7 @@
       </div>
 
       <div style="text-align: center; margin-top: 20px">
-        <%= form.submit "Bestellung schicken", class: "btn btn-primary btn-lg m-3"%>
+        <%= form.submit "Bestellung schicken", class: "btn btn-custom-primary m-3"%>
       </div>
     <% end %>
 

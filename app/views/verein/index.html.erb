@@ -12,17 +12,33 @@
 <h1 class="center dm-sans-title" style="font-size: 100px">Verein</h1>
 <br>
 <br>
+
+
 <h1 class="dm-sans-title">Abteilungsleitung</h1>
-<% @leader = Leader.where(funktion: "Abteilungsleitung").first %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-md-6 col-sm-10">
+      <% @leader = Leader.where(funktion: "Abteilungsleitung").first %>
 
-<%= render partial: "shared/contact_form", locals: { image: @leader.image,
-                                                     name: "#{@leader.first_name} #{@leader.last_name} v/o #{@leader.pfadiname.capitalize}",
-                                                     funktion: "#{@leader.funktion}",
-                                                     email: "#{@leader.email}" } if @leader.present? %>
+      <%= render partial: "shared/contact_form", locals: { image: @leader.image,
+                                                           name: "#{@leader.first_name} #{@leader.last_name} v/o #{@leader.pfadiname.capitalize}",
+                                                           funktion: "#{@leader.funktion}",
+                                                           email: "#{@leader.email}" } if @leader.present? %>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-10">
+      <% @leader = Leader.where(funktion: "Stv. Abteilungsleitung").first %>
+      <%= render partial: "shared/contact_form", locals: { image: @leader.image,
+                                                           name: "#{@leader.first_name} #{@leader.last_name} v/o #{@leader.pfadiname.capitalize}",
+                                                           funktion: "#{@leader.funktion}",
+                                                           email: "#{@leader.email}" } if @leader.present?%>
+    </div>
+</div>
+</div>
+<br>
+<br>
+<h1 class="dm-sans-title">Organigramm Pfadi Höfe</h1>
 
-<% @leader = Leader.where(funktion: "Stv. Abteilungsleitung").first %>
-<%= render partial: "shared/contact_form", locals: { image: @leader.image,
-                                                     name: "#{@leader.first_name} #{@leader.last_name} v/o #{@leader.pfadiname.capitalize}",
-                                                     funktion: "#{@leader.funktion}",
-                                                     email: "#{@leader.email}" } if @leader.present?%>
+<div class="container" style="width: 80%; margin: 0 auto">
+  <%= raw File.read(Rails.root.join('app', 'assets', 'images', 'Organigramm.svg')) %>
+</div>
 

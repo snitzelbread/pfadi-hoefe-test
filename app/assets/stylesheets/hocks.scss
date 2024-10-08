@@ -17,8 +17,26 @@
     border: 3px solid #e4be1a;
     border-radius: 25px;
     padding: 10px;
-    width: 50%; /* Adjust width so that multiple hocks fit horizontally */
     margin: 20px;
     background-color: white;
+}
+
+.hock-bubble{
+    border-radius: 25px;
+    padding: 10px;
+    border: 3px solid black;
+
+    &-red{
+        @extend .hock-bubble;
+        background-color: #ffb3b3;
+    }
+    &-green{
+        @extend .hock-bubble;
+        background-color: #b3ffc2;
+    }
+    &-blue{
+        @extend .hock-bubble;
+        background-color: #b3ddff;
+    }
 }
 

@@ -1,33 +1,34 @@
 <style>
     .hock {
-        border: 3px solid #e4be1a;
+        border: 3px solid #000000;
         border-radius: 25px;
         padding: 10px;
-        width: calc(100% - 10%); /* Adjust width so that multiple hocks fit horizontally */
-        margin: 0 auto;
+        margin: 5px auto;
         background-color: rgb(255, 255, 255);
     }
 </style>
 
 
 <% if hock.present? %>
-  <div class="hock">
-    <h2 class="dm-sans-title"><%= hock.title %></h2>
-    <hr>
-    <p class="dm-sans-description" style="white-space: pre-wrap"><%= hock.description %></p>
-    <hr>
-    <p class="dm-sans-description" style="float: left"><strong><strong><strong><strong>Datum & Zeit: </strong></strong></strong></strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %></p>
-    <p class="dm-sans-description" style="float: left; margin-left: 10px"><strong><strong><strong><strong>Ort: </strong></strong></strong></strong><%= hock.ort %></p>
-    <p  class="dm-sans-description" style="float: left; margin-left: 10px"><strong><strong><strong><strong>Leiter: </strong></strong></strong></strong><%= hock.pfadiname_of_leader(hock.leader_id) %></p>
-  </div>
+    <div class="hock">
+      <h2 class="dm-sans-title"><%= hock.title %></h2>
+      <hr style="margin: 10px">
+      <p class="dm-sans-description" style="white-space: pre-wrap"><%= hock.description %></p>
+      <hr style="margin: 10px">
+      <p class="dm-sans-description">
+        <strong><strong><strong><strong>Datum & Zeit: </strong></strong></strong></strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %> //
+        <strong><strong><strong><strong>Ort: </strong></strong></strong></strong><%= hock.ort %> //
+        <strong><strong><strong><strong>Leiter: </strong></strong></strong></strong><%= hock.pfadiname_of_leader(hock.leader_id) %>
+      </p>
+    </div>
 <% else %>
-  <div class="hock">
-    <h2> Oops! Kein Höck dieses Mal.. </h2>
-    <hr>
-    <p> Momentan gibt es von dieser Stufe keinen Höck, schau doch zu einem späteren Zeitpunkt mal vorbei!</p>
-    <hr>
-    <p style="float: left"> </p>
-    <p style="float: left; margin-left: 10px"> </p>
-    <p style="float: left; margin-left: 10px"> </p>
-  </div>
+    <div class="hock">
+      <h2> Oops! Kein Höck dieses Mal.. </h2>
+      <hr>
+      <p> Momentan gibt es von dieser Stufe keinen Höck, schau doch zu einem späteren Zeitpunkt mal vorbei!</p>
+      <hr>
+      <p style="float: left"> </p>
+      <p style="float: left; margin-left: 10px"> </p>
+      <p style="float: left; margin-left: 10px"> </p>
+    </div>
 <% end %>

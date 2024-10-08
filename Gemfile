@@ -76,3 +76,5 @@ gem "recaptcha", "~> 5.17"
 gem "dotenv-rails", "~> 3.1"
 
 gem "i18n"
+
+gem "pg"

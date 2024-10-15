@@ -43,11 +43,11 @@
             Stufen
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="biber">Biber</a></li>
-            <li><a class="dropdown-item" href="woelfli">Wölfli</a></li>
-            <li><a class="dropdown-item" href="pfadi">Pfadi</a></li>
-            <li><a class="dropdown-item" href="pios">Pios</a></li>
-            <li><a class="dropdown-item" href="rover">Rover</a></li>
+            <li><%= link_to "Biber", biber_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Wölfli", woelfli_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Pfadi", pfadi_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Pios", pios_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Rover", rover_path, class: "dropdown-item" %></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -58,9 +58,9 @@
             Lager
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="pfila">Pfingstlager</a></li>
-            <li><a class="dropdown-item" href="sola">Sommerlager</a></li>
-            <li><a class="dropdown-item" href="wola">Wochenlager</a></li>
+            <li><%= link_to "Pfingstlager", pfila_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Sommerlager", sola_path, class: "dropdown-item" %></li>
+            <li><%= link_to "Wochenlager", wola_path, class: "dropdown-item" %></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -81,6 +81,9 @@
             <%= nav_link_to "Log In", login_path %>
           </li>
         <% elsif leader_signed_in? %>
+          <li class="nav-item">
+            <%= nav_link_to "Camps", camps_path%>
+          </li>
           <li class="nav-item">
             <a href="https://cloud.linuxfabrik.io/index.php/s/XEpctQQeR4aNiin" class="nav-link">Archiv</a>
           </li>

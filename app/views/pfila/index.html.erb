@@ -1,2 +1,2 @@
-<h1>Pfila#index</h1>
-<p>Find me in app/views/pfila/index.html.erb</p>
+<%= render partial: "camps/camp_page", locals: { camp: @pfila, title_image: @title_image} %>
+<%= link_to "Bearbeiten", edit_camp_path(@pfila.id), class: "btn btn-custom-warning" %>

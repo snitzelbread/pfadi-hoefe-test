@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_01_073123) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_10_152838) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -72,20 +72,20 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_01_073123) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "bestellungs", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "phone"
-    t.string "address"
-    t.string "city"
-    t.string "zipcode"
-    t.string "message"
-    t.string "order_list"
+# Could not dump table "bestellungs" because of following StandardError
+#   Unknown type 'ANY' for column 'order_list'
+
+
+  create_table "camps", force: :cascade do |t|
+    t.string "name"
+    t.string "general_description"
+    t.string "quote"
+    t.string "template"
+    t.string "this_camp_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "kleiders_id"
-    t.index ["kleiders_id"], name: "index_bestellungs_on_kleiders_id"
+    t.integer "leader_id", null: false
+    t.index ["leader_id"], name: "index_camps_on_leader_id"
   end
 
   create_table "hocks", force: :cascade do |t|
@@ -166,5 +166,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_01_073123) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "camps", "leaders"
   add_foreign_key "hocks", "leaders", primary_key: "id"
 end

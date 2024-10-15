@@ -1,0 +1,84 @@
+<style>
+    .no-camp-box{
+        align-content: center;
+        background-color: #fa5c5c;
+        border: 3px dashed darkred;
+        border-radius: 5px;
+        height: fit-content;
+        padding: calc(20px - <% 1/100 %>vw);
+    }
+</style>
+
+<h1 class="dm-sans-title text-center m-3" style="font-size: calc(15px + 3vw)"><%= camp.name if present? %></h1>
+
+<div class="container m-0" style="display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  max-width: 100%;
+  padding: 0">
+  <div class="row w-100 m-0">
+    <div class="col-6 p-0" id="imageContainer">
+      <%= image_tag url_for(title_image), alt: "NO PICTURE HERE BABY", id: "campImage", class: "img-fluid w-100", style: "object-fit: cover;" if present? %>
+    </div>
+    <div class="col-6 p-0" style="background-color: #9fd7ef;" id="textContainer">
+      <p class="dm-sans-description" style="font-size: calc(8px + 1vw); margin: 0; padding: 1rem;">
+        <%= camp.general_description if present? %>
+      </p>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container-lg">
+  <div class="row justify-content-center w-100">
+    <div class="col-lg-12 text-center" style="align-content: center; height: 10vh; background-color: lightgrey;">
+      <h4><em><%= camp.quote if present? %></em></h4>
+    </div>
+  </div>
+</div>
+
+<% if camp.template == "Lager ausgeschrieben" %>
+<div class="container mt-3">
+  <div class="row w-100">
+    <div class="col-lg-2 w-50" style="height: 40vh">
+      <p class="dm-sans-description" style="font-size: calc(8px + 1vw)"><%= camp.this_camp_description if present? %></p>
+    </div>
+    <div class="col-lg-1 col-md-1 col-sm-2" style="background-color: lightgrey; width: 1px"></div>
+    <div class="col-lg-2 col-md-4 col-sm-6">
+      <% @leader = camp.leader %>
+
+      <%= render partial: "shared/contact_form", locals: { image: @leader.image,
+                                                           name: "#{@leader.first_name} #{@leader.last_name} v/o #{@leader.pfadiname.capitalize}",
+                                                           funktion: "#{@leader.funktion} // Hauptlagerleitung #{camp.name}",
+                                                           email: "#{@leader.email}" } if @leader.present? %>
+    </div>
+  </div>
+
+
+
+
+<% elsif camp.template == "Kein Lager ausgeschrieben" %>
+  <hr>
+  <div class="container mt-3">
+    <div class="row justify-content-center w-100">
+      <div class="col-lg-12 text-center no-camp-box">
+        <h3> Momentan gibt es keine Infos zum nächsten <%= camp.name %>, bitte schau doch später mal vorbei! </h3>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+<script>
+    // Wait until the DOM is fully loaded
+    document.addEventListener("DOMContentLoaded", function() {
+        const imageContainer = document.getElementById('imageContainer');
+        const textContainer = document.getElementById('textContainer');
+        const campImage = document.getElementById('campImage');
+
+        // Get the height of the text container
+        const textHeight = textContainer.offsetHeight;
+
+        // Set the image container height to match the text container
+        campImage.style.height = textHeight + 'px';
+    });
+</script>

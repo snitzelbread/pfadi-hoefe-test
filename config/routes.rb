@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :camps
 
   devise_for :leaders, controllers: {
     sessions: "leaders/sessions",

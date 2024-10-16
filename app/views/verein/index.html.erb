@@ -1,5 +1,5 @@
 <style>
-    .center{
+    .center {
         position: relative;
         top: 20px;
         max-width: fit-content;
@@ -30,9 +30,9 @@
       <%= render partial: "shared/contact_form", locals: { image: @leader.image,
                                                            name: "#{@leader.first_name} #{@leader.last_name} v/o #{@leader.pfadiname.capitalize}",
                                                            funktion: "#{@leader.funktion}",
-                                                           email: "#{@leader.email}" } if @leader.present?%>
+                                                           email: "#{@leader.email}" } if @leader.present? %>
     </div>
-</div>
+  </div>
 </div>
 <br>
 <br>

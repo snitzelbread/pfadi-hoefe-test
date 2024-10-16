@@ -20,7 +20,7 @@ class Leaders::SessionsController < Devise::SessionsController
       # Custom path when sign-in fails
       flash.now[:alert] = 'Invalid email or password.'
       render "login"
-       # Change this to the desired path
+      # Change this to the desired path
     end
   end
 
@@ -36,6 +36,5 @@ class Leaders::SessionsController < Devise::SessionsController
     devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   end
 
-  def after_sign_in_path(resource)
-  end
+  def after_sign_in_path(resource) end
 end

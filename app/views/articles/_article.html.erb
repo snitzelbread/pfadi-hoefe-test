@@ -1,7 +1,7 @@
 <style>
-  .modal-button {
-      cursor: pointer;
-  }
+    .modal-button {
+        cursor: pointer;
+    }
 </style>
 
 <div id="<%= dom_id article %>" style="white-space: wrap">
@@ -41,19 +41,18 @@
     <% end %>
   </div>
 
-        <!-- Clickable image that triggers the modal -->
+  <!-- Clickable image that triggers the modal -->
   <!-- Button trigger modal -->
 
 
+  <hr>
 
-    <hr>
+  <p class="dm-sans-description">
+    <strong>Veröffentlicht am:</strong>
+    <%= I18n.l(article.date, format: "%A %d.%m.%Y", locale: :de) %>
+  </p>
 
-    <p class="dm-sans-description">
-      <strong>Veröffentlicht am:</strong>
-      <%= I18n.l(article.date, format: "%A %d.%m.%Y", locale: :de) %>
-    </p>
-
-    </div>
+</div>
 
 <script>
     const myModal = document.getElementById('myModal')

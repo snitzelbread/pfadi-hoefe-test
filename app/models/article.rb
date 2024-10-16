@@ -4,4 +4,5 @@ class Article < ApplicationRecord
   validates :content, presence: true
   validates :date, presence: true
 
-  scope :latest_articles, -> { where("date <= ?", Date.today ).order(date: :desc) }end
+  scope :latest_articles, -> { where("date <= ?", Date.today).order(date: :desc) }
+end

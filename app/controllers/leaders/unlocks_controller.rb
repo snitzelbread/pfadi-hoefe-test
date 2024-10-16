@@ -28,5 +28,4 @@ class Leaders::UnlocksController < Devise::UnlocksController
     super(resource)
   end
 
-
 end

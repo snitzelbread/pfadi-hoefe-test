@@ -18,10 +18,6 @@
     }
 
 
-
-
-
-
 </style>
 
 <nav class="navbar navbar-expand-lg" data-bs-theme="dark" id="navbar">
@@ -82,16 +78,16 @@
           </li>
         <% elsif leader_signed_in? %>
           <li class="nav-item">
-            <%= nav_link_to "Camps", camps_path%>
+            <%= nav_link_to "Camps", camps_path %>
           </li>
           <li class="nav-item">
             <a href="https://cloud.linuxfabrik.io/index.php/s/XEpctQQeR4aNiin" class="nav-link">Archiv</a>
           </li>
           <li class="nav-item">
-            <%= nav_link_to "Profil", profil_path(current_leader)%>
+            <%= nav_link_to "Profil", profil_path(current_leader) %>
           </li>
           <li class="nav-item">
-            <%= nav_link_to "Höcks", hocks_path, :get%>
+            <%= nav_link_to "Höcks", hocks_path, :get %>
           </li>
           <li class="nav-item">
             <span class="nav-link" style="color: white">Logged in as: <%= current_leader.pfadiname %></span>
@@ -104,7 +100,7 @@
             <a href="https://cloud.linuxfabrik.io/index.php/s/XEpctQQeR4aNiin" class="nav-link">Archiv</a>
           </li>
           <li class="nav-item">
-            <%= nav_link_to "Logout", logout_path, :delete%>
+            <%= nav_link_to "Logout", logout_path, :delete %>
           </li>
         <% end %>
       </ul>

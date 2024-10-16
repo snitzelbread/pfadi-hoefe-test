@@ -16,6 +16,7 @@ class Leiter < ApplicationRecord
       errors.add(:funktion, "#{funktion} kann es nur einmal geben.")
     end
   end
+
   def unique_stufenleitung_for_stufe
     if Leiter.where(funktion: 'Stufenleitung', stufe: stufe).where.not(id: id).exists?
       errors.add(:funktion, "Stufenleitung can only be assigned to one Leiter per stufe")

@@ -1,7 +1,6 @@
 class KleidersController < ApplicationController
   before_action :set_kleider, only: %i[ show edit update destroy ]
 
-
   # GET /kleiders or /kleiders.json
   def index
     @kleiders = Kleider.all
@@ -41,7 +40,7 @@ class KleidersController < ApplicationController
   def update
     respond_to do |format|
       if @kleider.update(kleider_params)
-        format.html { redirect_to kleiders_path, notice: "Kleidungsstück wurde erfolgreich aktualisiert."}
+        format.html { redirect_to kleiders_path, notice: "Kleidungsstück wurde erfolgreich aktualisiert." }
       else
         format.html { render :edit, status: 422 }
         format.json { render json: @kleider.errors, status: 422 }
@@ -83,18 +82,19 @@ class KleidersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_kleider
-      @kleider = Kleider.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def kleider_params
-      params.require(:kleider).permit(:name, :description, :image, :price, :size)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_kleider
+    @kleider = Kleider.find(params[:id])
+  end
 
-    def format_errors(object)
-      error_messages = object.errors.full_messages.join(", ")
-      "#{object.errors.count} Fehler verhinderte(n) das Log-In: #{error_messages}"
-    end
+  # Only allow a list of trusted parameters through.
+  def kleider_params
+    params.require(:kleider).permit(:name, :description, :image, :price, :size)
+  end
+
+  def format_errors(object)
+    error_messages = object.errors.full_messages.join(", ")
+    "#{object.errors.count} Fehler verhinderte(n) das Log-In: #{error_messages}"
+  end
 end

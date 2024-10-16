@@ -19,6 +19,7 @@ class CampsController < ApplicationController
   # GET /camps/1/edit
   def edit
     @all_leaders = Leader.all
+    session[:return_to] ||= request.referer
   end
 
   # POST /camps or /camps.json
@@ -38,9 +39,10 @@ class CampsController < ApplicationController
 
   # PATCH/PUT /camps/1 or /camps/1.json
   def update
+
     respond_to do |format|
       if @camp.update(camp_params)
-        format.html { redirect_to @camp, notice: "Camp was successfully updated." }
+        format.html { redirect_to session.delete(:return_to), notice: "Camp was successfully updated." }
         format.json { render :show, status: :ok, location: @camp }
       else
         format.html { render :edit, status: 422 }
@@ -60,13 +62,14 @@ class CampsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_camp
-      @camp = Camp.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def camp_params
-      params.require(:camp).permit(:name, :general_description, :quote, :template, :this_camp_description, :leader_id, images: [])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_camp
+    @camp = Camp.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def camp_params
+    params.require(:camp).permit(:name, :general_description, :quote, :template, :this_camp_description, :leader_id, images: [])
+  end
 end

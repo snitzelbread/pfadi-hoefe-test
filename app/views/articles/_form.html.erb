@@ -1,5 +1,5 @@
 <style>
-    .center{
+    .center {
         top: 20px;
         min-width: 700px;
         max-width: fit-content;
@@ -19,37 +19,37 @@
 </style>
 
 <div class="container" style="justify-content: center; min-width: 700px;">
-<div class="hock shadow-lg">
-<%= form_with(model: article, html: { multipart: true }) do |form| %>
-  <% if article.errors.any? %>
-    <% flash[:alert] = article.errors.full_message %>
-  <% end %>
+  <div class="hock shadow-lg">
+    <%= form_with(model: article, html: { multipart: true }) do |form| %>
+      <% if article.errors.any? %>
+        <% flash[:alert] = article.errors.full_message %>
+      <% end %>
 
-  <div class="center input-group mb-3 w-50">
-    <span class="input-group-text">@</span>
-    <div class="form-floating">
-      <input name="article[title]"
-             id="article_title"
-             placeholder="title"
-             type="text"
-             value="<%= article.title if present? %>"
-             required
-             aria-label="title"
-             class="form-control">
+      <div class="center input-group mb-3 w-50">
+        <span class="input-group-text">@</span>
+        <div class="form-floating">
+          <input name="article[title]"
+                 id="article_title"
+                 placeholder="title"
+                 type="text"
+                 value="<%= article.title if present? %>"
+                 required
+                 aria-label="title"
+                 class="form-control">
 
-      <label for="article_title">Title</label>
-    </div>
-  </div>
+          <label for="article_title">Title</label>
+        </div>
+      </div>
 
 
-  <div class="center input-group mb-3 w-50">
-    <div class="input-group-text">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
-        <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-        <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
-      </svg>
-    </div>
-    <div class="form-floating">
+      <div class="center input-group mb-3 w-50">
+        <div class="input-group-text">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-text" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+            <path d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6m0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+          </svg>
+        </div>
+        <div class="form-floating">
           <textarea name="article[content]"
                     id="article_content"
                     placeholder="content"
@@ -58,37 +58,37 @@
                     style="height: 200px"
                     class="form-control"><%= article.content if present? %></textarea>
 
-      <label for="article_content">Inhalt</label>
-    </div>
-  </div>
+          <label for="article_content">Inhalt</label>
+        </div>
+      </div>
 
 
-    <%= form.hidden_field :date, value: Date.today %>
+      <%= form.hidden_field :date, value: Date.today %>
 
-  <div class="center input-group mb-3 w-50">
+      <div class="center input-group mb-3 w-50">
       <span class="input-group-text">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera" viewBox="0 0 16 16">
           <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4z"/>
           <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5m0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/>
         </svg>
       </span>
-      <div class="form-floating">
-        <input name="article[images][]"
-               id="article_images"
-               placeholder="Profilbild"
-               type="file"
-               multiple="multiple"
-               aria-label="images"
-               class="form-control">
+        <div class="form-floating">
+          <input name="article[images][]"
+                 id="article_images"
+                 placeholder="Profilbild"
+                 type="file"
+                 multiple="multiple"
+                 aria-label="images"
+                 class="form-control">
 
-        <label for="article_image">Bilder</label>
+          <label for="article_image">Bilder</label>
+        </div>
       </div>
-    </div>
 
 
-  <div style="text-align: center; margin-top: 20px">
-    <%= form.submit "Artikel posten", class: "btn btn-danger btn-lg m-3"%>
-  </div>
-<% end %>
+      <div style="text-align: center; margin-top: 20px">
+        <%= form.submit "Artikel posten", class: "btn btn-danger btn-lg m-3" %>
+      </div>
+    <% end %>
   </div>
 </div>

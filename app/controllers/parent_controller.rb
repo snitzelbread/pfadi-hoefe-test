@@ -3,6 +3,7 @@ class ParentController < ApplicationController
   def new
     @parent = Parent.new
   end
+
   def create
     @parent = Parent.new(parent_params)
 
@@ -19,9 +20,11 @@ class ParentController < ApplicationController
   end
 
   private
+
   def parent_params
     params.require(:parent).permit(:email, :password, :password_confirmation)
   end
+
   def set_parent
     @parent = Parent.find_by_id(params[session[:parent_id]])
   end

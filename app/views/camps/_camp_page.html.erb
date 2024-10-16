@@ -1,59 +1,161 @@
 <style>
-    .no-camp-box{
+    .no-camp-box {
         align-content: center;
         background-color: #fa5c5c;
         border: 3px dashed darkred;
         border-radius: 5px;
         height: fit-content;
-        padding: calc(20px - <% 1/100 %>vw);
+        padding: 20px;
+    }
+
+    .camp-header {
+        background-image: url(<%= rails_blob_url(title_image) %>);
+        background-position: 50% 40%;
+        min-height: 30vh;
+        max-width: 100%;
+        background-size: cover;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .this-camp-header {
+        background-color: lightcoral;
+        border-radius: 25px;
+        min-height: 20vh;
+        max-width: 90%;
+        background-size: cover;
+        justify-content: center;
+        align-content: center;
+        margin-top: 20px;
+    }
+
+    .camp-description {
+        background-color: white;
+        border: 3px solid black;
+        border-radius: 15px;
+        margin: 10px;
+    }
+
+    .idk-container {
+        justify-content: center;
+        align-content: center;
+    }
+
+    .box {
+        width: 100%;
+        background: white;
+        text-align: center;
+        padding: 20px;
+        position: relative;
+        border-radius: 5px;
+        border: 3px solid black;
+        height: fit-content;
+
+    }
+
+    .triangle:before {
+        content: "";
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        border-left: 10px solid black;
+        border-right: 10px solid transparent;
+        border-top: 10px solid black;
+        border-bottom: 10px solid transparent;
+        right: -20px;
+        top: 6px;
+    }
+
+    .markdown-content {
+        p {
+            font-size: calc(10px + 0.5vw);
+            line-height: 1.6;
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            color: #2a5676;
+            margin-top: 20px;
+            text-decoration: underline;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: underline;
+
+            &:hover {
+                color: #0056b3;
+            }
+        }
+
+        ul, ol {
+            margin-left: 20px;
+        }
+
+        blockquote {
+            border-left: 4px solid #ccc;
+            padding-left: 16px;
+            color: #666;
+            font-style: italic;
+        }
+
+        code {
+            background-color: #f9f2f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
     }
 </style>
 
-<h1 class="dm-sans-title text-center m-3" style="font-size: calc(15px + 3vw)"><%= camp.name if present? %></h1>
 
-<div class="container m-0" style="display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  max-width: 100%;
-  padding: 0">
-  <div class="row w-100 m-0">
-    <div class="col-6 p-0" id="imageContainer">
-      <%= image_tag url_for(title_image), alt: "NO PICTURE HERE BABY", id: "campImage", class: "img-fluid w-100", style: "object-fit: cover;" if present? %>
-    </div>
-    <div class="col-6 p-0" style="background-color: #9fd7ef;" id="textContainer">
-      <p class="dm-sans-description" style="font-size: calc(8px + 1vw); margin: 0; padding: 1rem;">
-        <%= camp.general_description if present? %>
-      </p>
+<!-- Header -->
+<div class="container text-center camp-header">
+  <h1 class="dm-sans-title m-3" style="font-size: calc(10px + 6vw); color: white"><%= camp.name if present? %></h1>
+</div>
+
+<hr>
+
+<div class="container">
+  <div class="row">
+    <div class="col text-center camp-description">
+      <h3>Was ist ein <%= camp.name %>?</h3>
+      <p><%= camp.general_description %></p>
     </div>
   </div>
 </div>
-<hr>
-<div class="container-lg">
+
+
+
+
+<div class="container">
   <div class="row justify-content-center w-100">
     <div class="col-lg-12 text-center" style="align-content: center; height: 10vh; background-color: lightgrey;">
-      <h4><em><%= camp.quote if present? %></em></h4>
+      <h4><em>"<%= camp.quote if present? %>"</em></h4>
     </div>
   </div>
 </div>
 
 <% if camp.template == "Lager ausgeschrieben" %>
-<div class="container mt-3">
-  <div class="row w-100">
-    <div class="col-lg-2 w-50" style="height: 40vh">
-      <p class="dm-sans-description" style="font-size: calc(8px + 1vw)"><%= camp.this_camp_description if present? %></p>
-    </div>
-    <div class="col-lg-1 col-md-1 col-sm-2" style="background-color: lightgrey; width: 1px"></div>
-    <div class="col-lg-2 col-md-4 col-sm-6">
-      <% @leader = camp.leader %>
-
-      <%= render partial: "shared/contact_form", locals: { image: @leader.image,
-                                                           name: "#{@leader.first_name} #{@leader.last_name} v/o #{@leader.pfadiname.capitalize}",
-                                                           funktion: "#{@leader.funktion} // Hauptlagerleitung #{camp.name}",
-                                                           email: "#{@leader.email}" } if @leader.present? %>
-    </div>
+  <div class="divider"><%= camp.name %> <%= Date.today.year %></div>
+  <div class="container text-center this-camp-header">
+    <h1 class="dm-sans-title m-3" style="font-size: calc(10px + 3vw); color: black"><%= camp.name %> <%= Date.today.year %></h1>
   </div>
-
+  <div class="container mt-3">
+    <div class="row w-100" style="max-width: 100vw">
+      <div class="col-lg-4 w-50 mt-5 idk-container box triangle" style="height: fit-content">
+        <div class="markdown-content">
+          <%= markdown(camp.this_camp_description) if present? %>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-6 w-50">
+        <% @leader = camp.leader %>
+        <%= render partial: "shared/contact_form",
+                   locals: { image: @leader.image,
+                             name: "#{@leader.first_name} #{@leader.last_name} v/o #{@leader.pfadiname.capitalize}",
+                             funktion: "#{@leader.funktion} // Hauptlagerleitung #{camp.name}",
+                             email: "#{@leader.email}" } if @leader.present? %>
+      </div>
+    </div>
 
 
 
@@ -66,11 +168,13 @@
       </div>
     </div>
   </div>
-</div>
+  </div>
 <% end %>
+
+
 <script>
     // Wait until the DOM is fully loaded
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         const imageContainer = document.getElementById('imageContainer');
         const textContainer = document.getElementById('textContainer');
         const campImage = document.getElementById('campImage');

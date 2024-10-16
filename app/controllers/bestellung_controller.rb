@@ -7,7 +7,6 @@ class BestellungController < ApplicationController
     @bestellung = Bestellung.new(bestellung_params)
     @bestellung.order_list = format_shopping_list(session[:shopping_list]) if session[:shopping_list].present?
 
-
     if @bestellung.save
       # Trigger the mailer after saving the form
       BestellungMailer.with(bestellung: @bestellung).bestellung_email.deliver_now
@@ -22,8 +21,8 @@ class BestellungController < ApplicationController
     @bestellung.destroy
   end
 
-
   private
+
   def bestellung_params
     params.require(:bestellung).permit(
       :first_name, :last_name, :email, :phone, :address,

@@ -1,175 +1,11 @@
 <style>
-    .filter-form select,
-    .filter-form input {
-        margin-left: 10px;
-        padding: 5px;
+    .input-group-text {
+        background-color: #dddddd;
+        border-color: black;
+        border-width: 2px;
+        font-weight: 500;
+        box-shadow: 4px 4px 0 0 black;
     }
-    .card {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .card-body {
-        flex: 1;
-    }
-
-    .card-img-top {
-        height: 200px;
-        object-fit: cover;
-    }
-
-    .title-link {
-        color: black;
-        text-decoration: none; /* No underline by default */
-    }
-
-    .title-link:hover {
-        text-decoration: underline; /* Underline on hover */
-        color: #007bff; /* Optional: Change the color on hover to blue or another color */
-    }
-
-
-
-    article {
-        --img-scale: 1.001;
-        --title-color: #730a0a;
-        --link-icon-translate: -20px;
-        --link-icon-opacity: 0;
-        position: relative;
-        border-radius: 16px;
-        box-shadow: none;
-        background: #fff;
-        transform-origin: center;
-        transition: all 0.4s ease-in-out;
-        overflow: hidden;
-        max-width: 400px;
-        max-height: 800px;
-    }
-
-    article a::after {
-        position: absolute;
-        inset-block: 0;
-        inset-inline: 0;
-        cursor: pointer;
-        content: "";
-    }
-
-    /* basic article elements styling */
-    article h2 {
-        margin: 0 0 18px 0;
-        font-family: "DM Sans", sans-serif;
-        font-size: 1.9rem;
-        letter-spacing: 0.06em;
-        color: var(--title-color);
-        transition: color 0.3s ease-out;
-    }
-
-    figure {
-        margin: 0;
-        padding: 0;
-        aspect-ratio: 16 / 9;
-        overflow: hidden;
-    }
-
-    article img {
-        max-width: 100%;
-        transform-origin: center;
-        transform: scale(var(--img-scale));
-        transition: transform 0.4s ease-in-out;
-    }
-
-    .article-body {
-        padding: 0 24px 24px;
-    }
-
-    article a {
-        text-decoration: none;
-        color: #28666e;
-    }
-
-    article a:focus {
-        outline: 1px dotted #28666e;
-    }
-
-    article a .icon {
-        min-width: 24px;
-        width: 24px;
-        height: 24px;
-        margin-left: 5px;
-        transform: translateX(var(--link-icon-translate));
-        opacity: var(--link-icon-opacity);
-        transition: all 0.3s;
-    }
-
-    /* using the has() relational pseudo selector to update our custom properties */
-    article:has(:hover, :focus) {
-        --img-scale: 1.1;
-        --title-color: #28666e;
-        --link-icon-translate: 0;
-        --link-icon-opacity: 1;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    }
-
-
-    /************************
-    Generic layout (demo looks)
-    **************************/
-
-
-    body {
-        font-family: "DM Sans", sans-serif;
-    }
-
-    .articles {
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 100%;
-        max-height: 100%;
-        padding-inline: 24px;
-        gap: 16px;
-    }
-
-    @media screen and (max-width: 960px) {
-        article {
-            container: card/inline-size;
-        }
-        .article-body p {
-            display: flex;
-            flex-wrap: wrap;
-        }
-    }
-
-    @container card (min-width: 380px) {
-        .article-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-
-        }
-        .article-body {
-            padding-left: 0;
-        }
-        figure {
-            overflow: hidden;
-        }
-        figure img {
-            height: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-        }
-    }
-
-    .sr-only:not(:focus):not(:active) {
-        clip: rect(0 0 0 0);
-        clip-path: inset(50%);
-        height: 1px;
-        overflow: hidden;
-        position: absolute;
-        white-space: nowrap;
-        width: 1px;
-    }
-
-
 
 </style>
 
@@ -180,66 +16,26 @@
   <% end %>
 </div>
 
-  <section class="articles">
-    <% @articles.each do |article| %>
-      <article>
-        <div class="article-wrapper">
-          <figure>
-            <% if article.images.attached? %>
-              <%= link_to article_path(article), class: 'card-img-link' do %>
-                <%= image_tag article.images.first, width: 400, height: 200%>
-              <% end %>
-            <% else %>
-              <%= link_to article_path(article) do %>
-                <img src="https://via.placeholder.com/400x200" alt="">
-              <% end %>
-            <% end %>          </figure>
-            <div class="article-body">
-                <h2><%= article.title %></h2>
-            <p>
-              <%= truncate(article.content, length: 150, separator: ' ') %>
-            </p>
-              <%= link_to article_path(article), class: "read-more" do %>
-                Mehr erfahren
-                <span class="sr-only">about this is some title</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                </svg>
-              <% end %>
-          </div>
+<div class="row justify-content-center">
+  <% @articles.each do |article| %>
+    <div class="col-lg-3 col-md-6 col-sm-10">
+      <div class="card shadow-lg grow-xl" style="margin: 2vw; border: 2.5px solid green">
+        <%= image_tag url_for(article.images.first), height: 300, width: 200, class: "card-img-top" if article.images.attached? %>
+        <div class="card-body">
+          <h5 class="card-title"><%= article.title %></h5>
+          <p class="card-text">
+            <%= truncate(article.content, length: 300, separator: ' ') %>
+            <%= link_to 'Mehr lesen', article_path(article) if article.content.length >= 300 %>
+          </p>
+          <p class="card-text">
+            <small class="text-muted">Veröffentlicht: <%= I18n.l(article.date, format: "%A %d.%m.%Y", locale: :de) %></small>
+          </p>
+          <%= link_to "Lesen", article_path(article.id), class: "btn btn-custom-primary-sm", style: "float: right" %>
         </div>
-      </article>
-    <% end %>
-  </section>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<!--<div class="row justify-content-center">-->
-  <%# @articles.each do |article| %>
-<!--    <div class="col-lg-4 col-md-6 mb-4">-->
-<!--      <div class="card">-->
-        <%# if article.images.attached? %>
-          <%#= link_to article_path(article), class: 'card-img-link' do %>
-            <%#= image_tag article.images.first, class: 'card-img-top', alt: 'Article image' %>
-          <%# end %>
-        <%# else %>
-          <%#= link_to article_path(article), class: 'card-img-link' do %>
-<!--            <img src="https://via.placeholder.com/350x200" class="card-img-top" alt="Placeholder image">-->
-          <%# end %>
-        <%# end %>
 
-<!--        <div class="card-body">-->
-          <%#= link_to article_path(article), class: 'title-link' do %>
-<!--            <h5 class="card-title"><%#= article.title %></h5>-->
-          <%# end %>
-<!--          <p class="card-text">-->
-            <%#= truncate(article.content, length: 150, separator: ' ') %>
-            <%#= link_to 'Mehr lesen', article_path(article) %>
-<!--          </p>-->
-<!--          <p class="card-text">-->
-<!--            <small class="text-muted">Veröffentlicht: <%#= I18n.l(article.date, format: "%A %d.%m.%Y", locale: :de) %></small>-->
-<!--          </p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-  <%# end %>
-<!--</div>-->
 

@@ -1,7 +1,8 @@
 <div class="m-5">
   <% @leiter = current_leiter %>
 
-  <h1 class="center leiter-title mb-3 playpen-sans-title" style="text-align: center"><strong>Leiter: </strong><%= @leiter.pfadiname %></h1>
+  <h1 class="center leiter-title mb-3 playpen-sans-title" style="text-align: center">
+    <strong>Leiter: </strong><%= @leiter.pfadiname %></h1>
 
   <%= form_with(model: @leiter, url: profil_path, method: :patch, local: true, multipart: true) do |form| %>
 

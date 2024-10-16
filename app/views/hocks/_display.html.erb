@@ -1,22 +1,22 @@
 <style>
-.hock{
-    border-color: black;
-}
+    .hock {
+        border-color: black;
+    }
 </style>
 <% if hocks.present? %>
-    <% hocks.each do |hock| %>
-      <div class="hock grow shadow-lg">
-        <h3><%= hock.title %></h3>
-        <hr>
-        <p><%= hock.description %></p>
-        <hr>
-        <p style="white-space: wrap"><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %> //
-          <strong>Leiter: </strong><%= hock.pfadiname_of_leader(hock.leader_id) %></p>
-        <p></p>
-        <%= button_to "Bearbeiten", edit_hock_path(hock), method: :get, class: "btn-custom-warning-sm", style: "padding: 5px; float: left; margin: 0 15px 10px 0" %>
-        <%= button_to "Löschen", hock, method: :delete, class: "btn-custom-danger-sm", data: {confirm: "Bist du dir sicher?"}, style: "padding: 5px;" %>
-      </div>
-    <% end %>
+  <% hocks.each do |hock| %>
+    <div class="hock grow shadow-lg">
+      <h3><%= hock.title %></h3>
+      <hr>
+      <p><%= hock.description %></p>
+      <hr>
+      <p style="white-space: wrap"><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %> //
+        <strong>Leiter: </strong><%= hock.pfadiname_of_leader(hock.leader_id) %></p>
+      <p></p>
+      <%= button_to "Bearbeiten", edit_hock_path(hock), method: :get, class: "btn-custom-warning-sm", style: "padding: 5px; float: left; margin: 0 15px 10px 0" %>
+      <%= button_to "Löschen", hock, method: :delete, class: "btn-custom-danger-sm", data: { confirm: "Bist du dir sicher?" }, style: "padding: 5px;" %>
+    </div>
+  <% end %>
 <% else %>
   <p> Kein Höck für diese Stufe eingetragen.
 <% end %>

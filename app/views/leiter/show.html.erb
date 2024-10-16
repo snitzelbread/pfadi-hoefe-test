@@ -10,7 +10,7 @@
         font-size: 1.1rem;
     }
 
-    .actions .btn{
+    .actions .btn {
         margin-right: 10px;
     }
 </style>
@@ -22,13 +22,13 @@
 
 <div class="hocks-container">
   <div class="hock">
-  <h1 class="leiter-title">
-    <%= @leiter.pfadiname %>
-  </h1>
+    <h1 class="leiter-title">
+      <%= @leiter.pfadiname %>
+    </h1>
 
 
     <% if @leiter.image.present? %>
-        <%= image_tag(@leiter.image, height: 200, width: 200, class: "shadow-lg",style: "border-radius: 25px; float: left; margin-top: 2vw") %>
+      <%= image_tag(@leiter.image, height: 200, width: 200, class: "shadow-lg", style: "border-radius: 25px; float: left; margin-top: 2vw") %>
     <% end %>
     <div style="float: left; margin-left: 3vw">
       <p><strong>Pfadiname:</strong> <%= @leiter.pfadiname %></p>

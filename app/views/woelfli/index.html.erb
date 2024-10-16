@@ -1,5 +1,5 @@
 <style>
-    .center{
+    .center {
         position: relative;
         top: 20px;
         max-width: fit-content;
@@ -7,10 +7,15 @@
     }
 </style>
 
-<h1 class="center" style="font-size: 100px">Wölfli</h1>
+<h1 class="center dm-sans-title" style="font-size: 100px">Wölfli</h1>
 
-<div class="hocks-container">
-  <%= render partial: "home/hocks", locals: { hock: @closest_woelfli_hock } %>
+<div class="container" style="margin-top: 20px">
+  <div class="row justify-content-center">
+    <div class="col-lg-12 col-md-8 col-sm-10 m-4 grow-xl hock-bubble-blue shadow-lg">
+      <h1 class="dm-sans-title stufen-titel-links">Nächster Höck</h1>
+      <%= render partial: "home/hocks", locals: { hock: @closest_woelfli_hock } %>
+    </div>
+  </div>
 </div>
 <div class="container">
   <div class="row justify-content-center">
@@ -29,7 +34,7 @@
         <%= render partial: "shared/contact_form", locals: { image: t.image,
                                                              name: "#{t.first_name} #{t.last_name} v/o #{t.pfadiname.capitalize}",
                                                              funktion: "#{t.funktion} #{t.stufe}",
-                                                             email: "#{t.email}" } if t.present?%>
+                                                             email: "#{t.email}" } if t.present? %>
         </div>
         </div>
       <% end %>

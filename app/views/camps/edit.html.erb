@@ -1,12 +1,5 @@
-<% content_for :title, "Editing camp" %>
+<% content_for :title, "Lager bearbeiten" %>
 
-<h1>Editing camp</h1>
+<h1 class="dm-sans-title text-center">Lager bearbeiten</h1>
 
 <%= render "form", camp: @camp %>
-
-<br>
-
-<div>
-  <%= link_to "Show this camp", @camp %> |
-  <%= link_to "Back to camps", camps_path %>
-</div>

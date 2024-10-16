@@ -1,0 +1,127 @@
+/* Base button styles */
+/* Define variables for your colors */
+$btn-bg-color-default: #ffc8c8;
+$btn-bg-color-danger: #ff9191;
+$btn-bg-color-warning: #fffa7f;
+$btn-bg-color-primary: #b2b2ff;
+$btn-bg-color-success: #5ac15a;
+$btn-hover-bg-color: #ffffff;
+$btn-border-color: black;
+$btn-shadow-color: black;
+$btn-text-color: black;
+$btn-hover-text-color: black;
+
+.btn {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: calc(15px + 0.4vw);
+}
+
+/* Base button styles - common styles shadanger by all .btn-custom buttons */
+%btn-custom-base {
+  font-family: "DM Sans", sans-serif;
+  color: $btn-text-color;
+  border-radius: 8px;
+  border-width: 2px;
+  background-color: $btn-bg-color-default;
+  border-color: $btn-border-color;
+  box-shadow: 8px 8px 0 0 $btn-shadow-color;
+  transition: all 0.25s ease-in-out;
+  padding-left: 3vw;
+  padding-right: 3vw;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: calc(15px + 0.4vw);
+}
+
+/* Hover effect for all buttons */
+%btn-custom-base:hover {
+  box-shadow: 0 0 0 0 $btn-shadow-color;
+  border-radius: 8px;
+  border-width: 2px;
+  border-color: $btn-border-color;
+  background-color: $btn-hover-bg-color;
+}
+
+/* Small variant - adjust padding, size, and other attributes */
+%btn-custom-sm {
+  font-size: 1rem;
+  padding: 0.25rem 0.5vw;
+  font-weight: 600;
+  box-shadow: 5px 5px 0 0 $btn-shadow-color;
+}
+
+/* Main .btn-custom class */
+.btn-custom {
+  @extend %btn-custom-base; /* Apply common styles */
+  background-color: $btn-bg-color-default;
+
+  &:hover {
+    background-color: darken($btn-bg-color-default, 10%)
+  }
+}
+
+/* Button variants */
+.btn-custom-danger {
+  @extend %btn-custom-base;
+  background-color: $btn-bg-color-danger;
+
+  &:hover {
+    background-color: darken($btn-bg-color-danger, 10%)
+  }
+}
+
+.btn-custom-warning {
+  @extend %btn-custom-base;
+  background-color: $btn-bg-color-warning;
+
+  &:hover {
+    background-color: darken($btn-bg-color-warning, 10%)
+  }
+}
+
+.btn-custom-primary {
+  @extend %btn-custom-base;
+  background-color: $btn-bg-color-primary;
+
+  &:hover {
+    background-color: darken($btn-bg-color-primary, 10%)
+  }
+}
+
+.btn-custom-success {
+  @extend %btn-custom-base;
+  background-color: $btn-bg-color-success;
+
+  &:hover {
+    background-color: darken($btn-bg-color-success, 10%)
+  }
+}
+
+/* Small variants for each button */
+.btn-custom-sm {
+  @extend %btn-custom-sm; /* Apply sm size */
+}
+
+/* Small versions of each button variant */
+.btn-custom-danger-sm {
+  @extend .btn-custom-danger;
+  @extend %btn-custom-sm;
+}
+
+.btn-custom-warning-sm {
+  @extend .btn-custom-warning;
+  @extend %btn-custom-sm;
+}
+
+.btn-custom-primary-sm {
+  @extend .btn-custom-primary;
+  @extend %btn-custom-sm;
+}
+
+.btn-custom-success-sm {
+  @extend .btn-custom-success;
+  @extend %btn-custom-sm;
+}

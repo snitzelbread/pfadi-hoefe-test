@@ -1,4 +1,4 @@
-<%= form_with(model: camp, html: { multipart: true }) do |form| %>
+<%= form_with(model: camp, html: { multipart: true, class: "hock-bubble-green" }) do |form| %>
   <% if camp.errors.any? %>
     <% flash[:alert] = camp.errors.full_message %>
   <% end %>
@@ -14,9 +14,10 @@
       <input name="camp[name]"
              id="camp_name"
              placeholder="Name"
-             value = "<%= @camp.name if present? %>"
+             value="<%= @camp.name if present? %>"
              type="text"
              required
+             disabled
              aria-label="name"
              class="form-control">
 
@@ -37,34 +38,14 @@
                     id="camp_general_description"
                     placeholder="general_description"
                     aria-label="general_description"
-                    style="height: 100px"
+                    style="height: 300px"
                     class="form-control"><%= @camp.general_description if present? %></textarea>
 
       <label for="camp_this_camp_description">Generelle Beschreibung</label>
     </div>
   </div>
 
-  <!-- Images -->
-  <div id="existing-attachments">
-    <% camp.images.each do |image| if camp.images.attached?  %>
-      <div class="attachment-wrapper">
-        <!-- Display a preview of the image (optional) -->
-        <%= image_tag image, height: 100, width: 100 %>
 
-        <!-- Hidden field with the signed_id of the attachment -->
-        <%= form.hidden_field :images, multiple: true, value: image.signed_id, id: "image-#{image.id}" %>
-
-        <!-- Button to remove the attachment -->
-        <button type="button" class="remove-attachment" data-id="<%= image.id %>">Remove</button>
-      </div>
-    <% end %>
-      <% end %>
-  </div>
-
-  <!-- File input for adding new attachments -->
-  <div>
-    <%= form.file_field :images, multiple: true, id: "new-attachments" %>
-  </div>
 
 
   <!-- Quote -->
@@ -78,7 +59,7 @@
       <input name="camp[quote]"
              id="camp_quote"
              placeholder="Quote"
-             value = "<%= @camp.quote if present? %>"
+             value="<%= @camp.quote if present? %>"
              type="text"
              required
              aria-label="name"
@@ -140,7 +121,7 @@
                     id="camp_this_camp_description"
                     placeholder="this_camp_description"
                     aria-label="this_camp_description"
-                    style="height: 100px"
+                    style="height: 300px"
                     class="form-control"><%= @camp.this_camp_description if present? %></textarea>
 
       <label for="camp_this_camp_description">Diesjähriges Lager Beschreibung</label>
@@ -148,17 +129,39 @@
   </div>
 
 
+  <!-- Images -->
+  <div id="existing-attachments">
+    <% camp.images.each do |image|
+      if camp.images.attached? %>
+        <div class="attachment-wrapper center">
+          <!-- Display a preview of the image (optional) -->
+          <%= image_tag image, height: 100, width: 100 %>
 
-  <div>
-    <%= form.submit %>
+          <!-- Hidden field with the signed_id of the attachment -->
+          <%= form.hidden_field :images, multiple: true, value: image.signed_id, id: "image-#{image.id}" %>
+
+          <!-- Button to remove the attachment -->
+          <button type="button" class="remove-attachment" data-id="<%= image.id %>">Remove</button>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <!-- File input for adding new attachments -->
+  <div class="center">
+    <%= form.file_field :images, multiple: true, id: "new-attachments" %>
+  </div>
+
+  <div class="text-center" style="margin-top: 50px">
+    <%= form.submit class: "btn btn-custom-warning" %>
   </div>
 <% end %>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Select all the remove buttons
-        document.querySelectorAll('.remove-attachment').forEach(function(button) {
-            button.addEventListener('click', function() {
+        document.querySelectorAll('.remove-attachment').forEach(function (button) {
+            button.addEventListener('click', function () {
                 const attachmentId = this.getAttribute('data-id');
 
                 // Find the hidden field corresponding to the attachment and remove it

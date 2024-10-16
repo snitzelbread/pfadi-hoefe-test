@@ -3,18 +3,18 @@
   <div style="border-radius: 10px; border: 4px solid black">
     <% if session[:shopping_list].empty? %>
       <li class="list-group-item">Der Warenkorb ist leer.</li> <!-- Message if shopping list is empty -->
-    <%  else %>
-        <%  session[:shopping_list].each do |item| %>
-          <li class="list-group-item">
-            <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1"><%=  item["name"] || "Unknown Item"  %></h5> <!-- Default if name is nil -->
-              Preis: <%= number_to_currency(item["price"] || 0.0, unit: "Fr.", format: "%n %u") %> |
-              Menge: <%=  item["amount"] || 1  %> <!-- Default amount if nil -->
-            </div>
-          </li>
-        <%  end  %>
+    <% else %>
+      <% session[:shopping_list].each do |item| %>
+        <li class="list-group-item">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><%= item["name"] || "Unknown Item" %></h5> <!-- Default if name is nil -->
+            Preis: <%= number_to_currency(item["price"] || 0.0, unit: "Fr.", format: "%n %u") %> |
+            Menge: <%= item["amount"] || 1 %> <!-- Default amount if nil -->
+          </div>
+        </li>
       <% end %>
-    </div>
+    <% end %>
+  </div>
 </ul>
 
 
@@ -23,4 +23,4 @@
   <div class="text-center">
     <%= button_to "Einkaufsliste leeren", clear_shopping_list_path, method: :delete, class: "btn btn-custom-danger m-3" %>
   </div>
-<%  end %>
+<% end %>

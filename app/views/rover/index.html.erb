@@ -1,5 +1,5 @@
 <style>
-    .center{
+    .center {
         position: relative;
         top: 20px;
         max-width: fit-content;
@@ -7,7 +7,7 @@
     }
 </style>
 
-<h1 class="center" style="font-size: 100px">Rover</h1>
+<h1 class="center dm-sans-title" style="font-size: 100px">Rover</h1>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-4 col-md-6 col-sm-10">
@@ -25,8 +25,8 @@
         <%= render partial: "shared/contact_form", locals: { image: t.image,
                                                              name: "#{t.first_name} #{t.last_name} v/o #{t.pfadiname.capitalize}",
                                                              funktion: "#{t.funktion} #{t.stufe}",
-                                                             email: "#{t.email}" } if t.present?%>
-    </div>
-  </div>
-<% end %>
-</div>
+                                                             email: "#{t.email}" } if t.present? %>
+        </div>
+        </div>
+      <% end %>
+      </div>

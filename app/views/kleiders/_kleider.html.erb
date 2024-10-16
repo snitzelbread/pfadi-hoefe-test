@@ -1,5 +1,5 @@
 <style>
-    .input-group-text{
+    .input-group-text {
         background-color: #dddddd;
         border-color: black;
         border-width: 2px;
@@ -8,56 +8,56 @@
     }
 </style>
 <div class="col-lg-3 col-md-6 col-sm-10">
-<div class="card shadow-lg grow-xl" style="margin: 2vw; border: 2.5px solid green">
-  <%= image_tag url_for(kleider.image), height: 300, width: 200, class: "card-img-top" if kleider.image.attached? %>
-  <div class="card-body">
-    <h5 class="card-title"><%= kleider.name %></h5>
-    <p class="card-text"><%= kleider.description %></p>
+  <div class="card shadow-lg grow-xl" style="margin: 2vw; border: 2.5px solid green">
+    <%= image_tag url_for(kleider.image), height: 300, width: 200, class: "card-img-top" if kleider.image.attached? %>
+    <div class="card-body">
+      <h5 class="card-title"><%= kleider.name %></h5>
+      <p class="card-text"><%= kleider.description %></p>
 
-    <%= form_with url: add_to_list_kleider_path(kleider), method: :post, local: true do |form| %>
-      <small class="text-body-secondary"><strong>Preis: </strong><%= kleider.price %>0 Fr. </small>
+      <%= form_with url: add_to_list_kleider_path(kleider), method: :post, local: true do |form| %>
+        <small class="text-body-secondary"><strong>Preis: </strong><%= kleider.price %>0 Fr. </small>
 
-      <div class="input-group mt-3">
-      <%= form.label :amount, "Menge:", class: "input-group-text"%>
-      <%= form.number_field :amount, value: 1, min: 1, class: "form-control", style: "width: 3vw;" %>
-      <%= form.submit "Hinzufügen", class: "btn-custom-success-sm" %>
-    </div>
+        <div class="input-group mt-3">
+          <%= form.label :amount, "Menge:", class: "input-group-text" %>
+          <%= form.number_field :amount, value: 1, min: 1, class: "form-control", style: "width: 3vw;" %>
+          <%= form.submit "Hinzufügen", class: "btn-custom-success-sm" %>
+        </div>
 
-    <div class="btn-group mt-3" style="text-align: center">
-      <% if leader_signed_in? %>
-        <%= link_to "Bearbeiten", edit_kleider_path(kleider.id), class: "btn btn-custom-warning-sm" %>
-        <%= link_to "Löschen", kleider, data: { turbo_method: :delete }, class: "btn btn-custom-danger-sm" %>
+        <div class="btn-group mt-3" style="text-align: center">
+          <% if leader_signed_in? %>
+            <%= link_to "Bearbeiten", edit_kleider_path(kleider.id), class: "btn btn-custom-warning-sm" %>
+            <%= link_to "Löschen", kleider, data: { turbo_method: :delete }, class: "btn btn-custom-danger-sm" %>
+          <% end %>
+        </div>
       <% end %>
     </div>
-    <% end %>
   </div>
-</div>
 </div>
 
 
 
 <!--  <div class="col">-->
 <!--    <div class="card shadow-lg">-->
-      <%#= image_tag url_for(kleider.image), height: 400, width: 400, class: "card-img-top", style: "" if kleider.image.attached? %>
+<%#= image_tag url_for(kleider.image), height: 400, width: 400, class: "card-img-top", style: "" if kleider.image.attached? %>
 <!--      <div class="card-body" style="width: 400px; height: 300px">-->
 <!--        <h5><%#= kleider.name %></h5>-->
 <!--        <p class="card-text"><%#= kleider.description %></p>-->
 <!--        <div class="d-flex justify-content-between align-items-center">-->
 <!--          <div class="btn-group">-->
-            <%#= link_to "Anzeigen", kleider_path(kleider.id), class: "btn btn-custom-primary-sm" %>
-            <%# if leader_signed_in? %>
-              <%#= link_to "Bearbeiten", edit_kleider_path(kleider.id), class: "btn btn-custom-warning-sm" %>
-              <%#= link_to "Löschen", kleider, data: { turbo_method: :delete }, class: "btn btn-custom-danger-sm" %>
-            <%# end %>
+<%#= link_to "Anzeigen", kleider_path(kleider.id), class: "btn btn-custom-primary-sm" %>
+<%# if leader_signed_in? %>
+<%#= link_to "Bearbeiten", edit_kleider_path(kleider.id), class: "btn btn-custom-warning-sm" %>
+<%#= link_to "Löschen", kleider, data: { turbo_method: :delete }, class: "btn btn-custom-danger-sm" %>
+<%# end %>
 <!--          </div>-->
 <!--          <small class="text-body-secondary"><strong>Preis: </strong><%#= kleider.price %>0 Fr. </small>-->
-          <%#= form_with url: add_to_list_kleider_path(kleider), method: :post, local: true do |form| %>
+<%#= form_with url: add_to_list_kleider_path(kleider), method: :post, local: true do |form| %>
 <!--            <div class="input-group mt-2">-->
-              <%#= form.label :amount, "Menge:", class: "input-group-text"%>
-              <%#= form.number_field :amount, value: 1, min: 1, class: "form-control", style: "width: 3vw;" %>
-              <%#= form.submit "Hinzufügen", class: "btn-custom-success-sm" %>
+<%#= form.label :amount, "Menge:", class: "input-group-text"%>
+<%#= form.number_field :amount, value: 1, min: 1, class: "form-control", style: "width: 3vw;" %>
+<%#= form.submit "Hinzufügen", class: "btn-custom-success-sm" %>
 <!--            </div>-->
-          <%# end %>
+<%# end %>
 <!--        </div>-->
 <!--      </div>-->
 <!--    </div>-->

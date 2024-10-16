@@ -78,3 +78,5 @@ gem "dotenv-rails", "~> 3.1"
 gem "i18n"
 
 gem "pg"
+
+gem "redcarpet", "~> 3.4"

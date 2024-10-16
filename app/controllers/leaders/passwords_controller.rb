@@ -56,5 +56,4 @@ class Leaders::PasswordsController < Devise::PasswordsController
     super
   end
 
-
 end

@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   def logged_in_parent?
     current_parent.present?
   end
+
   # Redirect the user if they are not logged in
   def require_login_leader
     unless leader_signed_in?
@@ -24,14 +25,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
-
   def current_parent
     @current_parent ||= Parent.find(session[:parent_id]) if session[:parent_id]
   end
 
   def initialize_shopping_list
-    session[:shopping_list] ||= []  # Only initialize if the session is nil, keeping existing data
+    session[:shopping_list] ||= [] # Only initialize if the session is nil, keeping existing data
   end
 
   def configure_permitted_parameters

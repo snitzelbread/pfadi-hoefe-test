@@ -1,0 +1,59 @@
+.center {
+  top: 20px;
+  min-width: 200px;
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
+.hocks-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Adds space between items */
+  gap: 20px; /* Adds gap between hocks */
+}
+
+.hock {
+  border: 3px solid #000000;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 5px auto;
+  background-color: rgb(255, 255, 255);
+}
+
+.hock-bubble {
+  border-radius: 25px;
+  padding: 10px;
+  border: 3px solid black;
+
+  &-red {
+    @extend .hock-bubble;
+    background-color: #ffb3b3;
+  }
+
+  &-green {
+    @extend .hock-bubble;
+    background-color: #b3ffc2;
+  }
+
+  &-blue {
+    @extend .hock-bubble;
+    background-color: #b3ddff;
+  }
+}
+
+
+.divider {
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.divider::before, .divider::after {
+  flex: 1;
+  content: '';
+  padding: 3px;
+  background-color: red;
+  margin: 5px;
+}
+

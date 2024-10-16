@@ -3,10 +3,10 @@ class BestellungMailer < ActionMailer::Base
   layout "mailer"
 
   def bestellung_email
-    @bestellung = params[:bestellung]  # Fetch the form data passed from the controller
+    @bestellung = params[:bestellung] # Fetch the form data passed from the controller
     mail(
-      to: "julian.duss@renuo.ch",            # Send to the form submitter's email address
-      subject: "Bestellung"  # Customize subject line
+      to: "julian.duss@renuo.ch", # Send to the form submitter's email address
+      subject: "Bestellung" # Customize subject line
     )
   end
 end

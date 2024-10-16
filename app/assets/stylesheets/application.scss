@@ -14,85 +14,87 @@
  *= require_self
  */
 
+@import "buttons";
+@import "home";
+@import "hocks";
 
 .playpen-sans-title {
-    font-family: "Playpen Sans", cursive;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Playpen Sans", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .dm-sans-title {
-    font-family: "DM Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-    text-align: center;
-    margin-bottom: 0;
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  margin-bottom: 0;
 }
 
 .dm-sans-description {
-    font-family: "DM Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 300;
-    font-style: normal;
-    font-size: calc(10px + 0.5vw)
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: calc(10px + 0.5vw)
 }
 
 
-
-.h1{
-    white-space: pre-wrap;
+.h1 {
+  white-space: pre-wrap;
 }
-
 
 
 .navbar {
-    .nav-link {
-        color: rgb(255, 255, 255);
-        transition: color 0.3s, background-color 0.3s;
-        border-radius: 25px;
+  .nav-link {
+    color: rgb(255, 255, 255);
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 25px;
 
-        &:hover {
-            color: yellow;
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-
-        &.active {
-            color: yellow;
-        }
+    &:hover {
+      color: yellow;
+      background-color: rgba(255, 255, 255, 0.15);
     }
+
+    &.active {
+      color: yellow;
+    }
+  }
 }
 
-.dropdown-menu .dropdown-item:hover{
-    background-color: red;
+.dropdown-menu .dropdown-item:hover {
+  background-color: red;
 }
-.dropdown-menu{
-    background-color: #ae0000;
+
+.dropdown-menu {
+  background-color: #ae0000;
 }
 
 @media (min-width: 768px) {
-    .button-56 {
-        padding: 0 40px;
-    }
+  .button-56 {
+    padding: 0 40px;
+  }
 }
 
 .grow {
-    transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 .grow:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .grow-xl {
-    transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 .grow-xl:hover {
-    transform: scale(1.2);
+  transform: scale(1.2);
 }
 
-.shrink{
-    transform: scale(0.8);
+.shrink {
+  transform: scale(0.8);
 }

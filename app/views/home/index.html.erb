@@ -16,7 +16,8 @@
   <div class="home-title-screen">
     <%= image_tag("pfadi_logo.jpeg", class: "logo") %>
     <h1 class="playpen-sans-title text-title" style="color: white">Pfadi Höfe </h1>
-    <p class="text-description playpen-sans-title" style="color: white"> <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zäme wyter! - Bewusst handeln! </i> </p>
+    <p class="text-description playpen-sans-title" style="color: white">
+      <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zäme wyter! - Bewusst handeln! </i></p>
     <div class="center" style="z-index: 5;">
       <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="white" style="z-index: auto; opacity: 1; margin-top: 50px" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
@@ -24,19 +25,16 @@
       </svg>
     </div>
   </div>
-
 </div>
 
 
-<h1 class="center dm-sans-title" style="font-size: 7vw; white-space: wrap">[ Beiträge ]</h1>
-<div class="articles-container shadow-lg">
-  <div class="articles-home">
-    <%= render partial: "home/articles", locals: { article: @latest_articles.first } %>
-    <%= render partial: "home/articles", locals: { article: @latest_articles.second } %>
+
+<% if @latest_article.present? %>
+  <h1 class="center dm-sans-title w-100 mb-3" style="font-size: 5vw;">Neuster Beitrag</h1>
+  <div class="container w-100">
+    <%= render partial: "home/articles", locals: { article: @latest_article } %>
   </div>
-  <%= link_to "Alle Beiträge lesen", articles_path, class: "btn btn-custom-warning", style: "margin: 20px auto;" %>
-
-</div>
+<% end %>
 
 
 

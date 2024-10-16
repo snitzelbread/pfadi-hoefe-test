@@ -1,10 +1,11 @@
 class LeiterController < ApplicationController
-  before_action :set_leiter, only: [ :edit, :update, :show ]
+  before_action :set_leiter, only: [:edit, :update, :show]
   before_action :require_login_leader
 
   def new
     @leiter = Leiter.new
   end
+
   def create
     @leiter = Leiter.new(leiter_params)
     respond_to do |format|
@@ -20,7 +21,6 @@ class LeiterController < ApplicationController
     end
   end
 
-
   def update
     @leiter = current_leiter
 
@@ -34,15 +34,18 @@ class LeiterController < ApplicationController
       end
     end
   end
+
   def show
     @leiter = Leiter.find_by_id(params[session[:leiter_id]])
     puts @leiter
   end
 
   private
+
   def leiter_params
     params.require(:leiter).permit(:pfadiname, :email, :password, :password_confirmation, :funktion, :stufe, :firstname, :lastname, :image)
   end
+
   def set_leiter
     @leiter = Leiter.find_by_id(params[session[:leiter_id]])
   end

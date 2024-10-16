@@ -14,14 +14,16 @@
         background-color: #fff5ed;
     }
 
-    @media (max-width: 768px) { /* Tablet view adjustments */
+    @media (max-width: 768px) {
+        /* Tablet view adjustments */
         .hocks-container-home {
             margin-left: 5vw; /* Reduced left margin */
             width: auto; /* Increased width for better spacing */
         }
     }
 
-    @media (max-width: 576px) { /* Mobile view adjustments */
+    @media (max-width: 576px) {
+        /* Mobile view adjustments */
         .hocks-container-home {
             margin-left: 2vw; /* Further reduced left margin */
             width: auto; /* Full width for mobile */
@@ -42,7 +44,8 @@
 <div class="container">
   <%= image_tag("pfadi_logo.jpeg", class: "logo") %>
   <h1 class="playpen-sans-title text-title" style="z-index: 5; color: white">Pfadi Höfe </h1>
-  <p class="text-description playpen-sans-title" style="z-index: 5; color: white"> <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zäme wyter! - Bewusst handeln! </i> </p>
+  <p class="text-description playpen-sans-title" style="z-index: 5; color: white">
+    <i>Mit freud debii! - Mis bescht! - Allzeit bereit! - Zäme wyter! - Bewusst handeln! </i></p>
   <div class="center" style="justify-self: end; align-self: center; position: relative; z-index: 5;">
     <svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" fill="white" style="z-index: auto; opacity: 1; margin-top: 50px" class="bi bi-chevron-double-down" viewBox="0 0 16 16">
       <path fill-rule="evenodd" d="M1.646 6.646a.5.5 0 0 1 .708 0L8 12.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/>
@@ -76,8 +79,10 @@
             slides[i].style.display = "none";
         }
         slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}
-        slides[slideIndex-1].style.display = "block";
+        if (slideIndex > slides.length) {
+            slideIndex = 1
+        }
+        slides[slideIndex - 1].style.display = "block";
         setTimeout(showSlides, 5000); // Change image every 2 seconds
     }
 </script>

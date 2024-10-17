@@ -1,11 +1,79 @@
-<style>
-    .center {
-        position: relative;
-        top: 20px;
-        max-width: fit-content;
-        margin: auto;
-    }
-</style>
+<div class="post-it-container">
+  <h1 class="fuzzy-bubbles-bold post-it-title-1" style="font-size: 10vh; margin: 30px;">Vereins-Anmeldung</h1>
+</div>
+<div class="container w-100 m-auto justify-content-center">
+  <div class="row w-100">
+    <div class="col-lg-7">
+      <%= render partial: "anmeldung/form" %>
+    </div>
+    <div class="col-lg-5">
+      <div class="container hock-bubble mt-5" style="background-color: white; padding: 20px">
+        <h1 class="text-center">FAQ</h1>
+        <div class="accordion" id="accordionExample">
+          <!-- Kosten? -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <strong> Was kostet es Mitglied bei der Pfadi Höfe zu sein ?</strong>
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <p class="preserve-breaks">Der <strong>Jahresbeitrag</strong> beträgt 60.- CHF für das erste Kind, welches Mitglied bei uns ist. Sofern ein Geschwister auch bei uns Mitglied ist, wird deren Jahresbeitrag um 5.- CHF reduziert. Beim Dritten Kind um weitere 5.- CHF
+
+                  <strong>1. Kind</strong> = 60.- CHF
+
+                  <strong>2. Kind</strong> = 55.- CHF <em>(= 115 .- CHF anstatt 120.- CHF)</em>
+
+                  <strong>3. Kind</strong> = 50.- CHF <em>(165.- CHF anstatt 180.- CHF)</em>
+
+                  Die Jahresbeiträge werden <strong>Ende Jahr per Post</strong> angefordert. Wir werden also dann Euch per Post für die Einzahlung auffordern.
+
+                  Für die Lager (PfiLa, SoLa, WoLa) wie auch für Weekends fallen nochmals weiter <strong>Lagerbeiträge an von 250.- CHF</strong>.
+
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Wieso AHV-Nummer? -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <strong> Für was braucht Ihr die AHV-Nummer?</strong>
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <p class="preserve-breaks">Unsere Aktivitäten und Lager richten sich nach Vorgaben von unserem Dachverband der Pfadibewegung Schweiz (PBS) wie auch vom J+S (Jugend- und Sportförderprogramm), sprich dem Bundesamt für Sport (BASPO). Um ein J+S Lager durchführen zu können, brauchen wir als Leiter*innen mehrwöchige Ausbildungen, sodass wir finanziell unterstützt werden. Aus diesem Grund werden bei der Lageranmeldung die AHV-Nummer der Teilnehmer*innen und Leiter*innen verlangt, sodass sichergestellt wird, wer alles im Lager teilgenommen hat. Die Daten sind vertraulich auf der Schweizweiten Pfadi-Datenbank gesichert und gelangen nicht an Dritte. Zusätzlich werden wir automatisch während dem Lager von der REGA versichert (kostenlos), was auch für den Notfall eine Registrierung der AHV-Nummer verlangt. So können wir effizient auch in Notfällen mit den Rettungskräften die wichtigsten Informationen weitergeben.
+
+                  Im Grundsatz wird die AHV-Nummer ausschliesslich dafür gebraucht, dass wir eure Kinder beim J+S anmelden können, sodass wir die J+S Gelder erhalten können, bei Notfällen oder bei Ausbildungen und bleibt sonst unberührt.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Rechte an Bildern-->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                <strong> Wieso muss ich euch Rechte an den Bildern geben?</strong>
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <p class="preserve-breaks">Um unsere tollen Aktivitäten zu dokumentieren, begleitet uns an den Höcks, in den Lagern und an jeglichen anderen Events oft eine Kamera. So sollen diese Bilder und Videos solch kostbare Momente für später festhalten. Sind sie doch Grundstein, um durch Fotoalben oder am Lagerrückblick das Erlebte nochmals mit grosser Freude aufleben zu lassen.
+
+                  Als Grundsatz gilt, dass das Fotografieren oder Filmen einer Person oder das Veröffentlichen nicht ohne Zustimmung der betroffenen Person erfolgen darf. Dies gilt auch bezüglich Kinder. Um uns diesbezüglich rechtlich abzusichern ist bei der Vereinsanmeldung deshalb das Häckchen "Recht am Bild" vorgesehen.
+
+                  Mit dem Häkchen würden wir gerne um die Zustimmung zum Fotografieren / Filmen Ihres Kindes / Ihrer Kinder im Umfang unserer Aktivitäten bitten. Eine Einwilligung kann jederzeit widerrufen werden.
+
+                  Die Pfadibewegung Schweiz (PBS), also unser Dachverband, führt hierzu auch weitere Informationen auf einem Merkblatt aus. Das Merkblatt <a href="https://pfadi.swiss/media/files/61/802202de_merkblatt_recht_am_bild.pdf#:~:text=Grunds%C3%A4tzlich%20gilt%2C%20dass%20das%20Fotografieren,Ver%C3%B6f%2D%20fentlichen%20ihre%20Zustimmung%20n%C3%B6tig.">hier</a> zum Durchlesen.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-<%= render partial: "anmeldung/form" %>

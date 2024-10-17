@@ -1,0 +1,24 @@
+<%= notice %>
+
+<div class="container h-100 m-3" style="max-width: 100vw">
+  <div class="post-it-container">
+    <h1 class="fuzzy-bubbles-bold m-5 post-it-title-5" style="font-size: calc(30px + 3vw)">Unsere Sponsoren</h1>
+  </div>
+  <div class="row justify-content-center">
+    <% if @sponsors.any? %>
+      <% @sponsors.each do |sponsor| %>
+        <div class="col-lg-5 post-it-sponsor-3 m-3" style="max-width: fit-content">
+          <%= render sponsor if present? %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+<% if leader_signed_in? %>
+    <div class="text-right m-5">
+      <%= link_to "Neuer Sponsor", new_sponsor_path, class: "btn btn-custom-primary m-3" %>
+      <%= link_to "Sponsoren bearbeiten", sponsors_show_all_path, class: "btn btn-custom-warning m-3" %>
+    </div>
+<% end %>

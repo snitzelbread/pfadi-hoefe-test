@@ -9,7 +9,7 @@
 </style>
 <div class="col-lg-3 col-md-6 col-sm-10">
   <div class="card shadow-lg grow-xl" style="margin: 2vw; border: 2.5px solid green">
-    <%= image_tag url_for(kleider.image), height: 300, width: 200, class: "card-img-top" if kleider.image.attached? %>
+    <%= image_tag url_for(kleider.image), height: 300, width: 200, class: "card-img-top", style: "object-fit: cover" if kleider.image.attached? %>
     <div class="card-body">
       <h5 class="card-title"><%= kleider.name %></h5>
       <p class="card-text"><%= kleider.description %></p>

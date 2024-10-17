@@ -1,13 +1,10 @@
-<style>
-
-</style>
-
-
 <% if hock.present? %>
   <div class="hock">
     <h2 class="dm-sans-title"><%= hock.title %></h2>
     <hr style="margin: 10px">
-    <p class="dm-sans-description" style="white-space: pre-wrap"><%= hock.description %></p>
+    <div class="markdown-content">
+      <%= markdown(hock.description) %>
+    </div>
     <hr style="margin: 10px">
     <p class="dm-sans-description">
       <strong><strong><strong><strong>Datum &

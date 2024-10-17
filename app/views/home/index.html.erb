@@ -1,18 +1,10 @@
-<body>
-
 <div class="slideshow-container">
   <div class="mySlides">
-    <%= image_tag("IMG_6700.jpeg", class: "image") %>
+    <%= image_tag("IMG_6700.jpeg", class: "image", style: "filter: brightness(80%)") %>
   </div>
 </div>
-.container {
 
-}
-<div class="container" style="display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  max-width: 95%;">
+<div class="container home-header">
   <div class="home-title-screen">
     <%= image_tag("pfadi_logo.jpeg", class: "logo") %>
     <h1 class="playpen-sans-title text-title" style="color: white">Pfadi Höfe </h1>
@@ -28,34 +20,34 @@
 </div>
 
 
-
-<% if @latest_article.present? %>
-  <h1 class="center dm-sans-title w-100 mb-3" style="font-size: 5vw;">Neuster Beitrag</h1>
-  <div class="container w-100">
-    <%= render partial: "home/articles", locals: { article: @latest_article } %>
-  </div>
-<% end %>
-
-
-
-<h1 class="center dm-sans-title" style="font-size: 7vw; text-decoration-line: underline">Hockzettel</h1>
-<div class="container" style="margin-top: 20px">
+<div class="post-it-container">
+  <h1 class="center fuzzy-bubbles-bold post-it-title-1" style="font-size: 6vw;">Hockzettel</h1>
+</div><div class="container" style="margin-top: 20px">
   <div class="row justify-content-center">
-    <div class="col-lg-6 col-md-8 col-sm-10 m-4 grow-xl hock-bubble-green shadow-lg">
+    <div class="col-lg-8 col-md-8 col-sm-10 m-4 post-it-sponsor-2 shadow-lg" style="background-color: #adffad">
       <h1 class="dm-sans-title stufen-titel-links">🦫 Biber 🦫</h1>
       <%= render partial: "home/hocks", locals: { hock: @closest_biber_hock } %>
     </div>
     <div class="w-100"></div>
-    <div class="col-lg-6 col-md-8 col-sm-10 m-4 hock-bubble-blue shadow-lg grow-xl">
+    <div class="col-lg-8 col-md-8 col-sm-10 m-4 post-it-sponsor-3 shadow-lg" style="background-color: #d5d5fd">
       <h1 class="dm-sans-title stufen-titel-rechts">🐺 Wölfli 🐺</h1>
       <%= render partial: "home/hocks", locals: { hock: @closest_woelfli_hock } %>
     </div>
     <div class="w-100"></div>
-    <div class="col-lg-6 col-md-8 col-sm-10 m-4 hock-bubble-red shadow-lg grow-xl">
+    <div class="col-lg-8 col-md-8 col-sm-10 m-4 post-it-sponsor-5 shadow-lg" style="background-color: #ffd6d6">
       <h1 class="dm-sans-title stufen-titel-links">⚜️ Pfadi ⚜️</h1>
       <%= render partial: "home/hocks", locals: { hock: @closest_pfadi_hock } %>
     </div>
   </div>
 </div>
 
-</body>
+<% if @latest_article.present? %>
+  <div class="post-it-container">
+    <h1 class="fuzzy-bubbles-bold mb-3 post-it-title-5" style="font-size: 5vw;">Neuster Beitrag</h1>
+  </div>  <div class="container w-100">
+    <%= render partial: "home/articles", locals: { article: @latest_article } %>
+  </div>
+<% end %>
+
+
+

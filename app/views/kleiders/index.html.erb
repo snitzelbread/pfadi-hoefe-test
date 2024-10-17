@@ -1,8 +1,9 @@
 <% content_for :title, "Kleiders" %>
 
 
-<h1 class="dm-sans-title" style="text-align: center; font-size: 80px">Kleiderkasten</h1>
-<p class="dm-sans-description" style="text-align: center; font-size: 20px">Der Kleiderkasten bietet Ihnen alle
+<div class="post-it-container">
+  <h1 class="fuzzy-bubbles-bold post-it-title-1" style="text-align: center; font-size: 80px">Kleiderkasten</h1>
+</div><p class="dm-sans-description" style="text-align: center; font-size: 20px">Der Kleiderkasten bietet Ihnen alle
   Pfadikleider an.</p>
 <div style="text-align: center">
   <%= link_to "Zum Warenkorb", bestellung_path, class: "btn btn-custom", style: "" %>
@@ -21,6 +22,6 @@
 </div>
 <div style="text-align: center">
   <% if current_leader.present? %>
-    <%= link_to "Neues Kleidungsstück", new_kleider_path, class: "btn btn-custom btn-lg", style: "margin: 0 auto;" %>
+    <%= link_to "Neues Kleidungsstück", new_kleider_path, class: "btn btn-custom-success btn-lg", style: "margin: 0 auto;" %>
   <% end %>
 </div>

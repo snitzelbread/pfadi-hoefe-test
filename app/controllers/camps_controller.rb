@@ -1,14 +1,15 @@
 class CampsController < ApplicationController
-  before_action :set_camp, only: %i[ show edit update destroy ]
+  before_action :set_camp, only: %i[ edit update destroy ]
+  before_action :require_login_leader, only: %i[ edit, create, update, destroy ]
 
   # GET /camps or /camps.json
   def index
-    @camps = Camp.all
+    @pfila = Camp.where("name = ?", "Pfingstlager");
+    @sola = Camp.where("name = ?", "Sommerlager");
+    @wola = Camp.where("name = ?", "Wochenlager");
+
   end
 
-  # GET /camps/1 or /camps/1.json
-  def show
-  end
 
   # GET /camps/new
   def new
@@ -29,7 +30,6 @@ class CampsController < ApplicationController
     respond_to do |format|
       if @camp.save
         format.html { redirect_to @camp, notice: "Camp was successfully created." }
-        format.json { render :show, status: :created, location: @camp }
       else
         format.html { render :new, status: 422 }
         format.json { render json: @camp.errors, status: 422 }
@@ -43,7 +43,6 @@ class CampsController < ApplicationController
     respond_to do |format|
       if @camp.update(camp_params)
         format.html { redirect_to session.delete(:return_to), notice: "Camp was successfully updated." }
-        format.json { render :show, status: :ok, location: @camp }
       else
         format.html { render :edit, status: 422 }
         format.json { render json: @camp.errors, status: 422 }

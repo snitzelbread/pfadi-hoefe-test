@@ -8,7 +8,9 @@
     <div class="hock grow shadow-lg">
       <h3><%= hock.title %></h3>
       <hr>
-      <p><%= hock.description %></p>
+      <div class="markdown-content">
+        <%= markdown(hock.description) if present? %>
+      </div>
       <hr>
       <p style="white-space: wrap"><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %> //
         <strong>Leiter: </strong><%= hock.pfadiname_of_leader(hock.leader_id) %></p>

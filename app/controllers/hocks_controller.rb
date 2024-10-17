@@ -1,5 +1,5 @@
 class HocksController < ApplicationController
-  before_action :set_hock, only: %i[ show edit update destroy ]
+  before_action :set_hock, only: %i[ edit update destroy ]
   before_action :require_login_leader
 
   # GET /hocks or /hocks.json
@@ -12,11 +12,6 @@ class HocksController < ApplicationController
       format.html
       format.json
     end
-  end
-
-  # GET /hocks/1 or /hocks/1.json
-  def show
-    @hock = Hock.find(params[:id])
   end
 
   # GET /hocks/new
@@ -35,8 +30,7 @@ class HocksController < ApplicationController
 
     respond_to do |format|
       if @hock.save
-        format.html { redirect_to hock_url(@hock), notice: "Hock was successfully created." }
-        format.json { render :show, status: :created, location: @hock }
+        format.html { redirect_to hocks_url, notice: "Hock was successfully created." }
       else
         format.html { render :new, status: 422 }
         format.json { render json: @hock.errors, status: 422 }
@@ -48,8 +42,7 @@ class HocksController < ApplicationController
   def update
     respond_to do |format|
       if @hock.update(hock_params)
-        format.html { redirect_to hock_url(@hock), notice: "Hock was successfully updated." }
-        format.json { render :show, status: :ok, location: @hock }
+        format.html { redirect_to hocks_url, notice: "Hock was successfully updated." }
       else
         format.html { render :edit, status: 422 }
         format.json { render json: @hock.errors, status: 422 }

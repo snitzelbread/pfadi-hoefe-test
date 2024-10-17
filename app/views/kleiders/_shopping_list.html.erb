@@ -1,6 +1,7 @@
-<ul class="list-group center mb-3 w-100">
-  <h1 class="dm-sans-title center" style="font-size: 80px; margin-bottom: 30px; text-align: center">Warenkorb</h1>
-  <div style="border-radius: 10px; border: 4px solid black">
+<ul class="list-group mb-3 w-100">
+  <div class="post-it-container">
+    <h1 class="fuzzy-bubbles-bold post-it-sponsor-3" style="font-size: 80px; margin-bottom: 30px; text-align: center">Warenkorb</h1>
+  </div>  <div style="border-radius: 10px; border: 4px solid black">
     <% if session[:shopping_list].empty? %>
       <li class="list-group-item">Der Warenkorb ist leer.</li> <!-- Message if shopping list is empty -->
     <% else %>

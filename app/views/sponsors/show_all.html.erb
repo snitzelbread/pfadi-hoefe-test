@@ -1,0 +1,20 @@
+<%= notice %>
+
+<div class="container">
+  <div class="row">
+  <% @sponsors.each do |sponsor| %>
+    <div class="col-lg-3 hock-bubble-white m-1">
+      <%= render sponsor %>
+      <div>
+        <%= link_to "Sponsor bearbeiten", edit_sponsor_path(sponsor), class: "btn btn-custom-warning-sm" %>
+        <%= link_to "Löschen", sponsor, method: :delete, class: "btn btn-custom-danger-sm" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="text-center m-5">
+    <%= link_to "Sponsorenseite", sponsors_path, class: "btn btn-custom-primary m-3" %>
+    <%= link_to "Neuer Sponsor", new_sponsor_path, class: "btn btn-custom-success m-3" %>
+  </div>
+  </div>
+</div>

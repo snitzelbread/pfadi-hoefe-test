@@ -1,4 +1,4 @@
-<%= form_with(model: camp, html: { multipart: true, class: "hock-bubble-green" }) do |form| %>
+<%= form_with(model: camp, html: { multipart: true }) do |form| %>
   <% if camp.errors.any? %>
     <% flash[:alert] = camp.errors.full_message %>
   <% end %>

@@ -18,8 +18,8 @@
 
 <% @leader = current_leader %>
 
-<div class="hocks-container">
-  <div class="hock">
+<div class="hocks-container m-3 w-100">
+  <div class="hock-bubble shadow-lg" style="background: white; padding: 20px">
     <h1 class="leiter-title">
       <%= @leader.pfadiname %>
     </h1>
@@ -29,19 +29,18 @@
       <%= image_tag(@leader.image, height: 200, width: 200, class: "shadow-lg", style: "border-radius: 25px; float: left; margin-top: 2vw") %>
     <% end %>
     <div style="float: left; margin-left: 3vw">
-      <p><strong>Pfadiname:</strong> <%= @leader.pfadiname %></p>
-      <p><strong>First Name:</strong> <%= @leader.first_name %></p>
-      <p><strong>Last Name:</strong> <%= @leader.last_name %></p>
-      <p><strong>Email:</strong> <%= @leader.email %></p>
+      <p><strong>Vorname:</strong> <%= @leader.first_name %></p>
+      <p><strong>Nachname:</strong> <%= @leader.last_name %></p>
+      <p><strong>E-Mail:</strong> <%= @leader.email %></p>
       <p><strong>Stufe:</strong> <%= @leader.stufe %></p>
       <p><strong>Funktion:</strong> <%= @leader.funktion %></p>
-      <p><strong>Account Created:</strong> <%= @leader.created_at.strftime('%B %d, %Y') %></p>
-      <p><strong>Last Updated:</strong> <%= @leader.updated_at.strftime('%B %d, %Y') %></p>
+      <p><strong>Account erstellt:</strong> <%= @leader.created_at.strftime('%B %d, %Y') %></p>
+      <p><strong>Zuletzt aktualisiert:</strong> <%= @leader.updated_at.strftime('%B %d, %Y') %></p>
     </div>
 
 
     <div class="actions mt-4">
-      <%= link_to 'Edit', edit_leader_registration_path(@leader), class: "btn btn-primary mr-2" %>
+      <%= link_to 'Bearbeiten', edit_leader_registration_path(@leader), class: "btn btn-custom-primary m-2" %>
     </div>
   </div>
 </div>

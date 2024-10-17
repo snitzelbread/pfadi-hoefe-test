@@ -3,11 +3,16 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :current_parent, :logged_in_parent?
   before_action :initialize_shopping_list
+  before_action :set_locale
+
 
   private
 
-  # Check if the user is logged in
+  def set_locale
+    I18n.locale = :de
+  end
 
+  # Check if the user is logged in
   def logged_in_parent?
     current_parent.present?
   end

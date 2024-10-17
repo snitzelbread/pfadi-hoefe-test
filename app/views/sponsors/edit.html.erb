@@ -1,0 +1,11 @@
+<% content_for :title, "Editing sponsor" %>
+
+<div class="container">
+<h1 class="dm-sans-title text-center">Sponsor bearbeiten</h1>
+
+<%= render "form", sponsor: @sponsor %>
+
+<div class="text-center">
+  <%= link_to "Abbrechen", sponsors_show_all_url, class: "btn btn-custom-danger" %>
+</div>
+</div>

@@ -5,12 +5,15 @@
 <h1>Camps</h1>
 
 <div id="camps">
-  <% @camps.each do |camp| %>
-    <%= render camp %>
     <p>
-      <%= link_to "Show this camp", camp %>
+      <%= link_to "Pfingstlager", pfila_path, class: "btn btn-custom-success" %>
     </p>
-  <% end %>
+    <p>
+      <%= link_to "Sommerlager", pfila_path, class: "btn btn-custom-danger" %>
+    </p>
+    <p>
+      <%= link_to "Wochenlager", pfila_path, class: "btn btn-custom-primary" %>
+    </p>
 </div>
 
 <%= link_to "New camp", new_camp_path %>

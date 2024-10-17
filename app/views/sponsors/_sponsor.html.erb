@@ -1,0 +1,3 @@
+<%= link_to sponsor.linky do %>
+  <%= image_tag(image_url(rails_blob_url(sponsor.image)), height: 200, width: 300, style: "object-fit: contain") if present? %>
+<% end %>

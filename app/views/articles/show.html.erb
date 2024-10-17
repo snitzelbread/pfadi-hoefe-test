@@ -1,15 +1,19 @@
-<div class="container" style="margin-bottom: 20px; width: 100%;">
-  <div class="article" style="width: 80%; height: fit-content; align-items: center">
+<div class="container w-100" style="margin-bottom: 20px;">
+  <div class="article" style="width: 100%; height: fit-content; align-items: center">
     <%= render @article %>
   </div>
 </div>
 
-<div>
-  <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-primary" %> |
-  <%= link_to "Back to articles", articles_path, class: "btn btn-warning" %>
-
-  <%= button_to "Destroy this article", @article, method: :delete, class: "btn btn-danger" %>
+<div class="container text-center">
+  <%= link_to "Zurück zu allen Beiträgen", articles_path, class: "btn btn-custom-primary m-3" %>
 </div>
+
+<% if leader_signed_in? %>
+  <div class="container text-center">
+    <%= link_to "Beitrag bearbeiten", edit_article_path(@article), class: "btn btn-custom-warning m-3" %> |
+    <%= link_to "Artikel löschen", @article, method: :delete, class: "btn btn-custom-danger m-3" %>
+  </div>
+<% end %>
 
 
 

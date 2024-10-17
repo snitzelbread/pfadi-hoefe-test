@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :detect_device
+  # before_action :detect_device
 
   def index
     @closest_biber_hock = Hock.closest_hock_by_stufe("Biber").first
@@ -11,12 +11,12 @@ class HomeController < ApplicationController
 
   private
 
-  def detect_device
-    browser = Browser.new(request.user_agent, accept_language: "en-us") # Create a new browser instance with the user agent
-    if browser.device.mobile? || browser.device.tablet?
-      request.variant = :mobile
-    else
-      request.variant = :desktop
-    end
-  end
+  # def detect_device
+  #   browser = Browser.new(request.user_agent, accept_language: "en-us") # Create a new browser instance with the user agent
+  #   if browser.device.mobile? || browser.device.tablet?
+  #     request.variant = :mobile
+  #   else
+  #     request.variant = :desktop
+  #   end
+  # end
 end

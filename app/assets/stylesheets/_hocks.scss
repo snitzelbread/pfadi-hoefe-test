@@ -23,7 +23,7 @@
 
 .hock-bubble {
   border-radius: 25px;
-  padding: 10px;
+  padding: 20px;
   border: 3px solid black;
 
   &-red {
@@ -33,12 +33,17 @@
 
   &-green {
     @extend .hock-bubble;
-    background-color: #b3ffc2;
+    background-color: #8bffa0;
   }
 
   &-blue {
     @extend .hock-bubble;
     background-color: #b3ddff;
+  }
+
+  &-white {
+    @extend .hock-bubble;
+    background-color: white;
   }
 }
 

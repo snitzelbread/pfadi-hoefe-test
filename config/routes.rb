@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :camps
+
 
   devise_for :leaders, controllers: {
     sessions: "leaders/sessions",
@@ -51,12 +51,13 @@ Rails.application.routes.draw do
   delete "clear_shopping_list", to: "kleiders#clear_shopping_list", as: :clear_shopping_list
   get "checkout", to: "kleiders#checkout"
 
-  resources :hocks
+  resources :hocks, except: [ :show ]
   resources :archives, except: [ :show, :new, :create ]
-
-
-
-
   resources :articles
   resources :news
+  resources :camps, except: [ :show ]
+  resources :sponsors, except: [ :show ]
+
+  get "sponsors/show_all", to: "sponsors#show_all"
+
 end

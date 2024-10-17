@@ -12,9 +12,9 @@
 
   <hr>
 
-  <p class="dm-sans-description" style="white-space: pre-wrap">
-    <%= article.content %>
-  </p>
+  <div class="markdown-content">
+    <%= markdown(article.content) %>
+  </div>
 
   <div>
     <% if article.images.present? %>
@@ -40,10 +40,6 @@
       <% end %>
     <% end %>
   </div>
-
-  <!-- Clickable image that triggers the modal -->
-  <!-- Button trigger modal -->
-
 
   <hr>
 

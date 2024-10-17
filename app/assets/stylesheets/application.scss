@@ -17,30 +17,17 @@
 @import "buttons";
 @import "home";
 @import "hocks";
+@import "markdown";
 
-.playpen-sans-title {
-  font-family: "Playpen Sans", cursive;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+
+body{
+  background: linear-gradient(19deg, #E5DDC5 25%, transparent 26%, transparent 74%, #E5DDC5 75%);
+  background-size: 6em 6em;
+  background-color: #F1EEDC;
+  opacity: 1
 }
 
-.dm-sans-title {
-  font-family: "DM Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  text-align: center;
-  margin-bottom: 0;
-}
 
-.dm-sans-description {
-  font-family: "DM Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-  font-size: calc(10px + 0.5vw)
-}
 
 
 .h1 {
@@ -98,3 +85,18 @@
 .shrink {
   transform: scale(0.8);
 }
+
+.preserve-breaks{
+  white-space-collapse: preserve-breaks
+}
+
+.text-right{
+  text-align: right;
+}
+
+.text-left{
+  text-align: left;
+}
+
+
+

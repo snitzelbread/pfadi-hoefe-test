@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_10_152838) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_17_074806) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -135,20 +135,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_10_152838) do
     t.index ["stufe", "funktion"], name: "index_leaders_on_stufe_and_funktion", unique: true
   end
 
-  create_table "leiters", force: :cascade do |t|
-    t.string "pfadiname"
-    t.string "firstname"
-    t.string "lastname"
-    t.string "email"
-    t.string "password_digest"
-    t.string "stufe"
-    t.string "funktion"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image"
-    t.index ["stufe", "funktion"], name: "index_leiters_on_stufe_and_funktion", unique: true
-  end
-
   create_table "news", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -162,6 +148,13 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_10_152838) do
     t.datetime "updated_at", null: false
     t.string "email"
     t.string "password_digest"
+  end
+
+  create_table "sponsors", force: :cascade do |t|
+    t.string "name"
+    t.string "linky"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

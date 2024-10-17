@@ -1,5 +1,6 @@
 class KleidersController < ApplicationController
   before_action :set_kleider, only: %i[ show edit update destroy ]
+  before_action :require_login_leader, only: %i[ edit create update destroy show ]
 
   # GET /kleiders or /kleiders.json
   def index

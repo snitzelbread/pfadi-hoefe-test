@@ -6,14 +6,6 @@
         margin: auto;
         text-align: center;
     }
-
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        min-width: 400px;
-    }
-
     .hock {
         border: 3px solid #e4be1a;
         border-radius: 25px;
@@ -80,14 +72,16 @@
       </div>
     </div>
 
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="form-check mt-3">
+      <input class="form-check-input leader[remember_me]" type="checkbox" value="" id="leader_remember_me">
+      <label class="form-check-label" for="leader_remember_me">
+        Remember me
+      </label>
     </div>
 
     <!-- Button -->
     <div class="center mb-3 mt-3">
-      <%= f.submit "Log In", class: "btn btn-custom-success" %>
+      <%= f.submit "Einloggen", class: "btn btn-custom-success" %>
     </div>
 <% end %>
 </div>

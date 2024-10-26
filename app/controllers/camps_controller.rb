@@ -1,12 +1,12 @@
 class CampsController < ApplicationController
   before_action :set_camp, only: %i[ edit update destroy ]
-  before_action :require_login_leader, only: %i[ edit, create, update, destroy ]
+  before_action :require_login_leader, only: %i[ edit create update destroy ]
 
   # GET /camps or /camps.json
   def index
-    @pfila = Camp.where("name = ?", "Pfingstlager");
-    @sola = Camp.where("name = ?", "Sommerlager");
-    @wola = Camp.where("name = ?", "Wochenlager");
+    @pfila = Camp.where("name = ?", "Pfingstlager")
+    @sola = Camp.where("name = ?", "Sommerlager")
+    @wola = Camp.where("name = ?", "Wochenlager")
 
   end
 

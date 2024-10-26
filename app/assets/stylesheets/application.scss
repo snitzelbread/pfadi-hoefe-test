@@ -20,12 +20,12 @@
 @import "markdown";
 
 
-body{
-  background: linear-gradient(19deg, #E5DDC5 25%, transparent 26%, transparent 74%, #E5DDC5 75%);
-  background-size: 6em 6em;
-  background-color: #F1EEDC;
-  opacity: 1
-}
+//body{
+//  background: linear-gradient(19deg, #E5DDC5 25%, transparent 26%, transparent 74%, #E5DDC5 75%);
+//  background-size: 6em 6em;
+//  background-color: #F1EEDC;
+//  opacity: 1
+//}
 
 
 
@@ -37,17 +37,33 @@ body{
 
 .navbar {
   .nav-link {
-    color: rgb(255, 255, 255);
-    transition: color 0.3s, background-color 0.3s;
-    border-radius: 25px;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-family: "DM Sans", sans-serif;
+    color: $btn-text-color;
+    border: 1px solid black;
+    border-radius: 8px;
+    background-color: #FF6500;
+    transition: all 0.25s ease-in-out;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.25rem 0.5vw;
+    font-weight: 600;
+    margin-left: 5px;
+    margin-right: 5px;
+    box-shadow: 5px 5px 0 0 $btn-shadow-color;
 
     &:hover {
-      color: yellow;
-      background-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 0 0 0 $btn-shadow-color;
+      border-radius: 8px;
+      border-width: 1px;
+      border-color: $btn-border-color;
+      background-color: #FF8A08;
     }
 
     &.active {
-      color: yellow;
+    background-color: #FFC100;
+    color: black;
     }
   }
 }
@@ -58,12 +74,6 @@ body{
 
 .dropdown-menu {
   background-color: #ae0000;
-}
-
-@media (min-width: 768px) {
-  .button-56 {
-    padding: 0 40px;
-  }
 }
 
 .grow {
@@ -97,6 +107,7 @@ body{
 .text-left{
   text-align: left;
 }
+
 
 
 

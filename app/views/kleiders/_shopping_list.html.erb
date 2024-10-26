@@ -22,6 +22,6 @@
 
 <% unless session[:shopping_list].empty? %>
   <div class="text-center">
-    <%= button_to "Einkaufsliste leeren", clear_shopping_list_path, method: :delete, class: "btn btn-custom-danger m-3" %>
+    <%= button_to "Einkaufsliste leeren", clear_shopping_list_path, method: :delete, "data-turbo-confirm": "Are you sure?", class: "btn btn-custom-danger m-3" %>
   </div>
 <% end %>

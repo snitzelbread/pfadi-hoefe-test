@@ -6,11 +6,8 @@
       <%= markdown(hock.description) %>
     </div>
     <hr style="margin: 10px">
-    <p class="dm-sans-description">
-      <strong><strong><strong><strong>Datum &
-        Zeit: </strong></strong></strong></strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %> //
-      <strong><strong><strong><strong>Ort: </strong></strong></strong></strong><%= hock.ort %> //
-      <strong><strong><strong><strong>Leiter: </strong></strong></strong></strong><%= hock.pfadiname_of_leader(hock.leader_id) %>
+    <p class="dm-sans-description preserve-breaks"><strong><strong><strong><strong>Datum & Zeit: </strong></strong></strong></strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %>
+      <strong><strong><strong><strong>Ort: </strong></strong></strong></strong><%= hock.ort %> <strong><strong><strong><strong>Leiter: </strong></strong></strong></strong><%= hock.pfadiname_of_leader(hock.leader_id) %>
     </p>
   </div>
 <% else %>

@@ -6,13 +6,13 @@
 
 <div id="camps">
     <p>
-      <%= link_to "Pfingstlager", pfila_path, class: "btn btn-custom-success" %>
+      <%= link_to "Pfingstlager", edit_camp_path(@pfila), class: "btn btn-custom-success" %>
     </p>
     <p>
-      <%= link_to "Sommerlager", pfila_path, class: "btn btn-custom-danger" %>
+      <%= link_to "Sommerlager", edit_camp_path(@sola), class: "btn btn-custom-danger" %>
     </p>
     <p>
-      <%= link_to "Wochenlager", pfila_path, class: "btn btn-custom-primary" %>
+      <%= link_to "Wochenlager", edit_camp_path(@wola), class: "btn btn-custom-primary" %>
     </p>
 </div>
 

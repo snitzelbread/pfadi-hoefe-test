@@ -1,20 +1,4 @@
-<style>
-    .center {
-        top: 20px;
-        margin: auto;
-        text-align: center;
-    }
-
-    .hock {
-        border: 3px solid #000000;
-        border-radius: 25px;
-        padding: 10px;
-
-        background-color: #dffffa;
-    }
-</style>
-
-<div class="hock shadow-lg">
+  <div class="hock shadow-lg">
   <h2 class="fuzzy-bubbles-bold post-it-sponsor-3 mx-auto" style="font-size: 80px; margin-bottom: 30px; top: 20px">Ihre Daten</h2>
 
   <%= form_with model: @bestellung, local: true, url: bestellung_path, method: :post do |form| %>

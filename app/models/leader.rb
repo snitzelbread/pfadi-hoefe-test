@@ -2,9 +2,13 @@ class Leader < ApplicationRecord
   has_many :hocks
   has_one_attached :image
   has_many :camps, foreign_key: :leader_id
+
+  validates :email, :password, presence: true
   validate :unique_stufenleitung_for_stufe, if: -> { funktion == 'Stufenleitung' }
   validate :unique_global_funktionen, if: -> { ['Stv. Abteilungsleitung', 'Abteilungsleitung'].include?(funktion) }
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :lockable, :timeoutable, :trackable
+
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+         :validatable, :lockable, :timeoutable, :trackable
 
   private
 

@@ -1,0 +1,39 @@
+.container#pfadi-banner{
+  min-width: 100%;
+  height: fit-content;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.col#pfadi-banner-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.col#pfadi-banner-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.img-fluid#pfadi-banner-image{
+  max-width: 100%;
+  height: 98%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+.dm-sans-description#pfadi-banner-text{
+  font-size: 2rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}

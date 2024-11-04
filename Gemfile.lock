@@ -216,7 +216,7 @@ GEM
     parser (3.3.5.0)
       ast (~> 2.4.1)
       racc
-    pg (1.5.8)
+    pg (1.5.9)
     pkg-config (1.5.7)
     poppler (4.2.4)
       cairo-gobject (= 4.2.4)

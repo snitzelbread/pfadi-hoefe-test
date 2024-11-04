@@ -1,15 +1,9 @@
-<style>
-    .center {
-        position: relative;
-        top: 20px;
-        max-width: fit-content;
-        margin: auto;
-    }
-</style>
-
 <div class="post-it-container">
   <h1 class="fuzzy-bubbles-bold post-it-title-5" style="font-size: 100px">⚜️ Pfadi ⚜️</h1>
 </div>
+
+
+<!-- Hock -->
 <div class="container" style="margin-top: 20px">
   <div class="row justify-content-center">
     <div class="col-lg-12 col-md-8 col-sm-10 m-4 post-it-title-4 shadow-lg" style="background-color: #ffc5c5">
@@ -19,7 +13,57 @@
   </div>
 </div>
 
+<!-- Banners -->
+<div class="container" id="pfadi-banner">
+  <div class="row h-100 p-0 m-0">
+    <div class="col" id="pfadi-banner-image">
+      <%= image_tag("stufen/pfadi/img_2.png", class: "img-fluid", id: "pfadi-banner-image" ) %>
+    </div>
+    <div class="col" id="pfadi-banner-text">
+      <p class="dm-sans-description text-center" id="pfadi-banner-text">
+        <strong>Bist du neugierig, abenteuerlustig und zwischen 10 und 14 Jahren alt?</strong>
+        Dann bist du bei der Pfadistufe genau richtig!
+        Wir treffen uns ca. 3 Mal im Monat am Samstag,
+        um gemeinsam vielerlei Abenteuer zu erleben. Ob eine Nachtwanderung, ein grosses Geländespiel
+        mit anderen Pfadis oder das Bauen eines eigenen Geheimverstecks, es ist alles mit dabei.
+        Bei uns lernst du grossartige Spiele und viele neue Freundinnen und Freunde kennen,
+        welche dich ein Leben lang begleiten werden.
+      </p>
+    </div>
+  </div>
+  <div class="row h-100 p-0 m-0">
+    <div class="col" id="pfadi-banner-text">
+      <p class="dm-sans-description text-center" id="pfadi-banner-text">
+        <strong>Der Höhepunkt des Pfadijahres ist das <a href="/sola" target="_blank">Sommerlager</a></strong> – gemeinsam mit unseren Leitpersonen verbringen
+          wir zwei Wochen in einem Zeltlager irgendwo in der Schweiz. Verpackt in ein spannendes Lagerthema erleben
+          wir die grössten Abenteuer, die du dir nur vorstellen kannst. Dabei stellen wir unser eigenes kleines Dorf
+          auf – von unserer Küche bis zu speziellen Bauten, wie einer Seilbahn, bauen wir alles selbst.
+      </p>
+    </div>
+    <div class="col" id="pfadi-banner-image">
+      <%= image_tag("stufen/pfadi/img.png", class: "img-fluid", id: "pfadi-banner-image" ) %>
+    </div>
+  </div>
+  <div class="row h-100 p-0 m-0">
+    <div class="col" id="pfadi-banner-image">
+      <%= image_tag("stufen/pfadi/img_1.png", class: "img-fluid", id: "pfadi-banner-image" ) %>
+    </div>
+    <div class="col" id="pfadi-banner-text">
+      <p class="dm-sans-description text-center" id="pfadi-banner-text">
+        Natürlich verbinden uns als Pfadis auch gemeinsame Werte. Unser Wahlspruch lautet<strem>«Allzeit bereit»</strem>.
+        Wir sind also immer bereit neue Abenteuer zu erleben und für unsere Gemeinschaft einzustehen.
+        Dies zeigt sich auch in unserem Zusammenleben. <strong>Wir nehmen aufeinander Rücksicht</strong> und begegnen uns,
+        sowie unserer Umwelt, mit Respekt. Zudem lernen wir schon früh, was es heisst Verantwortung zu übernehmen –
+        ob für sich selbst, für die Umwelt oder für andere.
+      </p>
+    </div>
+  </div>
+  <div class="row h-100">
 
+  </div>
+</div>
+
+<!-- Stufenleitung -->
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-lg-4 col-md-6 col-sm-10">
@@ -30,7 +74,22 @@
                                                            funktion: "#{@leader.funktion} #{@leader.stufe}",
                                                            email: "#{@leader.email}" } if @leader.present? %>
     </div>
-    <div class="w-100"></div>
+    <div class="col" id="pfadi-banner-text">
+      <p class="dm-sans-description text-center preserve-breaks" style="font-size: 40px">
+        <strong> Na, haben wir dein Interesse geweckt?</strong>
+        Dann nimm gerne Kontakt mit unserer Stufenleitung <%= @leader.pfadiname.capitalize %> auf, um einen «Schnupper-Höck» zu vereinbaren!
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<div>
+  <h1 class="fuzzy-bubbles-bold post-it-title-5 w-50"> Pfadileitungs-Team</h1>
+</div>
+<!-- Leitpersonen -->
+<div class="container">
+  <div class="row justify-content-center">
     <div class="col-lg-4 col-md-6 col-sm-10">
       <% @leaders = Leader.where(stufe: "Pfadi").where.not(funktion: "Stufenleitung") %>
       <% @leaders.each do |t| %>
@@ -38,7 +97,7 @@
                                                              name: "#{t.first_name} #{t.last_name} v/o #{t.pfadiname.capitalize}",
                                                              funktion: "#{t.funktion} #{t.stufe}",
                                                              email: "#{t.email}" } if t.present? %>
-        </div>
-        </div>
-      <% end %>
       </div>
+    </div>
+  <% end %>
+</div>

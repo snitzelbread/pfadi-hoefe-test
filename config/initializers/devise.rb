@@ -14,7 +14,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  config.secret_key = '17aab6c13f8175b2c4829a819358f9e1d20dc50b3580305e298d43ddefea3c0d627df000f5b9c58b231aaaa086862b97a8fc865dc654115f9c26308d7297c89a'
+  config.secret_key = "17aab6c13f8175b2c4829a819358f9e1d20dc50b3580305e298d43ddefea3c0d627df000f5b9c58b231aaaa086862b97a8fc865dc654115f9c26308d7297c89a"
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -24,19 +24,19 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
   # Configure the class responsible to send e-mails.
-  config.mailer = 'Devise::Mailer'
+  config.mailer = "Devise::Mailer"
 
   # Configure the parent class responsible to send e-mails.
-  config.parent_mailer = 'ActionMailer::Base'
+  config.parent_mailer = "ActionMailer::Base"
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/active_record'
+  require "devise/orm/active_record"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -46,7 +46,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  config.authentication_keys = [:email]
+  config.authentication_keys = [ :email ]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -58,12 +58,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [:email]
+  config.case_insensitive_keys = [ :email ]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [:email]
+  config.strip_whitespace_keys = [ :email ]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -85,7 +85,7 @@ Devise.setup do |config|
   config.http_authenticatable_on_xhr = true
 
   # The realm used in Http Basic Authentication. 'Application' by default.
-  config.http_authentication_realm = 'Application'
+  config.http_authentication_realm = "Application"
 
   # It will change confirmation, password recovery and other workflows
   # to behave the same regardless if the e-mail provided was right or wrong.
@@ -97,7 +97,7 @@ Devise.setup do |config|
   # Notice that if you are skipping storage for all authentication paths, you
   # may want to disable generating routes to Devise's sessions controller by
   # passing skip: :sessions to `devise_for` in your config/routes.rb
-  config.skip_session_storage = [:http_auth]
+  config.skip_session_storage = [ :http_auth ]
 
   # By default, Devise cleans up the CSRF token on authentication to
   # avoid CSRF token fixation attacks. This means that, when using AJAX
@@ -126,7 +126,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  config.pepper = '2376384bb80d912cd72a350c0d2802105ce46c7bbeb8077bd2d1b65e7796b618afc1d4631b2ff4923dac4539ad5f1b2117a260d7a4e0a072dc9c20c3ffaa1906'
+  config.pepper = "2376384bb80d912cd72a350c0d2802105ce46c7bbeb8077bd2d1b65e7796b618afc1d4631b2ff4923dac4539ad5f1b2117a260d7a4e0a072dc9c20c3ffaa1906"
 
   # Send a notification to the original email when the user's email is changed.
   config.send_email_changed_notification = false
@@ -174,7 +174,7 @@ Devise.setup do |config|
 
   # Options to be passed to the created cookie. For instance, you can set
   # secure: true in order to force SSL only cookies.
-  config.rememberable_options = {secure: true}
+  config.rememberable_options = { secure: true }
 
   # ==> Configuration for :validatable
   # Range for password length.
@@ -197,7 +197,7 @@ Devise.setup do |config|
   config.lock_strategy = :failed_attempts
 
   # Defines which key will be used when locking and unlocking an account
-  config.unlock_keys = [:email]
+  config.unlock_keys = [ :email ]
 
   # Defines which strategy will be used to unlock an account.
   # :email = Sends an unlock link to the user email
@@ -219,7 +219,7 @@ Devise.setup do |config|
   # ==> Configuration for :recoverable
   #
   # Defines which key will be used when recovering the password for an account
-  config.reset_password_keys = [:email]
+  config.reset_password_keys = [ :email ]
 
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
@@ -263,20 +263,20 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  config.navigational_formats = ['*/*', :html, :turbo_stream]
+  config.navigational_formats = [ "*/*", :html, :turbo_stream ]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
 
-  # ==> OmniAuth
-  # Add a new OmniAuth provider. Check the wiki for more information on setting
-  # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+   # ==> OmniAuth
+   # Add a new OmniAuth provider. Check the wiki for more information on setting
+   # up on your models and hooks.
+   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-  # ==> Warden configuration
-  # If you want to use other strategies, that are not supported by Devise, or
-  # change the failure app, you can configure them inside the config.warden block.
-  #
+   # ==> Warden configuration
+   # If you want to use other strategies, that are not supported by Devise, or
+   # change the failure app, you can configure them inside the config.warden block.
+   #
    config.warden do |manager|
      manager.intercept_401 = false
      manager.default_strategies(scope: :user).unshift :some_external_strategy

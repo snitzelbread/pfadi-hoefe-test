@@ -16,7 +16,6 @@ class KleidersController < ApplicationController
     @kleider = Kleider.new
 
     # Initialize the shopping list if it doesn't exist
-
   end
 
   # GET /kleiders/1/edit
@@ -67,7 +66,7 @@ class KleidersController < ApplicationController
     session[:shopping_list] << {
       name: kleider.name,
       price: kleider.price * params[:amount].to_i,
-      amount: params[:amount] || 1, # Make sure 'amount' is present, defaulting to 1 if not
+      amount: params[:amount] || 1 # Make sure 'amount' is present, defaulting to 1 if not
     }
 
     flash[:notice] = "#{kleider.name} added."

@@ -1,6 +1,6 @@
 class SponsorsController < ApplicationController
   before_action :set_sponsor, only: %i[ edit update destroy ]
-  before_action :require_login_leader, only: %i[ show_all edit destroy create ]
+  before_action :require_login_leader, only: %i[ show_all edit destroy create new update ]
 
   # GET /sponsors or /sponsors.json
   def index

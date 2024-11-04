@@ -14,7 +14,7 @@
  *= require_self
  */
 
-@import "buttons";
+@import "elements/buttons";
 @import "home";
 @import "hocks";
 @import "markdown";
@@ -34,6 +34,14 @@
   white-space: pre-wrap;
 }
 
+strem{
+  font-weight: 800;
+  font-style: italic;
+}
+
+strong{
+  font-weight: 800;
+}
 
 .navbar {
   .nav-link {

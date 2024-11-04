@@ -4,8 +4,8 @@ class Leader < ApplicationRecord
   has_many :camps, foreign_key: :leader_id
 
   validates :email, :password, presence: true
-  validate :unique_stufenleitung_for_stufe, if: -> { funktion == 'Stufenleitung' }
-  validate :unique_global_funktionen, if: -> { ['Stv. Abteilungsleitung', 'Abteilungsleitung'].include?(funktion) }
+  validate :unique_stufenleitung_for_stufe, if: -> { funktion == "Stufenleitung" }
+  validate :unique_global_funktionen, if: -> { [ "Stv. Abteilungsleitung", "Abteilungsleitung" ].include?(funktion) }
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable,
          :validatable, :lockable, :timeoutable, :trackable
@@ -19,7 +19,7 @@ class Leader < ApplicationRecord
   end
 
   def unique_stufenleitung_for_stufe
-    if Leader.where(funktion: 'Stufenleitung', stufe: stufe).where.not(id: id).exists?
+    if Leader.where(funktion: "Stufenleitung", stufe: stufe).where.not(id: id).exists?
       errors.add(:funktion, "Stufenleitung can only be assigned to one Leader per stufe")
     end
   end

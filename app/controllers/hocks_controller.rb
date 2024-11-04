@@ -25,7 +25,6 @@ class HocksController < ApplicationController
 
   # POST /hocks or /hocks.json
   def create
-
     @hock = Hock.new(hock_params)
 
     respond_to do |format|

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Bestellung, type: :model do
-
   let(:bestellung) { create(:bestellung) }
 
   describe "validations" do
@@ -49,6 +48,4 @@ RSpec.describe Bestellung, type: :model do
       expect(bestellung).not_to be_valid
     end
   end
-
-
 end

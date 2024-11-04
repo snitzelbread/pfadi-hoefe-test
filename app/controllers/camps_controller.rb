@@ -7,7 +7,6 @@ class CampsController < ApplicationController
     @pfila = Camp.where("name = ?", "Pfingstlager")
     @sola = Camp.where("name = ?", "Sommerlager")
     @wola = Camp.where("name = ?", "Wochenlager")
-
   end
 
 
@@ -39,7 +38,6 @@ class CampsController < ApplicationController
 
   # PATCH/PUT /camps/1 or /camps/1.json
   def update
-
     respond_to do |format|
       if @camp.update(camp_params)
         format.html { redirect_to session.delete(:return_to), notice: "Camp was successfully updated." }

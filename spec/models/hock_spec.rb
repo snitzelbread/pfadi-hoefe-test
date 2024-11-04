@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Hock, type: :model do
-
   let(:hock) { create(:hock) }
   it { should belong_to(:leader) }
 
@@ -78,7 +77,7 @@ RSpec.describe Hock, type: :model do
         hock2 = create(:hock, stufe: stufe, datetime: Time.zone.now)
         hock3 = create(:hock, stufe: 'Woelfli', datetime: 1.day.ago)
 
-        expect(Hock.all_stufen_hocks(stufe)).to match_array([hock1, hock2])
+        expect(Hock.all_stufen_hocks(stufe)).to match_array([ hock1, hock2 ])
       end
 
       it 'returns an empty array if no hocks are found' do

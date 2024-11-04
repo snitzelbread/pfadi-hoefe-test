@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   # GET /articles or /articles.json
   def index
     # Default sort order is descending (newest first)
-    sort_order = params[:sort] || 'desc'
+    sort_order = params[:sort] || "desc"
 
     # Fetch articles, ordered by date based on the sort parameter
     @articles = Article.order(date: sort_order)

@@ -2,7 +2,6 @@
 require 'rails_helper'
 
 RSpec.describe Camp, type: :model do
-
   let(:camp) { create(:camp) }
   it { should belong_to(:leader) }
   it { should have_many_attached(:images) }
@@ -46,5 +45,4 @@ RSpec.describe Camp, type: :model do
       expect(camp.images.count).to eq(1)
     end
   end
-
 end

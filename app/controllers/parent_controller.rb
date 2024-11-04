@@ -1,5 +1,4 @@
 class ParentController < ApplicationController
-
   def new
     @parent = Parent.new
   end

@@ -26,4 +26,3 @@ RSpec.describe Parent, type: :model do
     end
   end
 end
-

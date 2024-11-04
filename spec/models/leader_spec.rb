@@ -3,7 +3,6 @@ require 'rails_helper'
 
 RSpec.describe Leader, type: :model do
   describe 'validations' do
-
     let(:leader) { create(:leader) }
 
     it "is valid with all attributes" do
@@ -37,7 +36,6 @@ RSpec.describe Leader, type: :model do
     it "should have camps" do
       expect(leader.camps).to include(camp)
     end
-
   end
 
   describe 'methods' do

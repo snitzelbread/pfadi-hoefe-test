@@ -12,36 +12,10 @@
 
   <hr>
 
-  <div class="markdown-content">
-    <%= markdown(article.content) %>
-  </div>
-
   <div>
-    <% if article.images.present? %>
-      <h1>Bilder</h1>
-      <% article.images.each_with_index do |image, index| %>
-        <!-- Button to trigger modal -->
-        <%= image_tag(image, height: 200, width: 200, class: "modal-button", data: { bs_toggle: "modal", bs_target: "#imageModal#{index}" }) %>
-
-
-        <!-- Modal for each image -->
-        <div class="modal" id="imageModal<%= index %>" tabindex="-1" aria-labelledby="imageModalLabel<%= index %>" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <%= image_tag(image, class: "img-fluid", style: "max-width: 100%;") %>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
+    <%= article.content %>
   </div>
-
-  <hr>
+    <hr>
 
   <p class="dm-sans-description">
     <strong>Veröffentlicht am:</strong>

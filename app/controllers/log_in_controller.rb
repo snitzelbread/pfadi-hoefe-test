@@ -5,7 +5,6 @@ class LogInController < ApplicationController
   end
 
   def create
-
     unless params[:parent].nil?
       @parent = Parent.find_by(email: params[:parent][:email])
       respond_to do |format|

@@ -8,7 +8,7 @@ class DeviseCreateLeaders < ActiveRecord::Migration[7.2]
       t.string :last_name
       t.string :stufe
       t.string :funktion
-      t.index [:stufe, :funktion], name: "index_leaders_on_stufe_and_funktion", unique: true
+      t.index [ :stufe, :funktion ], name: "index_leaders_on_stufe_and_funktion", unique: true
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -36,7 +36,7 @@ class DeviseCreateLeaders < ActiveRecord::Migration[7.2]
 
       ## Lockable
       t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
-      #t.string   :unlock_token # Only if unlock strategy is :email or :both
+      # t.string   :unlock_token # Only if unlock strategy is :email or :both
       t.datetime :locked_at
 
 
@@ -45,7 +45,7 @@ class DeviseCreateLeaders < ActiveRecord::Migration[7.2]
 
     add_index :leaders, :email,                unique: true
     add_index :leaders, :reset_password_token, unique: true
-    #add_index :leaders, :confirmation_token,   unique: true
-    #add_index :leaders, :unlock_token,         unique: true
+    # add_index :leaders, :confirmation_token,   unique: true
+    # add_index :leaders, :unlock_token,         unique: true
   end
 end

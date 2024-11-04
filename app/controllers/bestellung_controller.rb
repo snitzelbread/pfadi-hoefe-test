@@ -21,6 +21,18 @@ class BestellungController < ApplicationController
     @bestellung.destroy
   end
 
+  def format_shopping_list(shopping_list)
+    formatted_items = shopping_list.map do |item|
+      amount = item["amount"].to_i # Convert amount to integer
+      name = item["name"] # Name as string
+      price = item["price"].to_f # Convert price to float
+      total_price = (amount * price).round(2) # Calculate total price for the item
+
+      "#{amount} x #{name} für je #{price} (Total: #{total_price})"
+    end
+    formatted_items.join("<br />").html_safe # Join items with line breaks and mark as safe HTML
+  end
+
   private
 
   def bestellung_params
@@ -28,17 +40,5 @@ class BestellungController < ApplicationController
       :first_name, :last_name, :email, :phone, :address,
       :city, :zipcode, :message, :order_list
     )
-  end
-
-  def format_shopping_list(shopping_list)
-    formatted_items = shopping_list.map do |item|
-      amount = item["amount"].to_i # Convert amount to integer
-      name = item["name"] # Name as string
-      price = item["price"].to_f # Convert price to float
-      total_price = amount * price # Calculate total price for the item
-
-      "#{amount} x #{name} für je #{price} (Total: #{total_price})"
-    end
-    formatted_items.join("<br />").html_safe # Join items with line breaks and mark as safe HTML
   end
 end

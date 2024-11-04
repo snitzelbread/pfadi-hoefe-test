@@ -10,7 +10,7 @@ class AnmeldungController < ApplicationController
       # Trigger the mailer after saving the form
       AnmeldungMailer.with(anmeldung: @anmeldung).anmeldung_email.deliver_now
 
-      redirect_to @anmeldung, notice: 'Anmeldung was successfully created, and email has been sent.'
+      redirect_to @anmeldung, notice: "Anmeldung was successfully created, and email has been sent."
     else
       render :new, status: 422
     end

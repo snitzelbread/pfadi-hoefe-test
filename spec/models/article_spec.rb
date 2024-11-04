@@ -1,11 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-
   let(:article) { create(:article) }
 
   describe "validations" do
-
     it "is valid with valid attributes" do
       expect(article).to be_valid
     end
@@ -39,7 +37,7 @@ RSpec.describe Article, type: :model do
         article2 = create(:article, created_at: 2.days.ago)
         article3 = create(:article, created_at: 3.days.ago)
 
-        expect(Article.latest_articles).to match_array([article1, article2, article3])
+        expect(Article.latest_articles).to match_array([ article1, article2, article3 ])
       end
 
       it "returns an empty array if no articles are found" do

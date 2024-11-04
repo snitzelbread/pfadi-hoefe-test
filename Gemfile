@@ -18,10 +18,10 @@ gem "recaptcha", "~> 5.17"
 gem "dotenv-rails", "~> 3.1"
 gem "i18n"
 gem "pg"
-gem "redcarpet", "~> 3.4"
 gem "bcrypt", "~> 3.1.7"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
+gem "poppler"
 # Gemfile
 group :development do
   gem "web-console"
@@ -43,5 +43,5 @@ group :test do
   gem "rspec-expectations"
   gem "faker"
   gem "shoulda-matchers"
+  gem "rails-controller-testing"
 end
-

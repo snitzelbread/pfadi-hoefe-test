@@ -1,11 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Sponsor, type: :model do
-
   let(:sponsor) { create(:sponsor) }
 
   describe "validations" do
-
     it "is valid with valid attributes" do
       expect(sponsor).to be_valid
     end
@@ -21,14 +19,12 @@ RSpec.describe Sponsor, type: :model do
     end
   end
 
-  describe  "associations" do
-
+  describe "associations" do
     it { should have_one_attached(:image) }
 
     it "can have an image attached" do
       sponsor.image.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'test_image.png')), filename: 'test_image.png')
       expect(sponsor.image.attached?).to be true
     end
-
   end
 end

@@ -9,8 +9,7 @@
       <div class="card-body">
         <h5 class="card-title" style="font-size: calc(10px + 1vw)"><%= article.title %></h5>
         <p class="card-text" style="font-size: calc(10px + 0.6vw)">
-          <%= truncate(article.content, length: 700, separator: ' ') %>
-          <%= link_to "Mehr lesen", article_path(article.id) if article.content.length >= 700 %>
+          <%= remove_brackets(article.content.to_plain_text.truncate(700))  %>
         </p>
         <p class="card-text">
           <small class="text-body-secondary"><strong>Veröffentlicht: </strong><%= article.date.strftime("%d.%m.%Y") %></small>

@@ -28,8 +28,7 @@
           <div class="card-body">
             <h5 class="card-title"><%= article.title %></h5>
             <p class="card-text">
-              <%= truncate(article.content, length: 300, separator: ' ',) %>
-              <%= link_to 'Mehr lesen', article_path(article) if article.content.length >= 300 %>
+              <%= remove_brackets(article.content.to_plain_text.truncate(300)) %>
             </p>
             <p class="card-text">
               <small class="text-muted">Veröffentlicht: <%= I18n.l(article.date, format: "%A %d.%m.%Y", locale: :de) %></small>

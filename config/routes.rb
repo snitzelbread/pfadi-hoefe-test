@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   devise_for :leaders, controllers: {
     sessions: "leaders/sessions",
     registrations: "leaders/registrations",
@@ -59,5 +57,4 @@ Rails.application.routes.draw do
   resources :sponsors, except: [ :show ]
 
   get "sponsors/show_all", to: "sponsors#show_all"
-
 end

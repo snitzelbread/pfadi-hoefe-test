@@ -1,17 +1,12 @@
 <style>
 
-    .login-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin: 50px
-    }
 </style>
 
+<div class="post-it-container">
+    <h1 class="fuzzy-bubbles-bold post-it-title-2">Anmeldung</h1>
+</div>
 <div class="login-container">
-  <div class="card-group gap-4">
     <%= render "log_in/leader_form", leader: @leader %>
     <%= render "log_in/parent_form", parent: @parent %>
-  </div>
   <%= link_to "Passwort vergessen?", forgot_password_path, class: "btn btn-custom-danger m-3" %>
 </div>

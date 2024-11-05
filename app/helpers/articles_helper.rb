@@ -1,5 +1,5 @@
 module ArticlesHelper
   def remove_brackets(content)
-    content.gsub(/\[.*?\]/, '')
+    content.gsub(/\[.*?\]/, "")
   end
 end

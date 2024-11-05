@@ -1,0 +1,19 @@
+.grow {
+  transition: all .2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.1);
+}
+
+.grow-xl {
+  transition: all .2s ease-in-out;
+}
+
+.grow-xl:hover {
+  transform: scale(1.2);
+}
+
+.shrink {
+  transform: scale(0.8);
+}

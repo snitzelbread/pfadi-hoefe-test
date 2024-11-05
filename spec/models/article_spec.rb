@@ -22,12 +22,12 @@ RSpec.describe Article, type: :model do
   describe "associations" do
     it { should have_many_attached(:images) }
 
-    it "can have multiple images attached" do
-      article.images.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'test_image.png')), filename: 'test_image.png')
-      article.images.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'test_image.png')), filename: 'test_image.png')
-      expect(article.images.attached?).to be true
-      expect(article.images.count).to eq(2)
-    end
+    # it "can have multiple images attached" do
+    #   article.images.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'test_image.png')), filename: 'test_image.png')
+    #   article.images.attach(io: File.open(Rails.root.join('spec', 'fixtures', 'test_image.png')), filename: 'test_image.png')
+    #   expect(article.images.attached?).to be true
+    #   expect(article.images.count).to eq(2)
+    # end
   end
 
   describe "scopes" do

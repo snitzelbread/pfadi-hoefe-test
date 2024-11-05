@@ -1,5 +1,6 @@
 class Hock < ApplicationRecord
   belongs_to :leader
+  has_rich_text :description
   validates :title, :description, :datetime, :ort, :stufe, :leader_id, presence: true
 
   scope :closest_hock_by_stufe, ->(stufe) { where("stufe = ? AND datetime > ?", stufe, Time.zone.now).order(:datetime) }

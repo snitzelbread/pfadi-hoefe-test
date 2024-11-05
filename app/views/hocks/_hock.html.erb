@@ -1,7 +1,7 @@
 <div class="hock">
   <h3 class="dm-sans-title"><%= hock.title %></h3>
-  <div class="markdown-content dm-sans-description">
-    <%= markdown(hock.description) if present? %>
+  <div class="dm-sans-description">
+    <%= hock.description if present? %>
   </div>
   <p class="dm-sans-description" style="float: left">
     <strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %></p>

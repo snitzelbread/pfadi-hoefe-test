@@ -14,10 +14,27 @@
  *= require_self
  */
 
+//Sites
+@import "sites/home";
+@import "sites/hocks";
+@import "sites/login";
+
+
+//Abstract
+@import "abstract/fonts";
+@import "abstract/postit";
+@import "abstract/actiontext";
+
+//Elements
 @import "elements/buttons";
-@import "home";
-@import "hocks";
-@import "markdown";
+@import "elements/navbar";
+
+//Stufen
+@import "sites/stufen/pfadi";
+@import "sites/stufen/rover";
+@import "sites/stufen/woelfli";
+@import "sites/stufen/biber";
+@import "sites/stufen/pios";
 
 
 //body{
@@ -43,66 +60,8 @@ strong{
   font-weight: 800;
 }
 
-.navbar {
-  .nav-link {
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-family: "DM Sans", sans-serif;
-    color: $btn-text-color;
-    border: 1px solid black;
-    border-radius: 8px;
-    background-color: #FF6500;
-    transition: all 0.25s ease-in-out;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 0.25rem 0.5vw;
-    font-weight: 600;
-    margin-left: 5px;
-    margin-right: 5px;
-    box-shadow: 5px 5px 0 0 $btn-shadow-color;
 
-    &:hover {
-      box-shadow: 0 0 0 0 $btn-shadow-color;
-      border-radius: 8px;
-      border-width: 1px;
-      border-color: $btn-border-color;
-      background-color: #FF8A08;
-    }
 
-    &.active {
-    background-color: #FFC100;
-    color: black;
-    }
-  }
-}
-
-.dropdown-menu .dropdown-item:hover {
-  background-color: red;
-}
-
-.dropdown-menu {
-  background-color: #ae0000;
-}
-
-.grow {
-  transition: all .2s ease-in-out;
-}
-
-.grow:hover {
-  transform: scale(1.1);
-}
-
-.grow-xl {
-  transition: all .2s ease-in-out;
-}
-
-.grow-xl:hover {
-  transform: scale(1.2);
-}
-
-.shrink {
-  transform: scale(0.8);
-}
 
 .preserve-breaks{
   white-space-collapse: preserve-breaks

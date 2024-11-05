@@ -25,16 +25,17 @@ module PfadiHoefe
     #
     config.time_zone = "Bern"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.after_initialize do
-      ActionText::ContentHelper.allowed_attributes.add 'style'
-      ActionText::ContentHelper.allowed_attributes.add 'controls'
-      ActionText::ContentHelper.allowed_attributes.add 'poster'
-
-      ActionText::ContentHelper.allowed_tags.add 'video'
-      ActionText::ContentHelper.allowed_tags.add 'audio'
-      ActionText::ContentHelper.allowed_tags.add 'source'
-      ActionText::ContentHelper.allowed_tags.add 'embed'
-      ActionText::ContentHelper.allowed_tags.add 'iframe'
-    end
+    # config.after_initialize do
+    #   ActionText::ContentHelper.allowed_attributes = [] if ActionText::ContentHelper.allowed_attributes.nil?
+    #   ActionText::ContentHelper.allowed_attributes << "style"
+    #   ActionText::ContentHelper.allowed_attributes << "controls"
+    #   ActionText::ContentHelper.allowed_attributes << "poster"
+    #
+    #   ActionText::ContentHelper.allowed_tags << "video"
+    #   ActionText::ContentHelper.allowed_tags << "audio"
+    #   ActionText::ContentHelper.allowed_tags << "source"
+    #   ActionText::ContentHelper.allowed_tags << "embed"
+    #   ActionText::ContentHelper.allowed_tags << "iframe"
+    # end
   end
 end

@@ -22,8 +22,8 @@
     <% @articles.each do |article| %>
       <div class="col-lg-4 col-md-8">
         <div class="card shadow-lg grow-xl" style="margin: 2vw; border: 2.5px solid green; height: fit-content">
-          <% if article.images.attached? %>
-            <%= image_tag url_for(article.images.first), class: "img-fluid rounded-top", style: "object-fit: cover; width: 100%; height: 300px;" %>
+          <% if article.image.attached? %>
+            <%= image_tag url_for(article.image), class: "img-fluid rounded-top", style: "object-fit: cover; width: 100%; height: 300px;" %>
           <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= article.title %></h5>

@@ -4,8 +4,8 @@
     <div class="hock grow shadow-lg">
       <h3><%= hock.title %></h3>
       <hr>
-      <div class="markdown-content">
-        <%= markdown(hock.description) if present? %>
+      <div>
+        <%= hock.description if present? %>
       </div>
       <hr>
       <p style="white-space: wrap"><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %> //

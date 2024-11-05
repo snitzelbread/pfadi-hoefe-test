@@ -1,21 +1,32 @@
-
-<% if hocks.present? %>
-  <% hocks.each do |hock| %>
-    <div class="hock grow shadow-lg">
-      <h3><%= hock.title %></h3>
-      <hr>
-      <div>
-        <%= hock.description if present? %>
-      </div>
-      <hr>
-      <p style="white-space: wrap"><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %> //
-        <strong>Leiter: </strong><%= hock.pfadiname_of_leader(hock.leader_id) %></p>
-      <p></p>
-      <%= button_to "Bearbeiten", edit_hock_path(hock), method: :get, class: "btn-custom-warning-sm", style: "padding: 5px; float: left; margin: 0 15px 10px 0" %>
-      <%= button_to "Löschen", hock, method: :delete, class: "btn-custom-danger-sm", "data-turbo-confirm": "Bist du dir sicher?", style: "padding: 5px;" %>
+<div class="container">
+  <div class="row justify-content-center w-100">
+      <% if hocks.present? %>
+      <div class="col-lg-3 col-md-5 col-sm-7">
+        <% hocks.each do |hock| %>
+          <div class="hock grow shadow-lg">
+            <h3><%= hock.title %></h3>
+            <hr>
+            <div>
+              <%= remove_brackets(hock.description.to_plain_text.truncate(150)) if present? %>
+            </div>
+            <hr>
+            <p style="white-space: wrap"><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %> //
+              <strong>Leiter: </strong><%= hock.pfadiname_of_leader(hock.leader_id) %></p>
+            <p></p>
+            <%= button_to "Bearbeiten", edit_hock_path(hock), method: :get, class: "btn-custom-warning-sm", style: "padding: 5px; float: left; margin: 0 15px 10px 0" %>
+            <%= button_to "Löschen", hock, method: :delete, class: "btn-custom-danger-sm", "data-turbo-confirm": "Bist du dir sicher?", style: "padding: 5px;" %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="container mt-3">
+          <div class="row justify-content-center w-100">
+            <div class="col-lg-12 text-center mb-3 no-camp-box">
+              <h3> Kein Höck für diese Stufe erfasst. </h3>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-<% else %>
-  <p> Kein Höck für diese Stufe eingetragen.
-<% end %>
+  </div>
+</div>
 

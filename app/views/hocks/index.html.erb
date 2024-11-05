@@ -1,9 +1,3 @@
-<style>
-
-</style>
-
-<% content_for :title, "Höcks" %>
-
 <h1 class="dm-sans-title" style="font-size:calc(30px + 2vw);">Höcks</h1>
 
 <br>
@@ -12,28 +6,13 @@
 
 
 <div class="divider">Biber</div>
-<div class="container">
-  <div class="row justify-content-center w-100">
-    <div class="col-lg-3 col-md-5 col-sm-7">
-      <%= render partial: "display", locals: { hocks: @biber_hocks, stufe: "Biber" } %>
-    </div>
-  </div>
-</div>
+<%= render partial: "display", locals: { hocks: @biber_hocks, stufe: "Biber" } %>
+
 <div class="divider">Wölfli</div>
-<div class="container">
-  <div class="row justify-content-center w-100">
-    <div class="col-lg-3 col-md-5 col-sm-7">
-      <%= render partial: "display", locals: { hocks: @woelfli_hocks, stufe: "Wölfli" } %>
-    </div>
-  </div>
-</div>
+<%= render partial: "display", locals: { hocks: @woelfli_hocks, stufe: "Wölfli" } %>
+
 <div class="divider">Pfadi</div>
-<div class="container">
-  <div class="row justify-content-center w-100">
-    <div class="col-lg-3 col-md-5 col-sm-7">
-      <%= render partial: "display", locals: { hocks: @pfadi_hocks, stufe: "Pfadi" } %>
-    </div>
-  </div>
-</div>
+<%= render partial: "display", locals: { hocks: @pfadi_hocks, stufe: "Pfadi" } %>
+
 
 

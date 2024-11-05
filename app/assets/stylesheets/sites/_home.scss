@@ -3,14 +3,6 @@
   box-sizing: border-box;
 }
 
-
-@media (max-width: 576px) { /* Mobile view adjustments */
-  .center {
-    top: 10px;
-    max-width: 90%; /* Reduced width for mobile */
-  }
-}
-
 .home-header {
   min-height: 30%;
   max-width: 100%;
@@ -244,4 +236,10 @@
   border-radius: 25px;
   width: 95%;
   margin: 0 auto;
+}
+
+.fixed-div {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }

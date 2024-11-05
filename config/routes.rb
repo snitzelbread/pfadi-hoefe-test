@@ -57,4 +57,5 @@ Rails.application.routes.draw do
   resources :sponsors, except: [ :show ]
 
   get "sponsors/show_all", to: "sponsors#show_all"
+  delete "sponsors/destroy/:id", to: "sponsors#destroy", as: :sponsors_destroy
 end

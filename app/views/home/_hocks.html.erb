@@ -1,23 +1,33 @@
 <% if hock.present? %>
-  <div class="hock">
-    <h2 class="dm-sans-title"><%= hock.title %></h2>
-    <hr style="margin: 10px">
-    <div class="markdown-content">
+  <div class="container">
+    <div class="fixed-div">
+      <h5 class="fuzzy-bubbles-bold"> <%= stufe %></h5>
+    </div>
+    <div>
+      <h2 class="dm-sans-title"><%= hock.title %></h2>
+    </div>
+    <hr style="margin-top: 0">
+    <div>
       <%= hock.description %>
     </div>
-    <hr style="margin: 10px">
-    <p class="dm-sans-description preserve-breaks"><strong>Datum & Zeit: </strong><%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %>
-      <strong>Ort: </strong><%= hock.ort %> <strong>Leiter: </strong><%= hock.pfadiname_of_leader(hock.leader_id) %>
-    </p>
+    <hr>
+    <div>
+      <p class="dm-sans-description preserve-breaks"><strong>Datum & Zeit: </strong><%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %>
+        <strong>Ort: </strong><%= hock.ort %> <strong>Leiter: </strong><%= hock.pfadiname_of_leader(hock.leader_id) %>
+      </p>
+    </div>
   </div>
 <% else %>
-  <div class="hock">
-    <h2> Oops! Kein Höck dieses Mal.. </h2>
-    <hr>
-    <p> Momentan gibt es von dieser Stufe keinen Höck, schau doch zu einem späteren Zeitpunkt mal vorbei!</p>
-    <hr>
-    <p style="float: left"></p>
-    <p style="float: left; margin-left: 10px"></p>
-    <p style="float: left; margin-left: 10px"></p>
+  <div class="container">
+    <div class="fixed-div">
+      <h5 class="fuzzy-bubbles-bold"> <%= stufe %></h5>
+    </div>
+    <div class="dm-sans-title">
+      <h2> Oops! Kein Höck dieses Mal.. </h2>
+    </div>
+    <hr style="margin-top: 0">
+    <div>
+      <p> Momentan gibt es von dieser Stufe keinen Höck, schau doch zu einem späteren Zeitpunkt mal vorbei!</p>
+    </div>
   </div>
 <% end %>

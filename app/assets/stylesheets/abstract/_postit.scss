@@ -10,6 +10,7 @@
   flex-wrap: wrap;         /* Allow post-its to wrap to the next line */
   margin-top: 60px;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 .post-it {
@@ -19,7 +20,6 @@
   padding: 30px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
   height: fit-content;
-  text-align: center;
   border-radius: 5px;
   position: relative;
   z-index: 1;

@@ -11,11 +11,11 @@ class BestellungController < ApplicationController
       # Trigger the mailer after saving the form
       BestellungMailer.with(bestellung: @bestellung).bestellung_email.deliver_now
 
-      redirect_to kleiders_path
-      flash[:notice] = "Bestellung was successfully created, and email has been sent."
+      flash[:notice] = "Bestellung wurde erfolgreich erstellt, und E-Mail wurde gesendet."
+      redirect_to kleiders_path, status: 200
     else
-      render :new, status: 422
-      flash[:alert] = "Bestellung was unsuccessful. Please try again."
+      flash[:alert] = "Bestellung konnte nicht geschickt werden. Bitte versuche es erneut."
+      render :new, status: :unprocessable_content
     end
     session[:shopping_list] = []
     @bestellung.destroy

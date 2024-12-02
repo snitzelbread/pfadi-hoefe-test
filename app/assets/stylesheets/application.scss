@@ -12,7 +12,13 @@
  *
  *= require_tree .
  *= require_self
+ *= require dropzone/basic
+ *= require dropzone/dropzone
  */
+
+@import "bootstrap";
+@import "font-awesome";
+
 
 //Sites
 @import "sites/home";
@@ -37,18 +43,8 @@
 @import "sites/stufen/pios";
 
 
-//body{
-//  background: linear-gradient(19deg, #E5DDC5 25%, transparent 26%, transparent 74%, #E5DDC5 75%);
-//  background-size: 6em 6em;
-//  background-color: #F1EEDC;
-//  opacity: 1
-//}
-
-
-
-
-.h1 {
-  white-space: pre-wrap;
+* {
+  font-family: "DM Sans", sans-serif;
 }
 
 strem{
@@ -69,11 +65,15 @@ strong{
 }
 
 .text-left{
-  text-align: left;
+  text-align: left !important;
 }
 
 .text-center{
   text-align: center;
+}
+
+.text {
+  color: black;
 }
 
 

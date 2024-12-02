@@ -1,172 +1,32 @@
 <div class="container hock-bubble-white">
   <% @leader = current_leader %>
 
-  <h1 class="center leader-title mb-3 dm-sans-title text-center">
-    <strong>Leiter: </strong><%= @leader.pfadiname %>
-  </h1>
 
-  <%= form_for(@leader, url: leader_registration_path(@leader), html: { method: :put, multipart: true }) do |f| %>
+  <h1 class="mb-3">Profil bearbeiten</h1>
+
+  <%= simple_form_for @leader, as: :leader, url: leader_registration_path, html: { multipart: true, method: :put } do |f| %>
     <%= render "leaders/shared/error_messages", resource: resource %>
-
-    <% if @leader.image.attached? %>
-      <%= image_tag @leader.image, width: 100, height: 100, style: "float: left; position: absolute" %>
-    <% else %>
-      <p>No image uploaded.</p>
-    <% end %>
-
-    <!-- Pfadiname -->
-    <div class="center input-group mb-3 w-50">
-      <span class="input-group-text">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alphabet" viewBox="0 0 16 16">
-          <path d="M2.204 11.078c.767 0 1.201-.356 1.406-.737h.059V11h1.216V7.519c0-1.314-.947-1.783-2.11-1.783C1.355 5.736.75 6.42.69 7.27h1.216c.064-.323.313-.552.84-.552s.864.249.864.771v.464H2.346C1.145 7.953.5 8.568.5 9.496c0 .977.693 1.582 1.704 1.582m.42-.947c-.44 0-.845-.235-.845-.718 0-.395.269-.684.84-.684h.991v.538c0 .503-.444.864-.986.864m5.593.937c1.216 0 1.948-.869 1.948-2.31v-.702c0-1.44-.727-2.305-1.929-2.305-.742 0-1.328.347-1.499.889h-.063V3.983h-1.29V11h1.27v-.791h.064c.21.532.776.86 1.499.86Zm-.43-1.025c-.66 0-1.113-.518-1.113-1.28V8.12c0-.825.42-1.343 1.098-1.343.684 0 1.075.518 1.075 1.416v.45c0 .888-.386 1.401-1.06 1.401Zm2.834-1.328c0 1.47.87 2.378 2.305 2.378 1.416 0 2.139-.777 2.158-1.763h-1.186c-.06.425-.313.732-.933.732-.66 0-1.05-.512-1.05-1.352v-.625c0-.81.371-1.328 1.045-1.328.635 0 .879.425.918.776h1.187c-.02-.986-.787-1.806-2.14-1.806-1.41 0-2.304.918-2.304 2.338z"/>
-        </svg>
-      </span>
-      <div class="form-floating">
-        <input name="leader[pfadiname]"
-               id="leader_pfadiname"
-               placeholder="Pfadiname"
-               value="<%= current_leader.pfadiname if present? %>"
-               autocomplete="pfadiname"
-               type="text"
-               aria-label="pfadiname"
-               class="form-control">
-
-        <label for="leader_pfadiname">Pfadiname</label>
-      </div>
+    <%= f.input :pfadiname %>
+    <div class="input-group gap-3">
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :email %>
+      <%= f.input :stufe, as: :select, collection: stufen, selected: "Biber" %>
+      <%= f.input :funktion,
+                  collection: funktionen_subcategories,
+                  as: :grouped_select,
+                  group_method: :last,
+                  label_method: :itself,
+                  value_method: :itself,
+                  selected: funktionen_subcategories.values.flatten.first %>
     </div>
 
-    <!-- Vorname & Nachname -->
-    <div class="center input-group mb-3 w-50">
-      <span class="input-group-text">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alphabet" viewBox="0 0 16 16">
-          <path d="M2.204 11.078c.767 0 1.201-.356 1.406-.737h.059V11h1.216V7.519c0-1.314-.947-1.783-2.11-1.783C1.355 5.736.75 6.42.69 7.27h1.216c.064-.323.313-.552.84-.552s.864.249.864.771v.464H2.346C1.145 7.953.5 8.568.5 9.496c0 .977.693 1.582 1.704 1.582m.42-.947c-.44 0-.845-.235-.845-.718 0-.395.269-.684.84-.684h.991v.538c0 .503-.444.864-.986.864m5.593.937c1.216 0 1.948-.869 1.948-2.31v-.702c0-1.44-.727-2.305-1.929-2.305-.742 0-1.328.347-1.499.889h-.063V3.983h-1.29V11h1.27v-.791h.064c.21.532.776.86 1.499.86Zm-.43-1.025c-.66 0-1.113-.518-1.113-1.28V8.12c0-.825.42-1.343 1.098-1.343.684 0 1.075.518 1.075 1.416v.45c0 .888-.386 1.401-1.06 1.401Zm2.834-1.328c0 1.47.87 2.378 2.305 2.378 1.416 0 2.139-.777 2.158-1.763h-1.186c-.06.425-.313.732-.933.732-.66 0-1.05-.512-1.05-1.352v-.625c0-.81.371-1.328 1.045-1.328.635 0 .879.425.918.776h1.187c-.02-.986-.787-1.806-2.14-1.806-1.41 0-2.304.918-2.304 2.338z"/>
-        </svg>
-      </span>
-      <div class="form-floating">
-        <input name="leader[first_name]" id="leader_first_name" placeholder="Vorname" type="text" value="<%= current_leader.first_name if present? %>" aria-label="first_name" class="form-control">
-        <label for="leader_first_name">Vorname</label>
-      </div>
-      <div class="form-floating">
-        <input name="leader[last_name]" id="leader_last_name" placeholder="Nachname" type="text" value="<%= current_leader.last_name if present? %>" aria-label="last_name" class="form-control">
-        <label for="leader_last_name">Nachname</label>
-      </div>
-    </div>
+    <%= f.input :image, value: @leader.image %>
 
-    <!-- E-Mail -->
-    <div class="center input-group mb-3 w-50">
-      <span class="input-group-text">@</span>
-      <div class="form-floating">
-        <input name="leader[email]"
-               id="leader_email"
-               placeholder="E-Mail"
-               value="<%= current_leader.email if present? %>"
-               autocomplete="email"
-               type="email"
-               aria-label="email"
-               class="form-control">
-
-        <label for="leader_email">E-Mail</label>
-      </div>
-    </div>
-
-    <!-- Stufe -->
-    <div class="center input-group mb-3 w-50">
-      <span class="input-group-text">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ladder" viewBox="0 0 16 16">
-          <path d="M4.5 1a.5.5 0 0 1 .5.5V2h6v-.5a.5.5 0 0 1 1 0v14a.5.5 0 0 1-1 0V15H5v.5a.5.5 0 0 1-1 0v-14a.5.5 0 0 1 .5-.5M5 14h6v-2H5zm0-3h6V9H5zm0-3h6V6H5zm0-3h6V3H5z"/>
-        </svg>
-      </span>
-      <div class="form-floating">
-        <select name="leader[stufe]" id="leader_stufe" class="form-select" aria-label="stufe select">
-          <% ["Biber", "Wölfli", "Pfadi", "Pios", "Rover", "Inaktiv"].each do |stufe_option| %>
-            <option value="<%= stufe_option %>" <%= 'selected' if @leader.stufe == stufe_option %>>
-              <%= stufe_option %>
-            </option>
-          <% end %>
-        </select>
-        <label for="leader_stufe">Stufe wählen</label>
-      </div>
-    </div>
-
-    <!-- Funktion -->
-    <div class="center input-group mb-3 w-50">
-      <span class="input-group-text">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
-          <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
-          <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
-        </svg>
-      </span>
-      <div class="form-floating">
-        <select name="leader[funktion]" id="leader_funktion" class="form-select" aria-label="funktion select">
-          <% funktion_options = {
-            "Stufen" => ['Leitperson', 'Stufenleitung'],
-            "Abteilung" => ['Abteilungsleitung', 'Stv. Abteilungsleitung'],
-            "Extra" => ['Website-Verantwortlicher']
-          } %>
-
-          <% funktion_options.each do |group_label, options| %>
-            <optgroup label="<%= group_label %>">
-              <% options.each do |option| %>
-                <option value="<%= option %>" <%= 'selected' if @leader.funktion == option %>>
-                  <%= option %>
-                </option>
-              <% end %>
-            </optgroup>
-          <% end %>
-        </select>
-        <label for="leader_stufe">Funktion wählen</label>
-      </div>
-    </div>
-
-    <!-- Profilbild -->
-    <div class="center input-group mb-3 w-50">
-      <span class="input-group-text">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-camera" viewBox="0 0 16 16">
-          <path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.172a3 3 0 0 0 2.12-.879l.83-.828A1 1 0 0 1 6.827 3h2.344a1 1 0 0 1 .707.293l.828.828A3 3 0 0 0 12.828 5H14a1 1 0 0 1 1 1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.172a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 9.172 2H6.828a2 2 0 0 0-1.414.586l-.828.828A2 2 0 0 1 3.172 4z"/>
-          <path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5m0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M3 6.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/>
-        </svg>
-      </span>
-      <div class="form-floating">
-        <input name="leader[image]"
-               id="leader_image"
-               placeholder="Profilbild"
-               type="file"
-               aria-label="image"
-               class="form-control">
-
-        <label for="leader_image">Profilbild</label>
-      </div>
-    </div>
-
-
-
-    <!-- Current Password -->
-    <div class="center input-group mb-3 w-50">
-      <span class="input-group-text">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
-          <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8m4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5"/>
-          <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
-        </svg>
-      </span>
-      <div class="form-floating">
-        <input name="leader[current_password]"
-               id="leader_current_password"
-               placeholder="Current Password"
-               type="password"
-               required
-               autocomplete="current-password"
-               aria-label="image"
-               class="form-control">
-
-        <label for="leader_current_password">Aktuelles Passwort</label>
-      </div>
-    </div>
-
-    <!-- Buttons -->
-    <div class="center actions mb-3 w-50">
-      <%= f.submit "Leiter aktualisieren", class: "btn btn-custom-primary m-3" %>
-      <%= link_to "Abbrechen", :back, class: "btn btn-custom-danger m-3" %>
-    </div>
+    <%= f.input :password, hint: "Wenn du dein Passwort nicht ändern möchtest, tippe dein aktuelles Passwort ein" %>
+    <%= f.input :current_password, required: true %>
+    <%= f.submit "Speichern", class: "btn btn-custom-primary" %>
+    <%= link_to "Abbrechen", profil_path, class: "btn btn-custom-danger mx-3" %>
   <% end %>
 </div>
 

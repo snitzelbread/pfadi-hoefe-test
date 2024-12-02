@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container justify-content-center">
   <div class="row justify-content-center w-100">
-      <% if hocks.present? %>
+    <% if hocks.present? %>
       <div class="col-lg-3 col-md-5 col-sm-7">
         <% hocks.each do |hock| %>
           <div class="hock grow shadow-lg">
@@ -17,16 +17,13 @@
             <%= button_to "Löschen", hock, method: :delete, class: "btn-custom-danger-sm", "data-turbo-confirm": "Bist du dir sicher?", style: "padding: 5px;" %>
           </div>
         <% end %>
-      <% else %>
-        <div class="container mt-3">
-          <div class="row justify-content-center w-100">
-            <div class="col-lg-12 text-center mb-3 no-camp-box">
-              <h3> Kein Höck für diese Stufe erfasst. </h3>
-            </div>
-          </div>
+      </div>
+    <% else %>
+      <div class="row justify-content-center w-100">
+        <div class="col justify-content-center text-center mb-3 no-camp-box">
+          <h3> Kein Höck für diese Stufe erfasst. </h3>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
-

@@ -24,6 +24,7 @@ class CampsController < ApplicationController
 
   # POST /camps or /camps.json
   def create
+    @all_leaders = Leader.all
     @camp = Camp.new(camp_params)
 
     respond_to do |format|
@@ -67,6 +68,6 @@ class CampsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def camp_params
-    params.require(:camp).permit(:name, :general_description, :quote, :template, :this_camp_description, :leader_id, images: [])
+    params.require(:camp).permit(:name, :general_description, :template, :this_camp_description, :leader_id, images: [])
   end
 end

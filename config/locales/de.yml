@@ -1,6 +1,36 @@
 ---
 de:
   activerecord:
+    models:
+      leader:
+        one: "Leiter"
+        other: "Leitende"
+      kleider:
+        one: "Kleidungsstück"
+        other: "Kleidungsstücke"
+      article:
+        one: "Artikel"
+        other: "Artikel"
+    attributes:
+      leader:
+        pfadiname: "Pfadiname"
+        current_password: "Aktuelles Passwort"
+        password: "Passwort"
+        function: "Funktion"
+        first_name: "Vorname"
+        last_name: "Nachname"
+        email: "E-Mail"
+        stufe: "Stufe"
+      kleider:
+        name: "Name"
+        description: "Beschreibung"
+        price: "Preis"
+        image: "Bild"
+      article:
+        title: "Titel"
+        content: "Inhalt"
+        date: "Datum"
+        image: "Titelbild"
     errors:
       messages:
         record_invalid: 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'
@@ -18,7 +48,7 @@ de:
     - Fr
     - Sa
     abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mär
@@ -44,7 +74,7 @@ de:
       long: "%e. %B %Y"
       short: "%e. %b"
     month_names:
-    - 
+    -
     - Januar
     - Februar
     - März

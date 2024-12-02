@@ -1,8 +1,8 @@
 class HocksController < ApplicationController
   before_action :set_hock, only: %i[ edit update destroy ]
   before_action :require_login_leader
+  include SelectHelper
 
-  # GET /hocks or /hocks.json
   def index
     @biber_hocks = Hock.all_stufen_hocks("Biber")
     @woelfli_hocks = Hock.all_stufen_hocks("Wölfli")

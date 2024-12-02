@@ -1,0 +1,9 @@
+.separator {
+  border-top: var(--border);
+  margin: 4rem 0 3rem 0;
+
+  &--low-top {
+    border-top: var(--border);
+    margin-top: 1rem;
+  }
+}

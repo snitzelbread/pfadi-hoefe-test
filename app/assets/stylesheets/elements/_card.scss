@@ -1,0 +1,34 @@
+.box-card {
+  border-radius: var(--border-radius);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-large);
+  padding: var(--space-s);
+  margin-bottom: 3rem;
+}
+
+//renuo card
+.renuo-card-bg {
+  transition: transform .3s ease;
+}
+.button-arrow {
+  transition: padding .3s ease;
+}
+.renuo-card:hover {
+  .button-arrow {
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+  .renuo-card-bg {
+    transform: scale(1.025);
+  }
+}
+
+.card-title{
+  font-size: 5rem;
+  font-weight: 700;
+}
+
+.boot-card-title{
+  font-size: 1.5rem;
+  font-weight: 700;
+}

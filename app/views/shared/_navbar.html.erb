@@ -1,33 +1,7 @@
-<style>
-    #navbar {
-        position: sticky;
-        top: 15px;
-        overflow: visible;
-        z-index: 100;
-
-        background-color: #C40C0C;
-        border: 3px solid black;
-        border-radius: 8px;
-        width: 98%;
-        transition: all 0.15s ease-in-out;
-        box-shadow: 3px 3px 0 0 black;
-
-
-
-        margin: 0 auto; /* Centers the navbar within its container */
-        left: 0; /* Removes any default left offset */
-        right: 0; /* Removes any default right offset */
-
-        font-family: "DM Sans", sans-serif;
-    }
-
-
-</style>
-
-<nav class="navbar navbar-expand-lg" data-bs-theme="dark" id="navbar">
+<nav class="navbar navbar-expand-lg mb-3" data-bs-theme="dark" id="navbar">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
-      <%= image_tag("logo/pfadi_logo.jpeg", style: "width:30px; height: 24px", class: "d-inline-block align-text-top") %>
+      <%= image_tag("logo/pfadi_logo.jpeg", class: "navbar-logo") %>
       Pfadi Höfe
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,37 +52,32 @@
       </ul>
 
       <!-- This section moves to the right side -->
-      <ul class="navbar-nav ms-auto">
-        <% if current_parent.nil? && current_leader.nil? %>
+      <ul class="navbar-nav ms-auto my-auto">
+        <li class="nav-item">
+          <a href="https://cloud.linuxfabrik.io/index.php/s/XEpctQQeR4aNiin" class="nav-link">Archiv</a>
+        </li>
+        <% if current_leader.nil? %>
           <li class="nav-item">
             <%= nav_link_to "Log In", login_path %>
           </li>
-        <% elsif leader_signed_in? %>
+        <% else leader_signed_in? %>
           <li class="nav-item">
-            <%= nav_link_to "Camps", camps_path %>
-          </li>
-          <li class="nav-item">
-            <a href="https://cloud.linuxfabrik.io/index.php/s/XEpctQQeR4aNiin" class="nav-link">Archiv</a>
-          </li>
-          <li class="nav-item">
-            <%= nav_link_to "Profil", profil_path(current_leader) %>
+            <%= nav_link_to "Lager", camps_path %>
           </li>
           <li class="nav-item">
             <%= nav_link_to "Höcks", hocks_path, :get %>
           </li>
           <li class="nav-item">
-            <span class="nav-link" style="color: white">Logged in as: <%= current_leader.pfadiname %></span>
+            <%= nav_link_to "Profil", profil_path(current_leader) do %>
+
+            <% end %>
           </li>
           <li class="nav-item">
-            <%= button_to "Logout", destroy_leader_session_path, method: :delete, class: "btn btn-logout", "data-turbo-confirm": "Bist du dir sicher?", style: "font-size: 16px" %>
+            <%= button_to "Logout", destroy_leader_session_path, method: :delete, class: "nav-link", "data-turbo-confirm": "Bist du dir sicher?", style: "font-size: 16px" %>
           </li>
-        <% else %> <!-- Parents -->
-          <li class="nav-item">
-            <a href="https://cloud.linuxfabrik.io/index.php/s/XEpctQQeR4aNiin" class="nav-link">Archiv</a>
-          </li>
-          <li class="nav-item">
-            <%= nav_link_to "Logout", logout_path, :delete %>
-          </li>
+<!--          <div class="avatar">-->
+<!--            <img src="<%#= rails_blob_url(current_leader.image) if current_leader.image.attached? %>" alt="">-->
+<!--          </div>-->
         <% end %>
       </ul>
     </div>

@@ -7,7 +7,7 @@ module ApplicationHelper
     when 3
       link_to args[0], args[1], class: "nav-link #{active_class}", method: args[2]
     else
-      # type code here
+      link_to args[0], args[1], class: "nav-link #{active_class}", method: args[2], data: args[3]
     end
   end
 end

@@ -3,12 +3,12 @@
 </div>
 
 <!-- Banners -->
-<div class="container" id="pfadi-banner">
+<div class="d-flex container flex-wrap" id="pfadi-banner">
   <div class="row h-100 p-0 m-0">
     <div class="col" id="pfadi-banner-image">
-      <%= image_tag("stufen/pfadi/img_2.png", class: "img-fluid", id: "pfadi-banner-image" ) %>
+      <%= image_tag("stufen/pfadi/img_2.png", class: "img-fluid br-10", id: "pfadi-banner-image" ) %>
     </div>
-    <div class="col" id="pfadi-banner-text">
+    <div class="col align-content-center" id="pfadi-banner-text">
       <p class="dm-sans-description text-center" id="pfadi-banner-text">
         <strong>Bist du neugierig, abenteuerlustig und zwischen 10 und 14 Jahren alt?</strong>
         Dann bist du bei der Pfadistufe genau richtig!
@@ -20,8 +20,8 @@
       </p>
     </div>
   </div>
-  <div class="row h-100 p-0 m-0">
-    <div class="col" id="pfadi-banner-text">
+  <div class="row h-100">
+    <div class="col align-content-center" id="pfadi-banner-text">
       <p class="dm-sans-description text-center" id="pfadi-banner-text">
         <strong>Der Höhepunkt des Pfadijahres ist das <a href="/sola" target="_blank">Sommerlager</a></strong> – gemeinsam mit unseren Leitpersonen verbringen
           wir zwei Wochen in einem Zeltlager irgendwo in der Schweiz. Verpackt in ein spannendes Lagerthema erleben
@@ -29,15 +29,15 @@
           auf – von unserer Küche bis zu speziellen Bauten, wie einer Seilbahn, bauen wir alles selbst.
       </p>
     </div>
-    <div class="col" id="pfadi-banner-image">
-      <%= image_tag("stufen/pfadi/img_1.png", class: "img-fluid", id: "pfadi-banner-image" ) %>
+    <div class="col align-content-center" id="pfadi-banner-image">
+      <%= image_tag("stufen/pfadi/img_1.png", class: "img-fluid br-10", id: "pfadi-banner-image" ) %>
     </div>
   </div>
-  <div class="row h-100 p-0 m-0">
-    <div class="col" id="pfadi-banner-image">
-      <%= image_tag("stufen/pfadi/img.png", class: "img-fluid", id: "pfadi-banner-image" ) %>
+  <div class="row h-100">
+    <div class="col align-content-center" id="pfadi-banner-image">
+      <%= image_tag("stufen/pfadi/img.png", class: "img-fluid br-10", id: "pfadi-banner-image" ) %>
     </div>
-    <div class="col" id="pfadi-banner-text">
+    <div class="col align-content-center" id="pfadi-banner-text">
       <p class="dm-sans-description text-center" id="pfadi-banner-text">
         Natürlich verbinden uns als Pfadis auch gemeinsame Werte. Unser Wahlspruch lautet<strem>«Allzeit bereit»</strem>.
         Wir sind also immer bereit neue Abenteuer zu erleben und für unsere Gemeinschaft einzustehen.
@@ -46,9 +46,6 @@
         ob für sich selbst, für die Umwelt oder für andere.
       </p>
     </div>
-  </div>
-  <div class="row h-100">
-
   </div>
 </div>
 
@@ -63,8 +60,8 @@
                                                            funktion: "#{@leader.funktion} #{@leader.stufe}",
                                                            email: "#{@leader.email}" } if @leader.present? %>
     </div>
-    <div class="col" id="pfadi-banner-text">
-      <p class="dm-sans-description text-center preserve-breaks" style="font-size: 40px">
+    <div class="col align-content-center" id="pfadi-banner-text">
+      <p class="text-center preserve-breaks" style="font-size: 40px">
         <strong> Na, haben wir dein Interesse geweckt?</strong>
         Dann nimm gerne Kontakt mit unserer Stufenleitung <%= @leader.pfadiname.capitalize %> auf, um einen «Schnupper-Höck» zu vereinbaren!
       </p>

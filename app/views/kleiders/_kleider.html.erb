@@ -1,17 +1,8 @@
-<style>
-    .input-group-text {
-        background-color: #dddddd;
-        border-color: black;
-        border-width: 2px;
-        font-weight: 500;
-        box-shadow: 4px 4px 0 0 black;
-    }
-</style>
-<div class="col-lg-3 col-md-6 col-sm-10">
-  <div class="card shadow-lg grow-xl" style="margin: 2vw; border: 2.5px solid green">
+<div class="col-lg-4 col-md-8 col-sm-12 my-3">
+  <div class="card shadow-lg grow" style=" border: 2.5px solid green">
     <%= image_tag url_for(kleider.image), height: 300, width: 200, class: "card-img-top", style: "object-fit: cover" if kleider.image.attached? %>
     <div class="card-body">
-      <h5 class="card-title"><%= kleider.name %></h5>
+      <h3 class="boot-card-title"><%= kleider.name %></h3>
       <p class="card-text"><%= kleider.description %></p>
 
       <%= form_with url: add_to_list_kleider_path(kleider), method: :post, local: true do |form| %>
@@ -23,7 +14,7 @@
           <%= form.submit "Hinzufügen", class: "btn-custom-success-sm" %>
         </div>
 
-        <div class="btn-group mt-3" style="text-align: center">
+        <div class="btn-group mt-3 text-align-center">
           <% if leader_signed_in? %>
             <%= link_to "Bearbeiten", edit_kleider_path(kleider.id), class: "btn btn-custom-warning-sm" %>
             <%= link_to "Löschen", kleider, data: { turbo_method: :delete }, class: "btn btn-custom-danger-sm" %>
@@ -33,33 +24,3 @@
     </div>
   </div>
 </div>
-
-
-
-<!--  <div class="col">-->
-<!--    <div class="card shadow-lg">-->
-<%#= image_tag url_for(kleider.image), height: 400, width: 400, class: "card-img-top", style: "" if kleider.image.attached? %>
-<!--      <div class="card-body" style="width: 400px; height: 300px">-->
-<!--        <h5><%#= kleider.name %></h5>-->
-<!--        <p class="card-text"><%#= kleider.description %></p>-->
-<!--        <div class="d-flex justify-content-between align-items-center">-->
-<!--          <div class="btn-group">-->
-<%#= link_to "Anzeigen", kleider_path(kleider.id), class: "btn btn-custom-primary-sm" %>
-<%# if leader_signed_in? %>
-<%#= link_to "Bearbeiten", edit_kleider_path(kleider.id), class: "btn btn-custom-warning-sm" %>
-<%#= link_to "Löschen", kleider, data: { turbo_method: :delete }, class: "btn btn-custom-danger-sm" %>
-<%# end %>
-<!--          </div>-->
-<!--          <small class="text-body-secondary"><strong>Preis: </strong><%#= kleider.price %>0 Fr. </small>-->
-<%#= form_with url: add_to_list_kleider_path(kleider), method: :post, local: true do |form| %>
-<!--            <div class="input-group mt-2">-->
-<%#= form.label :amount, "Menge:", class: "input-group-text"%>
-<%#= form.number_field :amount, value: 1, min: 1, class: "form-control", style: "width: 3vw;" %>
-<%#= form.submit "Hinzufügen", class: "btn-custom-success-sm" %>
-<!--            </div>-->
-<%# end %>
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->

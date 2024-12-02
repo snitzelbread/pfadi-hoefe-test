@@ -10,42 +10,95 @@ $btn-text-color: black;
 $btn-hover-text-color: black;
 
 .navbar {
+  backdrop-filter: blur(4px);
+  position: sticky;
+  top: 0;
+  margin-top: 0;
+  z-index: 9999;
+  background-color: rgba(255, 255, 255, 0.5);
+  flex-wrap: wrap;
+  align-content: center;
+
   .nav-link {
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-family: "DM Sans", sans-serif;
-    color: $btn-text-color;
-    border: 1px solid black;
-    border-radius: 8px;
-    background-color: #FF6500;
-    transition: all 0.25s ease-in-out;
-    text-decoration: none;
-    font-size: 1rem;
-    padding: 0.25rem 0.5vw;
-    font-weight: 600;
+    position: relative; /* Ensure pseudo-elements are positioned relative to this */
     margin-left: 5px;
-    margin-right: 5px;
-    box-shadow: 5px 5px 0 0 $btn-shadow-color;
+    color: black;
+    font-family: "DM Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    font-style: normal;
+    text-align: center;
+    text-decoration: none;
+    padding: 2px;
 
     &:hover {
-      box-shadow: 0 0 0 0 $btn-shadow-color;
-      border-radius: 8px;
-      border-width: 1px;
-      border-color: $btn-border-color;
-      background-color: #FF8A08;
+      color: black;
+    }
+
+    &:hover::after{
+      transform: scaleX(1); /* Ensure the underline is fully visible */
+      background-color: red;
+      height: 3px; /* Keep the thickness consistent */
+      transition: none; /* Disable animation for active state */
+    }
+
+    &:hover::before {
+      transform: scaleX(1); /* Animate the underline */
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0; /* Position at the bottom of the nav link */
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: red;
+      transform: scaleX(0); /* Start with no underline */
+      transform-origin: center;
+      transition: transform 0.2s ease-in-out;
     }
 
     &.active {
-      background-color: #FFC100;
       color: black;
+
+      &::before {
+        transform: scaleX(1); /* Ensure the underline is fully visible */
+        background-color: red;
+        height: 3px; /* Keep the thickness consistent */
+        transition: none; /* Disable animation for active state */
+      }
     }
+  }
+
+
+
+}
+
+.navbar-logo{
+  width:30px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.navbar-brand{
+  color: black;
+
+  &:hover{
+    color: black;
   }
 }
 
 .dropdown-menu .dropdown-item:hover {
-  background-color: red;
+  background-color: grey;
+  color: black
 }
 
 .dropdown-menu {
-  background-color: #ae0000;
+  background-color: darkgrey;
+  color: black
+}
+
+.navbar-nav .nav-link.active,.navbar-nav .nav-link.show {
+  color: black;
 }

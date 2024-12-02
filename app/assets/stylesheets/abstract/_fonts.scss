@@ -33,3 +33,28 @@
   font-style: normal;
   font-size: calc(10px + 0.5vw)
 }
+
+h1 {
+  @extend .dm-sans-title;
+  font-size: calc(20px + 2vw);
+}
+
+h2 {
+  @extend .dm-sans-title;
+  font-size: calc(15px + 1vw);
+}
+
+h3 {
+  @extend .dm-sans-title;
+  font-size: calc(15px + 0.5vw);
+}
+
+h4 {
+  @extend .dm-sans-title;
+  font-size: calc(10px + 0.3vw);
+}
+
+h5 {
+  @extend .dm-sans-title;
+  font-size: calc(8px + 0.2vw);
+}

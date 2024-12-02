@@ -1,13 +1,10 @@
-<% content_for :title, "Neuen Höck erstellen" %>
-
-<h1 class="center dm-sans-title" style="font-size: 30px; margin-bottom: 20px">Neuen Höck erstellen</h1>
-
-<div class="center">
-  <%= render "form", hock: @hock %>
+<div class="post-it-container">
+  <h1 class="post-it-title-3">Neuen Höck erstellen</h1>
 </div>
 
-<br>
-
-<div class="center">
-  <%= link_to "Zurück zur Ansicht", hocks_path, class: "btn btn-custom-primary" %>
+<div class="container">
+  <%= render "form", hock: @hock %>
+</div>
+<div class="text-center">
+  <%= link_to "Abbrechen", hocks_path, class: "btn btn-custom-danger" %>
 </div>

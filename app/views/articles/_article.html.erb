@@ -1,37 +1,12 @@
-<style>
-    .modal-button {
-        cursor: pointer;
-    }
-</style>
-
-<div id="<%= dom_id article %>" style="white-space: wrap">
-
-  <p class="dm-sans-title" style="font-size: calc(20px + 1vw)">
-    <%= article.title %>
-  </p>
-
-  <hr>
-
-  <div>
-    <%= article.content %>
+<div class="article-header justify-content-center align-content-center" style="background-image: url('<%= url_for(article.image) %>');">
+  <div class="header-content">
+    <h1 class="header-title"> <%= article.title %></h1>
   </div>
-    <hr>
-
-  <p class="dm-sans-description">
-    <strong>Veröffentlicht am:</strong>
-    <%= I18n.l(article.date, format: "%A %d.%m.%Y", locale: :de) %>
-  </p>
-
 </div>
 
-<script>
-    const myModal = document.getElementById('myModal')
-    const myInput = document.getElementById('myInput')
-
-    myModal.addEventListener('shown.bs.modal', () => {
-        myInput.focus()
-    })
-</script>
+<div class="article-content">
+  <p> <%= article.content %></p>
+</div>
 
 
 

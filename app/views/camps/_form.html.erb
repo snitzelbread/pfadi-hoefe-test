@@ -1,7 +1,7 @@
 <div class="container justify-content-center w-100">
-<%= form_with(model: camp, html: { multipart: true }) do |form| %>
+  <%= form_for camp, url: camps_path, html: { multipart: true } do |form| %>
   <% if camp.errors.any? %>
-    <% flash[:alert] = camp.errors.full_message %>
+    <% flash[:alert] = camp.errors.full_messages %>
   <% end %>
 
   <!-- Name -->
@@ -51,7 +51,7 @@
     </div>
   </div>
 
-  <!-- HLL -->
+    <!-- HLL -->
   <div class="center input-group mb-5">
   <span class="input-group-text">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ladder" viewBox="0 0 16 16">
@@ -60,11 +60,11 @@
   </span>
     <div class="form-floating">
       <select name="camp[leader_id]" id="camp_leader_id" class="form-select" aria-label="leader select">
-        <% @all_leaders.each do |leader_option| %>
-          <option value="<%= leader_option.id %>">
-            <%= leader_option.pfadiname %>
-          </option>
-        <% end %>
+          <% @all_leaders.each do |leader_option| %>
+            <option value="<%= leader_option.id %>">
+              <%= leader_option.pfadiname %>
+            </option>
+          <% end %>
       </select>
       <label for="camp_leader_id">Hauptlagerleiter wählen</label>
     </div>
@@ -79,22 +79,16 @@
 
 
   <!-- Images -->
-  <div id="existing-attachments">
-    <% camp.images.each do |image|
-      if camp.images.attached? %>
-        <div class="attachment-wrapper center">
-          <!-- Display a preview of the image (optional) -->
-          <%= image_tag image, height: 100, width: 100 %>
-
-          <!-- Hidden field with the signed_id of the attachment -->
-          <%= form.hidden_field :images, multiple: true, value: image.signed_id, id: "image-#{image.id}" %>
-
-          <!-- Button to remove the attachment -->
-          <button type="button" class="remove-attachment" data-id="<%= image.id %>">Remove</button>
-        </div>
+    <% if camp.images.attached? %>
+      <% camp.images.each do |image| %>
+        <% if image.id.present? %>
+          <div class="attachment-wrapper center">
+            <%= image_tag image, height: 100, width: 100 %>
+            <%= form.hidden_field :images, multiple: true, value: image.signed_id, id: "image-#{image.id}" %>
+          </div>
+        <% end %>
       <% end %>
     <% end %>
-  </div>
 
   <!-- File input for adding new attachments -->
   <div class="center">

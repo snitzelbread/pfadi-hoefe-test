@@ -1,18 +1,24 @@
-<h1 class="dm-sans-title" style="font-size:calc(30px + 2vw);">Höcks</h1>
+<h1>Höcks</h1>
+<div class="separator--low-top mb-5"></div>
 
-<br>
+<div class="box-card">
+  <h1>Biber</h1>
+  <div class="separator--low-top mb-5"></div>
+  <%= render partial: "display", locals: { hocks: @biber_hocks, stufe: "Biber" } %>
+</div>
+
+<div class="box-card">
+  <h1>Wölfli</h1>
+  <div class="separator--low-top mb-5"></div>
+  <%= render partial: "display", locals: { hocks: @woelfli_hocks, stufe: "Wölfli" } %>
+</div>
+
+<div class="box-card">
+  <h1>Pfadi</h1>
+  <div class="separator--low-top mb-5"></div>
+  <%= render partial: "display", locals: { hocks: @pfadi_hocks, stufe: "Pfadi" } %>
+</div>
 <%= link_to "Neuer Höck", new_hock_path, class: "btn btn-custom-success btn-lg", style: "margin: 10px; width: fit-content" %>
-<br>
-
-
-<div class="divider">Biber</div>
-<%= render partial: "display", locals: { hocks: @biber_hocks, stufe: "Biber" } %>
-
-<div class="divider">Wölfli</div>
-<%= render partial: "display", locals: { hocks: @woelfli_hocks, stufe: "Wölfli" } %>
-
-<div class="divider">Pfadi</div>
-<%= render partial: "display", locals: { hocks: @pfadi_hocks, stufe: "Pfadi" } %>
 
 
 

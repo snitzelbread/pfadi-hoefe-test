@@ -32,14 +32,17 @@
   </div>
   <div class="container mt-3">
     <div class="row w-100" style="max-width: 100vw">
-      <div class="col-lg-4 w-50 mt-5 post-it-container">
-        <% if camp.this_camp_description.present? %>
-          <div class="markdown-content post-it-sponsor-5">
-            <%= camp.this_camp_description %>
-          </div>
-        <% end %>
+      <div class="col w-50 mt-5">
+        <div class="container">
+          <header class="text-center">
+            <h1 style="font-family: DM Sans, sans-serif">Infos</h1>
+            <hr>
+          </header>
+          <p style="font-family: DM Sans, sans-serif"><%= camp.this_camp_description %></p>
+
+        </div>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-6 w-50">
+      <div class="col w-50">
         <% @leader = camp.leader %>
         <%= render partial: "shared/contact_form",
                    locals: { image: @leader.image,

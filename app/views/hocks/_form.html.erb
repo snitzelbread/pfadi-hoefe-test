@@ -1,84 +1,14 @@
-<%= form_with(model: @hock) do |form| %>
-  <% if @hock.errors.any? %>
-    <% flash[:alert] = @hock.errors.full_messages %>
-  <% end %>
-
-  <!-- Titel -->
-  <div class="center input-group mt-3 mb-3 w-50">
-    <span class="input-group-text">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-alphabet" viewBox="0 0 16 16">
-        <path d="M2.204 11.078c.767 0 1.201-.356 1.406-.737h.059V11h1.216V7.519c0-1.314-.947-1.783-2.11-1.783C1.355 5.736.75 6.42.69 7.27h1.216c.064-.323.313-.552.84-.552s.864.249.864.771v.464H2.346C1.145 7.953.5 8.568.5 9.496c0 .977.693 1.582 1.704 1.582m.42-.947c-.44 0-.845-.235-.845-.718 0-.395.269-.684.84-.684h.991v.538c0 .503-.444.864-.986.864m5.593.937c1.216 0 1.948-.869 1.948-2.31v-.702c0-1.44-.727-2.305-1.929-2.305-.742 0-1.328.347-1.499.889h-.063V3.983h-1.29V11h1.27v-.791h.064c.21.532.776.86 1.499.86Zm-.43-1.025c-.66 0-1.113-.518-1.113-1.28V8.12c0-.825.42-1.343 1.098-1.343.684 0 1.075.518 1.075 1.416v.45c0 .888-.386 1.401-1.06 1.401Zm2.834-1.328c0 1.47.87 2.378 2.305 2.378 1.416 0 2.139-.777 2.158-1.763h-1.186c-.06.425-.313.732-.933.732-.66 0-1.05-.512-1.05-1.352v-.625c0-.81.371-1.328 1.045-1.328.635 0 .879.425.918.776h1.187c-.02-.986-.787-1.806-2.14-1.806-1.41 0-2.304.918-2.304 2.338z"/>
-      </svg>
-    </span>
-    <div class="form-floating">
-      <input name="hock[title]" id="hock_title" placeholder="Title" type="text" value="<%= @hock.title if present? %>" aria-label="firstname" class="form-control">
-      <label for="hock_title">Titel</label>
+<div class="box-card">
+  <%= simple_form_for @hock do |f| %>
+    <%= f.input :title, label: "Titel" %>
+    <%= f.input :description, as: :rich_text_area, label: "Beschreibung" %>
+    <div class="input-group gap-3">
+      <%= f.input :datetime, html5: true, label: "Datum & Uhrzeit" %>
+      <%= f.input :stufe, collection: stufen, selected: "Biber" %>
     </div>
-  </div>
-
-  <!-- Beschreibung -->
-  <div class="justify-content-center w-50 mt-5" style="background: white; border: 1px solid lightgrey; border-radius: 3px;">
-    <%= form.label "Beschreibung" %>
-    <%= form.rich_text_area :description %>
-  </div>
-
-  <!-- Datum & Zeit -->
-  <div class="center input-group mb-3 w-50">
-    <span class="input-group-text">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
-      </svg>
-    </span>
-    <div class="form-floating">
-      <%= form.datetime_field :datetime, class: "form-control" %>
-      <label for="hock_datetime">Datum & Zeit</label>
+    <%= f.input :leader_id, as: :hidden %>
+    <div class="text-center my-3">
+      <%= f.submit "Erstellen", class: "btn btn-custom-primary" %>
     </div>
-  </div>
-
-  <!-- Stufe -->
-  <div class="center input-group mb-3 w-50">
-      <span class="input-group-text">
-        <i class="bi bi-ladder"></i>
-      </span>
-    <div class="form-floating">
-      <select name="hock[stufe]" id="hock_stufe" class="form-select" aria-label="stufe select">
-        <% ["Biber", "Wölfli", "Pfadi"].each do |stufe_option| %>
-          <option value="<%= stufe_option %>" <%= 'selected' if @hock.stufe == stufe_option %>>
-            <%= stufe_option %>
-          </option>
-        <% end %>
-      </select>
-      <label for="hock_stufe">Stufe wählen</label>
-    </div>
-  </div>
-
-  <!-- Ort -->
-  <div class="center input-group mb-3 w-50">
-   <span class="input-group-text">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
-        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
-        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
-      </svg>
-    </span>
-    <div class="form-floating">
-      <input name="hock[ort]"
-             id="hock_ort"
-             placeholder="ort"
-             value="<%= @hock.ort if present? %>"
-             type="text"
-             aria-label="ort"
-             class="form-control">
-
-      <label for="hock_ort">Ort</label>
-    </div>
-  </div>
-
-
-  <div>
-    <%= form.hidden_field :leader_id, value: current_leader.id %>
-  </div>
-
-  <div class="center">
-    <%= form.submit "Erstellen", class: "btn btn-custom-success", style: "margin: 10px;" %>
-  </div>
 <% end %>
+</div>

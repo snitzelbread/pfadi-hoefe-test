@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_04_094402) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_02_144108) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -80,6 +80,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_04_094402) do
     t.date "date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "leader_id", null: false
+    t.index ["leader_id"], name: "index_articles_on_leader_id"
   end
 
   create_table "bestellungs", force: :cascade do |t|
@@ -101,7 +103,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_04_094402) do
   create_table "camps", force: :cascade do |t|
     t.string "name"
     t.string "general_description"
-    t.string "quote"
     t.string "template"
     t.string "this_camp_description"
     t.datetime "created_at", null: false
@@ -181,6 +182,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_04_094402) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "articles", "leaders"
   add_foreign_key "camps", "leaders"
   add_foreign_key "hocks", "leaders", primary_key: "id"
 end

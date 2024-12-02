@@ -30,8 +30,9 @@ class KleidersController < ApplicationController
       if @kleider.save
         format.html { redirect_to kleiders_path, notice: "Kleidungsstück wurde erfolgreich erstellt!" }
       else
-        format.html { render :new, status: 422 }
-        format.json { render json: @kleider.errors, status: 422 }
+        flash[:alert] = @kleider.errors.full_messages
+        format.html { render :new, status: :unprocessable_content }
+        format.json { render json: @kleider.errors, status: :unprocessable_content }
       end
     end
   end
@@ -42,8 +43,9 @@ class KleidersController < ApplicationController
       if @kleider.update(kleider_params)
         format.html { redirect_to kleiders_path, notice: "Kleidungsstück wurde erfolgreich aktualisiert." }
       else
+        flash[:alert] = @kleider.errors.full_messages
         format.html { render :edit, status: 422 }
-        format.json { render json: @kleider.errors, status: 422 }
+        format.json { render json: @kleider.errors, status: :unprocessable_content }
       end
     end
   end

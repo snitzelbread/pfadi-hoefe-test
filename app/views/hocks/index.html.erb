@@ -1,4 +1,5 @@
-<h1>Höcks</h1>
+<h1 class="text-left">Höcks <%= link_to "Neuer Höck", new_hock_path, class: "btn btn-custom-success btn-lg", style: "float: right" %>
+</h1>
 <div class="separator--low-top mb-5"></div>
 
 <div class="box-card">
@@ -18,7 +19,6 @@
   <div class="separator--low-top mb-5"></div>
   <%= render partial: "display", locals: { hocks: @pfadi_hocks, stufe: "Pfadi" } %>
 </div>
-<%= link_to "Neuer Höck", new_hock_path, class: "btn btn-custom-success btn-lg", style: "margin: 10px; width: fit-content" %>
 
 
 

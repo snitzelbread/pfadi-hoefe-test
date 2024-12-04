@@ -2,7 +2,7 @@
 
 
 <div class="post-it-container">
-  <h1 class="fuzzy-bubbles-bold post-it-title-2" style="text-align: center; font-size: 80px">Kleiderkasten</h1>
+  <h1 class="fuzzy-bubbles-bold post-it-title-2">Kleiderkasten</h1>
 </div>
 
 <div class="text-center">
@@ -13,15 +13,15 @@
 <div class="text-center my-3">
   <%= link_to "Zum Warenkorb", bestellung_path, class: "btn btn-custom", style: "" %>
 </div>
+<div class="text-center">
+  <% if current_leader.present? %>
+    <%= link_to "Neues Kleidungsstück", new_kleider_path, class: "btn btn-custom-success btn-lg mx-auto" %>
+  <% end %>
+</div>
 <div class="my-5">
   <div class="row justify-content-center w-100 gap-3">
     <% @kleiders.each do |kleider| %>
       <%= render kleider %>
     <% end %>
   </div>
-</div>
-<div class="text-center">
-  <% if current_leader.present? %>
-    <%= link_to "Neues Kleidungsstück", new_kleider_path, class: "btn btn-custom-success btn-lg", style: "margin: 0 auto;" %>
-  <% end %>
 </div>

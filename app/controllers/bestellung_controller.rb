@@ -12,7 +12,7 @@ class BestellungController < ApplicationController
       BestellungMailer.with(bestellung: @bestellung).bestellung_email.deliver_now
 
       flash[:notice] = "Bestellung wurde erfolgreich erstellt, und E-Mail wurde gesendet."
-      redirect_to kleiders_path, status: 200
+      redirect_to kleiders_path
     else
       flash[:alert] = "Bestellung konnte nicht geschickt werden. Bitte versuche es erneut."
       render :new, status: :unprocessable_content

@@ -11,6 +11,9 @@ de:
       article:
         one: "Artikel"
         other: "Artikel"
+      hock:
+        one: "Höck"
+        other: "Höcks"
     attributes:
       leader:
         pfadiname: "Pfadiname"
@@ -31,6 +34,19 @@ de:
         content: "Inhalt"
         date: "Datum"
         image: "Titelbild"
+      hock:
+        title: "Titel"
+        description: "Beschreibung"
+        ort: "Ort"
+        datetime: "Datum & Uhrzeit"
+        stufe: "Stufe"
+      camp:
+        name: "Name"
+        general_description: "Allgemeine Beschreibung"
+        this_camp_description: "Diesjährige Lagerbeschreibung"
+        template: "Vorlage"
+        leader: "Leiter"
+        title_image: "Header-Bild"
     errors:
       messages:
         record_invalid: 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'

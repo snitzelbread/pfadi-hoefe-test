@@ -5,8 +5,8 @@
     <div class="input-group gap-3">
       <%= f.input :datetime, html5: true, label: "Datum & Uhrzeit" %>
       <%= f.input :stufe, collection: stufen, selected: "Biber" %>
+      <%= f.input :ort %>
     </div>
-    <%= f.input :leader_id, as: :hidden %>
     <div class="text-center my-3">
       <%= f.submit "Erstellen", class: "btn btn-custom-primary" %>
     </div>

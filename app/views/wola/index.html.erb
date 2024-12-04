@@ -1,2 +1,7 @@
-<%= render partial: "camps/camp_page", locals: { camp: @wola, title_image: @title_image } %>
-<%= link_to "Bearbeiten", edit_camp_path(@wola.id), class: "btn btn-custom-warning" %>
+
+<% if @wola.nil? %>
+  <%= render partial: "camps/empty_state", locals: { name: "Wochenlager" } %>
+<% else %>
+  <%= render partial: "camps/camp_page", locals: { camp: @wola, title_image: @title_image } %>
+  <%= link_to "Bearbeiten", edit_camp_path(@wola.id), class: "btn btn-custom-warning" %>
+<% end %>

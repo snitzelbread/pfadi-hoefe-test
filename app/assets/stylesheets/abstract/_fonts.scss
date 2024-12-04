@@ -58,3 +58,23 @@ h5 {
   @extend .dm-sans-title;
   font-size: calc(8px + 0.2vw);
 }
+
+.preserve-breaks{
+  white-space-collapse: preserve-breaks
+}
+
+.text-right{
+  text-align: right;
+}
+
+.text-left{
+  text-align: left !important;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.text {
+  color: black;
+}

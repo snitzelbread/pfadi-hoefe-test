@@ -7,11 +7,6 @@ class HocksController < ApplicationController
     @biber_hocks = Hock.all_stufen_hocks("Biber")
     @woelfli_hocks = Hock.all_stufen_hocks("Wölfli")
     @pfadi_hocks = Hock.all_stufen_hocks("Pfadi")
-
-    respond_to do |format|
-      format.html
-      format.json
-    end
   end
 
   # GET /hocks/new
@@ -26,26 +21,22 @@ class HocksController < ApplicationController
   # POST /hocks or /hocks.json
   def create
     @hock = Hock.new(hock_params)
+    @hock.leader_id = current_leader.id
 
-    respond_to do |format|
-      if @hock.save
-        format.html { redirect_to hocks_url, notice: "Hock was successfully created." }
-      else
-        format.html { render :new, status: 422 }
-        format.json { render json: @hock.errors, status: 422 }
-      end
+    if @hock.save
+      redirect_to hocks_url, notice: "Hock was successfully created."
+    else
+      flash[:alert] = @hock.errors.full_messages
+      render :new, status: 422
     end
   end
 
   # PATCH/PUT /hocks/1 or /hocks/1.json
   def update
-    respond_to do |format|
-      if @hock.update(hock_params)
-        format.html { redirect_to hocks_url, notice: "Hock was successfully updated." }
-      else
-        format.html { render :edit, status: 422 }
-        format.json { render json: @hock.errors, status: 422 }
-      end
+    if @hock.update(hock_params)
+      redirect_to hocks_url, notice: "Höck wurde erfolgreich aktualisiert."
+    else
+      render :edit, status: 422
     end
   end
 
@@ -53,10 +44,8 @@ class HocksController < ApplicationController
   def destroy
     @hock.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to hocks_url, notice: "Hock was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    flash[:notice] = "Höck wurde erfolgreich gelöscht"
+    redirect_to hocks_url
   end
 
   private

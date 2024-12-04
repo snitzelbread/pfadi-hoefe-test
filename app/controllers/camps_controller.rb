@@ -1,12 +1,12 @@
 class CampsController < ApplicationController
   before_action :set_camp, only: %i[ edit update destroy ]
   before_action :require_login_leader, only: %i[ edit create update destroy ]
-
+  before_action :set_request_referer, only: %i[ edit update destroy ]
   # GET /camps or /camps.json
   def index
-    @pfila = Camp.where("name = ?", "Pfingstlager")
-    @sola = Camp.where("name = ?", "Sommerlager")
-    @wola = Camp.where("name = ?", "Wochenlager")
+    @pfila = Camp.where("name = ?", "Pfingstlager").first.id if Camp.where("name = ?", "Pfingstlager").first.present?
+    @sola = Camp.where("name = ?", "Sommerlager").first.id if Camp.where("name = ?", "Sommerlager").first.present?
+    @wola = Camp.where("name = ?", "Wochenlager").first.id if Camp.where("name = ?", "Wochenlager").first.present?
   end
 
 
@@ -19,33 +19,25 @@ class CampsController < ApplicationController
   # GET /camps/1/edit
   def edit
     @all_leaders = Leader.all
-    session[:return_to] ||= request.referer
   end
 
   # POST /camps or /camps.json
   def create
-    @all_leaders = Leader.all
     @camp = Camp.new(camp_params)
 
-    respond_to do |format|
-      if @camp.save
-        format.html { redirect_to @camp, notice: "Camp was successfully created." }
-      else
-        format.html { render :new, status: 422 }
-        format.json { render json: @camp.errors, status: 422 }
-      end
+    if @camp.save
+      redirect_to @camp, notice: "Lager wurde erfolgreich erstellt."
+    else
+      render :new, status: 422
     end
   end
 
   # PATCH/PUT /camps/1 or /camps/1.json
   def update
-    respond_to do |format|
-      if @camp.update(camp_params)
-        format.html { redirect_to session.delete(:return_to), notice: "Camp was successfully updated." }
-      else
-        format.html { render :edit, status: 422 }
-        format.json { render json: @camp.errors, status: 422 }
-      end
+    if @camp.update(camp_params)
+      redirect_to session[:return_to] || root_path, notice: "Lager wurde erfolgreich aktualisiert."
+    else
+      render :edit, status: 422
     end
   end
 
@@ -69,5 +61,9 @@ class CampsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def camp_params
     params.require(:camp).permit(:name, :general_description, :template, :this_camp_description, :leader_id, images: [])
+  end
+
+  def set_request_referer
+    session[:return_to] = request.referer
   end
 end

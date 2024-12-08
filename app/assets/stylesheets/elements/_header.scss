@@ -48,3 +48,35 @@
     z-index: 1;
   }
 }
+
+.camp-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.mailer-header {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-color: #ffbf4c;
+  height: 20rem;
+  border-radius: 8px;
+  overflow: hidden; /* Ensure the overlay stays within the header */
+
+  &::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+}

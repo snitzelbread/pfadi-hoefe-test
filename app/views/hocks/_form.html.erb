@@ -1,11 +1,13 @@
+<h1>Höck bearbeiten</h1>
+<br>
 <div class="box-card">
   <%= simple_form_for @hock do |f| %>
     <%= f.input :title, label: "Titel" %>
     <%= f.input :description, as: :rich_text_area, label: "Beschreibung" %>
     <div class="input-group gap-3">
-      <%= f.input :datetime, html5: true, label: "Datum & Uhrzeit" %>
-      <%= f.input :stufe, collection: stufen, selected: "Biber" %>
-      <%= f.input :ort %>
+      <%= f.input :datetime, html5: true, label: "Datum & Uhrzeit", class: "form-control" %>
+      <%= f.input :stufe, collection: hock_stufen, selected: @hock.stufe || "Biber", class: "form-control" %>
+      <%= f.input :ort, class: "form-control" %>
     </div>
     <div class="text-center my-3">
       <%= f.submit "Erstellen", class: "btn btn-custom-primary" %>

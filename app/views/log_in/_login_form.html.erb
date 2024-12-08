@@ -5,8 +5,8 @@
 <div class="post-it-container">
     <h1 class="fuzzy-bubbles-bold post-it-title-2">Log-In</h1>
 </div>
-<div class="login-container gap-5">
+<div class="login-container">
     <%= render "log_in/leader_form", leader: @leader %>
-    <%= render "log_in/parent_form", parent: @parent %>
-  <%= link_to "Passwort vergessen?", forgot_password_path, class: "btn btn-custom-danger m-3" %>
 </div>
+<%= link_to "Passwort vergessen?", forgot_password_path, class: "btn btn-custom-danger m-3" %>
+

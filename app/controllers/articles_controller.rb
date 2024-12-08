@@ -29,29 +29,24 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @article.leader_id = current_leader.id
 
-    respond_to do |format|
-      if @article.save
-        format.html { redirect_to @article, notice: "Article was successfully created." }
-        format.json { render :show, status: :created, location: @article }
-      else
-        puts @article.errors.full_messages
-        format.html { render :new, status: :unprocessable_content }
-        format.json { render json: @article.errors, status: :unprocessable_content }
-      end
+    if @article.save
+      flash[:notice] = "Artikel wurde erfolgreich erstellt!"
+      render :show, status: :created, location: @article
+    else
+      flash[:alert] = "Ups, da ist was falsch gelaufen. Der Artikel konnte nicht gespeichert werden!"
+      render :new, status: :unprocessable_content
     end
   end
 
   # PATCH/PUT /articles/1 or /articles/1.json
   def update
-    respond_to do |format|
-      @article.leader_id = current_leader.id
-      if @article.update(article_params)
-        format.html { redirect_to @article, notice: "Article was successfully updated." }
-        format.json { render :show, status: :ok, location: @article }
-      else
-        format.html { render :edit, status: :unprocessable_content }
-        format.json { render json: @article.errors, status: :unprocessable_content }
-      end
+    @article.leader_id = current_leader.id
+    if @article.update(article_params)
+      flash[:notice] = "Artikel wurde erfolgreich gespeichert!"
+      redirect_to article_path(@article)
+    else
+      flash[:alert] = "Ups, da ist was falsch gelaufen. Der Artikel konnte nicht gespeichert werden!"
+      render :edit, status: :unprocessable_content
     end
   end
 
@@ -59,10 +54,8 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to articles_path, status: :see_other, notice: "Article was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    flash[:notice] = "Artikel wurde erfolgreich gelöscht!"
+    redirect_to articles_path, status: :see_other
   end
 
   private

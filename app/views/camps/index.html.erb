@@ -1,15 +1,56 @@
 <h1>Alle Lager</h1>
+<hr>
+<br>
+<div class="container">
+  <% if @pfila.present? %>
+    <div class="box-card">
+      <h1><%= @pfila.name %></h1>
+      <hr>
+      <h3>Allg. Beschreibung: </h3>
+      <%= @pfila.general_description %>
+      <hr>
+      <h3>Diesjährige Beschreibung: </h3>
+      <%= @pfila.this_camp_description %>
+      <hr>
+      <h3>HLL: <%= @pfila.leader.pfadiname %></h3>
+      <hr>
+      <%= link_to "Bearbeiten", edit_camp_path(@pfila.id), class: "btn btn-custom-success m-3" %>
+      <%= link_to "Ansehen", pfila_path, class: "btn btn-custom-primary m-3" %>
+    </div>
+  <% end %>
 
-<div id="camps">
-    <p>
-      <%= link_to "Pfingstlager", edit_camp_path(@pfila), class: "btn btn-custom-success" %>
-    </p>
-    <p>
-      <%= link_to "Sommerlager", edit_camp_path(@sola), class: "btn btn-custom-danger" %>
-    </p>
-    <p>
-      <%= link_to "Wochenlager", edit_camp_path(@wola), class: "btn btn-custom-primary" %>
-    </p>
+  <% if @sola.present? %>
+    <div class="box-card">
+      <h1><%= @sola.name %></h1>
+      <hr>
+      <h3>Allg. Beschreibung: </h3>
+      <%= @sola.general_description %>
+      <hr>
+      <h3>Diesjährige Beschreibung: </h3><%= @sola.this_camp_description %>
+      <hr>
+      <h3>HLL: <%= @sola.leader.pfadiname %></h3>
+      <hr>
+      <%= link_to "Bearbeiten", edit_camp_path(@sola.id), class: "btn btn-custom-success m-3" %>
+      <%= link_to "Ansehen", sola_path, class: "btn btn-custom-primary m-3" %>
+    </div>
+  <% end %>
+
+  <% if @wola.present? %>
+    <div class="box-card">
+      <h1><%= @wola.name %></h1>
+      <hr>
+      <h3>Allg. Beschreibung: </h3><%= @wola.general_description %>
+      <hr>
+      <h3>Diesjährige Beschreibung: </h3><%= @wola.this_camp_description %>
+      <hr>
+      <h3>HLL: <%= @wola.leader.pfadiname %></h3>
+      <hr>
+      <%= link_to "Bearbeiten", edit_camp_path(@wola.id), class: "btn btn-custom-success m-3" %>
+      <%= link_to "Ansehen", wola_path, class: "btn btn-custom-primary m-3" %>
+    </div>
+  <% end %>
 </div>
 
-<%= link_to "Neues Lager erstellen", new_camp_path %>
+<% unless @wola.present? && @sola.present? && @pfila.present? %>
+  <%= link_to "Neues Lager erstellen", new_camp_path, class: "btn btn-custom-danger"  %>
+<% end %>

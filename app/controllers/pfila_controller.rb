@@ -1,6 +1,6 @@
 class PfilaController < ApplicationController
   def index
     @pfila = Camp.where("name = ?", "Pfingstlager").first
-    @title_image = @pfila.images.first if @pfila.present? && @pfila.images.attached?
+    @title_image = @pfila.image if @pfila.present? && @pfila.image.attached?
   end
 end

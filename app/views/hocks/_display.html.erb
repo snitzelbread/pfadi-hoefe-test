@@ -9,12 +9,14 @@
             <div>
               <%= remove_brackets(hock.description.to_plain_text.truncate(150)) if present? %>
             </div>
-            <hr>
-            <p><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %> //
-              <strong>Leiter: </strong><%= hock.pfadiname_of_leader(hock.leader_id) %></p>
-            <p></p>
-            <%= button_to "Bearbeiten", edit_hock_path(hock), method: :get, class: "btn-custom-warning-sm", style: "padding: 5px; float: left; margin: 0 15px 10px 0" %>
-            <%= button_to "Löschen", hock, method: :delete, class: "btn-custom-danger-sm", "data-turbo-confirm": "Bist du dir sicher?", style: "padding: 5px;" %>
+            <div>
+              <hr>
+              <p><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %> //
+                <strong>Leiter: </strong><%= hock.pfadiname_of_leader(hock.leader_id) %></p>
+              <p></p>
+              <%= button_to "Bearbeiten", edit_hock_path(hock), method: :get, class: "btn-custom-warning-sm", style: "padding: 5px; float: left; margin: 0 15px 10px 0" %>
+              <%= button_to "Löschen", hock, method: :delete, class: "btn-custom-danger-sm", "data-turbo-confirm": "Bist du dir sicher?", style: "padding: 5px;" %>
+            </div>
           </div>
         <% end %>
       </div>

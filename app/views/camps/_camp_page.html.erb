@@ -1,26 +1,27 @@
 <style>
-    .camp-header {
-<!--        background-image: url(<%#= rails_blob_url(title_image) %>);-->
-        background-position: 50% 40%;
-        background-size: cover;
-        min-height: 30vh;
-        max-width: 100%;
-        justify-content: center;
-        align-content: center;
+  .camp-header {
+    position: relative;
+    background-image: url(<%= rails_blob_url(title_image) if title_image.present?%>);
+    background-size: cover;
+    background-position: center;
+    height: 30rem;
+    border-radius: 5px;
+    overflow: hidden; /* Ensure the overlay stays within the header */
+    margin-bottom: 2rem;
     }
 </style>
 
 <!-- Header -->
-<div class="container text-center camp-header">
-  <h1 class="dm-sans-title m-3 camp-title"><%= camp.name if present? %></h1>
+<div class="container d-flex flex-wrap align-content-center justify-content-center camp-header">
+  <h1 class="header-content camp-title"><%= camp.name if present? %></h1>
 </div>
 
 
 
 <div class="container">
   <div class="row">
-    <div class="col text-center camp-description">
-      <h3>Was ist ein <%= camp.name %>?</h3>
+    <div class="col text-center box-card">
+      <h1>Was ist ein <%= camp.name %>?</h1>
       <p><%= camp.general_description %></p>
     </div>
   </div>
@@ -64,6 +65,7 @@
     </div>
   </div>
 <% end %>
+<br>
 
 
 <script>

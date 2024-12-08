@@ -3,7 +3,7 @@
   <%= render partial: "shared/alerts" %>
   <h1 class="center leader-title mb-3 dm-sans-title" style="text-align: center">Passwort ändern</h1>
 
-  <%= form_for(resource, as: resource_name, url: leader_password_path(resource_name), html: { method: :put }) do |f| %>
+  <%= simple_form_for resource, as: resource_name, url: leader_password_path(resource_name), html: { method: :put } do |f| %>
     <%= render "leaders/shared/error_messages", resource: resource %>
 
     <%= f.hidden_field :reset_password_token %>
@@ -35,15 +35,12 @@
         <label for="leader_password_confirmation">Passwort wiederholen</label>
       </div>
     </div>
+<br>
+    <br>
 
-
-    <div class="center actions mb-3 w-50">
-      <em> Passwort muss mind. <%= @minimum_password_length %> Zeichen lang sein.</em>
-
-      <%= f.submit "Passwort ändern", class: "btn btn-danger" %>
+    <div class="text-center">
+      <%= f.submit "Passwort ändern", class: "btn btn-custom-warning" %>
     </div>
 
   <% end %>
-
-  <%= render "leaders/shared/links" %>
 </div>

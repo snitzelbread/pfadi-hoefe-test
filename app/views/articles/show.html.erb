@@ -4,7 +4,7 @@
   <%= link_to "Zurück zu allen Beiträgen", articles_path, class: "btn btn-custom-primary m-3" %>
   <% if leader_signed_in? %>
     <%= link_to "Beitrag bearbeiten", edit_article_path(@article), class: "btn btn-custom-warning m-3" %>
-    <%= button_to "Beitrag löschen", @article, method: :delete, class: "btn-custom-danger", "data-turbo-confirm": "Are you sure?", style: "padding: 5px;" %>
+    <%= button_to "Beitrag löschen", @article, method: :delete, class: "btn-custom-danger", "data-turbo-confirm": "Bist du dir sicher?", style: "padding: 5px;" %>
   <% end %>
 </div>
 

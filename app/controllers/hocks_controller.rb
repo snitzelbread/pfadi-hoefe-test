@@ -26,7 +26,7 @@ class HocksController < ApplicationController
     if @hock.save
       redirect_to hocks_url, notice: "Hock was successfully created."
     else
-      flash[:alert] = @hock.errors.full_messages
+      flash[:alert] = "Der Hock konnte nicht erstellt werden."
       render :new, status: 422
     end
   end
@@ -36,6 +36,7 @@ class HocksController < ApplicationController
     if @hock.update(hock_params)
       redirect_to hocks_url, notice: "Höck wurde erfolgreich aktualisiert."
     else
+      flash[:alert] = "Der Hock konnte nicht gespeichert werden."
       render :edit, status: 422
     end
   end

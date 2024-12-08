@@ -115,8 +115,8 @@ de:
       already_signed_out: Sie sind bereits abgemeldet.
       new:
         sign_in: Anmelden
-      signed_in: Sie sind nun angemeldet.
-      signed_out: Sie haben sich erfolgreich abgemeldet.
+      signed_in: Willkommen geehrter Pfadileiter :)
+      signed_out: Tschüssi Büsi </3
     shared:
       links:
         back: Zurück

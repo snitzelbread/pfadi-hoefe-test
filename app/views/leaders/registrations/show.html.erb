@@ -19,14 +19,15 @@
 <% @leader = current_leader %>
 
 <div class="hocks-container m-3 w-100">
-  <div class="hock-bubble shadow-lg" style="background: white; padding: 20px">
+  <div class="box-card">
     <h1 class="leiter-title">
       <%= @leader.pfadiname %>
     </h1>
+    <hr>
 
 
     <% if @leader.image.present? %>
-      <%= image_tag(@leader.image, height: 200, width: 200, class: "shadow-lg", style: "border-radius: 25px; float: left; margin-top: 2vw") %>
+      <%= image_tag(@leader.image, height: 200, width: 200, class: "shadow-lg", style: "border-radius: 10px; float: left; margin-top: 2vw") %>
     <% end %>
     <div style="float: left; margin-left: 3vw">
       <p><strong>Vorname:</strong> <%= @leader.first_name %></p>

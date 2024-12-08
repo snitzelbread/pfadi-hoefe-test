@@ -6,12 +6,17 @@
     <%= f.input :template, as: :select, collection: templates %>
     <%= f.input :leader_id, as: :select,
                    collection: @all_leaders,
+                   selected: @all_leaders.first,
                    label_method: :pfadiname,
                    value_method: :id,
                    prompt: "HLL auswählen",
                    label: "Hauptlagerleitung" %>
     <%= f.input :this_camp_description, as: :rich_text_area, hint: "Hier alle Infos zum aktuellen Lager eintragen (Wann, Wo, Motto, etc.)" %>
-    <%= f.input :title_image, as: :file, hint: "Er sagt gerne, man habe noch kein Bild hochgeladen. Falls schon eins hinterlegt ist, einfach leerlassen." %>
+    <%= f.input :image, as: :file, hint: "Er sagt gerne, man habe noch kein Bild hochgeladen. Falls schon eins hinterlegt ist, einfach leerlassen." %>
     <%= f.submit "Speichern", class: "btn btn-custom-primary" %>
   <% end %>
+</div>
+
+<div class="mt-3">
+  <%= link_to "Zur Lagerliste", camps_path, class: "btn btn-custom-warning" %>
 </div>

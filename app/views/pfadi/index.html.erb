@@ -48,10 +48,11 @@
     </div>
   </div>
 </div>
-
+<br>
+<br>
 <!-- Stufenleitung -->
-<div class="container">
-  <div class="row justify-content-center">
+<div class="container mt-3">
+  <div class="row justify-content-center post-it">
     <div class="col-lg-4 col-md-6 col-sm-10">
       <% @leader = Leader.where(stufe: "Pfadi", funktion: "Stufenleitung").first %>
 
@@ -61,9 +62,9 @@
                                                            email: "#{@leader.email}" } if @leader.present? %>
     </div>
     <div class="col align-content-center" id="pfadi-banner-text">
-      <p class="text-center preserve-breaks" style="font-size: 40px">
-        <strong> Na, haben wir dein Interesse geweckt?</strong>
-        Dann nimm gerne Kontakt mit unserer Stufenleitung <%= @leader.pfadiname.capitalize %> auf, um einen «Schnupper-Höck» zu vereinbaren!
+        <p class="text-center preserve-breaks" style="font-size: 2rem"><strong> Na, haben wir dein Interesse geweckt?</strong>
+        Dann nimm gerne Kontakt mit unserer Stufenleitung <%= @leader.pfadiname.capitalize %> auf, um einen
+        «Schnupper-Höck» zu vereinbaren!
       </p>
     </div>
   </div>
@@ -73,17 +74,19 @@
 <div class="post-it-container text-center">
   <h1 class="fuzzy-bubbles-bold post-it-title-5 w-50"> Pfadileitungs-Team</h1>
 </div>
+
+<% @leaders = Leader.where(stufe: "Pfadi").order(funktion: :desc) %>
 <!-- Leitpersonen -->
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-lg-4 col-md-6 col-sm-10">
-      <% @leaders = Leader.where(stufe: "Pfadi").where.not(funktion: "Stufenleitung") %>
-      <% @leaders.each do |t| %>
-        <%= render partial: "shared/contact_form", locals: { image: t.image,
-                                                             name: "#{t.first_name} #{t.last_name} v/o #{t.pfadiname.capitalize}",
-                                                             funktion: "#{t.funktion} #{t.stufe}",
-                                                             email: "#{t.email}" } if t.present? %>
+    <% @leaders.each do |t| %>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <%= render partial: "shared/contact_form",
+                   locals: { image: t.image,
+                             name: "#{t.first_name} #{t.last_name} v/o #{t.pfadiname.capitalize}",
+                             funktion: "#{t.funktion} #{t.stufe}",
+                             email: "#{t.email}" } if t.present? %>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

@@ -13,10 +13,8 @@ class Leaders::PasswordsController < Devise::PasswordsController
 
     if successfully_sent?(resource)
       respond_with({}, location: after_sending_reset_password_instructions_path_for(resource_name))
-      flash.now[:notice] = "If your email address exists in our database, you will receive a password recovery link shortly."
     else
       respond_with(resource)
-      flash.now[:alert] = "There was an error sending the password reset instructions. Please try again."
     end
   end
 

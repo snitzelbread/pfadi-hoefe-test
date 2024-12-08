@@ -1,6 +1,6 @@
 class Camp < ApplicationRecord
   belongs_to :leader
-  has_many_attached :images
+  has_one_attached :image
   has_rich_text :this_camp_description
   has_rich_text :general_description
 

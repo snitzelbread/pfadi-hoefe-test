@@ -3,19 +3,73 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <style>
-      /* Email styles need to be inline */
+      h1{
+          font-family: "DM Sans", sans-serif;
+          text-align: center
+      }
+
+      p{
+          font-family: "DM Sans", sans-serif;
+      }
+
+      .mailer-header {
+          position: relative;
+          background-position: center;
+          background-color: #ffe45f;
+          align-content: center;
+          height: 12rem;
+          border-radius: 5px;
+          overflow: hidden; /* Ensure the overlay stays within the header */
+      }
+
+      .header-content {
+          position: relative;
+          z-index: 2;
+          color: white;
+      }
+
+      .header-title{
+          font-size: 5rem;
+      }
+
+      .container{
+          --bs-gutter-x: 1.5rem;
+          --bs-gutter-y: 0;
+          width: 60%;
+          padding-right: calc(var(--bs-gutter-x) * .5);
+          padding-left: calc(var(--bs-gutter-x) * .5);
+          margin-right: auto;
+          margin-left: auto;
+          display: flex;
+          flex-direction: column;
+      }
   </style>
 </head>
 
 <body>
-<p><strong>Vorname: </strong><%= @bestellung.first_name %></p>
-<p><strong>Nachname: </strong><%= @bestellung.last_name %></p>
-<p><strong>E-Mail: </strong><%= @bestellung.email %></p>
-<p><strong>Telefonnummer: </strong><%= @bestellung.phone %></p>
-<p><strong>Strasse: </strong><%= @bestellung.address %></p>
-<p><strong>Ort: </strong><%= @bestellung.city %></p>
-<p><strong>Postleitzahl: </strong><%= @bestellung.zipcode %></p>
-<p><strong>Nachricht: </strong><%= @bestellung.message %></p>
-<p><strong>Bestellung: </strong><%= @bestellung.order_list %></p>
+<div class="container">
+  <div class="mailer-header">
+    <div class="header-content">
+      <h1 class="header-title">Bestellung</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <p>Hallo liebster Kleiderkasten!</p>
+    <p>Soeben hat <strong><%= @bestellung.first_name %> <%= @bestellung.last_name %></strong> eine neue Bestellung auf unserer Pfadi-Website eingereicht.</p>
+    <p>Hier alle Informationen:</p>
+    <p><strong>Vor- und Nachname: </strong><%= @bestellung.first_name %> <%= @bestellung.last_name %></p>
+    <p><strong>E-Mail: </strong><%= @bestellung.email %></p>
+    <p><strong>Telefonnummer: </strong><%= @bestellung.phone %></p>
+    <p><strong>Strasse: </strong><%= @bestellung.address %></p>
+    <p><strong>Ort: </strong><%= @bestellung.city %></p>
+    <p><strong>Postleitzahl: </strong><%= @bestellung.zipcode %></p>
+    <p><strong>Nachricht: </strong><%= @bestellung.message %></p>
+    <p><strong>Bestellung: </strong></p>
+    <p><%= @bestellung.order_list.html_safe %></p>
+    <hr>
+    <p>Danke viel Mals für deine Hilfe und noch einen schönen restlichen Tag wünscht dir dieses super E-Mail!</p>
+  </div>
+</div>
 </body>
 </html>

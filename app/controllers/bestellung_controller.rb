@@ -14,7 +14,7 @@ class BestellungController < ApplicationController
       flash[:notice] = "Bestellung wurde erfolgreich erstellt, und E-Mail wurde gesendet."
       redirect_to kleiders_path
     else
-      flash[:alert] = "Bestellung konnte nicht geschickt werden. Bitte versuche es erneut."
+      flash[:alert] = "Bestellung konnte nicht geschickt werden. Ist der Warenkorb vielleicht leer?"
       render :new, status: :unprocessable_content
     end
     session[:shopping_list] = []

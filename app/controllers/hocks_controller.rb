@@ -58,7 +58,7 @@ class HocksController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def hock_params
-    params.require(:hock).permit(:title, :description, :datetime, :stufe, :leader_id, :ort, :document)
+    params.require(:hock).permit(:title, :description, :datetime, :stufe, :leader_id, :ort, :document, :end_time)
   end
 
   def format_errors(object)

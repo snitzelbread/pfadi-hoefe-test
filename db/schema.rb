@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_02_144108) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_09_161904) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -120,6 +120,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_02_144108) do
     t.string "stufe"
     t.integer "leader_id", null: false
     t.string "ort"
+    t.datetime "end_time"
     t.index ["leader_id"], name: "index_hocks_on_leader_id"
   end
 

@@ -34,3 +34,7 @@
   font-size: 1.1em;
   text-align: left;
 }
+
+trix-editor{
+  min-height: 15rem;
+}

@@ -1,7 +1,6 @@
 class CampsController < ApplicationController
-  before_action :set_camp, only: %i[ edit update destroy ]
-  before_action :require_login_leader, only: %i[ edit create update destroy ]
-  before_action :set_request_referer, only: %i[ edit update destroy ]
+  before_action :set_camp, only: %i[ edit update ]
+  before_action :require_login_leader, only: %i[ edit create update ]
   before_action :set_all_leaders, only: %i[ new edit create update ]
   # GET /camps or /camps.json
   def index

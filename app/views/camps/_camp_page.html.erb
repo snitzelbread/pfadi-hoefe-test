@@ -60,25 +60,9 @@
   <div class="container mt-3">
     <div class="row justify-content-center w-100">
       <div class="col-lg-12 text-center no-camp-box">
-        <h3> Momentan gibt es keine Infos zum nächsten <%= camp.name %>, bitte schau doch später mal vorbei! </h3>
+        <h3> Momentan gibt es keine Informationen zum nächsten <%= camp.name %>, bitte schau doch ein anderes Mal vorbei! </h3>
       </div>
     </div>
   </div>
 <% end %>
 <br>
-
-
-<script>
-    // Wait until the DOM is fully loaded
-    document.addEventListener("DOMContentLoaded", function () {
-        const imageContainer = document.getElementById('imageContainer');
-        const textContainer = document.getElementById('textContainer');
-        const campImage = document.getElementById('campImage');
-
-        // Get the height of the text container
-        const textHeight = textContainer.offsetHeight;
-
-        // Set the image container height to match the text container
-        campImage.style.height = textHeight + 'px';
-    });
-</script>

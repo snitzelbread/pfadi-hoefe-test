@@ -3,8 +3,11 @@
 <br>
 <div class="container">
   <% if @pfila.present? %>
-    <div class="box-card">
+    <div class="box-card shadow-lg">
       <h1><%= @pfila.name %></h1>
+      <div class="d-flex justify-content-center">
+        <h3 class="pt-3"><i class="bi bi-person"></i> <strong>HLL:</strong> <%= @pfila.leader.pfadiname %></h3>
+      </div>
       <hr>
       <h3>Allg. Beschreibung: </h3>
       <%= @pfila.general_description %>
@@ -12,16 +15,19 @@
       <h3>Diesjährige Beschreibung: </h3>
       <%= @pfila.this_camp_description %>
       <hr>
-      <h3>HLL: <%= @pfila.leader.pfadiname %></h3>
-      <hr>
-      <%= link_to "Bearbeiten", edit_camp_path(@pfila.id), class: "btn btn-custom-success m-3" %>
-      <%= link_to "Ansehen", pfila_path, class: "btn btn-custom-primary m-3" %>
+      <div class="d-flex justify-content-between">
+        <%= link_to "Bearbeiten", edit_camp_path(@pfila.id), class: "btn btn-custom-success m-3" %>
+        <%= link_to "Zur Lagerseite", pfila_path, class: "btn btn-custom-primary m-3" %>
+      </div>
     </div>
   <% end %>
 
   <% if @sola.present? %>
-    <div class="box-card">
+    <div class="box-card shadow-lg">
       <h1><%= @sola.name %></h1>
+      <div class="d-flex justify-content-center">
+        <h3 class="pt-3"><i class="bi bi-person"></i> <strong>HLL:</strong> <%= @pfila.leader.pfadiname %></h3>
+      </div>
       <hr>
       <h3>Allg. Beschreibung: </h3>
       <%= @sola.general_description %>
@@ -30,14 +36,19 @@
       <hr>
       <h3>HLL: <%= @sola.leader.pfadiname %></h3>
       <hr>
-      <%= link_to "Bearbeiten", edit_camp_path(@sola.id), class: "btn btn-custom-success m-3" %>
-      <%= link_to "Ansehen", sola_path, class: "btn btn-custom-primary m-3" %>
+      <div class="d-flex justify-content-between">
+        <%= link_to "Bearbeiten", edit_camp_path(@sola.id), class: "btn btn-custom-success m-3" %>
+        <%= link_to "Zur Lagerseite", sola_path, class: "btn btn-custom-primary m-3" %>
+      </div>
     </div>
   <% end %>
 
   <% if @wola.present? %>
-    <div class="box-card">
+    <div class="box-card shadow-lg">
       <h1><%= @wola.name %></h1>
+      <div class="d-flex justify-content-center">
+        <h3 class="pt-3"><i class="bi bi-person"></i> <strong>HLL:</strong> <%= @pfila.leader.pfadiname %></h3>
+      </div>
       <hr>
       <h3>Allg. Beschreibung: </h3><%= @wola.general_description %>
       <hr>
@@ -45,8 +56,10 @@
       <hr>
       <h3>HLL: <%= @wola.leader.pfadiname %></h3>
       <hr>
-      <%= link_to "Bearbeiten", edit_camp_path(@wola.id), class: "btn btn-custom-success m-3" %>
-      <%= link_to "Ansehen", wola_path, class: "btn btn-custom-primary m-3" %>
+      <div class="d-flex justify-content-between">
+        <%= link_to "Bearbeiten", edit_camp_path(@wola.id), class: "btn btn-custom-success m-3" %>
+        <%= link_to "Zur Lagerseite", wola_path, class: "btn btn-custom-primary m-3" %>
+      </div>
     </div>
   <% end %>
 </div>

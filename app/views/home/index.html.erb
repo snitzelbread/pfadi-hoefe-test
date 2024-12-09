@@ -15,8 +15,6 @@
   </div>
 </div>
 
-<i class="bi bi-arrow-right"></i>
-
 
 <div class="container">
   <div class="row justify-content-center">
@@ -29,21 +27,25 @@
     <div class="col-lg-4 col-md-8 col-sm-10 m-2 post-it shadow shrink-9" style="width: 32%;">
       <%= render partial: "home/hocks", locals: { hock: @closest_pfadi_hock, stufe: "Pfadi" } %>
     </div>
+    <br>
+    <div class="d-flex justify-content-center">
+      <%= link_to "Zum Hockzettel", hockzettel_path, class: "btn btn-custom-primary" %>
+    </div>
   </div>
 </div>
-
+<br>
 <hr>
-
-
+<div class="post-it-container">
+  <h1 class="fuzzy-bubbles-bold mb-3 post-it-title-5">Neuster Beitrag</h1>
+</div>
 <% if @latest_article.present? %>
-  <div class="post-it-container">
-    <h1 class="fuzzy-bubbles-bold mb-3 post-it-title-5">Neuster Beitrag</h1>
-  </div>
   <div class="container">
     <%= link_to article_path(@latest_article), style: "text-decoration: none" do %>
       <%= render partial: "home/articles", locals: { article: @latest_article } %>
     <% end %>
   </div>
+<% else %>
+  <%= render partial: "shared/empty_state", locals: { name: "Beitrag" } %>
 <% end %>
 
 

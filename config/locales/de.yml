@@ -38,7 +38,8 @@ de:
         title: "Titel"
         description: "Beschreibung"
         ort: "Ort"
-        datetime: "Datum & Uhrzeit"
+        datetime: "Startzeit"
+        end_time: "Endzeit"
         stufe: "Stufe"
       camp:
         name: "Name"

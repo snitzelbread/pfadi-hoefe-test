@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   root "home#index"
 
+  get "hockzettel", to: "hockzettel#index"
+
   get "biber", to: "biber#index"
   get "woelfli", to: "woelfli#index"
   get "pfadi", to: "pfadi#index"
@@ -30,9 +32,6 @@ Rails.application.routes.draw do
 
   get "logout", to: "log_in#destroy"
   delete "logout", to: "log_in#destroy"
-
-  get "parent", to: "parent#new"
-  post "parent", to: "parent#create"
 
   get "wola", to: "wola#index"
   get "pfila", to: "pfila#index"
@@ -53,7 +52,7 @@ Rails.application.routes.draw do
   resources :archives, except: [ :show, :new, :create ]
   resources :articles
   resources :news
-  resources :camps, except: [ :show ]
+  resources :camps, except: [ :show, :destroy ]
   resources :sponsors, except: [ :show ]
 
   get "sponsors/show_all", to: "sponsors#show_all"

@@ -1,0 +1,10 @@
+<div class="post-it-container">
+  <h1 class="fuzzy-bubbles-bold post-it-title-4">Hockzettel</h1>
+</div>
+
+<% hocks = @closest_biber_hock, @closest_woelfli_hock, @closest_pfadi_hock %>
+
+
+<%= render "hocks", hock: @closest_biber_hock, stufe: "Biber" %>
+<%= render "hocks", hock: @closest_woelfli_hock, stufe: "Wölfli" %>
+<%= render "hocks", hock: @closest_pfadi_hock, stufe: "Pfadi" %>

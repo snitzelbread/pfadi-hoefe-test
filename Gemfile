@@ -21,7 +21,7 @@ gem "pg"
 gem "bcrypt", "~> 3.1.7"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
-gem 'bootstrap'
+gem 'bootstrap', '~> 5.3.3'
 gem "poppler"
 gem 'simple_form', '~> 5.2.0'
 gem "font-awesome-sass", "~> 6.4.0"
@@ -32,7 +32,6 @@ group :development do
   gem "letter_opener"
 end
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false

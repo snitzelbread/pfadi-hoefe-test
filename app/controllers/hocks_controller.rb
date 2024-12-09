@@ -24,9 +24,9 @@ class HocksController < ApplicationController
     @hock.leader_id = current_leader.id
 
     if @hock.save
-      redirect_to hocks_url, notice: "Hock was successfully created."
+      redirect_to hocks_url, notice: "Höck wurde erfolgreich erstellt."
     else
-      flash[:alert] = "Der Hock konnte nicht erstellt werden."
+      flash[:alert] = "Höck konnte nicht erstellt werden."
       render :new, status: 422
     end
   end
@@ -58,7 +58,7 @@ class HocksController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def hock_params
-    params.require(:hock).permit(:title, :description, :datetime, :stufe, :leader_id, :ort)
+    params.require(:hock).permit(:title, :description, :datetime, :stufe, :leader_id, :ort, :document)
   end
 
   def format_errors(object)

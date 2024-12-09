@@ -40,16 +40,6 @@ class CampsController < ApplicationController
     end
   end
 
-  # DELETE /camps/1 or /camps/1.json
-  def destroy
-    @camp.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to camps_path, status: :see_other, notice: "Camp was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
   private
 
   # Use callbacks to share common setup or constraints between actions.

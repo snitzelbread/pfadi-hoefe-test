@@ -9,6 +9,7 @@
       <%= f.input :stufe, collection: hock_stufen, selected: @hock.stufe || "Biber", class: "form-control" %>
       <%= f.input :ort, class: "form-control" %>
     </div>
+    <%= f.input :document, label: "DP" %>
     <div class="text-center my-3">
       <%= f.submit "Erstellen", class: "btn btn-custom-primary" %>
     </div>

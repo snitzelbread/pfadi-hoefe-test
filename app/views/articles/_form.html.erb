@@ -4,7 +4,7 @@
       <%= f.input :title %>
       <%= f.input :content, as: :rich_text_area %>
       <%= f.input :image, hint: "Bitte ein Bild hochladen, es wird als Thumbnail verwendet" %>
-      <%= f.input :date, as: :date, html5: true, selected: Date.today %>
+      <%= f.hidden_field :date, value: Date.today %>
 
       <div class="text-center">
         <%= f.submit "Erstellen", class: "btn btn-custom-primary mb-3" %>

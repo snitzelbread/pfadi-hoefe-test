@@ -17,7 +17,7 @@
             </div>
             <div class='col mt-auto ps-0 ps-lg-1'>
               <p class='card-text mb-0 text-white'>By <b><%= article.leader.pfadiname %></b></p>
-              <p class='card-text text-white'><%= article.date %></p>
+              <p class='card-text text-white'><%= article.date.strftime("%-d.%-m.%Y") %></p>
             </div>
             <div class='col-auto mt-auto'>
               <div class='bg-primary-subtle text-primary rounded-pill py-1 px-2'>

@@ -26,6 +26,7 @@ gem "poppler"
 gem 'simple_form', '~> 5.2.0'
 gem "font-awesome-sass", "~> 6.4.0"
 gem "dropzonejs-rails"
+gem 'acts-as-taggable-on'
 # Gemfile
 group :development do
   gem "web-console"

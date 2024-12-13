@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
   belongs_to :leader
   has_one_attached :image
+  acts_as_taggable_on :tags
   has_rich_text :content
   validates :title, presence: true
   validates :content, presence: true

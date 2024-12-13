@@ -1,8 +1,14 @@
 <div class="article-header justify-content-center align-content-center" style="background-image: url('<%= url_for(article.image) %>');">
   <div class="header-content">
     <h1 class="header-title"> <%= article.title %></h1>
+    <div class="d-flex justify-content-center align-content-center gap-3">
+      <h4><i class="bi bi-calendar"></i> <%= article.date.strftime("%d.%m.%Y") %></h4>
+      <h4><i class="bi bi-person"></i> <%= article.leader.pfadiname %></h4>
+    </div>
   </div>
 </div>
+<br>
+
 
 <div class="article-content">
   <p> <%= article.content %></p>

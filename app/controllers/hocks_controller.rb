@@ -24,7 +24,8 @@ class HocksController < ApplicationController
     @hock.leader_id = current_leader.id
 
     if @hock.save
-      redirect_to hocks_url, notice: "Höck wurde erfolgreich erstellt."
+      flash[:notice] = "Höck wurde erfolgreich erstellt."
+      redirect_to hocks_url
     else
       flash[:alert] = "Höck konnte nicht erstellt werden."
       render :new, status: 422

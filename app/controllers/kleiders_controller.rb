@@ -2,55 +2,43 @@ class KleidersController < ApplicationController
   before_action :set_kleider, only: %i[ show edit update destroy ]
   before_action :require_login_leader, only: %i[ edit create update destroy show ]
 
-  # GET /kleiders or /kleiders.json
   def index
     @kleiders = Kleider.all
   end
 
-  # GET /kleiders/1 or /kleiders/1.json
   def show
   end
 
-  # GET /kleiders/new
   def new
     @kleider = Kleider.new
-
-    # Initialize the shopping list if it doesn't exist
   end
 
   # GET /kleiders/1/edit
   def edit
   end
 
-  # POST /kleiders or /kleiders.json
   def create
     @kleider = Kleider.new(kleider_params)
 
-    respond_to do |format|
-      if @kleider.save
-        format.html { redirect_to kleiders_path, notice: "Kleidungsstück wurde erfolgreich erstellt!" }
-      else
-        flash[:alert] = @kleider.errors.full_messages
-        format.html { render :new, status: :unprocessable_content }
-        format.json { render json: @kleider.errors, status: :unprocessable_content }
-      end
+    if @kleider.save
+      flash[:notice] = "Kleidungsstück wurde erfolgreich erstellt!"
+      redirect_to kleiders_path
+    else
+      flash[:alert] = "Kleidungsstück konnte nicht erstellt werden"
+      render :new, status: :unprocessable_content
     end
   end
 
-  # PATCH/PUT /kleiders/1 or /kleiders/1.json
   def update
-    respond_to do |format|
       if @kleider.update(kleider_params)
-        format.html { redirect_to kleiders_path, notice: "Kleidungsstück wurde erfolgreich aktualisiert." }
+        flash[:notice] = "Kleidungsstück wurde erfolgreich aktualisiert!"
+        redirect_to kleiders_path
       else
         flash[:alert] = @kleider.errors.full_messages
-        format.html { render :edit, status: 422 }
-        format.json { render json: @kleider.errors, status: :unprocessable_content }
-      end
+        render :edit, status: :unprocessable_content
     end
   end
 
-  # DELETE /kleiders/1 or /kleiders/1.json
   def destroy
     @kleider.destroy!
 
@@ -61,14 +49,12 @@ class KleidersController < ApplicationController
   end
 
   def add_to_list
-    # Fetch the Kleider object by ID
     kleider = Kleider.find(params[:id])
 
-    # Add the item to the session's shopping list array
     session[:shopping_list] << {
       name: kleider.name,
       price: kleider.price * params[:amount].to_i,
-      amount: params[:amount] || 1 # Make sure 'amount' is present, defaulting to 1 if not
+      amount: params[:amount] || 1
     }
 
     flash[:notice] = "#{kleider.name} added."
@@ -78,9 +64,8 @@ class KleidersController < ApplicationController
   def clear_shopping_list
     session[:shopping_list] = [] # Clear the shopping list
 
-    respond_to do |format|
-      format.html { redirect_to bestellung_path, notice: "Einkaufsliste wurde geleert." }
-    end
+    flash[:notice] = "Einkaufsliste wurde geleert."
+    format.html redirect_to bestellung_path
   end
 
   private

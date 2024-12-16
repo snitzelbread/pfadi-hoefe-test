@@ -1,2 +1,0 @@
-module PfadiHelper
-end

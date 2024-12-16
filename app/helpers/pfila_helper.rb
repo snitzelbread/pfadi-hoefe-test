@@ -1,2 +1,0 @@
-module PfilaHelper
-end

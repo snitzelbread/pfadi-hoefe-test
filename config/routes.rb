@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   resources :hocks, except: [ :show ]
   resources :archives, except: [ :show, :new, :create ]
   resources :articles
+  get "article/list", to: "articles#list"
   resources :news
   resources :camps, except: [ :show, :destroy ]
   resources :sponsors, except: [ :show ]

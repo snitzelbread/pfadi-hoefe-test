@@ -4,6 +4,7 @@
       <%= f.input :title %>
       <%= f.input :content, as: :rich_text_area %>
       <%= f.input :image, hint: "Bitte ein Bild hochladen, es wird als Thumbnail verwendet" %>
+      <%= f.input :tag_list, hint: "Hier kannst du dem Artikel Tags geben, damit die Artikel besser sortiert werden können. Wenn du eine Stufe als Tag angibst, wird der Artikel die Stufenfarbe. Mehrere Tags können mit Kommas separiert werden." %>
       <%= f.hidden_field :date, value: Date.today %>
 
       <div class="text-center">

@@ -71,9 +71,7 @@
             <%= nav_link_to "Höcks", hocks_path, :get %>
           </li>
           <li class="nav-item">
-            <%= nav_link_to "Profil", profil_path do %>
-
-            <% end %>
+            <%= nav_link_to "Profil", profil_path %>
           </li>
           <li class="nav-item">
             <%= button_to "Logout", destroy_leader_session_path, method: :delete, class: "nav-link", "data-turbo-confirm": "Bist du dir sicher?", style: "font-size: 16px" %>

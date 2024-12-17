@@ -1,0 +1,44 @@
+<div class="post-it-container">
+  <h1 class="post-it-title-3 fuzzy-bubbles-bold">Alle Artikel</h1>
+</div>
+<br>
+<div class="box-card">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Titel</th>
+        <th>Inhalt</th>
+        <th>Autor</th>
+        <th>Erstellt am:</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if Article.all.any? %>
+        <% Article.all.each do |article| %>
+          <tr>
+            <td><%= article.id %></td>
+            <td><%= article.title %></td>
+            <td><%= remove_brackets(article.content.to_plain_text).truncate(50) %></td>
+            <td><%= article.leader.pfadiname %></td>
+            <td><%= article.created_at.strftime("%d.%m.%Y") %></td>
+            <td class="d-flex justify-content-between">
+              <%= link_to article_path(article.id), class: "text-decoration-none" do %>
+                <i class="bi bi-eye"></i>
+              <% end %>
+              <%= link_to edit_article_path(article.id), class: "text-decoration-none" do %>
+                <i class="bi bi-pencil-square"></i>
+              <% end %>
+              <%= link_to article_path(article.id), data: {turbo_method: :delete}, class: "text-decoration-none" do %>
+                <i class="bi bi-trash"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% else %>
+        <%= render "shared/empty_state", name: "Beitrag" %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

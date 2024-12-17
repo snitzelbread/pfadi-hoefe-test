@@ -50,6 +50,8 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def list; end
+
   # DELETE /articles/1 or /articles/1.json
   def destroy
     @article.destroy!

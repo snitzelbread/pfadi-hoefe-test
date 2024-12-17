@@ -24,17 +24,21 @@
 </head>
 
 <body style="background-color: hsl(30, 50%, 98%)">
-<%= render partial: "shared/navbar" %>
-
-<div class="container-fluid">
-  <div class="container">
-
+<% if controller.controller_name === "dashboard" %>
+  <div class="container-fluid">
     <%= render partial: "shared/alerts" %>
     <%= yield %>
-
   </div>
+<% else %>
 
-</div>
+  <%= render partial: "shared/navbar" %>
+  <div class="container-fluid">
+    <div class="container">
+      <%= render partial: "shared/alerts" %>
+      <%= yield %>
+    </div>
+  </div>
+<% end %>
 <%= render partial: "shared/footer" %>
 </body>
 </html>

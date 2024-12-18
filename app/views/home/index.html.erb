@@ -36,13 +36,43 @@
 <br>
 <hr>
 
+<div class="post-it-container">
+  <h1 class="fuzzy-bubbles-bold mb-3 post-it-title-5">Nächste Termine</h1>
+</div>
+
 <% if next_three_events %>
   <div class="container">
     <div class="row justify-content-center">
       <% next_three_events.each do |event| %>
       <div class="col">
-        <div class="event">
-          <%= event.title %>
+        <div class="container hock-bubble-white">
+          <div class="event-header">
+            <h3 class="text-left"><%= event.title %></h3>
+            <hr>
+          </div>
+          <h4 class="mb-3 text-left">
+            <span class="badge" style="background-color: <%= event.color %>;">
+              <%= event.calendar.name %>
+            </span>
+          </h4>
+          <div class="event-content gap-3">
+            <% unless event.description.blank? %>
+              <div class="d-flex align-items-center gap-3">
+                <i class="bi bi-text-paragraph"></i>
+                <p class="m-0"><%= event.description %></p>
+              </div>
+            <% end %>
+            <% unless event.location.blank? %>
+              <div class="d-flex gap-3">
+                <i class="bi bi-geo-alt"></i>
+                <p class="m-0"><%= event.location %></p>
+              </div>
+            <% end %>
+            <div class="d-flex gap-3">
+              <i class="bi bi-clock"></i>
+              <%= event.start_time.strftime("%d.%m.%Y") %>  <%= "- " + event.end_time.strftime("%d.%m.%Y") unless event.end_time == event.start_time%>
+            </div>
+          </div>
         </div>
       </div>
       <% end %>
@@ -65,16 +95,25 @@
   <%= render partial: "shared/empty_state", locals: { name: "Beitrag" } %>
 <% end %>
 
-<%= month_calendar do |date| %>
+<%= month_calendar(events: all_events_of_these_calendars(@home_calendars)) do |date, events| %>
   <%= date.day %>
-  <% if events_on_day_and_month(date) %>
-    <% events_on_day_and_month(date).each do |event| %>
-      <div class="event">
-        <%= event.title %>
-      </div>
-    <% end %>
+  <% events.each do |event| %>
+    <div class="event" style="background-color: <%= event.color %>">
+      <%= event.title %>
+    </div>
   <% end %>
 <% end %>
 
+<div class="container">
+  <div class="row d-flex">
+    <% Calendar.all.each do |cal| %>
+      <div class="col">
+        <div class="event" style="background-color: <%= cal.calendar_events.first %>">
+          <%= cal.name %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
 
 

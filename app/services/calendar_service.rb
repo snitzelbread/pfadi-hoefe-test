@@ -12,7 +12,7 @@ class CalendarService
     @calendar.update!(url: cal.url) unless @calendar.url == cal.url
 
     event_list = @client.events.list(
-      @calendar.url, from: Time.new(2024, 1, 1), to: Time.new(2025, 1, 1)
+      @calendar.url, from: Time.new(Date.today.year, 1, 1), to: Time.new(Date.today.year + 1, 1, 1)
     )
 
     event_list.each do |e|
@@ -20,15 +20,19 @@ class CalendarService
       cals = Icalendar::Calendar.parse(event_data)
       cal = cals.first
       cal.events.each do |event|
-        CalendarEvent.find_or_initialize_by(
+        new_event = CalendarEvent.find_or_initialize_by(
+          uid: event.uid.to_s,
+        )
+
+        new_event.update(
           title: event.summary.to_s,
           description: event.description.to_s,
           location: event.location.to_s,
           start_time: event.dtstart.to_date,
           end_time: event.dtend.to_date,
-          color: get_calendar_color(@calendar),
-          calendar_id: @calendar.id
-        ).save!
+          calendar_id: @calendar.id,
+          color: get_calendar_color(@calendar)
+        )
       end
     end
     @calendar.update!(last_synced_at: Time.current)
@@ -36,25 +40,59 @@ class CalendarService
 
   private
 
-  def get_calendar_color(calendar)
-    # Example: Return different colors based on calendar display_name
-    case calendar.name
-    when "Geburtstagsliste"
-      "#DF7CFFFF"
-    when "Kurse"
-      "#7CF4FFFF"
-    else
-      "#7CF4FFFF"
-    end
-  end
-
   def initialize_client
     credentials = Calendav::Credentials::Standard.new(
-      host: "https://cloud.linuxfabrik.io/remote.php/dav/",
+      host: ENV["CALENDAR_HOST"],
       username: ENV["CALENDAR_USER"],
       password: ENV["CALENDAR_PASSWORD"],
       authentication: :basic_auth
     )
     Calendav.client(credentials)
+  end
+
+  def get_calendar_color(calendar)
+    # Assign colors for each specific calendar name
+    case calendar.name
+    when "Kurse"
+      "#7CF4FFFF" # Light teal
+    when "Ferien Gemeinde Freienbach"
+      "#FFA07AFF" # Light coral
+    when "Leiter"
+      "#FF6347FF" # Tomato red
+    when "Abteilung"
+      "#4682B4FF" # Steel blue
+    when "AL"
+      "#6A5ACDFF" # Slate blue
+    when "Stufenleitung"
+      "#32CD32FF" # Lime green
+    when "Pios"
+      "#FFD700FF" # Gold
+    when "Pfadi"
+      "#FF4500FF" # Orange red
+    when "Wölfli"
+      "#6495EDFF" # Cornflower blue
+    when "Biber"
+      "#8A2BE2FF" # Blue violet
+    when "OK Chilbi Pfäffikon"
+      "#FF69B4FF" # Hot pink
+    when "Feiertage"
+      "#D2691EFF" # Chocolate
+    when "Geburtstagsliste"
+      "#DF7CFFFF" # Purple-pink
+    when "SoLa"
+      "#00CED1FF" # Dark turquoise
+    when "WoLa"
+      "#9400D3FF" # Dark violet
+    when "PfiLa"
+      "#00FF7FFF" # Spring green
+    when "Geburtstage von Kontakten"
+      "#FFDAB9FF" # Peach puff
+    when "pfadi-hoefe"
+      "#DC143CFF" # Crimson
+    when "Privat"
+      "#708090FF" # Slate gray
+    else
+      "#7CF4FFFF" # Default color (light teal)
+    end
   end
 end

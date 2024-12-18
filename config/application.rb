@@ -18,7 +18,7 @@ module PfadiHoefe
     config.assets.css_compressor = :sass
     config.i18n.default_locale = :de
     config.after_initialize do
-      CalendarSyncJob.perform_later(["Abteilung", "Geburtstagsliste", "Pfadi", "Wölfli", "Biber", "Kurse"])
+      CalendarSyncJob.perform_later(Calendar::CALENDAR_NAMES)
     end
 
     # Configuration for the application, engines, and railties goes here.

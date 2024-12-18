@@ -8,15 +8,4 @@ class HomeController < ApplicationController
 
     @latest_article = Article.latest_articles.first
   end
-
-  private
-
-  # def detect_device
-  #   browser = Browser.new(request.user_agent, accept_language: "en-us") # Create a new browser instance with the user agent
-  #   if browser.device.mobile? || browser.device.tablet?
-  #     request.variant = :mobile
-  #   else
-  #     request.variant = :desktop
-  #   end
-  # end
 end

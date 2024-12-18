@@ -27,6 +27,9 @@ gem 'simple_form', '~> 5.2.0'
 gem "font-awesome-sass", "~> 6.4.0"
 gem "dropzonejs-rails"
 gem 'acts-as-taggable-on'
+gem 'calendav'
+gem 'icalendar'
+gem 'simple_calendar'
 # Gemfile
 group :development do
   gem "web-console"
@@ -49,3 +52,5 @@ group :test do
   gem "shoulda-matchers"
   gem "rails-controller-testing"
 end
+
+gem "whenever", "~> 1.0"

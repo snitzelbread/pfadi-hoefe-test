@@ -35,6 +35,23 @@
 </div>
 <br>
 <hr>
+
+<% if next_three_events %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <% next_three_events.each do |event| %>
+      <div class="col">
+        <div class="event">
+          <%= event.title %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<br>
+<hr>
 <div class="post-it-container">
   <h1 class="fuzzy-bubbles-bold mb-3 post-it-title-5">Neuster Beitrag</h1>
 </div>
@@ -48,5 +65,16 @@
   <%= render partial: "shared/empty_state", locals: { name: "Beitrag" } %>
 <% end %>
 
-<iframe width="1600" height="1000" src="https://cloud.linuxfabrik.io/index.php/apps/calendar/embed/cLMdKakYPsww3pfA"></iframe>
+<%= month_calendar do |date| %>
+  <%= date.day %>
+  <% if events_on_day_and_month(date) %>
+    <% events_on_day_and_month(date).each do |event| %>
+      <div class="event">
+        <%= event.title %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+
 

@@ -1,0 +1,16 @@
+.event{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 4px;
+  background-color: lightblue;
+  border-radius: 5px;
+  color: black;
+  margin: 2px;
+}
+
+.simple-calendar{
+  .day{
+    height: 100px !important;
+  }
+}

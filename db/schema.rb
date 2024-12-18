@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_12_18_105354) do
+ActiveRecord::Schema[7.2].define(version: 2024_12_18_154247) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -106,7 +106,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_18_105354) do
     t.text "description"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.string "color"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "calendar_id", null: false
@@ -120,6 +119,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_18_105354) do
     t.datetime "last_synced_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "color"
   end
 
   create_table "camps", force: :cascade do |t|

@@ -31,11 +31,10 @@ class CalendarService
           start_time: event.dtstart.to_date,
           end_time: event.dtend.to_date,
           calendar_id: @calendar.id,
-          color: get_calendar_color(@calendar)
         )
       end
     end
-    @calendar.update!(last_synced_at: Time.current)
+    @calendar.update!(last_synced_at: Time.current, color: get_calendar_color(@calendar))
   end
 
   private
@@ -56,11 +55,11 @@ class CalendarService
     when "Kurse"
       "#7CF4FFFF" # Light teal
     when "Ferien Gemeinde Freienbach"
-      "#FFA07AFF" # Light coral
+      "#72FFE5FF" # Light coral
     when "Leiter"
       "#FF6347FF" # Tomato red
     when "Abteilung"
-      "#4682B4FF" # Steel blue
+      "#FF6464FF" # Steel blue
     when "AL"
       "#6A5ACDFF" # Slate blue
     when "Stufenleitung"
@@ -70,21 +69,21 @@ class CalendarService
     when "Pfadi"
       "#FF4500FF" # Orange red
     when "Wölfli"
-      "#6495EDFF" # Cornflower blue
+      "#1A68FFFF" # Cornflower blue
     when "Biber"
-      "#8A2BE2FF" # Blue violet
+      "#5AFF81FF" # Light green
     when "OK Chilbi Pfäffikon"
       "#FF69B4FF" # Hot pink
     when "Feiertage"
-      "#D2691EFF" # Chocolate
+      "#8C8C8CFF" # Grey
     when "Geburtstagsliste"
       "#DF7CFFFF" # Purple-pink
     when "SoLa"
-      "#00CED1FF" # Dark turquoise
+      "#FFA15DFF" # Orange
     when "WoLa"
-      "#9400D3FF" # Dark violet
+      "#58AEEAFF" # light blue
     when "PfiLa"
-      "#00FF7FFF" # Spring green
+      "#FF7EC5FF" # Spring green
     when "Geburtstage von Kontakten"
       "#FFDAB9FF" # Peach puff
     when "pfadi-hoefe"

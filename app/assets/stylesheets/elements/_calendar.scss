@@ -3,10 +3,21 @@
   justify-content: start;
   align-items: center;
   padding: 4px;
-  background-color: lightblue;
   border-radius: 5px;
   color: black;
   margin: 2px;
+}
+
+.calendar-legend{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 4px;
+  border-radius: 5px;
+  color: black;
+  margin: 2px;
+  min-width: 100px;
+  max-width: fit-content;
 }
 
 .simple-calendar{

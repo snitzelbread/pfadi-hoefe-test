@@ -31,8 +31,5 @@ class Calendar < ApplicationRecord
     "Wölfli",
     "Biber",
     "Feiertage",
-    "SoLa",
-    "WoLa",
-    "PfiLa",
   ]
 end

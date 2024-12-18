@@ -51,7 +51,7 @@
             <hr>
           </div>
           <h4 class="mb-3 text-left">
-            <span class="badge" style="background-color: <%= event.color %>;">
+            <span class="badge" style="background-color: <%= event.calendar.color %>;">
               <%= event.calendar.name %>
             </span>
           </h4>
@@ -98,22 +98,18 @@
 <%= month_calendar(events: all_events_of_these_calendars(@home_calendars)) do |date, events| %>
   <%= date.day %>
   <% events.each do |event| %>
-    <div class="event" style="background-color: <%= event.color %>">
+    <div class="event" style="background-color: <%= event.calendar.color %>">
       <%= event.title %>
     </div>
   <% end %>
 <% end %>
 
-<div class="container">
-  <div class="row d-flex">
-    <% Calendar.all.each do |cal| %>
-      <div class="col">
-        <div class="event" style="background-color: <%= cal.calendar_events.first %>">
-          <%= cal.name %>
-        </div>
+<div class="container d-flex gap-2 flex-wrap">
+  <% @home_calendars.each do |calendar| %>
+      <div class="calendar-legend d-flex justify-content-center" style="background-color: <%= calendar.color %>">
+        <p class="m-0 px-2"><%= calendar.name %></p>
       </div>
-    <% end %>
-  </div>
+  <% end %>
 </div>
 
 

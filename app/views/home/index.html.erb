@@ -102,33 +102,55 @@
     <% events.each do |event| %>
 
       <% if @ranged_events.include?(event) %>
-        <span tabindex="0" class="event-<%= start_middle_or_end(event, date) %> text-decoration-none"
-              style="background-color: <%= event.calendar.color %>"
-              role="button"
-              data-bs-html="true"
-              data-bs-animation="false"
-              data-bs-toggle="popover"
-              data-bs-trigger="focus"
-              data-bs-title='<%= event.title %>'
-              data-bs-content='<%= render partial: "popover_content", locals: { event: event } %>'>
-          <% if event.start_time.day == date.day %>
-            <%= event.title %>
-          <% else %>
-            <p class="m-0" style="color: <%= event.calendar.color %>"><%= event.title %></p>
-          <% end %>
-        </span>
+        <% if (event.end_time - 1.second) != date.day && event.end_time.day == date.day %>
+          <!-- print nothing-->
+        <% elsif (event.end_time - 1.second) != date.day && event.end_time == date + 1.day %>
+          <span tabindex="0" class="event-end text-decoration-none"
+                style="background-color: <%= event.calendar.color %>"
+                role="button"
+                data-bs-html="true"
+                data-bs-animation="false"
+                data-bs-toggle="popover"
+                data-bs-trigger="focus"
+                data-bs-title='<%= event.title %>'
+                data-bs-content='<%= render partial: "popover_content", locals: { event: event, date: date } %>'>
+            <% if event.start_time.day == date.day %>
+              <%= event.title %>
+            <% else %>
+              <p class="m-0" style="color: <%= event.calendar.color %>"><%= event.title %></p>
+            <% end %>
+            </span>
+        <% else %>
+          <span tabindex="0" class="event-<%= start_middle_or_end(event, date) %> text-decoration-none"
+                style="background-color: <%= event.calendar.color %>"
+                role="button"
+                data-bs-html="true"
+                data-bs-animation="false"
+                data-bs-toggle="popover"
+                data-bs-trigger="focus"
+                data-bs-title='<%= event.title %>'
+                data-bs-content='<%= render partial: "popover_content", locals: { event: event, date: date } %>'>
+            <% if event.start_time.day == date.day %>
+              <%= event.title %>
+            <% else %>
+              <p class="m-0" style="color: <%= event.calendar.color %>"><%= event.title %></p>
+            <% end %>
+            </span>
+        <% end %>
       <% else %>
-        <span tabindex="0" class="event-single-day text-decoration-none"
-              style="background-color: <%= event.calendar.color %>"
-              role="button"
-              data-bs-html="true"
-              data-bs-animation="false"
-              data-bs-toggle="popover"
-              data-bs-trigger="focus"
-              data-bs-title='<%= event.title %>'
-              data-bs-content='<%= render partial: "popover_content", locals: { event: event } %>'>
+        <% if event.start_time.day == date.day %>
+          <span tabindex="0" class="event-single-day text-decoration-none"
+                      style="background-color: <%= event.calendar.color %>"
+                      role="button"
+                      data-bs-html="true"
+                      data-bs-animation="false"
+                      data-bs-toggle="popover"
+                      data-bs-trigger="focus"
+                      data-bs-title='<%= event.title %>'
+                      data-bs-content='<%= render partial: "popover_content", locals: { event: event, date: date } %>'>
           <%= event.title %>
         </span>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>

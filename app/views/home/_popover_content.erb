@@ -20,7 +20,13 @@
         <%= event.start_time.strftime("%H:%M bis ") %><%= event.end_time.strftime("%H:%M am %d.%m.%Y") %>
       <% end %>
     <% else %>
-      <%= event.start_time.strftime("%d.%m.%Y") %>  <%= "- " + event.end_time.strftime("%d.%m.%Y") unless event.end_time == event.start_time%>
-  <% end %>
+      <% if event.end_time - 1.day == event.start_time %>
+        <%= event.start_time.strftime("%d.%m.%Y") %>
+      <% elsif (event.end_time - 1.second) != date.day %>
+          <%= event.start_time.strftime("%d.%m.%Y") %>  <%= "- " + (event.end_time - 1.day).strftime("%d.%m.%Y") %>
+      <% else %>
+        <%= event.start_time.strftime("%d.%m.%Y") %> <%= "- " + event.end_time.strftime("%d.%m.%Y") %>
+      <% end %>
+    <% end %>
   </div>
 </div>

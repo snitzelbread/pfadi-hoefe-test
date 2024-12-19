@@ -60,22 +60,39 @@ module CalendarHelper
     end
   end
 
-  def ranged_events(events)
-    ranged_events = events.select { |event| event.start_time.month != event.end_time.month || event.start_time.day != event.end_time.day }
-    ranged_events.each do |event|
-      if event.end_time.hour == 0
-        event.end_time -= 1.minute
-      end
+  def classify_event(event)
+    duration = event.end_time - event.start_time
+
+    starts_at_midnight = event.start_time.strftime("%H:%M") == "00:00"
+    ends_at_midnight = event.end_time.strftime("%H:%M") == "00:00"
+
+    if starts_at_midnight && ends_at_midnight && duration == 1.day
+      "All-Day Event"
+    elsif duration > 1.day
+      "Multi-Day Event"
+    else
+      "Regular Event"
     end
   end
 
+  def ranged_events(events)
+    ranged_events = []
+    events.each do |event|
+      if classify_event(event) == "Multi-Day Event"
+        ranged_events << event
+      end
+    end
+    ranged_events
+  end
+
   def single_day_events(events)
-
-    single_day_events = events.select { |event| event.start_time.month == event.end_time.month && (
-      event.start_time.day == event.end_time.day || end_time(event)
-    )
-
-    }
+    single_day_events = []
+    events.each do |event|
+      if classify_event(event) == "All-Day Event" || classify_event(event) == "Regular Event"
+        single_day_events << event
+      end
+    end
+    single_day_events
   end
 
   def end_time(event)

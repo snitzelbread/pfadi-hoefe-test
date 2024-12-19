@@ -69,11 +69,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_18_154247) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "archives", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.string "content"
@@ -134,16 +129,18 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_18_154247) do
   end
 
   create_table "hocks", force: :cascade do |t|
+    t.integer "leiter_id"
     t.string "title"
     t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "ort"
     t.datetime "datetime"
     t.string "stufe"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "leader_id", null: false
-    t.string "ort"
     t.datetime "end_time"
     t.index ["leader_id"], name: "index_hocks_on_leader_id"
+    t.index ["leiter_id"], name: "index_hocks_on_leiter_id"
   end
 
   create_table "kleiders", force: :cascade do |t|
@@ -179,21 +176,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_18_154247) do
     t.index ["email"], name: "index_leaders_on_email", unique: true
     t.index ["reset_password_token"], name: "index_leaders_on_reset_password_token", unique: true
     t.index ["stufe", "funktion"], name: "index_leaders_on_stufe_and_funktion", unique: true
-  end
-
-  create_table "news", force: :cascade do |t|
-    t.string "title"
-    t.text "content"
-    t.date "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "parents", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "email"
-    t.string "password_digest"
   end
 
   create_table "sponsors", force: :cascade do |t|
@@ -234,10 +216,11 @@ ActiveRecord::Schema[7.2].define(version: 2024_12_18_154247) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "leaders"
   add_foreign_key "calendar_events", "calendars"
   add_foreign_key "camps", "leaders"
-  add_foreign_key "hocks", "leaders", primary_key: "id"
+  add_foreign_key "hocks", "leaders"
   add_foreign_key "taggings", "tags"
 end

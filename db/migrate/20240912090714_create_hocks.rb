@@ -4,6 +4,9 @@ class CreateHocks < ActiveRecord::Migration[7.2]
       t.belongs_to :leiter
       t.string :title
       t.string :description
+      t.string :ort
+      t.datetime :datetime
+      t.string :stufe
 
       t.timestamps
     end

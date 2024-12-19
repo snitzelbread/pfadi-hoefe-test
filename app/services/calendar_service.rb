@@ -55,7 +55,7 @@ class CalendarService
     when "Kurse"
       "#7CF4FFFF" # Light teal
     when "Ferien Gemeinde Freienbach"
-      "#72FFE5FF" # Light coral
+      "#708cba" # Light coral
     when "Leiter"
       "#FF6347FF" # Tomato red
     when "Abteilung"

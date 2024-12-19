@@ -11,14 +11,14 @@
       <%= f.input :first_name %>
       <%= f.input :last_name %>
       <%= f.input :email %>
-      <%= f.input :stufe, as: :select, collection: stufen, selected: "Biber" %>
+      <%= f.input :stufe, as: :select, collection: stufen, selected: @leader.stufe || "Biber" %>
       <%= f.input :funktion,
                   collection: funktionen_subcategories,
                   as: :grouped_select,
                   group_method: :last,
                   label_method: :itself,
                   value_method: :itself,
-                  selected: funktionen_subcategories.values.flatten.first %>
+                  selected: @leader.funktion || "Leitperson" %>
     </div>
 
     <%= f.input :image, value: @leader.image %>

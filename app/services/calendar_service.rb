@@ -28,8 +28,8 @@ class CalendarService
           title: event.summary.to_s,
           description: event.description.to_s,
           location: event.location.to_s,
-          start_time: event.dtstart.to_date,
-          end_time: event.dtend.to_date,
+          start_time: event.dtstart.to_datetime,
+          end_time: event.dtend.to_datetime,
           calendar_id: @calendar.id,
         )
       end

@@ -56,13 +56,12 @@
     <orderEntry type="library" scope="PROVIDED" name="brakeman (v6.2.2, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="browser (v6.0.0, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.3.0, asdf: 3.3.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.5.18, asdf: 3.3.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.6.1, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cairo (v1.17.13, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cairo-gobject (v4.2.4, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="calendav (v0.4.0, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="capybara (v3.40.0, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="childprocess (v5.1.0, asdf: 3.3.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="chronic (v0.10.2, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="concurrent-ruby (v1.3.4, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="connection_pool (v2.4.1, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="crass (v1.0.6, asdf: 3.3.5) [gem]" level="application" />
@@ -190,7 +189,6 @@
     <orderEntry type="library" scope="PROVIDED" name="websocket (v1.2.11, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.7.6, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.5, asdf: 3.3.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="whenever (v1.0.0, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="xpath (v3.2.0, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="zeitwerk (v2.7.1, asdf: 3.3.5) [gem]" level="application" />
   </component>

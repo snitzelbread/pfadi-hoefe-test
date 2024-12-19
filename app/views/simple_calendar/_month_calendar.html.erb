@@ -3,13 +3,13 @@
     <h2 class="text-left"><time datetime="<%= start_date.strftime('%Y-%m') %>" class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></time></h2>
 
     <nav class="d-flex gap-3">
-      <%= link_to calendar.url_for_previous_view, class: "text-decoration-none" do %>
+      <%= link_to calendar.url_for_previous_view, class: "text-decoration-none", data: { turbo_frame_tag: "calendar"} do %>
         <h3><i class="bi bi-caret-left-fill"></i></h3>
       <% end %>
-      <%= link_to calendar.url_for_today_view, class: "text-decoration-none" do %>
+      <%= link_to calendar.url_for_today_view, class: "text-decoration-none", data: { turbo_frame_tag: "calendar"} do %>
         <h3><i class="bi bi-calendar-date"></i></h3>
       <% end %>
-      <%= link_to calendar.url_for_next_view, class: "text-decoration-none", style: "font-size" do %>
+      <%= link_to calendar.url_for_next_view, class: "text-decoration-none", data: { turbo_frame_tag: "calendar"} do %>
         <h3><i class="bi bi-caret-right-fill"></i></h3>
       <% end %>
     </nav>

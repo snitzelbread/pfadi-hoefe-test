@@ -1,0 +1,26 @@
+<div class="event-content gap-3">
+  <% unless event.description.blank? %>
+    <div class="d-flex align-items-center gap-3">
+      <i class="bi bi-text-paragraph"></i>
+      <p class="m-0"><%= event.description %></p>
+    </div>
+  <% end %>
+  <% unless event.location.blank? %>
+    <div class="d-flex gap-3">
+      <i class="bi bi-geo-alt"></i>
+      <p class="m-0"><%= event.location %></p>
+    </div>
+  <% end %>
+  <div class="d-flex gap-3">
+    <i class="bi bi-clock"></i>
+    <% if event.start_time.hour != event.end_time.hour %>
+      <% if event.start_time.day != event.end_time.day %>
+        <%= event.start_time.strftime("%d.%m.%Y %H:%M") %>  <%= "- " + event.end_time.strftime("%d.%m.%Y %H:%M") unless event.end_time == event.start_time%>
+      <% else %>
+        <%= event.start_time.strftime("%H:%M bis ") %><%= event.end_time.strftime("%H:%M am %d.%m.%Y") %>
+      <% end %>
+    <% else %>
+      <%= event.start_time.strftime("%d.%m.%Y") %>  <%= "- " + event.end_time.strftime("%d.%m.%Y") unless event.end_time == event.start_time%>
+  <% end %>
+  </div>
+</div>

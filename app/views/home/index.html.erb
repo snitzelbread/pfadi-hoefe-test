@@ -1,3 +1,5 @@
+
+
 <div class="header align-content-center mb-4">
   <div class="row header-content">
     <div class="col-lg-5 align-content-center text-right">
@@ -43,32 +45,41 @@
     <div class="row justify-content-center">
       <% next_three_events.each do |event| %>
       <div class="col">
-        <div class="container hock-bubble-white">
+        <div class="container p-0 hock-bubble-white">
           <div class="event-header">
-            <h3 class="text-left"><%= event.title %></h3>
-            <hr>
+            <h3 class="text-left p-2"><%= event.title %></h3>
           </div>
-          <h4 class="mb-3 text-left">
-            <span class="badge" style="background-color: <%= event.calendar.color %>;">
-              <%= event.calendar.name %>
-            </span>
+          <div class="container p-3">
+            <h4 class="mb-3 text-left">
+                      <span class="badge" style="background-color: <%= event.calendar.color %>;">
+                        <%= event.calendar.name %>
+                      </span>
           </h4>
-          <div class="event-content gap-3">
-            <% unless event.description.blank? %>
-              <div class="d-flex align-items-center gap-3">
-                <i class="bi bi-text-paragraph"></i>
-                <p class="m-0"><%= event.description %></p>
-              </div>
-            <% end %>
-            <% unless event.location.blank? %>
+            <div class="event-content gap-3">
+              <% unless event.description.blank? %>
+                <div class="d-flex align-items-center gap-3">
+                  <i class="bi bi-text-paragraph"></i>
+                  <p class="m-0"><%= event.description %></p>
+                </div>
+              <% end %>
+              <% unless event.location.blank? %>
+                <div class="d-flex gap-3">
+                  <i class="bi bi-geo-alt"></i>
+                  <p class="m-0"><%= event.location %></p>
+                </div>
+              <% end %>
               <div class="d-flex gap-3">
-                <i class="bi bi-geo-alt"></i>
-                <p class="m-0"><%= event.location %></p>
+                <i class="bi bi-clock"></i>
+                <% if event.start_time.hour != event.end_time.hour %>
+                  <% if event.start_time.day != event.end_time.day %>
+                    <%= event.start_time.strftime("%d.%m.%Y %H:%M") %>  <%= "- " + event.end_time.strftime("%d.%m.%Y %H:%M") unless event.end_time == event.start_time%>
+                  <% else %>
+                    <%= event.start_time.strftime("%H:%M bis ") %><%= event.end_time.strftime("%H:%M am %d.%m.%Y") %>
+                  <% end %>
+                <% else %>
+                  <%= event.start_time.strftime("%d.%m.%Y") %>  <%= "- " + event.end_time.strftime("%d.%m.%Y") unless event.end_time == event.start_time%>
+                <% end %>
               </div>
-            <% end %>
-            <div class="d-flex gap-3">
-              <i class="bi bi-clock"></i>
-              <%= event.start_time.strftime("%d.%m.%Y") %>  <%= "- " + event.end_time.strftime("%d.%m.%Y") unless event.end_time == event.start_time%>
             </div>
           </div>
         </div>
@@ -93,14 +104,25 @@
   <%= render partial: "shared/empty_state", locals: { name: "Beitrag" } %>
 <% end %>
 
-<%= month_calendar(events: all_events_of_these_calendars(@home_calendars)) do |date, events| %>
-  <%= date.day %>
-  <% events.each do |event| %>
-    <div class="event" style="background-color: <%= event.calendar.color %>">
+<turbo-frame id="calendar">
+  <%= month_calendar(events: all_events_of_these_calendars(@home_calendars)) do |date, events| %>
+    <%= date.day %>
+    <% events.each do |event| %>
+
+    <span tabindex="0" class="event text-decoration-none"
+          style="background-color: <%= event.calendar.color %>"
+          role="button"
+          data-bs-html="true"
+          data-bs-animation="false"
+          data-bs-toggle="popover"
+          data-bs-title='<%= event.title %>'
+          data-bs-content='<%= render partial: "popover_content", locals: { event: event } %>'>
       <%= event.title %>
-    </div>
+    </span>
+
+    <% end %>
   <% end %>
-<% end %>
+</turbo-frame>
 
 <div class="container d-flex gap-2 flex-wrap">
   <% @home_calendars.each do |calendar| %>
@@ -109,5 +131,3 @@
       </div>
   <% end %>
 </div>
-
-

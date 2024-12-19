@@ -2,25 +2,21 @@
   <h1 class="fuzzy-bubbles-bold post-it-title-3" style="font-size: 100px">🐺 Wölfli 🐺</h1>
 </div>
 
+<div class="post-it-container text-center">
+  <h1 class="fuzzy-bubbles-bold post-it-title-5 w-50">Wölfli-Leitungsteam</h1>
+</div>
+<% @leaders = Leader.where(stufe: "Wölfli").order(funktion: :desc) %>
+<!-- Leitpersonen -->
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-lg-4 col-md-6 col-sm-10">
-      <% @leader = Leader.where(stufe: "Wölfli", funktion: "Stufenleitung").first %>
-
-      <%= render partial: "shared/contact_form", locals: { image: @leader.image,
-                                                           name: "#{@leader.first_name} #{@leader.last_name} v/o #{@leader.pfadiname.capitalize}",
-                                                           funktion: "#{@leader.funktion} #{@leader.stufe}",
-                                                           email: "#{@leader.email}" } if @leader.present? %>
-    </div>
-    <div class="w-100"></div>
-    <div class="col-lg-4 col-md-6 col-sm-10">
-      <% @leaders = Leader.where(stufe: "Wölfli").where.not(funktion: "Stufenleitung") %>
-      <% @leaders.each do |t| %>
-        <%= render partial: "shared/contact_form", locals: { image: t.image,
-                                                             name: "#{t.first_name} #{t.last_name} v/o #{t.pfadiname.capitalize}",
-                                                             funktion: "#{t.funktion} #{t.stufe}",
-                                                             email: "#{t.email}" } if t.present? %>
-      <% end %>
-    </div>
+    <% @leaders.each do |t| %>
+      <div class="col-lg-4 col-md-6 col-sm-10">
+        <%= render partial: "shared/contact_form",
+                   locals: { image: t.image,
+                             name: "#{t.first_name} #{t.last_name} v/o #{t.pfadiname.capitalize}",
+                             funktion: "#{t.funktion} #{t.stufe}",
+                             email: "#{t.email}" } if t.present? %>
+      </div>
+    <% end %>
   </div>
 </div>

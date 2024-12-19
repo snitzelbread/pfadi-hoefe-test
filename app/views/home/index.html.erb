@@ -90,6 +90,57 @@
   </div>
 <% end %>
 
+
+
+<% @events = all_events_of_these_calendars(@home_calendars) %>
+<% @ranged_events = ranged_events(@events) %>
+<% @single_day_events = single_day_events(@events) %>
+
+<turbo-frame id="calendar">
+  <%= month_calendar(events: @events) do |date, events| %>
+    <p class="m-2"><%= date.day %></p>
+    <% events.each do |event| %>
+
+      <% if @ranged_events.include?(event) %>
+        <span tabindex="0" class="event-<%= start_middle_or_end(event, date) %> text-decoration-none"
+              style="background-color: <%= event.calendar.color %>"
+              role="button"
+              data-bs-html="true"
+              data-bs-animation="false"
+              data-bs-toggle="popover"
+              data-bs-trigger="focus"
+              data-bs-title='<%= event.title %>'
+              data-bs-content='<%= render partial: "popover_content", locals: { event: event } %>'>
+          <% if event.start_time.day == date.day %>
+            <%= event.title %>
+          <% else %>
+            <p class="m-0" style="color: <%= event.calendar.color %>"><%= event.title %></p>
+          <% end %>
+        </span>
+      <% else %>
+        <span tabindex="0" class="event-single-day text-decoration-none"
+              style="background-color: <%= event.calendar.color %>"
+              role="button"
+              data-bs-html="true"
+              data-bs-animation="false"
+              data-bs-toggle="popover"
+              data-bs-trigger="focus"
+              data-bs-title='<%= event.title %>'
+              data-bs-content='<%= render partial: "popover_content", locals: { event: event } %>'>
+          <%= event.title %>
+        </span>
+      <% end %>
+    <% end %>
+  <% end %>
+</turbo-frame>
+<div class="container d-flex gap-2 flex-wrap">
+  <% @home_calendars.each do |calendar| %>
+    <div class="calendar-legend d-flex justify-content-center" style="background-color: <%= calendar.color %>">
+      <p class="m-0 px-2"><%= calendar.name %></p>
+    </div>
+  <% end %>
+</div>
+
 <br>
 <hr>
 <div class="post-it-container">
@@ -105,30 +156,6 @@
   <%= render partial: "shared/empty_state", locals: { name: "Beitrag" } %>
 <% end %>
 
-<turbo-frame id="calendar">
-  <%= month_calendar(events: all_events_of_these_calendars(@home_calendars)) do |date, events| %>
-    <%= date.day %>
-    <% events.each do |event| %>
 
-    <span tabindex="0" class="event text-decoration-none"
-          style="background-color: <%= event.calendar.color %>"
-          role="button"
-          data-bs-html="true"
-          data-bs-animation="false"
-          data-bs-toggle="popover"
-          data-bs-title='<%= event.title %>'
-          data-bs-content='<%= render partial: "popover_content", locals: { event: event } %>'>
-      <%= event.title %>
-    </span>
 
-    <% end %>
-  <% end %>
-</turbo-frame>
 
-<div class="container d-flex gap-2 flex-wrap">
-  <% @home_calendars.each do |calendar| %>
-      <div class="calendar-legend d-flex justify-content-center" style="background-color: <%= calendar.color %>">
-        <p class="m-0 px-2"><%= calendar.name %></p>
-      </div>
-  <% end %>
-</div>

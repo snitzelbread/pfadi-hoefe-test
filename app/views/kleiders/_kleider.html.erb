@@ -17,7 +17,7 @@
         <div class="btn-group mt-3 text-align-center">
           <% if leader_signed_in? %>
             <%= link_to "Bearbeiten", edit_kleider_path(kleider.id), class: "btn btn-custom-warning-sm" %>
-            <%= link_to "Löschen", kleider, data: { turbo_method: :delete }, class: "btn btn-custom-danger-sm" %>
+            <%= link_to "Löschen", kleider, data: { turbo_method: :delete, turbo_confirm: "Bist du dir sicher?" }, class: "btn btn-custom-danger-sm" %>
           <% end %>
         </div>
       <% end %>

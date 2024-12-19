@@ -39,6 +39,17 @@
     </div>
   </div>
 <% end %>
+
+<dialog id="turbo-confirm">
+  <p>Bist du dir sicher?</p>
+    <form method="dialog">
+      <div class="d-flex gap-3">
+        <button class="btn btn-custom-primary-sm" value="cancel">Abbrechen</button>
+        <button class="btn btn-custom-danger-sm" value="confirm">Ja, ich bin mir sicher</button>
+      </div>
+    </form>
+</dialog>
+
 <%= render partial: "shared/footer" %>
 </body>
 </html>

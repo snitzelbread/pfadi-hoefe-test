@@ -21,9 +21,63 @@
 }
 
 .simple-calendar{
+
+  td{
+    padding: 0 !important;
+    border-left: none !important;
+    border-right: none !important;
+  }
+
   .day{
     height: 100px !important;
   }
 }
 .event-header{
+}
+
+
+.event-single-day{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 4px;
+  border-radius: 5px;
+  color: black;
+  margin: 5px;
+}
+
+.event-start{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 4px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: black;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.event-middle{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 4px;
+  color: black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.event-end{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 4px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  color: black;
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }

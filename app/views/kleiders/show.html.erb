@@ -9,7 +9,7 @@
 <% if leader_signed_in? %>
   <div style="text-align: center">
     <%= link_to "Bearbeiten", edit_kleider_path(@kleider), class: "btn btn-custom-warning m-3" %>
-    <%= link_to "Löschen", @kleider, data: { turbo_method: :delete, turbo_confirm: "Bist du dir sicher?" }, class: "btn btn-custom-danger m-3" %>
+    <%= button_to "Löschen", @kleider, method: :delete, "data-turbo_confirm": "Bist du dir sicher?", class: "btn btn-custom-danger m-3" %>
     <%= link_to "Zurück zur Ansicht", kleiders_path, class: "btn btn-custom-primary m-3" %>
   </div>
 <% end %>

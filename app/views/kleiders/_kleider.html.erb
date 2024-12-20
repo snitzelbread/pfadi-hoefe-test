@@ -13,14 +13,13 @@
           <%= form.number_field :amount, value: 1, min: 1, class: "form-control", style: "width: 3vw;" %>
           <%= form.submit "Hinzufügen", class: "btn-custom-success-sm" %>
         </div>
-
-        <div class="btn-group mt-3 text-align-center">
-          <% if leader_signed_in? %>
-            <%= link_to "Bearbeiten", edit_kleider_path(kleider.id), class: "btn btn-custom-warning-sm" %>
-            <%= link_to "Löschen", kleider, data: { turbo_method: :delete, turbo_confirm: "Bist du dir sicher?" }, class: "btn btn-custom-danger-sm" %>
-          <% end %>
-        </div>
       <% end %>
+      <div class="d-flex mt-3 justify-content-between">
+        <% if leader_signed_in? %>
+          <%= link_to "Bearbeiten", edit_kleider_path(kleider.id), class: "btn btn-custom-warning-sm" %>
+          <%= button_to "Löschen", kleider_path(kleider.id), method: :delete, class: "btn btn-custom-danger-sm", "data-turbo-confirm": "Bist du dir sicher?" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

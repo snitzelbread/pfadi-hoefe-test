@@ -42,10 +42,7 @@ class KleidersController < ApplicationController
   def destroy
     @kleider.destroy!
 
-    respond_to do |format|
-      format.html { redirect_to kleiders_path, notice: "Kleidungsstück wurde gelöscht." }
-      format.json { head :no_content }
-    end
+    redirect_to kleiders_path, notice: "Kleidungsstück wurde gelöscht."
   end
 
   def add_to_list

@@ -40,15 +40,35 @@
   </div>
 <% end %>
 
-<dialog id="turbo-confirm">
-  <p>Bist du dir sicher?</p>
-    <form method="dialog">
-      <div class="d-flex gap-3">
-        <button class="btn btn-custom-primary-sm" value="cancel">Abbrechen</button>
-        <button class="btn btn-custom-danger-sm" value="confirm">Ja, ich bin mir sicher</button>
+<div class='modal' id='turbo-alert-modal' tabindex='-1' aria-labelledby='turboAlertModalLabel' aria-hidden='true'
+     data-bs-backdrop="static" data-bs-keyboard="false">
+  <div class='modal-dialog modal-dialog-centered'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h3 class='modal-title' id='turboAlertModalLabel'>Achtung!</h3>
       </div>
-    </form>
-</dialog>
+      <div class='modal-body'></div>
+      <div class='modal-footer'>
+        <button type="button" class="btn btn-primary" data-bs-dismiss='modal'>Bestätigen</button>
+      </div>
+    </div>
+  </div>
+</div>
+<%# Confirm Modal %>
+<div class='modal' id='turbo-confirm-modal' tabindex='-1' aria-labelledby='turboConfirmModalLabel' aria-hidden='true'>
+  <div class='modal-dialog modal-dialog-centered'>
+    <div class='modal-content'>
+      <div class='modal-header'>
+        <h3 class='modal-title' data-default-text="Achtung!"></h3>
+      </div>
+      <div class='modal-body'></div>
+      <div class='modal-footer'>
+        <button type="button" class="btn btn-custom-danger-sm" data-bs-dismiss='modal'>Abbrechen</button>
+        <button type="button" class="btn btn-custom-success-sm" id='confirm-button'>Ja, ich bin mir sicher</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= render partial: "shared/footer" %>
 </body>

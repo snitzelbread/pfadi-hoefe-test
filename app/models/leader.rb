@@ -14,13 +14,13 @@ class Leader < ApplicationRecord
 
   def unique_global_funktionen
     if Leader.where(funktion: funktion).where.not(id: id).exists?
-      errors.add(:funktion, "#{funktion} kann es nur einmal geben.")
+      errors.add(:funktion, "#{funktion} kann es nur einmal im Verein geben.")
     end
   end
 
   def unique_stufenleitung_for_stufe
     if Leader.where(funktion: "Stufenleitung", stufe: stufe).where.not(id: id).exists?
-      errors.add(:funktion, "Stufenleitung can only be assigned to one Leader per stufe")
+      errors.add(:funktion, "Stufenleitung kann es nur einmal in der Stufen geben")
     end
   end
 end

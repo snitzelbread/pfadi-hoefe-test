@@ -5,16 +5,18 @@
         <% hocks.each do |hock| %>
           <div class="hock grow shadow-lg">
             <h3><%= hock.title %></h3>
+            <div class="d-flex justify-content-center gap-3 mb-2">
+              <div><i class="bi bi-calendar"></i> <%= hock.datetime.strftime("%d.%m.%Y") %></div>
+              <div><i class="bi bi-clock"></i> <%= hock.datetime.strftime("%H:%M") %> - <%= hock.end_time.strftime("%H:%M") %></div>
+            </div>
+            <div class="d-flex justify-content-center gap-3 mb-2">
+              <div><i class="bi bi-geo-alt"></i> <%= hock.ort %></div>
+            </div>
             <hr>
             <div>
               <%= remove_brackets(hock.description.to_plain_text.truncate(150)) if present? %>
             </div>
             <div>
-              <hr>
-              <p><strong>Datum & Zeit: </strong> <%= hock.datetime.strftime("%d.%m.%Y // %H:%M") %> //
-                <strong>Leiter: </strong><%= hock.pfadiname_of_leader(hock.leader_id) %></p>
-              <p></p>
-
               <div class="d-flex justify-content-between">
                 <%= button_to "Bearbeiten", edit_hock_path(hock),
                               method: :get,
@@ -22,6 +24,7 @@
                 <%= button_to "Löschen", hock, method: :delete,
                               class: "btn-custom-danger-sm py-1",
                               "data-turbo-confirm": "Bist du dir sicher?" %>
+                <%= link_to "Preview", hock_url(hock.id), class: "btn btn-custom-success-sm py-1" %>
                 <% if hock.document.present? %>
                   <%= link_to "DP", rails_blob_path(hock.document, disposition: "attachment"),
                               class: "btn btn-custom-primary-sm px-5 py-1" %>

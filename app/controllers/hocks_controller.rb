@@ -9,6 +9,10 @@ class HocksController < ApplicationController
     @pfadi_hocks = Hock.all_stufen_hocks("Pfadi")
   end
 
+  def show
+    @hock = Hock.find(params[:id])
+  end
+
   # GET /hocks/new
   def new
     @hock = Hock.new

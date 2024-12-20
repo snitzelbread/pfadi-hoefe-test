@@ -155,6 +155,7 @@
     <% end %>
   <% end %>
 </turbo-frame>
+
 <div class="container d-flex gap-2 flex-wrap">
   <% @home_calendars.each do |calendar| %>
     <div class="calendar-legend d-flex justify-content-center" style="background-color: <%= calendar.color %>">
@@ -163,19 +164,17 @@
   <% end %>
 </div>
 
-<br>
-<hr>
-<div class="post-it-container">
-  <h1 class="fuzzy-bubbles-bold mb-3 post-it-title-5">Neuster Beitrag</h1>
-</div>
 <% if @latest_article.present? %>
-  <div class="container">
-    <%= link_to article_path(@latest_article), style: "text-decoration: none" do %>
-      <%= render partial: "home/articles", locals: { article: @latest_article } %>
-    <% end %>
+  <br>
+  <hr>
+  <div class="post-it-container">
+    <h1 class="fuzzy-bubbles-bold mb-3 post-it-title-5">Neuster Beitrag</h1>
   </div>
-<% else %>
-  <%= render partial: "shared/empty_state", locals: { name: "Beitrag" } %>
+    <div class="container">
+      <%= link_to article_path(@latest_article), style: "text-decoration: none" do %>
+        <%= render partial: "home/articles", locals: { article: @latest_article } %>
+      <% end %>
+    </div>
 <% end %>
 
 

@@ -1,0 +1,22 @@
+<div class="container box-card">
+  <div style="color: grey; float: left; position: absolute"><h2><%= @hock.stufe %></h2></div>
+  <div>
+    <h2 class="dm-sans-title"><%= @hock.title %></h2>
+  </div>
+  <div class="d-flex justify-content-center gap-4">
+    <div><i class="bi bi-calendar"></i> <%= @hock.datetime.strftime("%d.%m.%Y") %></div>
+    <div><i class="bi bi-clock"></i> <%= @hock.datetime.strftime("%H:%M") %> - <%= @hock.end_time.strftime("%H:%M") %></div>
+    <div><i class="bi bi-geo-alt"></i> <%= @hock.ort %></div>
+    <div><i class="bi bi-person"></i> <%= @hock.pfadiname_of_leader(@hock.leader_id) %></div>
+  </div>
+  <hr>
+  <div>
+    <%= @hock.description %>
+  </div>
+</div>
+
+<div class="container">
+  <div class="d-flex align-items-center">
+    <%= link_to "Zurück", hocks_path, class: "btn btn-custom-primary" %>
+  </div>
+</div>

@@ -71,7 +71,7 @@ class CalendarService
     when "Wölfli"
       "#1A68FFFF" # Cornflower blue
     when "Biber"
-      "#5AFF81FF" # Light green
+      "#228B22" # Light green
     when "OK Chilbi Pfäffikon"
       "#FF69B4FF" # Hot pink
     when "Feiertage"

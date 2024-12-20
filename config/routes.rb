@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   delete "clear_shopping_list", to: "kleiders#clear_shopping_list", as: :clear_shopping_list
   get "checkout", to: "kleiders#checkout"
 
-  resources :hocks, except: [ :show ]
+  resources :hocks
   resources :archives, except: [ :show, :new, :create ]
   resources :articles
   get "article/list", to: "articles#list"

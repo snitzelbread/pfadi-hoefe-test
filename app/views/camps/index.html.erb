@@ -3,15 +3,15 @@
 <br>
 <div class="container">
   <% if @pfila.present? %>
-    <%= render "camp", camp: @pfila %>
+    <%= render "camp", camp: @pfila , campy_path: pfila_path %>
   <% end %>
 
   <% if @sola.present? %>
-    <%= render "camp", camp: @sola %>
+    <%= render "camp", camp: @sola , campy_path: sola_path %>
   <% end %>
 
   <% if @wola.present? %>
-    <%= render "camp", camp: @wola %>
+    <%= render "camp", camp: @wola , campy_path: wola_path %>
   <% end %>
 </div>
 

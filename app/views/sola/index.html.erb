@@ -1,2 +1,6 @@
-<%= render partial: "camps/camp_page", locals: { camp: @sola, title_image: @title_image } %>
-<%= link_to "Bearbeiten", edit_camp_path(@sola.id), class: "btn btn-custom-warning" %>
+<% if @sola.nil? %>
+  <%= render partial: "shared/empty_state", locals: { name: "Sommerlager"} %>
+<% else %>
+  <%= render partial: "camps/camp_page", locals: { camp: @sola, title_image: @title_image } %>
+  <%= link_to "Bearbeiten", edit_camp_path(@sola.id), class: "btn btn-custom-warning" %>
+<% end %>

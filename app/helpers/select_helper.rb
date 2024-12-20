@@ -1,6 +1,6 @@
 module SelectHelper
   def stufen
-    %w[Biber Wölfli Pfadi Pios Rover]
+    %w[Biber Wölfli Pfadi Pios Rover Inaktiv]
   end
 
   def hock_stufen

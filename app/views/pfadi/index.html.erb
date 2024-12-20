@@ -63,8 +63,7 @@
     </div>
     <div class="col align-content-center" id="pfadi-banner-text">
         <p class="text-center preserve-breaks" style="font-size: 2rem"><strong> Na, haben wir dein Interesse geweckt?</strong>
-        Dann nimm gerne Kontakt mit unserer Stufenleitung <%= @leader.pfadiname.capitalize %> auf, um einen
-        «Schnupper-Höck» zu vereinbaren!
+        Dann nimm gerne Kontakt mit unserer Stufenleitung <%= @leader.pfadiname.capitalize if @leader.present? %> auf, um einen «Schnupper-Höck» zu vereinbaren!
       </p>
     </div>
   </div>

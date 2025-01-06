@@ -5,7 +5,7 @@
 <div class="container justify-content-center w-100">
   <%= simple_form_for @camp, url: camps_path, html: { multipart: true } do |f| %>
     <% templates = ["Lager ausgeschrieben", "Kein Lager ausgeschrieben"] %>
-    <%= f.input :name, as: :select, collection: %w[Pfingstlager Sommerlager Wochenlager] %>
+    <%= f.input :name, as: :select, collection: %w[Pfingstlager Sommerlager Wölflilager] %>
     <%= f.input :general_description, as: :rich_text_area %>
     <%= f.input :template, as: :select, collection: templates %>
     <%= f.input :leader_id, as: :select,

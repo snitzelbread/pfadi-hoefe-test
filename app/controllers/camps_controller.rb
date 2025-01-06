@@ -6,7 +6,7 @@ class CampsController < ApplicationController
   def index
     @pfila = Camp.where("name = ?", "Pfingstlager").first if Camp.where("name = ?", "Pfingstlager").first.present?
     @sola = Camp.where("name = ?", "Sommerlager").first if Camp.where("name = ?", "Sommerlager").first.present?
-    @wola = Camp.where("name = ?", "Wochenlager").first if Camp.where("name = ?", "Wochenlager").first.present?
+    @wola = Camp.where("name = ?", "Wölflilager").first if Camp.where("name = ?", "Wölflilager").first.present?
   end
 
 

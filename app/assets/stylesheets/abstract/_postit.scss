@@ -23,7 +23,6 @@
   border-radius: 5px;
   position: relative;
   z-index: 1;
-  transition: transform 0.2s; // Added transition for smooth rotation
 
   &::before {
     content: "";
@@ -33,20 +32,13 @@
     transform: translateX(-50%);
     width: 20%;
     height: 40px;
-    background-image: url("handmade-paper.png");
+    background-image: url("example/handmade-paper.png");
     background-color: #fffd7a;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
     z-index: 2;
     opacity: 0.9;
   }
 
-  // Reset the rotation on hover
-  &:hover {
-    transform: scale(1.05); // Rotate back to 0 degrees and scale up slightly
-  }
-
-  // Variation for Titles
-  // Title variation with dynamic rotation
   @for $i from 1 through 5 {
     &-title-#{$i} {
       @extend .post-it;

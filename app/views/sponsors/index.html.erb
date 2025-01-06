@@ -7,7 +7,7 @@
   <div class="row justify-content-center">
     <% if @sponsors.any? %>
       <% @sponsors.each do |sponsor| %>
-        <div class="col-lg-5 post-it-sponsor-3 m-3" style="max-width: fit-content">
+        <div class="col-lg-5 post-it-sponsor-3 m-3 grow" style="max-width: fit-content">
           <%= render sponsor if present? %>
         </div>
       <% end %>

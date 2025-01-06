@@ -40,16 +40,15 @@
             <hr>
           </header>
           <p style="font-family: DM Sans, sans-serif"><%= camp.this_camp_description %></p>
-
         </div>
       </div>
-      <div class="col w-50">
+      <div class="col w-50 shrink">
         <% @leader = camp.leader %>
         <%= render partial: "shared/contact_form",
                    locals: { image: @leader.image,
                              name: "#{@leader.first_name} #{@leader.last_name} v/o #{@leader.pfadiname.capitalize}",
                              funktion: "#{@leader.funktion} // Hauptlagerleitung #{camp.name}",
-                             email: "#{@leader.email}" } if @leader.present? %>
+                             email: "#{shorthand}@pfadi-hoefe.ch" } if @leader.present? %>
       </div>
     </div>
   </div>

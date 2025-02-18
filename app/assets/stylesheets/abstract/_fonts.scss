@@ -1,66 +1,43 @@
-.fuzzy-bubbles-regular {
-  font-family: "Fuzzy Bubbles", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.fuzzy-bubbles-bold {
-  font-family: "Fuzzy Bubbles", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
-
-.playpen-sans-title {
-  font-family: "Playpen Sans", cursive;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.dm-sans-title {
-  font-family: "DM Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  text-align: center;
-  margin-bottom: 0;
-}
-
-.dm-sans-description {
-  font-family: "DM Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-  font-size: calc(10px + 0.5vw)
-}
-
 h1 {
-  @extend .dm-sans-title;
-  font-size: calc(20px + 2vw);
+  font-size: 2.375rem;
+  font-weight: 300;
+  line-height: 115%;
+  letter-spacing: 1.8px;
 }
 
 h2 {
-  @extend .dm-sans-title;
-  font-size: calc(15px + 1vw);
+  font-size: 3rem;
+  font-weight: 335;
+  line-height: 115%; /* 55.2px */
+  letter-spacing: 1.44px;
 }
 
-h3 {
-  @extend .dm-sans-title;
-  font-size: calc(15px + 0.5vw);
+h3{
+  font-size: 2.125rem;
+  font-weight: 375;
+  line-height: 120%; /* 40.8px */
+  letter-spacing: 1.02px;
 }
 
-h4 {
-  @extend .dm-sans-title;
-  font-size: calc(12px + 0.3vw);
+h5{
+  font-size: 1.375rem; //22px
+  font-weight: 450;
+  line-height: 125%; /* 27.5px */
+  letter-spacing: 0.66px;
 }
 
-h5 {
-  @extend .dm-sans-title;
-  font-size: calc(8px + 0.2vw);
+h6 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 130%; /* 23.4px */
+  letter-spacing: 0.36px;
 }
 
-p{
-  @extend .dm-sans-description;
+p {
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 135%; /* 24.3px */
+  letter-spacing: 0.36px;
 }
 
 .preserve-breaks{

@@ -59,6 +59,10 @@ h5 {
   font-size: calc(8px + 0.2vw);
 }
 
+p{
+  @extend .dm-sans-description;
+}
+
 .preserve-breaks{
   white-space-collapse: preserve-breaks
 }

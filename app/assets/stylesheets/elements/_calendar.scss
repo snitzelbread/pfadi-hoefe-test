@@ -31,6 +31,13 @@
   .day{
     height: 100px !important;
   }
+
+  @media (max-width: 576px) {
+    transform: scale(0.5);
+    display: flex;
+    flex-wrap: wrap;
+  }
+
 }
 .event-header{
 }

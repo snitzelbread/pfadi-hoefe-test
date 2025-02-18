@@ -1,10 +1,16 @@
-<style>
+<div class="post-it-container">
+  <h1 class="fuzzy-bubbles-bold post-it-title-2">Schnuppertag</h1>
+</div>
+<br>
 
-</style>
+<div class="box-card">
+  <p>Lorem ipsum dolor sit amet consectetur adipiscing, elit ante a venenatis sodales, ornare lacinia varius enim dapibus. Placerat consequat porta maecenas parturient magna vehicula vestibulum luctus etiam, imperdiet curae hac egestas tortor ullamcorper mauris senectus posuere, sociosqu risus integer felis convallis nascetur cras quisque. Ac euismod cras neque potenti turpis blandit condimentum lectus, auctor pellentesque metus montes vel etiam venenatis mus integer, bibendum ultrices sapien netus ultricies senectus sodales. Curae tempus faucibus neque aliquet quisque, malesuada molestie sodales eu cras, scelerisque vestibulum himenaeos quis. Donec ac urna neque ultrices platea dignissim luctus imperdiet eleifend orci metus, sodales hac facilisi odio pellentesque tempus vivamus suspendisse nibh rutrum. Rhoncus natoque facilisi malesuada nibh non tempor, id eget in cum scelerisque est, nascetur aptent nullam urna commodo. Sed sapien per egestas class curae nibh habitasse non, placerat ac urna sem fames tempor lectus ridiculus ut, eros ullamcorper viverra dictumst vehicula cum fringilla.</p>
+</div>
 
-<div class="container justify-content-center w-100">
-
-
+<div class="post-it-container">
+  <h1 class="fuzzy-bubbles-bold post-it-title-3">Anmeldeformular</h1>
+</div>
+<div class="container justify-content-center w-75">
   <div class="hock-bubble shadow-lg" style="background: white; padding: 20px">
     <%= form_with model: @anmeldung, local: true, url: anmeldung_path, method: :post do |form| %>
 
@@ -253,10 +259,6 @@
         <div class="input-group-text">
           <%= form.check_box :rights_to_pictures %>
         </div>
-        <span class="input-group-text">Pfadikravatte bestellen? (17 Fr.)</span>
-        <div class="input-group-text">
-          <%= form.check_box :order_pfadikravatte %>
-        </div>
       </div>
 
       <div class="container align-content-center">
@@ -269,3 +271,4 @@
     <% end %>
   </div>
 </div>
+

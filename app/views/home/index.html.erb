@@ -1,13 +1,10 @@
-
-
 <div class="header align-content-center mb-4">
-  <div class="row header-content">
-    <div class="col-lg-5 align-content-center text-right">
-      <%= image_tag("logo/pfadi_logo_weiss.png", height: 350, width: 400) %>
+  <div class="row header-content h-100 gap-2">
+    <div class="col-lg-5 align-content-center h-100" style="width: auto">
+      <%= image_tag("logo/pfadi_logo_weiss.png", class: "header-logo") %>
     </div>
-    <div class="col-lg-7 align-content-center">
-      <h1 class="header-title">Mit Freud debii - üses Bescht - allzeit bereit - zäme wiiter - bewusst
-        handeln!</h1>
+    <div class="col-lg-7 align-content-center" style="width: auto">
+        Mit Freud debii - üses Bescht - allzeit bereit - zäme wiiter - bewusst handeln!
     </div>
   </div>
 </div>
@@ -15,17 +12,17 @@
 
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-lg-4 col-md-8 col-sm-10 m-2 post-it shadow shrink-9" style="width: 32%;">
+    <div class="col-lg-4 col-md-8 col-sm-10 gap-3 post-it shadow shrink-9">
       <%= render partial: "home/hocks", locals: { hock: @closest_biber_hock, stufe: "Biber" } %>
     </div>
-    <div class="col-lg-4 col-md-8 col-sm-10 m-2 post-it shadow shrink-9" style="width: 32%;">
+    <div class="col-lg-4 col-md-8 col-sm-10 gap-3 post-it shadow shrink-9">
       <%= render partial: "home/hocks", locals: { hock: @closest_woelfli_hock, stufe: "Wölfli" } %>
     </div>
-    <div class="col-lg-4 col-md-8 col-sm-10 m-2 post-it shadow shrink-9" style="width: 32%;">
+    <div class="col-lg-4 col-md-8 col-sm-10 gap-3 post-it shadow shrink-9">
       <%= render partial: "home/hocks", locals: { hock: @closest_pfadi_hock, stufe: "Pfadi" } %>
     </div>
     <br>
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center mt-3">
       <%= link_to "Zum Hockzettel", hockzettel_path, class: "btn btn-custom-danger" %>
     </div>
   </div>

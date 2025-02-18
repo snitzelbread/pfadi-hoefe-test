@@ -48,6 +48,19 @@ de:
         template: "Vorlage"
         leader: "Leiter"
         title_image: "Header-Bild"
+      anmeldung:
+        firstname: "Vorname"
+        lastname: "Nachname"
+        birthday: "Geburtstag"
+        phone: "Telefonnummer"
+        address: "Strasse und Hausnummer"
+        place: "Ort"
+        zipcode: "Postleitzahl"
+        allergies: "Allergien"
+        krankenkasse: "Krankenkasse"
+        ahv_number: "AHV-Nummer"
+        rights_to_pictures: "Rechte an Bildern"
+        message: "Zusätzliche Nachricht"
     errors:
       messages:
         record_invalid: 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'

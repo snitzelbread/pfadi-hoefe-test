@@ -24,11 +24,10 @@ gem "bootsnap", require: false
 
 gem 'bootstrap', '~> 5.3.3'
 gem "poppler"
-gem 'simple_form', '~> 5.2.0'
 gem "font-awesome-sass", "~> 6.4.0"
 gem "dropzonejs-rails"
 gem "popper_js"
-
+gem 'simple_form'
 
 gem 'acts-as-taggable-on'
 gem 'calendav'

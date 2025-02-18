@@ -6,6 +6,10 @@
   height: 30rem;
   border-radius: 5px;
   overflow: hidden; /* Ensure the overlay stays within the header */
+
+  @media (max-width: 576px) {
+    height: 100px;
+  }
 }
 
 .header::before {
@@ -25,15 +29,30 @@
   color: white;
 }
 
+.header-logo{
+  height: 300px;
+  width: 350px;
+
+  @media (max-width: 576px) {
+    height: 90%;
+    width: auto;
+    margin: 5%
+  }
+}
+
 .header-title{
   font-size: 2.5rem;
+
+  @media (max-width: 576px) {
+    font-size: 40%;
+  }
 }
 
 .article-header {
   position: relative;
   background-size: cover;
   background-position: center;
-  height: 20rem;
+  height: 40%;
   border-radius: 8px;
   overflow: hidden; /* Ensure the overlay stays within the header */
 

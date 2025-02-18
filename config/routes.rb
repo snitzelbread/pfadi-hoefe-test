@@ -37,6 +37,8 @@ Rails.application.routes.draw do
   get "pfila", to: "pfila#index"
   get "sola", to: "sola#index"
 
+  get "schnuppertag", to: "schnuppertag#index"
+
 
   get "bestellung", to: "bestellung#new"
   post "bestellung", to: "bestellung#create"

@@ -171,7 +171,7 @@
     <orderEntry type="library" scope="PROVIDED" name="selenium-webdriver (v4.26.0, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="shoulda-matchers (v6.4.0, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="simple_calendar (v3.0.4, asdf: 3.3.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="simple_form (v5.2.0, asdf: 3.3.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="simple_form (v5.3.1, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets (v4.2.1, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sprockets-rails (v3.5.2, asdf: 3.3.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sqlite3 (v2.2.0, asdf: 3.3.5) [gem]" level="application" />

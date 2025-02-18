@@ -6,6 +6,10 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  margin: 50px;
-  max-width: 100vw;
+  width: 100%;
+  margin: 1vw;
+
+  @media (max-width: 576px) { /* Mobile view adjustments */
+    transform: scale(0.5);
+  }
 }

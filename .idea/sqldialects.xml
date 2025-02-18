@@ -4,7 +4,6 @@
     <file url="file://$PROJECT_DIR$/app/controllers/camps_controller.rb" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/app/controllers/home_controller.rb" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/app/controllers/pfila_controller.rb" dialect="GenericSQL" />
-    <file url="file://$PROJECT_DIR$/app/helpers/calendar_helper.rb" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/app/models/article.rb" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/app/models/hock.rb" dialect="GenericSQL" />
   </component>
